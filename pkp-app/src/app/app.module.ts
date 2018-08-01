@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import '~bootstrap/scss/bootstrap.min';
 
 import { AppComponent } from './app.component';
 
