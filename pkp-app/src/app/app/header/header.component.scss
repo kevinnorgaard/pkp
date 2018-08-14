@@ -1,3 +1,13 @@
+.sticky {
+  //position: sticky !important;
+  //position: -webkit-sticky !important;
+  //top: 0;
+}
+
+nav {
+  background: #000 !important;
+}
+
 nav ul {
   display: flex;
   justify-content: space-between;
@@ -7,4 +17,9 @@ nav ul {
 
 nav li {
   flex: auto;
+}
+
+.nav-logo {
+  width: 40px;
+  height: 40px;
 }

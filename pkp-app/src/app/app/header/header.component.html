@@ -1,28 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">CREST_HERE</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky">
+  <a class="navbar-brand" href="#">
+    <img class="nav-logo" src="/assets/crest.png"/>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" routerLinkActive="active">
       <li class="nav-item active">
-        <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#" routerLink="home">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">MEET THE BROTHERS</a>
+        <a class="nav-link" href="#" routerLink="membership">MEET THE BROS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">SCHOLARSHIP</a>
+        <a class="nav-link" href="#" routerLink="recruitment">RUSH</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">PHILANTHROPY</a>
+        <a class="nav-link" href="#" routerLink="scholarship">SCHOLARSHIP</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">EVENTS</a>
+        <a class="nav-link" href="#" routerLink="philanthropy">PHILANTHROPY</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">CONTACTS</a>
+        <a class="nav-link" href="#" routerLink="contact">CONTACT</a>
       </li>
     </ul>
   </div>
