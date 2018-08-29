@@ -1,3 +1,25 @@
-<p>
-  membership works!
-</p>
+<div class="wrapper">
+  <div class="exec-section container">
+    <h2 class="container-title sticky-label">LEADERSHIP</h2>
+    <div class="row">
+      <div class="col-sm-3" *ngFor="let prof of profiles">
+        <div class="profile-container">
+          <div class="center-cropped">
+            <img [src]="prof.img"
+                 class="profile-picture"/>
+          </div>
+          <p class="profile-name">{{prof.name}}</p>
+          <p class="profile-position">{{prof.position}}<span><br>{{prof.positionAlt}}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="brotherhood-section container">
+    <h2 class="container-title sticky-label">Brotherhood</h2>
+    <ul class="brotherhood-container row">
+      <li class="col-sm-6 brotherhood-item" *ngFor="let brotherhood of brotherhoods">
+        {{brotherhood}}
+      </li>
+    </ul>
+  </div>
+</div>

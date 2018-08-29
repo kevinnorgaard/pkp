@@ -1,0 +1,92 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px;
+  background-color: #1a1a1a;
+}
+
+.sticky-label {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+  background: rgba(196, 30, 58,.5);
+}
+
+.exec-section {
+  text-align: center;
+  background-color: #1a1a1a;
+  margin: 0;
+}
+
+.container-title {
+  padding: 20px;
+  color: rgba(242, 242, 242, 1);
+  font-size: 30px;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.container {
+  max-width: 100%;
+}
+
+.col-sm-3 {
+}
+
+.profile-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center-cropped {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.center-cropped .profile-picture {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.profile-name, .profile-position {
+  color: rgba(242, 242, 242, 1);
+  margin-bottom: 5px;
+}
+
+.profile-position {
+  font-style: italic;
+}
+
+.brotherhood-section {
+  background-color: #1a1a1a;
+  margin: 0;
+}
+
+.brotherhood-container {
+  list-style: none;
+  padding: 10px;
+}
+
+.brotherhood-item {
+  color: rgba(242, 242, 242, 1);
+  padding: 10px;
+}

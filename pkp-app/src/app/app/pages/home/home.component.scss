@@ -1,13 +1,14 @@
 .wrapper {
   width: 100%;
   height: 100%;
-  //#355E3B hunter green
-  //#C41E3A cardinal red
+  padding-bottom: 50px;
+  background-color: #1a1a1a;
 }
 
 .photo-gallery {
   text-align: center;
-  background: linear-gradient(to bottom right, #000, #355E3B);
+  //background: linear-gradient(#355E3B, #000);
+  background-color: #1a1a1a;
 }
 
 .container {
@@ -29,16 +30,18 @@
 
   width: 100%;
   color: white;
-  font-size: 70px;
+  font-size: 30px;
   letter-spacing: 15px;
   text-transform: uppercase;
   white-space: nowrap;
   text-align: center;
-  opacity: .5;
+}
+
+.scrolled {
+  background-color: #1a1a1a;
 }
 
 .photo {
-  border: 1px solid transparent;
 }
 
 .second-row img {
@@ -48,25 +51,38 @@
   position: relative;
 }
 
-#main-photo-label {
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
 
+.main-video {
+  width: 100%;
 }
 
 .biography {
-  height: 1000px;
-  padding: 30px;
+  background: linear-gradient(rgb(21,21,21), #C41E3A);
+  height: auto;
+  padding: 30px 30px 100px 30px
 }
 
 .biography-label {
-  font-size: 50px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 24px;
   width: 100%;
-  height: 100px;
-  color: white
+  height: auto;
+  padding-bottom: 30px;
+  color: #C41E3A;
 }
 
 .biography-description {
-  font-size: 30px;
+  font-size: 16px;
   width: 100%;
   height: 300px;
-  background: white;
+  color: rgba(255,255,255,0.7)
+}
+
+.col-sm-6 {
+  padding: 0 !important;
 }

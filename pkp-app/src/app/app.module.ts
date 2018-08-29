@@ -4,14 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './app/header/header.component';
 import { FooterComponent } from './app/footer/footer.component';
-import { PagesComponent } from './app/pages/pages.component';
 import { HomeComponent } from './app/pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MembershipComponent } from './app/pages/membership/membership.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'membership', component: MembershipComponent }
 ];
 
@@ -20,14 +20,14 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PagesComponent,
     HomeComponent,
     MembershipComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgbCollapseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

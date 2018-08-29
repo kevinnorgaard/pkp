@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var $: any;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isCollapsed = true;
+
+  constructor() {
+    $('.dropdown').on('show.bs.dropdown', function() {
+      $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+    });
+
+    // Add slideUp animation to Bootstrap dropdown when collapsing.
+    $('.dropdown').on('hide.bs.dropdown', function() {
+      $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+    });
+  }
 
   ngOnInit() {
   }
