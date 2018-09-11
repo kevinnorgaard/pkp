@@ -9,10 +9,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { MembershipComponent } from './app/pages/membership/membership.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { RecruitmentComponent } from './app/pages/recruitment/recruitment.component';
+import { ScholarshipComponent } from './app/pages/scholarship/scholarship.component';
+import { PhilanthropyComponent } from './app/pages/philanthropy/philanthropy.component';
+import { AboutComponent } from './app/pages/about/about.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'membership', component: MembershipComponent }
+  { path: 'membership', component: MembershipComponent },
+  { path: 'recruitment', component: RecruitmentComponent },
+  { path: 'scholarship', component: ScholarshipComponent },
+  { path: 'philanthropy', component: PhilanthropyComponent },
+  { path: 'about', component: AboutComponent }
 ];
 
 @NgModule({
@@ -21,7 +29,11 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    MembershipComponent
+    MembershipComponent,
+    RecruitmentComponent,
+    ScholarshipComponent,
+    PhilanthropyComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

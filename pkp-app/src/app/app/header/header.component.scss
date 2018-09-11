@@ -1,7 +1,7 @@
-.sticky {
-  //position: sticky !important;
-  //position: -webkit-sticky !important;
-  //top: 0;
+@import "~bootstrap/scss/bootstrap-grid.scss";
+
+wrapper {
+  width: 100%;
 }
 
 nav {
@@ -38,4 +38,22 @@ nav li {
 .active > a:focus {
   color: #355E3B !important;
   font-weight: 700;
+}
+
+@include media-breakpoint-up(sm) {
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .nav-link {
+    font-size: 1.4rem;
+  }
 }

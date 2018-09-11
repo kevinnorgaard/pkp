@@ -5,6 +5,10 @@
   background-color: #1a1a1a;
 }
 
+.col-sm-6, .col-sm-3, .col-sm-4, .col {
+  padding: 0 !important;
+}
+
 .sticky-label {
   position: sticky;
   position: -webkit-sticky;
@@ -12,24 +16,26 @@
   z-index: 1;
   width: 100%;
   text-transform: uppercase;
-  white-space: nowrap;
   text-align: center;
   background: rgba(196, 30, 58,.5);
+
 }
 
 .exec-section {
   text-align: center;
   background-color: #1a1a1a;
   margin: 0;
+  padding-bottom: 40px;
 }
 
 .container-title {
-  padding: 20px;
+  padding: 20px 0;
   color: rgba(242, 242, 242, 1);
-  font-size: 30px;
-  letter-spacing: 15px;
+  font-size: 5vw;
+  letter-spacing: 3vw;
   text-transform: uppercase;
-  white-space: nowrap;
+  margin: 0 -15px;
+  width: auto;
 }
 
 .container {
@@ -45,6 +51,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px 0;
 }
 
 .center-cropped {
@@ -67,6 +74,13 @@
   transform: translate(-50%, -50%);
 }
 
+.clickable {
+  cursor: pointer;
+}
+
+.not-clickable {
+}
+
 .profile-name, .profile-position {
   color: rgba(242, 242, 242, 1);
   margin-bottom: 5px;
@@ -74,6 +88,33 @@
 
 .profile-position {
   font-style: italic;
+}
+
+.leadership-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leadership-table {
+}
+
+.leadership-row td {
+  padding: 5px 10px;
+}
+
+.leadership-year {
+  color: white;
+  font-style: italic;
+}
+
+.leadership-title {
+  color: #C41E3A;
+}
+
+.leadership-recipient {
+  color: white;
 }
 
 .brotherhood-section {
@@ -84,9 +125,12 @@
 .brotherhood-container {
   list-style: none;
   padding: 10px;
+  display: flex;
 }
 
 .brotherhood-item {
   color: rgba(242, 242, 242, 1);
-  padding: 10px;
+  padding: 10px !important;
+  text-align: center;
+  font-size: 20px;
 }

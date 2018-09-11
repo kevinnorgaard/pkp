@@ -1,0 +1,109 @@
+@import "~bootstrap/scss/bootstrap-grid.scss";
+
+.wrapper {
+  background: rgba(0, 0, 0, .5);
+  height: 100%;
+  padding-bottom: 50px;
+}
+
+.col-sm-6 {
+  padding: 0 !important;
+}
+
+.photo-gallery {
+  text-align: center;
+  background-color: #1a1a1a;
+}
+
+.container {
+  max-width: 100%;
+}
+
+.photo {
+}
+
+.form-title {
+  padding: 20px 0;
+  width: auto;
+  text-align: center;
+  font-size: 4vw;
+  letter-spacing: 2.5vw;
+  text-transform: uppercase;
+}
+
+@include media-breakpoint-up(xs) {
+  .form-title {
+    font-size: 6vw;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .form-title {
+    font-size: 4vw;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .form-title {
+    font-size: 3vw;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .form-title {
+    font-size: 3vw;
+  }
+}
+
+.form-group label {
+  color: #1a1a1a !important;
+}
+
+.form-check label {
+  color: #1a1a1a !important;
+}
+
+input, select, textarea {
+  background-color: transparent;
+  color: white;
+  border:1px solid white;
+}
+
+input::placeholder, select::placeholder, textarea::placeholder {
+  color: white;
+  opacity: .5;
+}
+input:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: white;
+  opacity: .5;
+}
+input::-ms-input-placeholder, select::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  color: white;
+  opacity: .5;
+}
+
+input:focus, textarea:focus, select:focus {
+  background-color: transparent;
+  color: #355E3B;
+  outline: none !important;
+  border:1px solid #355E3B;
+  box-shadow: 0 0 10px #355E3B;
+}
+
+input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder {
+  color: #355E3B;
+}
+
+.required-asterisk {
+  color: #C41E3A;
+}
+
+.btn-submit {
+  background: transparent;
+  color: white;
+  border:1px solid white;
+}
+
+.btn-submit:hover {
+  opacity: .7;
+}

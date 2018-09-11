@@ -1,31 +1,34 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky">
-  <a class="navbar-brand" href="#">
-    <img class="nav-logo" src="/assets/crest.png"/>
-  </a>
-  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="wrapper">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky">
+    <a class="navbar-brand" href="#">
+      <img class="nav-logo" src="/assets/crest.png"/>
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#" [routerLink]="['']">HOME <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#" [routerLink]="['membership']">MEET THE BROS</a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#" [routerLink]="['recruitment']">RUSH</a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#" [routerLink]="['scholarship']">SCHOLARSHIP</a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#" [routerLink]="['philanthropy']">PHILANTHROPY</a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" href="#" [routerLink]="['contact']">CONTACT</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']">HOME <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['membership']">MEET THE BROS</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['recruitment']">RUSH</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['scholarship']">SCHOLARSHIP</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['philanthropy']">PHILANTHROPY</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['about']">ABOUT</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+</div>

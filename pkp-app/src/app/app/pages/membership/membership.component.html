@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-sm-3" *ngFor="let prof of profiles">
         <div class="profile-container">
-          <div class="center-cropped">
+          <div [ngClass]="prof.url ? 'clickable' : 'not-clickable'" (click)="openUrl(prof.url)" class="center-cropped">
             <img [src]="prof.img"
                  class="profile-picture"/>
           </div>
@@ -13,13 +13,70 @@
         </div>
       </div>
     </div>
+    <div class="leadership-section">
+      <h2 class="container-title">On Campus</h2>
+      <table class="leadership-table">
+        <tr class="leadership-row" *ngFor="let leadership of previousLeadership">
+          <td class="leadership-year">{{leadership.year}}</td>
+          <td class="leadership-title">{{leadership.title}}</td>
+          <td class="leadership-recipient">{{leadership.recipient}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
   <div class="brotherhood-section container">
     <h2 class="container-title sticky-label">Brotherhood</h2>
+    <div class="second-row row">
+      <div class="col-sm-6">
+        <img src="https://farm2.staticflickr.com/1888/29647008067_f5ba0456db_c.jpg"
+             class="photo img-fluid"/>
+      </div>
+      <div class="col-sm-6">
+        <img src="https://farm2.staticflickr.com/1884/44585066461_646e55990d_c.jpg"
+             class="photo img-fluid"/>
+      </div>
+    </div>
+    <div class="third-row row">
+      <div class="col-sm-3">
+        <img src="https://farm2.staticflickr.com/1842/43675735165_0ac6778852_c.jpg"
+             class="photo img-fluid"/>
+      </div>
+      <div class="col-sm-6">
+        <img src="https://farm2.staticflickr.com/1868/30714771838_ac02790a08_c.jpg"
+             class="photo img-fluid"/>
+      </div>
+      <div class="col-sm-3">
+        <img src="https://farm2.staticflickr.com/1897/43866730704_ee2ba3a8cd_c.jpg"
+             class="photo img-fluid"/>
+      </div>
+    </div>
     <ul class="brotherhood-container row">
       <li class="col-sm-6 brotherhood-item" *ngFor="let brotherhood of brotherhoods">
         {{brotherhood}}
       </li>
     </ul>
+  </div>
+  <div class="networking-section container">
+    <h2 class="container-title sticky-label">Networking</h2>
+    <div class="second-row row">
+      <div class="col-sm-4">
+        <img src="https://farm2.staticflickr.com/1882/43865938174_8939562611_c.jpg"
+             class="photo img-fluid"/>
+      </div>
+      <div class="col-sm-4">
+        <img src="https://farm2.staticflickr.com/1895/43676695395_c5dd42523d_c.jpg"
+             class="photo img-fluid"/>
+      </div>
+      <div class="col-sm-4">
+        <img src="https://farm2.staticflickr.com/1849/43529799535_c0aeb1a939_c.jpg"
+             class="photo img-fluid"/>
+      </div>
+    </div>
+    <div class="third-row row">
+      <div class="col">
+        <img src="https://farm2.staticflickr.com/1882/43674879845_baf6d1a643_h.jpg"
+             class="photo img-fluid"/>
+      </div>
+    </div>
   </div>
 </div>
