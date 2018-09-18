@@ -13,6 +13,21 @@ import { RecruitmentComponent } from './app/pages/recruitment/recruitment.compon
 import { ScholarshipComponent } from './app/pages/scholarship/scholarship.component';
 import { PhilanthropyComponent } from './app/pages/philanthropy/philanthropy.component';
 import { AboutComponent } from './app/pages/about/about.component';
+import { AngularFireModule } from 'angularfire2';
+
+// New imports to update based on AngularFire2 version 4
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import {FormsModule} from '@angular/forms';
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyDU58QVVDyqn-448tPmYnC1xfP3l3G5s2c',
+  authDomain: 'pkp-website.firebaseapp.com',
+  databaseURL: 'https://pkp-website.firebaseio.com',
+  projectId: 'pkp-website',
+  storageBucket: 'pkp-website.appspot.com',
+  messagingSenderId: '863629223084'
+};
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,9 +52,13 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    NgbCollapseModule
+    NgbCollapseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
