@@ -7,18 +7,20 @@ import { FooterComponent } from './app/footer/footer.component';
 import { HomeComponent } from './app/pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MembershipComponent } from './app/pages/membership/membership.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecruitmentComponent } from './app/pages/recruitment/recruitment.component';
 import { ScholarshipComponent } from './app/pages/scholarship/scholarship.component';
 import { PhilanthropyComponent } from './app/pages/philanthropy/philanthropy.component';
 import { AboutComponent } from './app/pages/about/about.component';
 import { AngularFireModule } from 'angularfire2';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 // New imports to update based on AngularFire2 version 4
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {FormsModule} from '@angular/forms';
+import { AdminComponent } from './app/pages/admin/admin.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDU58QVVDyqn-448tPmYnC1xfP3l3G5s2c',
@@ -35,7 +37,8 @@ const routes: Routes = [
   { path: 'recruitment', component: RecruitmentComponent },
   { path: 'scholarship', component: ScholarshipComponent },
   { path: 'philanthropy', component: PhilanthropyComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'admin', component: AdminComponent }
 ];
 
 @NgModule({
@@ -48,7 +51,8 @@ const routes: Routes = [
     RecruitmentComponent,
     ScholarshipComponent,
     PhilanthropyComponent,
-    AboutComponent
+    AboutComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,7 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes),
     NgbCollapseModule,
+    MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule

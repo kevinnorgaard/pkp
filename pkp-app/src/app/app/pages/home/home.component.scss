@@ -33,7 +33,6 @@
 
 .photo-gallery {
   text-align: center;
-  background-color: #1a1a1a;
 }
 
 .container {
@@ -53,7 +52,7 @@
 .sticky-label {
   position: sticky;
   position: -webkit-sticky;
-  top: 0;
+  top: -1px;
   z-index: 1;
 
   width: 100%;
@@ -102,6 +101,17 @@ video {
 
 .main-video {
   width: 100%;
+}
+
+.filler {
+  width: 100vh;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background: url('https://farm2.staticflickr.com/1886/44535877762_c80c19d761_h.jpg');
+  z-index: 1;
+  margin: 0;
 }
 
 .alumni-name {
@@ -175,6 +185,10 @@ video {
   }
 }
 
+.boring-section {
+  z-index: 2;
+}
+
 .biography-label {
   color: white;
 }
@@ -193,4 +207,16 @@ video {
   background-color: #C41E3A;
   height: auto;
   padding: 30px 30px 30px 30px;
+}
+
+//-----------
+
+.knock-container input[type=text] {
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  width: 100%;
+  padding: 10px;
+  font-size: 24px;
+  font-style: bold;
+  margin-bottom: 20px;
 }

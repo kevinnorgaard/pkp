@@ -72,11 +72,11 @@
 }
 
 .form-group label {
-  color: #355E3B !important;
+  color: #5ca367 !important;
 }
 
 .form-check label {
-  color: #355E3B !important;
+  color: #5ca367 !important;
 }
 
 input, select, textarea {
@@ -102,12 +102,12 @@ input:focus, textarea:focus, select:focus {
   background-color: transparent;
   color: #355E3B;
   outline: none !important;
-  border:1px solid #355E3B;
+  border:1px solid #5ca367;
   box-shadow: 0 0 10px #355E3B;
 }
 
 input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder {
-  color: #355E3B;
+  color: #5ca367;
 }
 
 .required-asterisk {
@@ -115,7 +115,7 @@ input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder
 }
 
 .ng-valid[required], .ng-valid.required  {
-  box-shadow: inset 6px 0px 0px -3px #355E3B;
+  box-shadow: inset 6px 0px 0px -3px #5ca367;
 }
 
 .ng-invalid:not(form)  {
