@@ -77,7 +77,7 @@ export class MembershipComponent implements OnInit {
     {
       img: 'https://farm2.staticflickr.com/1869/42628355120_2197e08dbd.jpg',
       name: 'Emilio Cruz',
-      position: 'Messenger',
+      position: 'Messenger,',
       positionAlt: 'Social Chair'
     },
     {
@@ -100,7 +100,7 @@ export class MembershipComponent implements OnInit {
     {
       img: 'https://farm2.staticflickr.com/1868/44387963562_fd2261f945.jpg',
       name: 'Milad Goodarzi',
-      position: 'Health & Wellness Chair',
+      position: 'Health & Wellness Chair,',
       positionAlt: 'Risk Management Chair',
       url: 'https://www.linkedin.com/in/milad-goodarzi-a81894156/'
     }

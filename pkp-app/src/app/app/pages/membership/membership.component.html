@@ -36,6 +36,11 @@
              class="photo img-fluid"/>
       </div>
     </div>
+    <ul class="brotherhood-container row">
+      <li class="col-sm-6 brotherhood-item" *ngFor="let brotherhood of brotherhoods">
+        {{brotherhood}}
+      </li>
+    </ul>
     <div class="third-row row">
       <div class="col-sm-3">
         <img src="https://farm2.staticflickr.com/1842/43675735165_0ac6778852_c.jpg"
@@ -50,11 +55,6 @@
              class="photo img-fluid"/>
       </div>
     </div>
-    <ul class="brotherhood-container row">
-      <li class="col-sm-6 brotherhood-item" *ngFor="let brotherhood of brotherhoods">
-        {{brotherhood}}
-      </li>
-    </ul>
   </div>
   <div class="networking-section container">
     <h2 class="container-title sticky-label">Networking</h2>
