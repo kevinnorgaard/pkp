@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -10,7 +10,11 @@ import { Form } from './form.model';
   templateUrl: './recruitment.component.html',
   styleUrls: ['./recruitment.component.scss']
 })
-export class RecruitmentComponent {
+export class RecruitmentComponent implements OnInit {
+  @ViewChild('videoPlayer') videoPlayer: ElementRef;
+  @ViewChild('snugCol') snugColumn: ElementRef;
+  videoSource = 'assets/flag.mp4';
+
   user: Observable<firebase.User>;
   form: Form = new Form('', '', '', '', false, {});
   firstName: string;
@@ -22,8 +26,20 @@ export class RecruitmentComponent {
     this.user = this.afAuth.authState; // Update
   }
 
+  ngOnInit() {
+    this.videoPlayer.nativeElement.play();
+  }
+
   invalid(): boolean {
     return !this.enabled || this.lastName === '' || this.firstName === '' || this.form.email === '' || this.form.phone === '';
+  }
+
+  getSideWidth() {
+    return .3225728 * this.snugColumn.nativeElement.offsetWidth;
+  }
+
+  getMiddleWidth() {
+    return .3548544 * this.snugColumn.nativeElement.offsetWidth;
   }
 
   onSubmit() {

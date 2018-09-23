@@ -11,13 +11,33 @@
       </div>
     </div>
     <div class="second-row row">
-      <div class="col-sm-6">
-        <img src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
-             class="photo img-fluid"/>
+      <!--Small Screen-->
+      <div #snugCol class="col paddingless snug-col">
+        <span class="col-sm side-snug" [ngStyle]="{width: getSideWidth() + 'px'}">
+          <img src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
+                   class="photo img-fluid"/>
+        </span>
+        <video class="col-sm mid-snug" [ngStyle]="{width: getMiddleWidth() + 'px'}" playsinline loop muted autoplay preload="auto" #videoPlayer>
+          <source src="{{videoSource}}" type="video/mp4" />
+        </video>
+        <span class="col-sm side-snug" [ngStyle]="{width: getSideWidth() + 'px'}">
+          <img src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
+               class="photo img-fluid"/>
+        </span>
       </div>
-      <div class="col-sm-6">
-        <img src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
-             class="photo img-fluid"/>
+      <!--Large Screen-->
+      <div class="col loose-col">
+        <div>
+          <img src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
+               class="photo img-fluid"/>
+        </div>
+        <video style="{display: block !important}" playsinline loop muted autoplay preload="auto" #videoPlayer>
+          <source src="{{videoSource}}" type="video/mp4" />
+        </video>
+        <div>
+          <img src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
+               class="photo img-fluid"/>
+        </div>
       </div>
     </div>
     <div class="third-row row">
@@ -32,10 +52,12 @@
     </div>
   </div>
   <div class="recruitment-section container px-lg-5">
-    <div class="form-title">Fall 2018 Rush Video</div>
+    <div class="form-title">Fall 2018 Rush</div>
     <div class="first-row row">
-      <div class="col rush-video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/3gRTIXk2Gl0?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="col flyer-col">
+        <div class="flyer-container">
+          <img src="https://farm2.staticflickr.com/1912/43935714235_03583121ed_b.jpg" class="photo flyer img-fluid"/>
+        </div>
       </div>
     </div>
   </div>

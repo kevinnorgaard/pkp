@@ -21,6 +21,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {FormsModule} from '@angular/forms';
 import { AdminComponent } from './app/pages/admin/admin.component';
+import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDU58QVVDyqn-448tPmYnC1xfP3l3G5s2c',
@@ -65,7 +66,7 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

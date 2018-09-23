@@ -10,6 +10,33 @@
   padding: 0 !important;
 }
 
+.col-sm {
+  padding: 0 !important;
+}
+
+.paddingless {
+  padding: 0 !important;
+}
+
+.snug-col {
+  display: flex;
+  align-items: center;
+}
+
+.flyer-container {
+}
+
+.flyer-col {
+  display: flex;
+  justify-content: center;
+}
+
+.responsive {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
 .photo-gallery {
   text-align: center;
 }
@@ -28,13 +55,8 @@
   height: 0;
 }
 
-.rush-video-container iframe {
-  padding: 0 30px;
-  position: absolute;
-  top: 0;
-  left: 0;
+video {
   width: 100%;
-  height: 100%;
 }
 
 .form-title {
@@ -51,11 +73,23 @@
   .form-title {
     font-size: 6vw;
   }
+  .snug-col {
+    display: none;
+  }
+  .loose-col {
+    display: block;
+  }
 }
 
 @include media-breakpoint-up(sm) {
   .form-title {
     font-size: 4vw;
+  }
+  .snug-col {
+    display: none;
+  }
+  .loose-col {
+    display: block;
   }
 }
 
@@ -63,11 +97,23 @@
   .form-title {
     font-size: 3vw;
   }
+  .snug-col {
+    display: flex;
+  }
+  .loose-col {
+    display: none;
+  }
 }
 
 @include media-breakpoint-up(lg) {
   .form-title {
     font-size: 3vw;
+  }
+  .snug-col {
+    display: flex;
+  }
+  .loose-col {
+    display: none;
   }
 }
 
@@ -100,7 +146,7 @@ input::-ms-input-placeholder, select::-ms-input-placeholder, textarea::-ms-input
 
 input:focus, textarea:focus, select:focus {
   background-color: transparent;
-  color: #355E3B;
+  color: #5ca367;
   outline: none !important;
   border:1px solid #5ca367;
   box-shadow: 0 0 10px #355E3B;

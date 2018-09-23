@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  video_source = 'assets/flag.mp4';
   knocksLeft = 3;
   unleashed = false;
   password: string;
