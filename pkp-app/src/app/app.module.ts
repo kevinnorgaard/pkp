@@ -15,13 +15,17 @@ import { PhilanthropyComponent } from './app/pages/philanthropy/philanthropy.com
 import { AboutComponent } from './app/pages/about/about.component';
 import { AngularFireModule } from 'angularfire2';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MatDialogModule } from '@angular/material';
+
 
 // New imports to update based on AngularFire2 version 4
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {FormsModule} from '@angular/forms';
 import { AdminComponent } from './app/pages/admin/admin.component';
-import {LocationStrategy, PathLocationStrategy} from '@angular/common';
+import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { CheckinDialogComponent } from './app/dialogs/checkin-dialog/checkin-dialog.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDU58QVVDyqn-448tPmYnC1xfP3l3G5s2c',
@@ -53,20 +57,24 @@ const routes: Routes = [
     ScholarshipComponent,
     PhilanthropyComponent,
     AboutComponent,
-    AdminComponent
+    AdminComponent,
+    CheckinDialogComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {useHash: false}),
     NgbCollapseModule,
     MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MatDialogModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  entryComponents: [CheckinDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

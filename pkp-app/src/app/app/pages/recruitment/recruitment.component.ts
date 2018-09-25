@@ -4,6 +4,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {Observable} from 'rxjs';
 import { Form } from './form.model';
+import {CheckinDialogComponent} from '../../dialogs/checkin-dialog/checkin-dialog.component';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-recruitment',
@@ -16,18 +18,28 @@ export class RecruitmentComponent implements OnInit {
   videoSource = 'assets/flag.mp4';
 
   user: Observable<firebase.User>;
-  form: Form = new Form('', '', '', '', false, {});
+  form: Form = new Form('', '', '', {});
   firstName: string;
   lastName: string;
   enabled = true;
   submitButtonMessage = 'Submit';
 
-  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
+  checkinDialogRef: MatDialogRef<CheckinDialogComponent>;
+
+  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, private dialog: MatDialog) {
     this.user = this.afAuth.authState; // Update
   }
 
   ngOnInit() {
     this.videoPlayer.nativeElement.play();
+  }
+
+  onCheckin() {
+    this.checkinDialogRef = this.dialog.open(CheckinDialogComponent, {
+      panelClass: 'no-padding-dialog',
+      height: '400px',
+      width: '600px'
+    });
   }
 
   invalid(): boolean {

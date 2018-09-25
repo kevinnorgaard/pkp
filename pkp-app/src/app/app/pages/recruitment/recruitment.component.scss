@@ -6,6 +6,19 @@
   padding-bottom: 50px;
 }
 
+.checkin-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.checkin-btn {
+  background: #C41E3A;
+  border: #355E3B 1px solid;
+  font-size: 18px;
+}
+
 .col-sm-6 {
   padding: 0 !important;
 }
@@ -186,11 +199,13 @@ input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder
 }
 
 .btn-submit:hover {
-  opacity: .7;
-}
+   opacity: .7;
+ }
 
 .submit-dialog {
   border: 1px solid #355E3B;
   color: #355E3B;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
   border-radius: 3px;
 }

@@ -1,46 +1,53 @@
 <div class="wrapper">
-  <button class="btn name-btn">Names List</button>
-  <button class="btn name-btn">Names List</button>
-  <div class="classic-tabs mx-2">
-
-    <!-- Nav tabs -->
-    <ul class="nav tabs-cyan" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link waves-light active" data-toggle="tab" role="tab">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" data-toggle="tab" role="tab">Follow</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" data-toggle="tab" role="tab">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" data-toggle="tab" role="tab">Be awesome</a>
-      </li>
-    </ul>
-    <div class="tab-content border-right border-bottom border-left rounded-bottom">
-      <!--Panel 1-->
-      <div class="tab-pane fade in show active" id="panel1001" role="tabpanel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-      </div>
-      <!--/.Panel 1-->
-      <!--Panel 2-->
-      <div class="tab-pane fade" id="panel1002" role="tabpanel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-      </div>
-      <!--/.Panel 2-->
-      <!--Panel 3-->
-      <div class="tab-pane fade" id="panel1003" role="tabpanel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-      </div>
-      <!--/.Panel 3-->
-      <!--Panel 4-->
-      <div class="tab-pane fade" id="panel1004" role="tabpanel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-      </div>
-      <!--/.Panel 4-->
+  <button class="btn name-btn" (click)="changeMode('rushee-profiles')">Rushee Profiles</button>
+  <button class="btn name-btn" (click)="changeMode('event-checkin')">Event Check-ins</button>
+  <div class="admin-content">
+    <div class="scrollable-container" *ngIf="currentMode == 'rushee-profiles'">
+      <table>
+        <tr class="table-header-row">
+          <th>Name ({{getRusheeTotal()}})</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Check-ins</th>
+        </tr>
+        <tr *ngFor="let rushee of orderedRushees">
+          <td class="first-cell">
+            {{rushee[1]}}
+          </td>
+          <td>
+            {{forms.email[rushee[0]]}}
+          </td>
+          <td>
+            {{forms.phone[rushee[0]]}}
+          </td>
+          <td>
+            {{totalCheckins(rushee[0])}}
+          </td>
+        </tr>
+      </table>
+      <p class="emailString">{{getEmailString()}}</p>
     </div>
-
+    <div class="scrollable-container" *ngIf="currentMode == 'event-checkin'">
+      <table>
+        <tr class="table-header-row">
+          <th>Name</th>
+          <th>M ({{getDayTotal(0)}})</th>
+          <th>T ({{getDayTotal(1)}})</th>
+          <th>W ({{getDayTotal(2)}})</th>
+          <th>Th ({{getDayTotal(3)}})</th>
+          <th>F ({{getDayTotal(4)}})</th>
+          <th>S ({{getDayTotal(5)}})</th>
+        </tr>
+        <tr *ngFor="let rushee of orderedRushees">
+          <td class="first-cell">
+            {{rushee[1]}}
+          </td>
+          <td *ngFor="let date of rushDates">
+            <button [ngClass]="checkedIn(rushee[0])[date] ? 'checked-btn' : 'unchecked-btn'"
+                    (click)="onCheckin(rushee[0])"></button>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

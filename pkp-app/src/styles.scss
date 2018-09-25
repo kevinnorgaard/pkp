@@ -1,5 +1,14 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 html, body {
   height: 100%;
   width: 100%;
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.no-padding-dialog .mat-dialog-container {
+  padding: 0 !important;
+  color: #1a1a1a !important;
+  box-shadow: inset 0 0 0 3px #355E3B;
+  opacity: 1 !important;
 }
