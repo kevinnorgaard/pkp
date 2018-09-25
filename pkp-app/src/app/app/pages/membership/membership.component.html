@@ -5,8 +5,9 @@
       <div class="col-sm-3" *ngFor="let prof of profiles">
         <div class="profile-container">
           <div [ngClass]="prof.url ? 'clickable' : 'not-clickable'" (click)="openUrl(prof.url)" class="center-cropped">
-            <img [src]="prof.img"
-                 class="profile-picture"/>
+            <img [src]="prof.img" class="profile-picture"
+                 [alt]="prof.name + (prof.url ? ' LinkedIn' : '')"
+                 [title]="prof.name + (prof.url ? ' LinkedIn' : '')" />
           </div>
           <p class="profile-name">{{prof.name}}</p>
           <p class="profile-position">{{prof.position}}<span><br>{{prof.positionAlt}}</span></p>
@@ -29,11 +30,15 @@
     <div class="second-row row">
       <div class="col-sm-6">
         <img src="https://farm2.staticflickr.com/1888/29647008067_f5ba0456db_c.jpg"
-             class="photo img-fluid"/>
+             class="photo img-fluid"
+             alt="Big Bear Brotherhood Spring 2018"
+             title="Big Bear Brotherhood Spring 2018" />
       </div>
       <div class="col-sm-6">
         <img src="https://farm2.staticflickr.com/1884/44585066461_646e55990d_c.jpg"
-             class="photo img-fluid"/>
+             class="photo img-fluid"
+             alt="Big Bear Brotherhood Winter 2017"
+             title="Big Bear Brotherhood Winter 2017" />
       </div>
     </div>
     <ul class="brotherhood-container row">
@@ -44,15 +49,21 @@
     <div class="third-row row">
       <div class="col-sm-3">
         <img src="https://farm2.staticflickr.com/1842/43675735165_0ac6778852_c.jpg"
-             class="photo img-fluid"/>
+             class="photo img-fluid"
+             alt="Mitchell Zarro swinging a bat image"
+             title="Mitchell Zarro swinging a bat image" />
       </div>
       <div class="col-sm-6">
         <img src="https://farm2.staticflickr.com/1868/30714771838_ac02790a08_c.jpg"
-             class="photo img-fluid"/>
+             class="photo img-fluid"
+             alt="Beta Iota hiking trip image"
+             title="Beta Iota hiking trip image" />
       </div>
       <div class="col-sm-3">
         <img src="https://farm2.staticflickr.com/1897/43866730704_ee2ba3a8cd_c.jpg"
-             class="photo img-fluid"/>
+             class="photo img-fluid"
+             alt="Big Bear Brotherhood Spring 2018"
+             title="Big Bear Brotherhood Spring 2018" />
       </div>
     </div>
   </div>
@@ -61,21 +72,29 @@
     <div class="second-row row">
       <div class="col-sm-4">
         <img src="https://farm2.staticflickr.com/1882/43865938174_8939562611_c.jpg"
-             class="photo img-fluid"/>
+             class="photo img-fluid"
+             alt="Founder's Day 2016 image"
+             title="Founder's Day 2016 image" />
       </div>
       <div class="col-sm-4">
         <img src="https://farm2.staticflickr.com/1895/43676695395_c5dd42523d_c.jpg"
-             class="photo img-fluid"/>
+             class="photo img-fluid"
+             alt="Founder's Day 2017 image"
+             title="Founder's Day 2017 image" />
       </div>
       <div class="col-sm-4">
         <img src="https://farm2.staticflickr.com/1849/43529799535_c0aeb1a939_c.jpg"
-             class="photo img-fluid"/>
+             class="photo img-fluid"
+             alt="Grand Arch Council 2018 image"
+             title="Grand Arch Council 2018 image" />
       </div>
     </div>
     <div class="third-row row">
       <div class="col">
         <img src="https://farm2.staticflickr.com/1882/43674879845_baf6d1a643_h.jpg"
-             class="photo img-fluid"/>
+             class="photo img-fluid"
+             alt="Founder's Day 2017 image"
+             title="Founder's Day 2017 image"/>
       </div>
     </div>
   </div>
