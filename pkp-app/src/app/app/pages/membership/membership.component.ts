@@ -81,6 +81,12 @@ export class MembershipComponent implements OnInit {
       positionAlt: 'Social Chair'
     },
     {
+      img: 'https://farm2.staticflickr.com/1922/44932357611_1cd1146206.jpg',
+      name: 'Jackson Wickman',
+      position: 'Brotherhood Chair',
+      url: 'https://www.linkedin.com/in/jacksonwickman/'
+    },
+    {
       img: 'https://farm2.staticflickr.com/1894/44387963792_2859eba916.jpg',
       name: 'Ara Nersesian',
       position: 'Sergeant at Arms',
