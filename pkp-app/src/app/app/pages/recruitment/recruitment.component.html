@@ -1,20 +1,20 @@
 <div class="wrapper">
-  <div class="checkin-container" (click)="onCheckin()">
-    <button class="btn checkin-btn">Rush &Phi;&Kappa;&Psi;</button>
-  </div>
+  <!--<div class="checkin-container" (click)="onCheckin()">-->
+    <!--<button class="btn checkin-btn">Rush &Phi;&Kappa;&Psi;</button>-->
+  <!--</div>-->
   <div class="photo-gallery container">
     <div class="first-row row">
       <div class="col-sm-6">
         <img src="https://farm2.staticflickr.com/1889/44408157632_9a26ddc312_c.jpg"
              class="photo img-fluid"
-             alt="Winter Rush 2017 Car Bash image"
-             title="Winter Rush 2017 Car Bash image"/>
+             alt="Winter Rush 2017 Car Bash"
+             title="Winter Rush 2017 Car Bash"/>
       </div>
       <div class="col-sm-6">
         <img src="https://farm2.staticflickr.com/1896/43674880425_6abaa1da32_c.jpg"
              class="photo img-fluid"
-             alt="Fall Rush 2016 Car Bash image"
-             title="Fall Rush 2016 Car Bash image" />
+             alt="Fall Rush 2016 Car Bash"
+             title="Fall Rush 2016 Car Bash" />
       </div>
     </div>
     <div class="second-row row">
@@ -23,8 +23,8 @@
         <span class="col-sm side-snug" [ngStyle]="{width: getSideWidth() + 'px'}">
           <img src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
                class="photo img-fluid"
-               alt="Fall Rush 2016 Car Bash image"
-               title="Fall Rush 2016 Car Bash image" />
+               alt="Fall Rush 2016 Car Bash"
+               title="Fall Rush 2016 Car Bash" />
         </span>
         <video class="col-sm mid-snug" [ngStyle]="{width: getMiddleWidth() + 'px'}" playsinline loop muted autoplay preload="auto" #videoPlayer>
           <source src="{{videoSource}}" type="video/mp4" />
@@ -32,8 +32,8 @@
         <span class="col-sm side-snug" [ngStyle]="{width: getSideWidth() + 'px'}">
           <img src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
                class="photo img-fluid"
-               alt="Fall Rush 2017 Car Bash image"
-               title="Fall Rush 2017 Car Bash image" />
+               alt="Fall Rush 2017 Car Bash"
+               title="Fall Rush 2017 Car Bash" />
         </span>
       </div>
       <!--Large Screen-->
@@ -41,8 +41,8 @@
         <div>
           <img src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
                class="photo img-fluid"
-               alt="Fall Rush 2016 Car Bash flag image"
-               title="Fall Rush 2016 Car Bash flag image" />
+               alt="Fall Rush 2016 Car Bash flag"
+               title="Fall Rush 2016 Car Bash flag" />
         </div>
         <video style="{display: block !important}" playsinline loop muted autoplay preload="auto" #videoPlayer>
           <source src="{{videoSource}}" type="video/mp4" />
@@ -50,8 +50,8 @@
         <div>
           <img src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
                class="photo img-fluid"
-               alt="Fall Rush 2017 Car Bash image"
-               title="Fall Rush 2017 Car Bash image"/>
+               alt="Fall Rush 2017 Car Bash"
+               title="Fall Rush 2017 Car Bash"/>
         </div>
       </div>
     </div>
@@ -59,15 +59,20 @@
       <div class="col-sm-6">
         <img src="https://farm2.staticflickr.com/1894/43865945174_ba0b872373_c.jpg"
              class="photo img-fluid"
-             alt="Boothing at UCI Welcome Week image"
-             title="Boothing at UCI Welcome Week image"/>
+             alt="Boothing at UCI Welcome Week"
+             title="Boothing at UCI Welcome Week"/>
       </div>
       <div class="col-sm-6">
         <img src="https://farm2.staticflickr.com/1884/44534478612_6ba22a1dd9_c.jpg"
              class="photo img-fluid"
-             alt="Boothing at UCI Involvement Fair with Yerba Mate image"
-             title="Boothing at UCI Involvement Fair with Yerba Mate image"/>
+             alt="Boothing at UCI Involvement Fair with Yerba Mate"
+             title="Boothing at UCI Involvement Fair with Yerba Mate"/>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col centered">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/BocjoSTAuJ8/?utm_source=ig_embed&amp;utm_medium=loading&amp;utm_campaign=embed_loading_state_control" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:37.5% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BocjoSTAuJ8/?utm_source=ig_embed&amp;utm_medium=loading&amp;utm_campaign=embed_loading_state_control" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Ladies and Gentlemen, We would like to introduce to you the gentleman of Beta Nu. #LEDN</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by <a href="https://www.instagram.com/uciphipsi/?utm_source=ig_embed&amp;utm_medium=loading&amp;utm_campaign=embed_loading_state_control" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Phi Kappa Psi UC Irvine</a> (@uciphipsi) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-10-02T21:42:05+00:00">Oct 2, 2018 at 2:42pm PDT</time></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
     </div>
   </div>
   <div class="recruitment-section container px-lg-5">
@@ -77,14 +82,14 @@
         <div class="flyer-container">
           <img src="https://farm2.staticflickr.com/1912/43935714235_03583121ed_b.jpg"
                class="photo flyer img-fluid"
-               alt="Phi Kappa Psi 2018 Fall Rush flyer image"
-               title="Phi Kappa Psi 2018 Fall Rush flyer image"/>
+               alt="Phi Kappa Psi 2018 Fall Rush flyer"
+               title="Phi Kappa Psi 2018 Fall Rush flyer"/>
         </div>
       </div>
     </div>
   </div>
   <form class="recruitment-form container px-lg-5" #recruitmentForm="ngForm">
-    <div class="form-title">Fall 2018 Rush Interest Form</div>
+    <div class="form-title">Winter 2018 Rush Interest Form</div>
     <div class="form-group">
       <label>Name <span class="required-asterisk">*</span></label>
       <div class="row">

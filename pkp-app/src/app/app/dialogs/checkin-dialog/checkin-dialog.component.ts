@@ -18,7 +18,6 @@ export class CheckinDialogComponent implements OnInit {
   lastName: string;
   firstName: string;
   form: Form = new Form('', '', '');
-  submitButtonMessage = 'Submit';
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, private dialog: MatDialog) {
     this.user = this.afAuth.authState; // Update
@@ -28,11 +27,11 @@ export class CheckinDialogComponent implements OnInit {
   }
 
   invalid(): boolean {
-    return !this.enabled || this.lastName === '' || this.firstName === '' || this.form.email === '' || this.form.phone === '';
+    return this.lastName === '' || this.firstName === '' || this.form.email === '' || this.form.phone === '';
   }
 
   onSubmit() {
-    let updates = {};
+    const updates = {};
     updates['/forms/name/' + this.form.phone] = this.lastName + ', ' + this.firstName;
     updates['/forms/email/' + this.form.phone] = this.form.email;
     updates['/forms/phone/' + this.form.phone] = this.form.phone;
@@ -46,8 +45,6 @@ export class CheckinDialogComponent implements OnInit {
       }
     });
 
-    this.submitButtonMessage = 'Successfully submitted!';
-    this.enabled = false;
     this.clearFields();
   }
 

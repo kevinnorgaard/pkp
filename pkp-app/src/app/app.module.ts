@@ -12,7 +12,6 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecruitmentComponent } from './app/pages/recruitment/recruitment.component';
 import { ScholarshipComponent } from './app/pages/scholarship/scholarship.component';
 import { PhilanthropyComponent } from './app/pages/philanthropy/philanthropy.component';
-import { AboutComponent } from './app/pages/about/about.component';
 import { AngularFireModule } from 'angularfire2';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatDialogModule } from '@angular/material';
@@ -26,6 +25,7 @@ import { AdminComponent } from './app/pages/admin/admin.component';
 import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { CheckinDialogComponent } from './app/dialogs/checkin-dialog/checkin-dialog.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AlumniComponent } from './app/pages/alumni/alumni.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDU58QVVDyqn-448tPmYnC1xfP3l3G5s2c',
@@ -40,9 +40,9 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'membership', component: MembershipComponent },
   { path: 'recruitment', component: RecruitmentComponent },
+  { path: 'alumni', component: AlumniComponent },
   { path: 'scholarship', component: ScholarshipComponent },
   { path: 'philanthropy', component: PhilanthropyComponent },
-  { path: 'about', component: AboutComponent },
   { path: 'admin', component: AdminComponent }
 ];
 
@@ -56,9 +56,9 @@ const routes: Routes = [
     RecruitmentComponent,
     ScholarshipComponent,
     PhilanthropyComponent,
-    AboutComponent,
     AdminComponent,
-    CheckinDialogComponent
+    CheckinDialogComponent,
+    AlumniComponent
   ],
   imports: [
     BrowserModule,

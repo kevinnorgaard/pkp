@@ -41,15 +41,15 @@ tr, td {
   border-bottom: #355E3B 1px solid;
 }
 
-.first-cell {
-  font-weight: 800;
-}
-
 .table-header-row {
   border: #355E3B 1px solid;
   font-size: 12px;
   color: #355E3B;
   font-weight: 400;
+}
+
+.table-header-row th, .nowrap-cell {
+  white-space: nowrap;
 }
 
 .emailString {

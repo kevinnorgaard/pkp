@@ -24,6 +24,8 @@ export class AdminComponent {
   orderedRushees: any[];
   user: Observable<firebase.User>;
 
+  orderCheckinsAscending = false;
+
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
     this.user = this.afAuth.authState; // Update
     this.loadDatabase();
@@ -38,32 +40,54 @@ export class AdminComponent {
     return firebase.database().ref('/').once('value').then((snapshot) => {
       this.forms = snapshot.val() ? snapshot.val().forms : null;
       this.checkins = snapshot.val() ? snapshot.val().checkins : null;
-      if (this.currentMode === 'event-checkins') {
-        this.orderRusheesByCheckins();
+      if (this.currentMode === 'event-checkin') {
+        this.orderRusheesByLastName();
       } else if (this.currentMode === 'rushee-profiles') {
-        this.orderRusheesByName();
+        this.orderRusheesByFirstName();
       }
     });
   }
 
-  orderRusheesByName() {
+  orderRusheesByFirstName() {
     const rusheeKeys = Object.keys(this.forms.phone);
     const unorderedRushees = [];
     for (const key of rusheeKeys) {
       unorderedRushees.push([key, this.getRusheeName(key)]);
     }
     this.orderedRushees = unorderedRushees.sort((r1, r2) => {
-      if (r1[1] > r2[1]) {
+      if (this.getFirstName(r1[1]).toUpperCase() > this.getFirstName(r2[1]).toUpperCase()) {
         return 1;
       }
-      if (r1[1] < r2[1]) {
+      if (this.getFirstName(r1[1]).toUpperCase() < this.getFirstName(r2[1]).toUpperCase()) {
         return -1;
       }
       return 0;
     });
   }
 
-  orderRusheesByCheckins() {
+  orderRusheesByLastName() {
+    const rusheeKeys = Object.keys(this.forms.phone);
+    const unorderedRushees = [];
+    for (const key of rusheeKeys) {
+      unorderedRushees.push([key, this.getRusheeName(key)]);
+    }
+    this.orderedRushees = unorderedRushees.sort((r1, r2) => {
+      if (this.getLastName(r1[1]).toUpperCase() > this.getLastName(r2[1]).toUpperCase()) {
+        return 1;
+      }
+      if (this.getLastName(r1[1]).toUpperCase() < this.getLastName(r2[1]).toUpperCase()) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  toggleCheckinOrder() {
+    this.orderRusheesByCheckins(this.orderCheckinsAscending);
+    this.orderCheckinsAscending = !this.orderCheckinsAscending;
+  }
+
+  orderRusheesByCheckins(ascending: boolean) {
     const rusheeKeys = Object.keys(this.forms.phone);
     const unorderedRushees = [];
     for (const key of rusheeKeys) {
@@ -83,10 +107,10 @@ export class AdminComponent {
         }
       }
       if (r1_checkins > r2_checkins) {
-        return 1;
+        return ascending ? 1 : -1;
       }
       if (r1_checkins < r2_checkins) {
-        return -1;
+        return ascending ? -1 : 1;
       }
       return 0;
     });
@@ -109,9 +133,9 @@ export class AdminComponent {
   totalCheckins(key: string) {
     const checkins = this.getCheckins(key);
     let sum = 0;
-    for (const checkinKey of Object.keys(checkins)) {
-      if (checkins[checkinKey]) {
-        sum = sum + 1;
+    if (checkins) {
+      for (const checkinKey of Object.keys(checkins)) {
+        sum = sum + (checkins[checkinKey] ? 1 : 0);
       }
     }
     return sum;
@@ -176,5 +200,15 @@ export class AdminComponent {
       }
     }
     return emailString;
+  }
+
+  getLastName(name: string) {
+    const index = name.indexOf(',');
+    return name.substring(0, index);
+  }
+
+  getFirstName(name: string) {
+    const index = name.indexOf(',');
+    return name.substring(index + 1);
   }
 }

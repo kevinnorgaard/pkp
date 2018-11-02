@@ -36,8 +36,11 @@
   align-items: center;
 }
 
-.flyer-container {
-}
+//.centered {
+//  display: block;
+//  position: relative;
+//  margin: auto;
+//}
 
 .flyer-col {
   display: flex;
@@ -59,17 +62,6 @@
 }
 
 .photo {
-}
-
-.rush-video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  padding-top: 25px;
-  height: 0;
-}
-
-video {
-  width: 100%;
 }
 
 .form-title {

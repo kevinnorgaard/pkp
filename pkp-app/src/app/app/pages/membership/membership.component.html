@@ -2,27 +2,36 @@
   <div class="exec-section container">
     <h2 class="container-title sticky-label">LEADERSHIP</h2>
     <div class="row">
-      <div class="col-sm-3" *ngFor="let prof of profiles">
-        <div class="profile-container">
+      <div class="col-lg-3" *ngFor="let prof of profiles">
+        <div class="profile-container" *ngIf="prof.current || showAllLeaders">
           <div [ngClass]="prof.url ? 'clickable' : 'not-clickable'" (click)="openUrl(prof.url)" class="center-cropped">
             <img [src]="prof.img" class="profile-picture"
                  [alt]="prof.name + (prof.url ? ' LinkedIn' : '')"
                  [title]="prof.name + (prof.url ? ' LinkedIn' : '')" />
           </div>
           <p class="profile-name">{{prof.name}}</p>
-          <p class="profile-position">{{prof.position}}<span><br>{{prof.positionAlt}}</span></p>
+          <p class="profile-position" *ngIf="prof.position">{{prof.position}}</p>
+          <p class="profile-position" *ngIf="prof.positionAlt">{{prof.positionAlt}}</p>
+          <p class="previous-position" *ngIf="prof.prevPosition && showAllLeaders">{{prof.prevPosition}}</p>
+          <p class="previous-position" *ngIf="prof.prevPositionAlt  && showAllLeaders">{{prof.prevPositionAlt}}</p>
         </div>
+      </div>
+      <div class="showall-container" (click)="toggleShowAllLeaders()">
+        <button class="btn showall-btn">{{showAllLeadersText}}</button>
       </div>
     </div>
     <div class="leadership-section">
       <h2 class="container-title">On Campus</h2>
       <table class="leadership-table">
         <tr class="leadership-row" *ngFor="let leadership of previousLeadership">
-          <td class="leadership-year">{{leadership.year}}</td>
-          <td class="leadership-title">{{leadership.title}}</td>
-          <td class="leadership-recipient">{{leadership.recipient}}</td>
+          <td class="leadership-year" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">{{leadership.year}}</td>
+          <td class="leadership-title" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">{{leadership.title}}</td>
+          <td class="leadership-recipient" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">{{leadership.recipient}}</td>
         </tr>
       </table>
+      <div class="showall-container" (click)="toggleShowAllOnCampus()">
+        <button class="btn showall-btn">{{showAllOnCampusText}}</button>
+      </div>
     </div>
   </div>
   <div class="brotherhood-section container">
@@ -50,51 +59,20 @@
       <div class="col-sm-3">
         <img src="https://farm2.staticflickr.com/1842/43675735165_0ac6778852_c.jpg"
              class="photo img-fluid"
-             alt="Mitchell Zarro swinging a bat image"
-             title="Mitchell Zarro swinging a bat image" />
+             alt="Mitchell Zarro at Big Bear Brotherhood Spring 2018"
+             title="Mitchell Zarro at Big Bear Brotherhood Spring 2018" />
       </div>
       <div class="col-sm-6">
         <img src="https://farm2.staticflickr.com/1868/30714771838_ac02790a08_c.jpg"
              class="photo img-fluid"
-             alt="Beta Iota hiking trip image"
-             title="Beta Iota hiking trip image" />
+             alt="Beta Iota hiking trip"
+             title="Beta Iota hiking trip" />
       </div>
       <div class="col-sm-3">
         <img src="https://farm2.staticflickr.com/1897/43866730704_ee2ba3a8cd_c.jpg"
              class="photo img-fluid"
              alt="Big Bear Brotherhood Spring 2018"
              title="Big Bear Brotherhood Spring 2018" />
-      </div>
-    </div>
-  </div>
-  <div class="networking-section container">
-    <h2 class="container-title sticky-label">Networking</h2>
-    <div class="second-row row">
-      <div class="col-sm-4">
-        <img src="https://farm2.staticflickr.com/1882/43865938174_8939562611_c.jpg"
-             class="photo img-fluid"
-             alt="Founder's Day 2016 image"
-             title="Founder's Day 2016 image" />
-      </div>
-      <div class="col-sm-4">
-        <img src="https://farm2.staticflickr.com/1895/43676695395_c5dd42523d_c.jpg"
-             class="photo img-fluid"
-             alt="Founder's Day 2017 image"
-             title="Founder's Day 2017 image" />
-      </div>
-      <div class="col-sm-4">
-        <img src="https://farm2.staticflickr.com/1849/43529799535_c0aeb1a939_c.jpg"
-             class="photo img-fluid"
-             alt="Grand Arch Council 2018 image"
-             title="Grand Arch Council 2018 image" />
-      </div>
-    </div>
-    <div class="third-row row">
-      <div class="col">
-        <img src="https://farm2.staticflickr.com/1882/43674879845_baf6d1a643_h.jpg"
-             class="photo img-fluid"
-             alt="Founder's Day 2017 image"
-             title="Founder's Day 2017 image"/>
       </div>
     </div>
   </div>

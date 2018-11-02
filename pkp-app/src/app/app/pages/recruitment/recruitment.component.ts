@@ -28,6 +28,7 @@ export class RecruitmentComponent implements OnInit {
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, private dialog: MatDialog) {
     this.user = this.afAuth.authState; // Update
+
   }
 
   ngOnInit() {
@@ -56,7 +57,7 @@ export class RecruitmentComponent implements OnInit {
 
   onSubmit() {
     this.form.name = this.lastName + ', ' + this.firstName;
-    let updates = {};
+    const updates = {};
     for (const item in JSON.parse(JSON.stringify(this.form))) {
       if (this.form[item] !== '') {
         updates['/forms/' + item + '/' + this.form.phone] = this.form[item];

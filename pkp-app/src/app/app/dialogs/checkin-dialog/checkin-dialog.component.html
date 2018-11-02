@@ -27,8 +27,8 @@
       </div>
     </div>
     <div class="row button-container">
-      <button [ngClass]="submitButtonMessage === 'Submit' ? 'btn-submit' : 'btn-submitted'" (click)="onSubmit()"
-              type="submit" [disabled]="invalid()">{{submitButtonMessage}}</button>
+      <button class="btn-submit" (click)="onSubmit()"
+              type="submit" [disabled]="invalid()">Submit</button>
     </div>
   </form>
 </div>

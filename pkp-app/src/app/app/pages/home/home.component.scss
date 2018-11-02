@@ -44,13 +44,6 @@
   padding: 0;
 }
 
-.row {
-}
-
-.label-container {
-}
-
-
 .rush-video-container {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -59,7 +52,6 @@
 }
 
 .rush-video-container iframe {
-  padding: 0 30px;
   position: absolute;
   top: 0;
   left: 0;
@@ -70,9 +62,8 @@
 .sticky-label {
   position: sticky;
   position: -webkit-sticky;
-  top: -1px;
   z-index: 1;
-
+  top: 0;
   width: 100%;
   color: white;
   -webkit-text-fill-color: white;
@@ -116,14 +107,19 @@
   width: 100%;
 }
 
+.instagram-media {
+  margin: 30px auto !important;
+}
+
 .filler {
   width: 100%;
   height: 100vh;
 
   background-attachment: fixed;
   background-position: center;
+  background-repeat: no-repeat !important;
   background: url('https://farm2.staticflickr.com/1886/44535877762_c80c19d761_h.jpg');
-  z-index: 1;
+  z-index: 0;
   margin: 0 auto;
 }
 
@@ -148,6 +144,7 @@
   width: 100%;
   height: auto;
   color: white;
+  text-align: left;
 }
 
 @include media-breakpoint-up(xs) {

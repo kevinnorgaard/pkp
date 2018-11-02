@@ -82,7 +82,7 @@ input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder
   justify-content: center;
 }
 
-.btn-submit, .btn-submitted {
+.btn-submit {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -99,11 +99,6 @@ input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder
 .btn-submit {
   color: #1a1a1a;
   border: 1px solid #1a1a1a;
-}
-
-.btn-submitted {
-  color: #355E3B;
-  border: 1px solid #355E3B;
 }
 
 .btn-submit:hover {
