@@ -82,7 +82,8 @@
     display: none;
   }
   .loose-col {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -94,7 +95,8 @@
     display: none;
   }
   .loose-col {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 }
 

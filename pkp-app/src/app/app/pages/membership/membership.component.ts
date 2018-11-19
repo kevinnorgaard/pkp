@@ -38,6 +38,7 @@ export class MembershipComponent implements OnInit {
       name: 'Kevin Norgaard',
       position: 'Vice President',
       prevPosition: 'Former Corresponding Secretary',
+      prevPositionAlt: 'Former Rush Chair',
       url: 'https://www.linkedin.com/in/kevinnorgaard/'
     },
     {
@@ -45,6 +46,24 @@ export class MembershipComponent implements OnInit {
       img: 'https://farm2.staticflickr.com/1956/45640665651_537e557cd5_m.jpg',
       name: 'Batisse Kasanchi',
       position: 'Treasurer',
+      prevPosition: 'Former Finance Chair',
+      prevPositionAlt: 'Former Rush Chair',
+      url: 'https://www.linkedin.com/in/batisse-kashanchi-810268173/'
+    },
+    {
+      current: true,
+      img: 'https://farm2.staticflickr.com/1868/44387963562_fd2261f945.jpg',
+      name: 'Milad Goodarzi',
+      position: 'Corresponding Secretary',
+      prevPosition: 'Former Health & Wellness Chair,',
+      prevPositionAlt: 'Former Risk Management Chair',
+      url: 'https://www.linkedin.com/in/miladgoodarzi/'
+    },
+    {
+      current: true,
+      img: 'https://farm5.staticflickr.com/4912/45787472611_e80ac55907_m.jpg',
+      name: 'Brandon Brunckhorst',
+      position: 'Recording Secretary',
       url: 'https://www.linkedin.com/in/batisse-kashanchi-810268173/'
     },
     {
@@ -108,14 +127,6 @@ export class MembershipComponent implements OnInit {
       img: 'https://farm2.staticflickr.com/1894/29520553957_8d5ae8f878.jpg',
       name: 'Mitchell Neal',
       position: 'Scholarship Chair'
-    },
-    {
-      current: true,
-      img: 'https://farm2.staticflickr.com/1868/44387963562_fd2261f945.jpg',
-      name: 'Milad Goodarzi',
-      position: 'Health & Wellness Chair,',
-      positionAlt: 'Risk Management Chair',
-      url: 'https://www.linkedin.com/in/milad-goodarzi-a81894156/'
     },
     {
       current: true,

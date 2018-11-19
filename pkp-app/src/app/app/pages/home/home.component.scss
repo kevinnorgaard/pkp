@@ -11,37 +11,21 @@
   padding: 0 !important;
 }
 
-.social-media {
-  display: flex;
-  justify-content: center;
-  background-color: #1a1a1a;
-}
-
-.fa {
-  -webkit-text-stroke-color: #355E3B;
-  display: inline-block;
-  padding: 8px 20px;
-  text-decoration: none;
-}
-
-.fa:hover {
-  color: #355E3B;
-}
-
-.fa-facebook, .fa-twitter, .fa-instagram, .fa-linkedin {
-  color: white;
-}
-
 .photo-gallery {
   text-align: center;
 }
 
 .container {
   max-width: 100%;
+  padding: 0 !important;
 }
 
 .col {
   padding: 0;
+}
+
+.row {
+  margin: 0 !important;
 }
 
 .rush-video-container {
@@ -59,11 +43,10 @@
   height: 100% !important;
 }
 
-.sticky-label {
+.sticky-label, .sticky-label-2, .sticky-label-3 {
   position: sticky;
   position: -webkit-sticky;
   z-index: 1;
-  top: 0;
   width: 100%;
   color: white;
   -webkit-text-fill-color: white;
@@ -72,6 +55,66 @@
   text-transform: uppercase;
   text-align: center;
   margin-top: 8px;
+}
+
+.sticky-label {
+  top: 10%;
+}
+
+.sticky-label-2 {
+  top: 40%;
+}
+
+.sticky-label-3 {
+  top: 70%;
+}
+
+.icon-bar {
+  z-index: 1;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 18px !important;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.facebook {
+  background: #C41E3A;
+  color: white;
+
+}
+
+.twitter {
+  background: #C41E3A;
+  color: white;
+}
+
+.linkedin {
+  background: #355E3B;
+  color: white;
+}
+
+.instagram {
+  background: #355E3B;
+  color: white;
+}
+
+.second-row {
+  padding-top: 10%;
 }
 
 #main-photo-label {
@@ -118,7 +161,7 @@
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat !important;
-  background: url('https://farm2.staticflickr.com/1886/44535877762_c80c19d761_h.jpg');
+  //background: url('https://farm2.staticflickr.com/1886/44535877762_c80c19d761_h.jpg');
   z-index: 0;
   margin: 0 auto;
 }
