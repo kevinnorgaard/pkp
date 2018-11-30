@@ -1,0 +1,181 @@
+<div class="wrapper">
+  <div id="scroll-up-btn" (click)="scrollTop()"><i class="fa fa-arrow-up"></i></div>
+  <div class="photo-gallery container">
+    <div class="first-row row">
+      <div class="col-sm-6">
+        <img src="https://farm2.staticflickr.com/1889/44408157632_9a26ddc312_c.jpg"
+             class="photo img-fluid"
+             alt="Winter Rush 2017 Car Bash"
+             title="Winter Rush 2017 Car Bash"/>
+      </div>
+      <div class="col-sm-6">
+        <img src="https://farm2.staticflickr.com/1896/43674880425_6abaa1da32_c.jpg"
+             class="photo img-fluid"
+             alt="Fall Rush 2016 Car Bash"
+             title="Fall Rush 2016 Car Bash" />
+      </div>
+    </div>
+    <div class="second-row row">
+      <!--Large Screen-->
+      <div #snugCol class="col paddingless snug-col">
+        <span class="col-sm side-snug" [ngStyle]="{width: getSideWidth() + 'px'}">
+          <img src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
+               class="photo img-fluid"
+               alt="Fall Rush 2016 Car Bash"
+               title="Fall Rush 2016 Car Bash" />
+        </span>
+        <video class="col-sm mid-snug" [ngStyle]="{width: getMiddleWidth() + 'px'}" playsinline loop muted autoplay preload="auto" #videoPlayer>
+          <source src="{{videoSource}}" type="video/mp4" />
+        </video>
+        <span class="col-sm side-snug" [ngStyle]="{width: getSideWidth() + 'px'}">
+          <img src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
+               class="photo img-fluid"
+               alt="Fall Rush 2017 Car Bash"
+               title="Fall Rush 2017 Car Bash" />
+        </span>
+      </div>
+      <!--Small Screen-->
+      <div class="loose-col">
+        <div>
+          <img src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
+               class="photo img-fluid"
+               alt="Fall Rush 2016 Car Bash flag"
+               title="Fall Rush 2016 Car Bash flag" />
+        </div>
+        <div>
+          <video width="100%" style="{display: block !important}" playsinline loop muted autoplay preload="auto" #videoPlayer>
+            <source src="{{videoSource}}" type="video/mp4" />
+          </video>
+        </div>
+        <div>
+          <img src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
+               class="photo img-fluid"
+               alt="Fall Rush 2017 Car Bash"
+               title="Fall Rush 2017 Car Bash"/>
+        </div>
+      </div>
+    </div>
+    <div class="third-row row">
+      <div class="col-sm-6">
+        <img src="https://farm2.staticflickr.com/1894/43865945174_ba0b872373_c.jpg"
+             class="photo img-fluid"
+             alt="Boothing at UCI Welcome Week"
+             title="Boothing at UCI Welcome Week"/>
+      </div>
+      <div class="col-sm-6">
+        <img src="https://farm2.staticflickr.com/1884/44534478612_6ba22a1dd9_c.jpg"
+             class="photo img-fluid"
+             alt="Boothing at UCI Involvement Fair with Yerba Mate"
+             title="Boothing at UCI Involvement Fair with Yerba Mate"/>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+  </div>
+  <div class="recruitment-section container px-lg-5">
+    <div class="form-title">Fall 2018 Rush</div>
+    <div class="first-row row">
+      <div class="col flyer-col">
+        <div class="flyer-container">
+          <img src="https://farm2.staticflickr.com/1912/43935714235_03583121ed_b.jpg"
+               class="photo flyer img-fluid"
+               alt="Phi Kappa Psi 2018 Fall Rush flyer"
+               title="Phi Kappa Psi 2018 Fall Rush flyer"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="recruitment-form container px-lg-5" #recruitmentForm="ngForm">
+    <div class="form-title">Winter 2018 Rush Interest Form</div>
+    <div class="form-group">
+      <label>Name <span class="required-asterisk">*</span></label>
+      <div class="row">
+        <div class="col">
+          <input required [(ngModel)]="firstName" type="text" class="form-control" name="firstName" id="firstName" placeholder="First name">
+        </div>
+        <div class="col">
+          <input required [(ngModel)]="lastName" type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="email">Email <span class="required-asterisk">*</span></label>
+          <input required [(ngModel)]="form.email" type="email" class="form-control" name="email" id="email" placeholder="example@uci.edu">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="phone">Phone <span class="required-asterisk">*</span></label>
+          <input required [(ngModel)]="form.phone" type="tel" class="form-control" name="phone" id="phone" placeholder="123-456-7890">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="year">Year <span class="required-asterisk">*</span></label>
+      <select required [(ngModel)]="form.year" class="form-control" name="year" id="year">
+        <option value="freshman">Freshman</option>
+        <option value="sophomore">Sophomore</option>
+        <option value="junior">Junior</option>
+        <option value="junior-transfer">Junior Transfer</option>
+        <option value="senior">Senior</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Social Media</label>
+      <input [(ngModel)]="form.socialMedia.facebook" type="text" class="form-control" name="facebook" id="facebook" placeholder="Facebook">
+      <br>
+      <input [(ngModel)]="form.socialMedia.instagram" type="text" class="form-control" name="instagram" id="instagram" placeholder="Instagram">
+      <br>
+      <input [(ngModel)]="form.socialMedia.linkedin" type="text" class="form-control" name="linkedin" id="linkedin" placeholder="LinkedIn">
+    </div>
+    <div class="form-group">
+      <label for="sports">Sports Played</label>
+      <input [(ngModel)]="form.sports" type="text" class="form-control" name="sports" id="sports">
+    </div>
+    <div class="form-group">
+      <label for="cumGpa">Cumulative GPA</label>
+      <input [(ngModel)]="form.cumGpa" type="text" class="form-control" name="cumGpa" id="cumGpa">
+    </div>
+    <div class="form-group">
+      <label for="prevGpa">Last Quarter GPA</label>
+      <input [(ngModel)]="form.prevGpa" type="text" class="form-control" name="prevGpa" id="prevGpa">
+    </div>
+    <div class="form-group">
+      <label for="major">Major(s)</label>
+      <input [(ngModel)]="form.major" type="text" class="form-control" name="major" id="major">
+    </div>
+    <div class="form-group">
+      <label for="minor">Minor(s)</label>
+      <input [(ngModel)]="form.minor" type="text" class="form-control" name="minor" id="minor">
+    </div>
+    <div class="form-group">
+      <label for="achievements">Past Achievements</label>
+      <textarea [(ngModel)]="form.achievements" class="form-control" name="achievements" id="achievements" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="referral">How did you hear about us?</label>
+      <textarea [(ngModel)]="form.referral" class="form-control" name="referral" id="referral" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="reasons">Reasons for your interest in Phi Kappa Psi?</label>
+      <textarea [(ngModel)]="form.reasons" class="form-control" name="reasons" id="reasons" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="group">Do you have friends interested?</label>
+      <textarea [(ngModel)]="form.group" class="form-control" name="group" id="group" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="extraInfo">Anything else we should know?</label>
+      <textarea [(ngModel)]="form.extraInfo" class="form-control" name="extraInfo" id="extraInfo" rows="3"></textarea>
+    </div>
+    <div class="form-check">
+      <input [(ngModel)]="form.legacy" class="form-check-input" type="checkbox" [value]="form.legacy" name="legacy" id="legacy">
+      <label class="form-check-label" for="legacy">Legacy</label>
+    </div>
+    <br>
+    <button [ngClass]="submitButtonMessage === 'Submit' ? 'btn-submit' : 'btn-submitted'" (click)="onSubmit()"
+            type="submit" class="btn" [disabled]="invalid()">{{submitButtonMessage}}</button>
+  </form>
+</div>

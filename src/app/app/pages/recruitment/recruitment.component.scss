@@ -1,0 +1,220 @@
+@import "~bootstrap/scss/bootstrap-grid.scss";
+
+.wrapper {
+  background: #1a1a1a;
+  height: 100%;
+  padding-bottom: 50px;
+}
+
+#scroll-up-btn {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: transparent;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.fa-arrow-up {
+  color: white;
+  font-size: 30px !important;
+  padding: 10px;
+  background-color: rgba(0,0,0,.3);
+  border-radius: 50%;
+}
+
+.checkin-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.checkin-btn {
+  background: #C41E3A;
+  border: #355E3B 1px solid;
+  font-size: 18px;
+}
+
+.col-sm-6 {
+  padding: 0 !important;
+}
+
+.col-sm {
+  padding: 0 !important;
+}
+
+.paddingless {
+  padding: 0 !important;
+}
+
+.snug-col {
+  display: flex;
+  align-items: center;
+}
+
+.flyer-col {
+  display: flex;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.responsive {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.photo-gallery {
+  text-align: center;
+}
+
+.container {
+  max-width: 100%;
+}
+
+.photo {
+}
+
+.form-title {
+  color: white;
+  padding: 20px 0;
+  width: auto;
+  text-align: center;
+  font-size: 4vw;
+  letter-spacing: 2.5vw;
+  text-transform: uppercase;
+}
+
+@include media-breakpoint-up(xs) {
+  .form-title {
+    font-size: 6vw;
+  }
+  .snug-col {
+    display: none;
+  }
+  .loose-col {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .form-title {
+    font-size: 4vw;
+  }
+  .snug-col {
+    display: none;
+  }
+  .loose-col {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .form-title {
+    font-size: 3vw;
+  }
+  .snug-col {
+    display: flex;
+  }
+  .loose-col {
+    display: none;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .form-title {
+    font-size: 3vw;
+  }
+  .snug-col {
+    display: flex;
+  }
+  .loose-col {
+    display: none;
+  }
+}
+
+.form-group label {
+  color: #5ca367 !important;
+}
+
+.form-check label {
+  color: #5ca367 !important;
+}
+
+input, select, textarea {
+  background-color: transparent;
+  color: white;
+  border:1px solid white;
+}
+
+input::placeholder, select::placeholder, textarea::placeholder {
+  color: white;
+  opacity: .5;
+}
+input:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: white;
+  opacity: .5;
+}
+input::-ms-input-placeholder, select::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  color: white;
+  opacity: .5;
+}
+
+input:focus, textarea:focus, select:focus {
+  background-color: transparent;
+  color: #5ca367;
+  outline: none !important;
+  border:1px solid #5ca367;
+  box-shadow: 0 0 10px #355E3B;
+}
+
+input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder {
+  color: #5ca367;
+}
+
+.required-asterisk {
+  color: #C41E3A;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  box-shadow: inset 6px 0px 0px -3px #5ca367;
+}
+
+.ng-invalid:not(form)  {
+  box-shadow: inset 6px 0px 0px -3px #C41E3A;
+}
+
+.submit-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.btn-submit {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.btn-submitted {
+  background: transparent;
+  color: #355E3B;
+  border: 1px solid #355E3B;
+}
+
+.btn-submit:hover {
+   opacity: .7;
+ }
+
+.submit-dialog {
+  border: 1px solid #355E3B;
+  color: #355E3B;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}

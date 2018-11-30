@@ -1,0 +1,106 @@
+@import "~bootstrap/scss/bootstrap-grid.scss";
+
+.wrapper {
+  background: linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)), url("/assets/crest.png") no-repeat;
+  background-size: auto auto;
+  background-clip: border-box;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-title {
+  padding: 20px 0;
+  width: auto;
+  text-align: center;
+  font-size: 3vw;
+  letter-spacing: 2vw;
+  text-transform: uppercase;
+}
+
+.recruitment-form {
+  margin: auto 0;
+}
+
+.form-group label {
+  color: #1a1a1a !important;
+}
+
+.form-check label {
+  color: #355E3B !important;
+}
+
+input, select, textarea {
+  background-color: white;
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+}
+
+input::placeholder, select::placeholder, textarea::placeholder {
+  color: #1a1a1a;
+  opacity: .5;
+}
+input:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #1a1a1a;
+  opacity: .5;
+}
+input::-ms-input-placeholder, select::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  color: #1a1a1a;
+  opacity: .5;
+}
+
+input:focus, textarea:focus, select:focus {
+  background-color: white;
+  color: #355E3B;
+  outline: none !important;
+  border:1px solid #355E3B;
+  box-shadow: 0 0 10px #355E3B;
+}
+
+input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder {
+  color: #355E3B;
+}
+
+.required-asterisk {
+  color: #C41E3A;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  box-shadow: inset 6px 0px 0px -3px #5ca367;
+}
+
+.ng-invalid:not(form)  {
+  box-shadow: inset 6px 0px 0px -3px #C41E3A;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+}
+
+.btn-submit {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  height: 36px;
+  line-height: 34px;
+  vertical-align: middle;
+  min-width: 80px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background: white;
+  cursor: pointer;
+}
+
+.btn-submit {
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+}
+
+.btn-submit:hover {
+  opacity: .7;
+}
