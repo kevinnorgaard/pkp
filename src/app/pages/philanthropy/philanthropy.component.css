@@ -1,0 +1,23 @@
+.wrapper {
+  position: relative;
+  padding-top: 66px;
+  padding-top: 50px;
+  height: 500px;
+  width: 100%;
+}
+p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 3vw;
+  letter-spacing: 2vw;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.instagram-media {
+  margin: 30px auto !important;
+}
+

@@ -2,16 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './app/header/header.component';
-import { FooterComponent } from './app/footer/footer.component';
-import { HomeComponent } from './app/pages/home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MembershipComponent } from './app/pages/membership/membership.component';
+import { MembershipComponent } from './pages/membership/membership.component';
 import { RouterModule, Routes} from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
-import { RecruitmentComponent } from './app/pages/recruitment/recruitment.component';
-import { ScholarshipComponent } from './app/pages/scholarship/scholarship.component';
-import { PhilanthropyComponent } from './app/pages/philanthropy/philanthropy.component';
+import { RecruitmentComponent } from './pages/recruitment/recruitment.component';
+import { ScholarshipComponent } from './pages/scholarship/scholarship.component';
+import { PhilanthropyComponent } from './pages/philanthropy/philanthropy.component';
 import { AngularFireModule } from 'angularfire2';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatDialogModule } from '@angular/material';
@@ -21,11 +21,11 @@ import { MatDialogModule } from '@angular/material';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {FormsModule} from '@angular/forms';
-import { AdminComponent } from './app/pages/admin/admin.component';
+import { AdminComponent } from './pages/admin/admin.component';
 import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
-import { CheckinDialogComponent } from './app/dialogs/checkin-dialog/checkin-dialog.component';
+import { CheckinDialogComponent } from './dialogs/checkin-dialog/checkin-dialog.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { AlumniComponent } from './app/pages/alumni/alumni.component';
+import { AlumniComponent } from './pages/alumni/alumni.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDU58QVVDyqn-448tPmYnC1xfP3l3G5s2c',

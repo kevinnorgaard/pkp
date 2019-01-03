@@ -1,0 +1,103 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding-top: 66px;
+  padding-bottom: 50px;
+  background: white;
+}
+
+.col-sm-6, .col-sm-3, .col-sm-4, .col {
+  padding: 0 !important;
+}
+
+.container {
+  max-width: 100% !important;
+}
+
+.first-row {
+  margin: 0 !important;
+}
+
+.donation-section {
+  margin: 0px 5px 5px 5px;
+  padding: 20px !important;
+  background: rgba(0,0,0,.1);
+  color: black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  align-items: center;
+  font-size: 20px;
+}
+
+.donation-section a {
+  color: rgb(206, 53, 97);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.donation-link {
+  background: rgb(206, 53, 97);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 20px;
+  color: black;
+  max-width: 250px;
+}
+
+.donation-img {
+  width: 150px;
+  height: 150px;
+  filter: brightness(0) invert(1);
+}
+
+.newsletter-section {
+  margin: 0px 5px 5px 5px;
+  padding: 20px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+}
+
+.newsletter-title {
+  letter-spacing: 2px;
+  font-size: 25px;
+  color: rgb(206, 53, 97);
+}
+
+.newsletter-submit-btn {
+  color: rgba(0,0,0,.4);
+  background: white;
+  border: rgba(0,0,0,.4) 1px solid;
+  border-radius: 4px;
+  padding: 10px;
+  min-width: 70px;
+}
+
+.instagram-media {
+  text-align: center !important;
+  margin: 30px auto !important;
+}
+
+.sticky-label {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 66px;
+  z-index: 1;
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  background: rgba(196, 30, 58,.8);
+}
+
+.container-title {
+  padding: 20px 0;
+  color: rgba(242, 242, 242, 1);
+  font-size: 5vw;
+  letter-spacing: 3vw;
+  text-transform: uppercase;
+  margin: 0 -15px;
+  width: auto;
+}
