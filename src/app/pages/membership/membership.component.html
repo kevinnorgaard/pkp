@@ -1,10 +1,10 @@
 <div class="wrapper">
   <div id="scroll-up-btn" (click)="scrollTop()"><i class="fa fa-arrow-up"></i></div>
-  <div class="exec-section container">
+  <div class="exec-section">
     <h2 class="container-title sticky-label">LEADERSHIP</h2>
-    <div class="row">
+    <div class="row section">
       <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let prof of profiles">
-        <div class="profile-container" *ngIf="prof.current || showAllLeaders">
+        <div class="profile-container">
           <div [ngClass]="prof.url ? 'clickable' : 'not-clickable'" (click)="openUrl(prof.url)" class="center-cropped">
             <img [src]="prof.img" class="profile-picture"
                  [alt]="prof.name + (prof.url ? ' LinkedIn' : '')"
@@ -21,23 +21,29 @@
         <button class="btn showall-btn">{{showAllLeadersText}}</button>
       </div>
     </div>
-    <div class="leadership-section">
-      <h2 class="leadership-container-title">On Campus</h2>
-      <table class="leadership-table">
-        <tr class="leadership-row" *ngFor="let leadership of previousLeadership">
-          <td class="leadership-year" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">{{leadership.year}}</td>
-          <td class="leadership-title" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">{{leadership.title}}</td>
-          <td class="leadership-recipient" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">{{leadership.recipient}}</td>
-        </tr>
-      </table>
-      <div class="showall-container" (click)="toggleShowAllOnCampus()">
-        <button class="btn showall-btn">{{showAllOnCampusText}}</button>
-      </div>
+    <h2 class="nonsticky-container-title">Brothers of 2018</h2>
+    <div class="section">
+      <img src="https://farm5.staticflickr.com/4808/46619241131_ad1071eec3_h.jpg"
+          class="img-fluid photo" alt=""
+          title=""/>
     </div>
   </div>
-  <div class="brotherhood-section container">
+  <div class="leadership-section">
+    <h2 class="container-title sticky-label">Involvement</h2>
+    <table class="leadership-table section">
+      <tr class="leadership-row" *ngFor="let leadership of previousLeadership">
+        <td class="leadership-year" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">{{leadership.year}}</td>
+        <td class="leadership-title" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">{{leadership.title}}</td>
+        <td class="leadership-recipient" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">{{leadership.recipient}}</td>
+      </tr>
+    </table>
+    <div class="showall-container" (click)="toggleShowAllOnCampus()">
+      <button class="btn showall-btn">{{showAllOnCampusText}}</button>
+    </div>
+  </div>
+  <div class="brotherhood-section">
     <h2 class="container-title sticky-label">Brotherhood</h2>
-    <div class="second-row row">
+    <div class="second-row row section">
       <div class="col-sm-6">
         <img src="https://farm2.staticflickr.com/1888/29647008067_f5ba0456db_c.jpg"
              class="photo img-fluid"
@@ -51,12 +57,12 @@
              title="Big Bear Brotherhood Winter 2017" />
       </div>
     </div>
-    <ul class="brotherhood-container row">
+    <ul class="brotherhood-container row section">
       <li class="col-sm-6 brotherhood-item" *ngFor="let brotherhood of brotherhoods">
         {{brotherhood}}
       </li>
     </ul>
-    <div class="third-row row">
+    <div class="third-row row section">
       <div class="col-sm-3">
         <img src="https://farm2.staticflickr.com/1842/43675735165_0ac6778852_c.jpg"
              class="photo img-fluid"

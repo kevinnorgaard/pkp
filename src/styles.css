@@ -3,7 +3,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .no-padding-dialog .mat-dialog-container {

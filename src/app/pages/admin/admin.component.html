@@ -1,57 +1,13 @@
 <div class="wrapper">
   <button class="btn name-btn" (click)="changeMode('rushee-profiles')">Rushee Profiles</button>
+  <button class="btn name-btn" (click)="changeMode('alumni-profiles')">Alumni Profiles</button>
   <button class="btn name-btn" (click)="changeMode('event-checkin')">Event Check-ins</button>
+
   <div class="admin-content">
-    <div class="scrollable-container" *ngIf="currentMode == 'rushee-profiles'">
-      <table>
-        <tr class="table-header-row">
-          <th (click)="orderRusheesByFirstName()">First Name ({{getRusheeTotal()}})</th>
-          <th (click)="orderRusheesByLastName()">Last Name ({{getRusheeTotal()}})</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th (click)="toggleCheckinOrder()">Check-ins</th>
-        </tr>
-        <tr *ngFor="let rushee of orderedRushees">
-          <td>
-            {{getFirstName(rushee[1])}}
-          </td>
-          <td>
-            {{getLastName(rushee[1])}}
-          </td>
-          <td>
-            {{forms.email[rushee[0]]}}
-          </td>
-          <td>
-            {{forms.phone[rushee[0]]}}
-          </td>
-          <td>
-            {{totalCheckins(rushee[0])}}
-          </td>
-        </tr>
-      </table>
-      <p class="emailString">{{getEmailString()}}</p>
-    </div>
-    <div class="scrollable-container" *ngIf="currentMode == 'event-checkin'">
-      <table>
-        <tr class="table-header-row">
-          <th>Name</th>
-          <th>M ({{getDayTotal(0)}})</th>
-          <th>T ({{getDayTotal(1)}})</th>
-          <th>W ({{getDayTotal(2)}})</th>
-          <th>Th ({{getDayTotal(3)}})</th>
-          <th>F ({{getDayTotal(4)}})</th>
-          <th>S ({{getDayTotal(5)}})</th>
-        </tr>
-        <tr *ngFor="let rushee of orderedRushees">
-          <td class="nowrap-cell">
-            {{rushee[1]}}
-          </td>
-          <td *ngFor="let date of rushDates">
-            <button [ngClass]="checkedIn(rushee[0])[date] ? 'checked-btn' : 'unchecked-btn'"
-                    (click)="onCheckin(rushee[0])"></button>
-          </td>
-        </tr>
-      </table>
-    </div>
+    <app-rushee-profiles *ngIf="currentMode == 'rushee-profiles'"></app-rushee-profiles>
+    <!-- ----------------------------------------------ALUMNI PROFILES----------------------------------------------- -->
+    
+    <!-- ----------------------------------------------EVENT CHECKINS----------------------------------------------- -->
+    <app-event-checkin *ngIf="currentMode == 'event-checkin'"></app-event-checkin>
   </div>
 </div>

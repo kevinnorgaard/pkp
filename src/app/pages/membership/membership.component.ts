@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 interface Profile {
-  current: boolean;
   img: string;
   name: string;
   position?: string;
@@ -25,7 +24,6 @@ interface Leadership {
 export class MembershipComponent implements OnInit {
   profiles: Profile[] = [
     {
-      current: true,
       img: 'https://farm2.staticflickr.com/1844/43621032114_db33bb9985_z.jpg',
       name: 'John Wahhab',
       position: 'President',
@@ -33,7 +31,6 @@ export class MembershipComponent implements OnInit {
       url: 'https://www.linkedin.com/in/johnwahhab/'
     },
     {
-      current: true,
       img: 'https://farm2.staticflickr.com/1878/44328616812_073f3d427a_m.jpg',
       name: 'Kevin Norgaard',
       position: 'Vice President',
@@ -42,7 +39,6 @@ export class MembershipComponent implements OnInit {
       url: 'https://www.linkedin.com/in/kevinnorgaard/'
     },
     {
-      current: true,
       img: 'https://farm2.staticflickr.com/1956/45640665651_537e557cd5_m.jpg',
       name: 'Batisse Kasanchi',
       position: 'Treasurer',
@@ -51,7 +47,6 @@ export class MembershipComponent implements OnInit {
       url: 'https://www.linkedin.com/in/batisse-kashanchi-810268173/'
     },
     {
-      current: true,
       img: 'https://farm2.staticflickr.com/1868/44387963562_fd2261f945.jpg',
       name: 'Milad Goodarzi',
       position: 'Corresponding Secretary',
@@ -60,7 +55,6 @@ export class MembershipComponent implements OnInit {
       url: 'https://www.linkedin.com/in/miladgoodarzi/'
     },
     {
-      current: true,
       img: 'https://farm5.staticflickr.com/4912/45787472611_e80ac55907_m.jpg',
       name: 'Brandon Brunckhorst',
       position: 'Recording Secretary',
@@ -68,79 +62,80 @@ export class MembershipComponent implements OnInit {
       url: 'https://www.linkedin.com/in/batisse-kashanchi-810268173/'
     },
     {
-      current: true,
       img: 'https://farm2.staticflickr.com/1852/30589115718_65946015b8_m.jpg',
       name: 'Kyle Yinger',
       position: 'Head Rush Chair',
-      positionAlt: 'Social Chair'
+      positionAlt: 'Social Chair',
+      prevPosition: 'Former Rush Chair',
+      url: 'https://www.linkedin.com/in/kyle-yinger/'
     },
     {
-      current: true,
+      img: 'https://farm2.staticflickr.com/1860/43660235354_d2f202309a_m.jpg',
+      name: 'Charles Harris',
+      position: 'Rush Chair',
+      positionAlt: 'Chaplain',
+      prevPosition: 'Former Recording Secretary',
+      url: 'https://www.linkedin.com/in/charles-harris-636488159/'
+    },
+    {
+      img: 'https://farm5.staticflickr.com/4811/31608600397_ef3cd04c67_m.jpg',
+      name: 'Jason Wilder',
+      position: 'Rush Chair',
+      positionAlt: 'Risk Management Chair',
+    },
+    {
       img: 'https://farm5.staticflickr.com/4884/45824923334_ab25f37de2_m.jpg',
       name: 'Ethan Joves',
       position: 'Historian',
-      url: ''
     },
     {
-      current: true,
-      img: 'https://farm2.staticflickr.com/1860/43660235354_d2f202309a_m.jpg',
-      name: 'Charles Harris',
-      position: 'Chaplain',
-      positionAlt: 'Rush Chair',
-      prevPosition: 'Former Recording Secretary',
-      url: ''
-    },
-    {
-      current: true,
       img: 'https://farm5.staticflickr.com/4839/32196784588_4e49ec62c4_m.jpg',
       name: 'Matthew Farfan',
       position: 'Sergeant at Arms'
     },
+    {
+      img: 'https://farm8.staticflickr.com/7837/31606058907_b58b0d670a_m.jpg',
+      name: 'Andrew Dertli',
+      position: 'Brotherhood Chair',
+      url: 'https://www.linkedin.com/in/andrew-dertli-597452175/'
+    },
     // {
-    //   current: true,
     //   img: '',
     //   name: 'Elijah Munck',
     //   position: 'Messenger',
     //   url: ''
     // },
     {
-      current: true,
-      img: 'https://farm8.staticflickr.com/7837/31606058907_b58b0d670a_m.jpg',
-      name: 'Andrew Dertli',
-      position: 'Brotherhood Chair',
-      url: 'https://www.linkedin.com/in/andrew-dertli-597452175/'
+      img: 'https://farm5.staticflickr.com/4842/32751579328_d2125dce9d_m.jpg',
+      name: 'Nima Altafi',
+      position: 'Philanthropy Chair',
+      url: 'https://www.linkedin.com/in/nima-altafi-a2159a160/'
     },
     {
-      current: true,
-      img: 'https://farm5.staticflickr.com/4811/31608600397_ef3cd04c67_m.jpg',
-      name: 'Jason Wilder',
-      position: 'Risk Management Chair',
-      positionAlt: 'Health & Wellness Chair',
-      url: ''
+      img: 'https://farm5.staticflickr.com/4835/45704863515_8fa35f5d7b_m.jpg',
+      name: 'Niklas Hammon',
+      position: 'Community Service Chair',
+      url: 'https://www.linkedin.com/in/niklas-hammon-9b0459155/'
     },
-    // {
-    //   current: true,
-    //   img: '',
-    //   name: 'Nima Altafi',
-    //   position: 'Philanthropy Chair',
-    //   url: ''
-    // },
     {
-      current: true,
       img: 'https://farm2.staticflickr.com/1894/29520553957_8d5ae8f878.jpg',
       name: 'Mitchell Neal',
       position: 'Scholarship Chair',
       url: 'https://www.linkedin.com/in/mitchell-neal-278a1516a/'
     },
     {
-      current: true,
       img: 'https://farm5.staticflickr.com/4816/32196784518_c36a014569_m.jpg',
       name: 'Richard Chen',
       position: 'Alumni Relations Chair',
       url: 'https://www.linkedin.com/in/raybenchen/'
     },
     {
-      current: true,
+      img: 'https://farm8.staticflickr.com/7874/45886012724_6359acb82e_m.jpg',
+      name: 'Rohan Hemrajani',
+      position: 'Finance Chair',
+      url: ''
+    },
+    {
       img: 'https://farm2.staticflickr.com/1975/44726692525_2b0375b04a_m.jpg',
       name: 'Jarod Robinson',
       position: 'Tech Chair',
@@ -148,40 +143,17 @@ export class MembershipComponent implements OnInit {
       url: 'https://www.linkedin.com/in/jarod-robinson-6b8926126/'
     },
     {
-      current: true,
       img: 'https://farm2.staticflickr.com/1953/43826212250_65d080bc67_m.jpg',
       name: 'Aaron Shaffer',
       position: 'Chapter Advisor',
       url: 'https://www.linkedin.com/in/aarons3/'
     },
     {
-      current: true,
       img: 'https://farm8.staticflickr.com/7924/45822469744_fffa13d527_m.jpg',
       name: 'Ian Delzer',
       position: 'Faculty Advisor',
       url: 'https://www.linkedin.com/in/ian-delzer-98000932/'
-    },
-    // Previous leaders who are still active members only
-    {
-      current: false,
-      img: 'https://farm2.staticflickr.com/1885/43660107444_41f39ba10e_m.jpg',
-      name: 'Owen Browne',
-      prevPosition: 'Former President',
-      prevPositionAlt: 'Former Treasurer'
-    },
-    {
-      current: false,
-      img: 'https://farm2.staticflickr.com/1895/43621032204_85cedf812d_m.jpg',
-      name: 'John Akinwole',
-      prevPosition: 'Former Vice President'
-    },
-    {
-      current: false,
-      img: 'https://farm2.staticflickr.com/1872/42628261940_c10f4e4cef.jpg',
-      name: 'Niklas Hammon',
-      prevPosition: 'Head Rush Chair',
-      url: 'https://www.linkedin.com/in/niklas-hammon-9b0459155/'
-    },
+    }
   ];
 
   previousLeadership: Leadership[] = [
@@ -199,6 +171,11 @@ export class MembershipComponent implements OnInit {
       year: 2019,
       title: 'IFC VP Fraternity Relations',
       recipient: 'Brandon Brunckhorst'
+    },
+    {
+      year: 2019,
+      title: 'Head of Chairs Board of Engineering Conference',
+      recipient: 'Niklas Hammon'
     },
     {
       year: 2018,
@@ -385,20 +362,19 @@ export class MembershipComponent implements OnInit {
   brotherhoods: string[] = [
     'Thanksgiving Brotherhood Dinner',
     'Annual Camping Trips',
-    'Annual Paintballing Trips',
+    'Observatory OC Concerts',
     'Angels & Lakers Game Brotherhood Events',
     'The ORIGINAL Fight Night',
     'Annual BP Tournament',
     'Brotherhood Poker Night',
     'Fruit Smash Brotherhood',
-    'Duck\'s Hockey Game',
     'Big Bear Cabin Trip'
   ];
 
   showAllLeaders = false;
   showAllLeadersText = 'Show Previous Positions';
   showAllOnCampus = false;
-  showAllOnCampusText = 'Show All Positions';
+  showAllOnCampusText = 'Show More';
 
   constructor() {
     let prevScrollpos = window.pageYOffset;
@@ -434,9 +410,9 @@ export class MembershipComponent implements OnInit {
   toggleShowAllOnCampus() {
     this.showAllOnCampus = !this.showAllOnCampus;
     if (this.showAllOnCampus) {
-      this.showAllOnCampusText = 'Hide All Positions';
+      this.showAllOnCampusText = 'Show Less';
     } else {
-      this.showAllOnCampusText = 'Show All Positions';
+      this.showAllOnCampusText = 'Show More';
     }
   }
 

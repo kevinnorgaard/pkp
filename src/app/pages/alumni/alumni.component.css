@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   padding-top: 66px;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
   background: white;
 }
 
@@ -10,17 +10,8 @@
   padding: 0 !important;
 }
 
-.container {
-  max-width: 100% !important;
-}
-
-.first-row {
-  margin: 0 !important;
-}
-
 .donation-section {
-  margin: 0px 5px 5px 5px;
-  padding: 20px !important;
+  padding: 20px 10px !important;
   background: rgba(0,0,0,.1);
   color: black;
   border-radius: 10px;
@@ -28,7 +19,7 @@
   flex-direction: column;
   align-content: space-around;
   align-items: center;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .donation-section a {
@@ -53,12 +44,11 @@
 }
 
 .newsletter-section {
-  margin: 0px 5px 5px 5px;
-  padding: 20px !important;
+  padding: 20px 10px !important;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .newsletter-title {
@@ -90,6 +80,7 @@
   text-transform: uppercase;
   text-align: center;
   background: rgba(196, 30, 58,.8);
+  margin: 0;
 }
 
 .container-title {
@@ -98,6 +89,17 @@
   font-size: 5vw;
   letter-spacing: 3vw;
   text-transform: uppercase;
-  margin: 0 -15px;
   width: auto;
+}
+
+@media (min-width: 1200px) {
+  .container-title {
+    font-size: 70px;
+    letter-spacing: 45px;
+  }
+}
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
 }

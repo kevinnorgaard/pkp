@@ -26,6 +26,9 @@ import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@ang
 import { CheckinDialogComponent } from './dialogs/checkin-dialog/checkin-dialog.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AlumniComponent } from './pages/alumni/alumni.component';
+import { RusheeProfilesComponent } from './pages/admin/rushee-profiles/rushee-profiles.component';
+import { AlumniProfilesComponent } from './pages/admin/alumni-profiles/alumni-profiles.component';
+import { EventCheckinComponent } from './pages/admin/event-checkin/event-checkin.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDU58QVVDyqn-448tPmYnC1xfP3l3G5s2c',
@@ -58,7 +61,10 @@ const routes: Routes = [
     PhilanthropyComponent,
     AdminComponent,
     CheckinDialogComponent,
-    AlumniComponent
+    AlumniComponent,
+    RusheeProfilesComponent,
+    AlumniProfilesComponent,
+    EventCheckinComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +79,7 @@ const routes: Routes = [
     AngularFireAuthModule,
     MatDialogModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   entryComponents: [CheckinDialogComponent],
   bootstrap: [AppComponent]
 })

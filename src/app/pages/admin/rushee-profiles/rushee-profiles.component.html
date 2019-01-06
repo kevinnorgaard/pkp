@@ -1,0 +1,19 @@
+<div class="scrollable-container">
+  <table>
+    <tr class="table-header-row">
+      <th (click)="orderRusheesByFirstName()">First Name ({{getRusheeTotal()}})</th>
+      <th (click)="orderRusheesByLastName()">Last Name ({{getRusheeTotal()}})</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th (click)="toggleCheckinOrder()">Check-ins</th>
+    </tr>
+    <tr *ngFor="let rushee of orderedRushees">
+      <td>{{getFirstName(rushee[1])}}</td>
+      <td>{{getLastName(rushee[1])}}</td>
+      <td>{{forms.email[rushee[0]]}}</td>
+      <td>{{forms.phone[rushee[0]]}}</td>
+      <td>{{totalCheckins(rushee[0])}}</td>
+    </tr>
+  </table>
+  <p class="emailString">{{getEmailString()}}</p>
+</div>
