@@ -1,13 +1,13 @@
 <div class="wrapper">
-  <button class="btn name-btn" (click)="changeMode('rushee-profiles')">Rushee Profiles</button>
-  <button class="btn name-btn" (click)="changeMode('alumni-profiles')">Alumni Profiles</button>
-  <button class="btn name-btn" (click)="changeMode('event-checkin')">Event Check-ins</button>
+  <div class="btn-container">
+    <button [ngStyle]="{'backgroundColor' : currentMode == 'rushee-profiles' ? 'rgba(0, 255, 204,0.3)' : 'white'}" class="btn rushee-profiles-btn" (click)="changeMode('rushee-profiles')">Rushee Profiles</button>
+    <button [ngStyle]="{'backgroundColor' : currentMode == 'event-checkin' ? 'rgba(0, 255, 204,0.3)' : 'white'}" class="btn event-checkin-btn" (click)="changeMode('event-checkin')">Event Check-ins</button>
+    <button [ngStyle]="{'backgroundColor' : currentMode == 'alumni-profiles' ? 'rgba(0, 255, 204,0.3)' : 'white'}" class="btn alumni-profiles-btn" (click)="changeMode('alumni-profiles')">Alumni Profiles</button>
+  </div>
 
   <div class="admin-content">
     <app-rushee-profiles *ngIf="currentMode == 'rushee-profiles'"></app-rushee-profiles>
-    <!-- ----------------------------------------------ALUMNI PROFILES----------------------------------------------- -->
-    
-    <!-- ----------------------------------------------EVENT CHECKINS----------------------------------------------- -->
     <app-event-checkin *ngIf="currentMode == 'event-checkin'"></app-event-checkin>
+    <app-alumni-profiles *ngIf="currentMode == 'alumni-profiles'"></app-alumni-profiles>
   </div>
 </div>

@@ -43,24 +43,25 @@ export class AlumniComponent {
   }
 
   onSubmit() {
+    if (this.invalid()) {
+      console.log('Invalid Form: Failed to save form to Firebase');
+      return;
+    }
     const updates = {};
     for (const item in JSON.parse(JSON.stringify(this.form))) {
       if (this.form[item] !== '') {
         updates['/alumni/' + item + '/' + this.form.fullName] = this.form[item];
-
-        console.log("item" +item);
-        console.log(this.form[item]);
       }
     }
-    // firebase.database().ref().update(updates, function(error) {
-    //   if (error) {
-    //     // The write failed...
-    //     console.log('Failed to save form to Firebase');
-    //   } else {
-    //     // Data saved successfully!
-    //     console.log('Successfully saved form to Firebase!');
-    //   }
-    // });
+    firebase.database().ref().update(updates, function(error) {
+      if (error) {
+        // The write failed...
+        console.log('Failed to save form to Firebase');
+      } else {
+        // Data saved successfully!
+        console.log('Successfully saved form to Firebase!');
+      }
+    });
     this.enabled = false;
     this.submitButtonMessage = 'Successfully enrolled!';
   }

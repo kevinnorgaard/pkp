@@ -93,6 +93,6 @@ export class RecruitmentComponent implements OnInit {
       } else {
         window.clearInterval(scrollToTop);
       }
-    }, 16);
+    }, 20);
   }
 }

@@ -124,7 +124,7 @@ export class EventCheckinComponent implements OnInit {
         console.log('Successfully saved form to Firebase!');
       }
     });
-    // setTimeout(() => this.loadDatabase(), 0);
+    setTimeout(() => this.loadDatabase(), 0);
   }
 
   getCurrentDate() {

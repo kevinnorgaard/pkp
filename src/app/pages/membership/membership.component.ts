@@ -94,17 +94,17 @@ export class MembershipComponent implements OnInit {
       position: 'Sergeant at Arms'
     },
     {
+      img: 'https://farm8.staticflickr.com/7823/46639984441_ab31980b7b_m.jpg',
+      name: 'Elijah Munck',
+      position: 'Messenger',
+      url: ''
+    },
+    {
       img: 'https://farm8.staticflickr.com/7837/31606058907_b58b0d670a_m.jpg',
       name: 'Andrew Dertli',
       position: 'Brotherhood Chair',
       url: 'https://www.linkedin.com/in/andrew-dertli-597452175/'
     },
-    // {
-    //   img: '',
-    //   name: 'Elijah Munck',
-    //   position: 'Messenger',
-    //   url: ''
-    // },
     {
       img: 'https://farm5.staticflickr.com/4842/32751579328_d2125dce9d_m.jpg',
       name: 'Nima Altafi',
@@ -135,13 +135,13 @@ export class MembershipComponent implements OnInit {
       position: 'Finance Chair',
       url: ''
     },
-    {
-      img: 'https://farm2.staticflickr.com/1975/44726692525_2b0375b04a_m.jpg',
-      name: 'Jarod Robinson',
-      position: 'Tech Chair',
-      prevPosition: 'Sports Chair',
-      url: 'https://www.linkedin.com/in/jarod-robinson-6b8926126/'
-    },
+    // {
+    //   img: 'https://farm2.staticflickr.com/1975/44726692525_2b0375b04a_m.jpg',
+    //   name: 'Jarod Robinson',
+    //   position: 'Tech Chair',
+    //   prevPosition: 'Sports Chair',
+    //   url: 'https://www.linkedin.com/in/jarod-robinson-6b8926126/'
+    // },
     {
       img: 'https://farm2.staticflickr.com/1953/43826212250_65d080bc67_m.jpg',
       name: 'Aaron Shaffer',

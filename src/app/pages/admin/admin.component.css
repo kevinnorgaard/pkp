@@ -3,14 +3,44 @@
   color: #1a1a1a;
   padding: 10px;
   padding-top: 66px;
-  padding-bottom: 80px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  position: sticky;
+  left: 0;
+  top: 66px;
+  right: 0;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 .btn {
   color: #1a1a1a;
   background-color: white;
   border-radius: 3px;
-  border: 1px solid #355E3B;
+  outline: none !important;
+}
+
+.rushee-profiles-btn {
+  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  border-left: none !important;
+  border-top: none !important;
+  border-right: none !important;
+}
+
+.event-checkin-btn {
+  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  border-left: none !important;
+  border-top: none !important;
+  border-right: none !important;
+}
+
+.alumni-profiles-btn {
+  border: none !important;
 }
 
 .admin-content {

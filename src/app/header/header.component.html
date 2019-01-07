@@ -1,17 +1,17 @@
 <div class="wrapper">
-  <nav class="navbar navbar-expand-md navbar-light bg-light sticky">
+  <nav class="navbar navbar-expand-md bg-light sticky">
     <a class="navbar-brand" href="#">
       <img class="nav-logo" src="/assets/crest.png"
            alt="Phi Kappa Psi Crest"/>
     </a>
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <i class="navbar-toggler-icon fa fa-bars"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
       <ul class="navbar-nav mr-auto" routerLinkActive="active">
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']">HOME <span class="sr-only">(current)</span></a>
+          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']">HOME</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['recruitment']">RUSH</a>

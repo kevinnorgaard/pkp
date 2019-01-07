@@ -3,6 +3,7 @@
   position: fixed;
   top: 0;
   z-index: 5;
+  border-bottom: 3px solid rgba(0,0,0,0.025);
 }
 
 nav {
@@ -22,6 +23,10 @@ nav li {
   flex: auto;
 }
 
+a {
+  color: rgba(0,0,0,0.2) !important;
+}
+
 .nav-item.active a {
   background: none !important;
 }
@@ -32,7 +37,13 @@ nav li {
 }
 
 .navbar-toggler {
-  outline-color: #355E3B;
+  outline: none !important;
+}
+
+.navbar-toggler-icon {
+  color: rgba(0,0,0,.5) !important;
+  font-size: 24px;
+  height: auto;
 }
 
 .nav-link {
@@ -42,26 +53,8 @@ nav li {
 }
 
 .active > a,
-.active > a:hover,
+a:hover,
 .active > a:focus {
   color: #355E3B !important;
   z-index: 20;
-}
-
-@include media-breakpoint-up(sm) {
-  .nav-link {
-    font-size: .9rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .nav-link {
-    font-size: .9rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .nav-link {
-    font-size: 1.2rem;
-  }
 }

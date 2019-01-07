@@ -2,17 +2,40 @@
   width: 100%;
   height: 100%;
   padding-top: 66px;
-  padding-bottom: 80px;
   background-color: white;
 }
 
 .section {
-  margin: 0 auto;
   max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(0,0,0,.025) !important;
+  padding: 10px;
+}
+
+.subsection {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: white;
+}
+
+.bottom-section {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.small-section {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .col-sm-6, .col-sm-3, .col-sm-4, .col {
   padding: 0 !important;
+}
+
+.row {
+  margin: auto !important;
+  max-width: 1200px;
 }
 
 #scroll-up-btn {
@@ -56,6 +79,7 @@
   text-transform: uppercase;
   text-align: center;
   background: rgba(196, 30, 58,.8);
+  border-bottom: 3px solid rgba(0,0,0,.2);
 }
 
 .exec-section {
@@ -65,7 +89,7 @@
 }
 
 .container-title {
-  padding: 20px 0;
+  padding: 15px 0;
   color: white;
   font-size: 5vw;
   letter-spacing: 3vw;
@@ -75,7 +99,7 @@
 }
 
 .nonsticky-container-title {
-  padding: 20px 0;
+  padding: 15px 0;
   color: black;
   font-size: 5vw;
   letter-spacing: 3vw;
@@ -84,10 +108,10 @@
   width: auto;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1200px) {
   .nonsticky-container-title, .container-title {
-    font-size: 70px;
-    letter-spacing: 45px;
+    font-size: 50px;
+    letter-spacing: 20px;
   }
 }
 
@@ -107,7 +131,7 @@
   overflow: hidden;
   border-radius: 80%;
   margin: 10px;
-  border: 3px solid rgba(0,0,0,.2);
+  border: 5px solid white;
 }
 
 .center-cropped .profile-picture {
@@ -143,13 +167,6 @@
   margin-bottom: 5px;
 }
 
-.leadership-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .leadership-row td {
   padding: 5px 10px;
 }
@@ -168,21 +185,28 @@
 }
 
 .brotherhood-section {
-  background-color: white;
+  background-color: rgba(0,0,0,.1) !important;
 }
 
 .brotherhood-container {
   list-style: none;
-  padding: 10px;
   display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+.brotherhood-list-item {
+  padding: 10px 5px;
 }
 
 .brotherhood-item {
   color: black;
-  padding: 10px !important;
-  text-align: center;
-  font-size: 16px;
+  padding: 10px 10px !important;
+  font-size: 14px;
   cursor: pointer;
+  background: white;
+  border-radius: 8px;
+  white-space: nowrap;
 }
 
 .brotherhood-item:hover {

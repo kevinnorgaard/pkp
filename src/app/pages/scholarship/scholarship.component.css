@@ -1,7 +1,6 @@
 .wrapper {
   position: relative;
   padding-top: 66px;
-  padding-bottom: 80px;
   height: 500px;
   width: 100%;
 }
@@ -13,7 +12,31 @@ p {
   color: black;
 
   font-size: 3vw;
-  letter-spacing: 2vw;
+  letter-spacing: .7vw;
   text-transform: uppercase;
   text-align: center;
+}
+
+#scroll-up-btn {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: transparent;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.fa {
+  -webkit-text-stroke-width: .1vw;
+  font-size: 5vw;
+}
+
+.fa-arrow-up {
+  color: white;
+  font-size: 30px !important;
+  padding: 10px;
+  background-color: rgba(0,0,0,.3);
+  border-radius: 50%;
 }

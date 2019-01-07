@@ -4,20 +4,37 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
 
+export class Forms {
+  name: any;
+  email: any;
+  phone: any;
+  year: any;
+  socialMedia?: any;
+  sports?: any;
+  cumGpa?: any;
+  prevGpa?: any;
+  major?: any;
+  minor?: any;
+  achievements?: any;
+  reasons?: any;
+  referral?: any;
+  notes?: any;
+}
+
 @Component({
   selector: 'app-rushee-profiles',
   templateUrl: './rushee-profiles.component.html',
   styleUrls: ['./rushee-profiles.component.css']
 })
-export class RusheeProfilesComponent implements OnInit {
-
+export class RusheeProfilesComponent {
+  removeBitmap = {};
   rushDates = [
     '2019-1-7',
     '2019-1-8',
     '2019-1-9',
     '2019-1-10'
   ];
-  forms: any;
+  forms: Forms;
   checkins: any;
   currentMode = '';
   orderedRushees: any[];
@@ -29,15 +46,20 @@ export class RusheeProfilesComponent implements OnInit {
     this.loadDatabase();
   }
 
-  ngOnInit() {
-  }
-
   loadDatabase() {
     return firebase.database().ref('/').once('value').then((snapshot) => {
       this.forms = snapshot.val() ? snapshot.val().forms : null;
       this.checkins = snapshot.val() ? snapshot.val().checkins : null;
       this.orderRusheesByFirstName();
+      if (this.forms.notes == null) {
+        this.forms.notes = {};
+      }
+      this.resetBitmap();
     });
+  }
+
+  resetBitmap() {
+    this.removeBitmap = {};
   }
 
   orderRusheesByFirstName() {
@@ -134,13 +156,19 @@ export class RusheeProfilesComponent implements OnInit {
   }
 
   getLastName(name: string) {
-    const index = name.indexOf(',');
-    return name.substring(0, index);
+    if (name != null) {
+      const index = name.indexOf(',');
+      return name.substring(0, index);
+    }
+    return '';
   }
 
   getFirstName(name: string) {
-    const index = name.indexOf(',');
-    return name.substring(index + 1);
+    if (name != null) {
+      const index = name.indexOf(',');
+      return name.substring(index + 1);
+    }
+    return '';
   }
 
   getRusheeTotal() {
@@ -152,7 +180,7 @@ export class RusheeProfilesComponent implements OnInit {
     let sum = 0;
     if (checkins) {
       for (const checkinKey of Object.keys(checkins)) {
-        sum = sum + (checkins[checkinKey] ? 1 : 0);
+        sum = sum + (checkins[checkinKey] && this.rushDates.indexOf(checkinKey) !== -1 ? 1 : 0);
       }
     }
     return sum;
@@ -163,5 +191,53 @@ export class RusheeProfilesComponent implements OnInit {
       return this.checkins[key] ? this.checkins[key] : null;
     }
     return null;
+  }
+
+  onSaveNote(key: string, note: any) {
+    const updates = {};
+    updates['/forms/notes/' + key] = note;
+    firebase.database().ref().update(updates, (error) => {
+      if (error) {
+        // The write failed...
+        console.log('Failed to save form to Firebase');
+      } else {
+        // Data saved successfully!
+        console.log('Successfully saved form to Firebase!');
+      }
+    });
+    setTimeout(() => this.loadDatabase(), 0);
+  }
+
+  onRemoveRushee(rushee: any) {
+    if (this.removeBitmap[rushee[0]] == null) {
+      this.removeBitmap[rushee[0]] = 1;
+      return;
+    }
+    const updates = {};
+    updates['/forms/phone/' + rushee[0]] = null;
+    updates['/forms/name/' + rushee[0]] = null;
+    updates['/forms/email/' + rushee[0]] = null;
+    updates['/forms/year/' + rushee[0]] = null;
+    updates['/forms/socialMedia/' + rushee[0]] = null;
+    updates['/forms/sports/' + rushee[0]] = null;
+    updates['/forms/cumGpa/' + rushee[0]] = null;
+    updates['/forms/prevGpa/' + rushee[0]] = null;
+    updates['/forms/major/' + rushee[0]] = null;
+    updates['/forms/minor/' + rushee[0]] = null;
+    updates['/forms/achievements/' + rushee[0]] = null;
+    updates['/forms/reasons/' + rushee[0]] = null;
+    updates['/forms/referral/' + rushee[0]] = null;
+    updates['/forms/notes/' + rushee[0]] = null;
+    firebase.database().ref().update(updates, (error) => {
+      if (error) {
+        // The write failed...
+        console.log('Failed to save form to Firebase');
+      } else {
+        // Data saved successfully!
+        console.log('Successfully saved form to Firebase!');
+      }
+    });
+    this.resetBitmap();
+    setTimeout(() => this.loadDatabase(), 0);
   }
 }

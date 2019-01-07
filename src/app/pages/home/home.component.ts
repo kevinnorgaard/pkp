@@ -53,6 +53,6 @@ export class HomeComponent {
       } else {
         window.clearInterval(scrollToTop);
       }
-    }, 16);
+    }, 20);
   }
 }

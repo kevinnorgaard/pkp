@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  currentMode = '';
+  currentMode = 'rushee-profiles';
 
   changeMode(mode: string) {
     this.currentMode = mode;
