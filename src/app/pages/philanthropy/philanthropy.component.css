@@ -9,7 +9,7 @@ p {
 }
 
 a {
-  color: green;
+  color: rgb(206, 53, 97);
 }
 
 #scroll-up-btn {
@@ -60,14 +60,14 @@ a {
 }
 
 .description {
-  padding: 20px 20px;
+  padding: 20px;
   font-size: 16px;
   background: white;
 }
 
-.nonsticky-container-title {
+.sticky-container-title {
   padding: 15px 0;
-  color: rgba(0,0,0,.8);
+  color: rgba(0,0,0,.5);
   font-size: 4vw;
   letter-spacing: .9vw;
   margin: 0;
@@ -76,7 +76,7 @@ a {
   position: sticky;
   top: 66px;
   z-index: 1;
-  background: rgba(255,255,255,.8);
+  background: rgba(255,255,255,.9);
   border-bottom: 3px solid rgba(0,0,0,.025)
 }
 
@@ -91,7 +91,7 @@ a {
 }
 
 @media (min-width: 1200px) {
-  .nonsticky-container-title {
+  .sticky-container-title {
     font-size: 48px;
     letter-spacing: 11px;
   }

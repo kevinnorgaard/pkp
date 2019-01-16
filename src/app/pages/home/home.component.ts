@@ -10,19 +10,9 @@ export class HomeComponent {
   knocksLeft = 3;
   unleashed = false;
   password: string;
+  videoSource = '/assets/flag.mp4';
 
-  constructor(private router: Router) {
-    let prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-      const currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementById('scroll-up-btn').style.visibility = 'hidden';
-      } else {
-        document.getElementById('scroll-up-btn').style.visibility = 'visible';
-      }
-      prevScrollpos = currentScrollPos;
-    };
-  }
+  constructor(private router: Router) {}
 
   knock() {
     this.knocksLeft = this.knocksLeft - 1;
@@ -43,16 +33,5 @@ export class HomeComponent {
     }, err => {
       console.log(err); // when there's an error
     });
-  }
-
-  scrollTop() {
-    const scrollToTop = window.setInterval(() => {
-      const pos = window.pageYOffset;
-      if (pos > 0) {
-        window.scrollTo(0, pos - 50); // how far to scroll on each step
-      } else {
-        window.clearInterval(scrollToTop);
-      }
-    }, 20);
   }
 }

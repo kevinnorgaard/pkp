@@ -14,6 +14,7 @@ import {Observable} from 'rxjs';
 export class CheckinDialogComponent implements OnInit {
   user: Observable<firebase.User>;
 
+  checkins: any;
   enabled = true;
   lastName: string;
   firstName: string;
@@ -35,6 +36,17 @@ export class CheckinDialogComponent implements OnInit {
     updates['/forms/name/' + this.form.phone] = this.lastName + ', ' + this.firstName;
     updates['/forms/email/' + this.form.phone] = this.form.email;
     updates['/forms/phone/' + this.form.phone] = this.form.phone;
+    const currentDate = this.getCurrentDate();
+    let newVal;
+    if (this.getCheckins(this.form.phone)) {
+      newVal = this.getCheckins(this.form.phone)[currentDate] != null ? !this.getCheckins(this.form.phone)[currentDate] : true;
+      updates['/checkins/' + this.form.phone + '/' + currentDate] = newVal;
+    } else {
+      const newCheckin = {};
+      newCheckin[currentDate] = true;
+      updates['/checkins/' + this.form.phone] = newCheckin;
+    }
+
     firebase.database().ref().update(updates, function(error) {
       if (error) {
         // The write failed...
@@ -52,5 +64,19 @@ export class CheckinDialogComponent implements OnInit {
     this.form = new Form('', '', '');
     this.firstName = '';
     this.lastName = '';
+  }
+
+  getCheckins(key: string) {
+    if (this.checkins) {
+      return this.checkins[key] ? this.checkins[key] : null;
+    }
+    return null;
+  }
+
+  getCurrentDate() {
+    const currentDate = new Date();
+    const dateString = currentDate.toLocaleDateString();
+    const dateStringList = dateString.split('/');
+    return dateStringList[2] + '-' + dateStringList[0] + '-' + dateStringList[1];
   }
 }

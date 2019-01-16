@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div id="scroll-up-btn" (click)="scrollTop()"><i class="fa fa-arrow-up"></i></div>
   <div class="exec-section">
-    <h2 class="container-title sticky-label">LEADERSHIP</h2>
+    <h2 class="sticky-container-title">Leadership</h2>
     <div class="row section">
       <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let prof of profiles">
         <div class="profile-container">
@@ -17,11 +17,13 @@
           <p class="previous-position" *ngIf="prof.prevPositionAlt  && showAllLeaders">{{prof.prevPositionAlt}}</p>
         </div>
       </div>
+      <div class="showall-container" (click)="toggleShowAllLeaders()">
+        <button class="btn showall-btn">{{showAllLeadersText}}</button>
+      </div>
     </div>
-    <div class="showall-container" (click)="toggleShowAllLeaders()">
-      <button class="btn showall-btn">{{showAllLeadersText}}</button>
-    </div>
-    <h2 class="nonsticky-container-title">Brothers of 2018</h2>
+  </div>
+  <div>
+    <h2 class="sticky-container-title">Brothers of 2018</h2>
     <div class="section">
       <div class="subsection">
         <img src="https://farm5.staticflickr.com/4808/46619241131_ad1071eec3_h.jpg"
@@ -31,7 +33,7 @@
     </div>
   </div>
   <div class="leadership-section">
-    <h2 class="container-title sticky-label">Leaders of UCI</h2>
+    <h2 class="sticky-container-title">Leaders of UCI</h2>
     <div class="section">
       <table class="leadership-table subsection">
         <tr class="leadership-row" *ngFor="let leadership of previousLeadership">
@@ -46,7 +48,7 @@
     </div>
   </div>
   <div>
-    <h2 class="container-title sticky-label">Brotherhood</h2>
+    <h2 class="sticky-container-title">Brotherhood</h2>
     <div class="second-row row brotherhood-section section">
       <div class="col-sm-6">
         <img src="https://farm2.staticflickr.com/1888/29647008067_f5ba0456db_c.jpg"
@@ -64,9 +66,7 @@
     <div class="section brotherhood-section row">
       <ul class="brotherhood-container">
         <div class="brotherhood-list-item" *ngFor="let brotherhood of brotherhoods">
-          <li class="col brotherhood-item">
-            {{brotherhood}}
-          </li>
+          <li class="col brotherhood-item">{{brotherhood}}</li>
         </div>
       </ul>
     </div>

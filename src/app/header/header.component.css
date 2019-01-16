@@ -3,13 +3,12 @@
   position: fixed;
   top: 0;
   z-index: 5;
-  border-bottom: 3px solid rgba(0,0,0,0.025);
+  border-bottom: 2px solid rgba(179, 179, 179, .3);
 }
 
 nav {
-  /* background: #1a1a1a !important; */
-  background: white !important;
   box-shadow: none;
+  z-index: 20;
 }
 
 nav ul {
@@ -24,11 +23,7 @@ nav li {
 }
 
 a {
-  color: rgba(0,0,0,0.2) !important;
-}
-
-.nav-item.active a {
-  background: none !important;
+  color: #a6a6a6;
 }
 
 .nav-logo {
@@ -41,7 +36,7 @@ a {
 }
 
 .navbar-toggler-icon {
-  color: rgba(0,0,0,.5) !important;
+  color: #a6a6a6;
   font-size: 24px;
   height: auto;
 }
@@ -55,6 +50,6 @@ a {
 .active > a,
 a:hover,
 .active > a:focus {
-  color: #355E3B !important;
-  z-index: 20;
+  color: rgb(206, 53, 97) !important;
+  font-weight: 800;
 }

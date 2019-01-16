@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 declare var $: any;
 
@@ -7,8 +7,8 @@ declare var $: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-
+export class HeaderComponent {
+  @Input() headerDisplay: boolean;
   isCollapsed = true;
 
   constructor() {
@@ -21,8 +21,4 @@ export class HeaderComponent implements OnInit {
       $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
     });
   }
-
-  ngOnInit() {
-  }
-
 }

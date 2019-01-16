@@ -33,6 +33,34 @@
   margin: 0 auto;
 }
 
+.description {
+  padding: 20px;
+  font-size: 16px;
+  background: white;
+}
+
+.sticky-container-title {
+  padding: 15px 0;
+  color: rgba(0,0,0,.5);
+  font-size: 4vw;
+  letter-spacing: .9vw;
+  margin: 0;
+  width: auto;
+  text-align: center;
+  position: sticky;
+  top: 66px;
+  z-index: 1;
+  background: rgba(255,255,255,.9);
+  border-bottom: 3px solid rgba(0,0,0,.025)
+}
+
+@media (min-width: 1200px) {
+  .sticky-container-title {
+    font-size: 48px;
+    letter-spacing: 11px;
+  }
+}
+
 #scroll-up-btn {
   width: 30px;
   height: 30px;
@@ -77,8 +105,8 @@
 .donation-link {
   background: rgb(206, 53, 97);
   margin: 10px 0;
-  padding: 10px;
-  border-radius: 20px;
+  padding: 20px;
+  border-radius: 50%;
   color: black;
   max-width: 250px;
 }
@@ -86,7 +114,7 @@
 .donation-description {
   background: white;
   padding: 20px 10px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .donation-img {
