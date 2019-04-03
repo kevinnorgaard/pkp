@@ -1,0 +1,90 @@
+<table id="wrapper">
+  <div class="goal-container">
+    <span class="goal">{{total}}</span> raised out of <span class="goal">{{goal}}</span>
+  </div>
+
+  <div *ngIf="!emailSubmitted" class="input-group mb-3">
+    <input required [(ngModel)]="donation.email" type="email" class="form-control" name="email" id="email" placeholder="example@uci.edu">
+    <div class="input-group-append">
+      <button (click)="onSubmitEmail()" class="input-group-text email-btn" id="basic-addon2">Donate ❤️</button>
+    </div>
+  </div>
+  <div id="donation-section" class="mb-3" *ngIf="emailSubmitted && !donationSubmitted">
+    <form #donationForm="ngForm">
+      <div class="row">
+        <div class="col form-group">
+          <label>First Name <span class="required-asterisk">*</span></label>
+          <input required [(ngModel)]="firstName" type="text" class="form-control" name="firstName" id="firstName" placeholder="First name">
+        </div>
+        <div class="col form-group">
+          <label>Last Name <span class="required-asterisk">*</span></label>
+          <input required [(ngModel)]="lastName" type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="amount">Amount <span class="required-asterisk">*</span></label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input required [(ngModel)]="donation.amount" type="text" name="amount" class="form-control" aria-label="Amount" placeholder="10.00">
+          </div>
+        </div>
+        <div class="col form-group">
+          <label for="affiliation">Affiliation</label>
+          <select required [(ngModel)]="donation.affiliation" class="form-control" name="affiliation" id="affiliation">
+            <option selected value="None">None</option>
+            <option value="Alpha Phi">Alpha Phi</option>
+            <option value="Delta Gamma">Delta Gamma</option>
+            <option value="Pi Phi">Pi Phi</option>
+          </select>
+        </div>
+      </div>
+      <p id="paypal-btn">-- paypal shit here --</p>
+      <div class="row">
+        <div class="col form-group">
+          <label>Leave a comment<span class="required-asterisk"></span></label>
+          <textarea required [(ngModel)]="donation.comment" type="text" class="form-control" name="comment" id="comment" placeholder="I donated because..."></textarea>
+        </div>
+      </div>
+      <div id="donate-btn-container">
+        <button (click)="onDonate()"
+          type="submit" class="donate-btn" [disabled]="invalid()">Donate</button>
+      </div>
+    </form>
+  </div>
+  <div id="thankyou-section" *ngIf="donationSubmitted">
+    <p id="thankyou-message">
+        Thank you so much for your donation! Every cent goes towards support for the youth at Boys & Girls Club Santa Ana!
+    </p>
+  </div>
+  <div id="btn-container">
+      <button id="individuals-btn" (click)="selectViewMode('individuals')"
+        [ngStyle]="{'background': viewMode === 'individuals' ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,.1)',
+                    'color': viewMode === 'individuals' ? 'black' : 'grey'}">Individuals</button>
+      <button id="organizations-btn" (click)="selectViewMode('organizations')"
+        [ngStyle]="{'background': viewMode === 'organizations' ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,.1)',
+                    'color': viewMode === 'organizations' ? 'black' : 'grey'}">Organizations</button>
+    </div>
+  <div *ngIf="viewMode === 'individuals'">
+    <tr *ngFor="let donation of individuals" class="donation">
+      <td class="individual-container">
+        <div class="name">{{donation.name}}</div>
+        <div class="affiliation">{{donation.affiliation}}</div>
+      </td>
+      <td class="amount">${{donation.amount}}</td>
+      <td class="comment-container">
+        <div class="comment">{{donation.comment}}</div>
+        <div class="time">{{getTime()}}</div>
+      </td>
+    </tr>
+  </div>
+  <div *ngIf="viewMode === 'organizations'">
+      <tr *ngFor="let donation of organizations; let i = index" class="donation">
+        <td [ngStyle]="{'color': i == 0 ? 'green' : 'black'}" class="name">{{i+1}}</td>
+        <td [ngStyle]="{'color': i == 0 ? 'green' : 'black'}" class="name">{{donation.name}}</td>
+        <td [ngStyle]="{'color': i == 0 ? 'green' : 'black'}" class="amount">${{donation.amount}}</td>
+      </tr>
+    </div>
+</table>
