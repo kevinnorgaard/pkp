@@ -41,7 +41,6 @@
           </select>
         </div>
       </div>
-      <p id="paypal-btn">-- paypal shit here --</p>
       <div class="row">
         <div class="col form-group">
           <label>Leave a comment<span class="required-asterisk"></span></label>
@@ -53,6 +52,15 @@
           type="submit" class="donate-btn" [disabled]="invalid()">Donate</button>
       </div>
     </form>
+    <form #paypalbtn id="paypal-btn" action="https://www.paypal.com/cgi-bin/webscr" method="POST" target="_blank">
+      <input type="hidden" name="cmd" value="_donations" />
+      <input type="hidden" name="business" value="GWQPPHJ7RAWZ8" />
+      <input type="hidden" name="currency_code" value="USD" />
+      <input name="amount" value="100" />
+      <input (click)="paypal()" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+      <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+    </form>
+
   </div>
   <div id="thankyou-section" *ngIf="donationSubmitted">
     <p id="thankyou-message">

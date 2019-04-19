@@ -1,20 +1,6 @@
 .wrapper {
-  position: relative;
   padding-top: 66px;
-  height: 500px;
   width: 100%;
-}
-p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
-
-  font-size: 3vw;
-  letter-spacing: .7vw;
-  text-transform: uppercase;
-  text-align: center;
 }
 
 #scroll-up-btn {
@@ -28,6 +14,10 @@ p {
   cursor: pointer;
 }
 
+a {
+  color: rgb(206, 53, 97);
+}
+
 .fa {
   -webkit-text-stroke-width: .1vw;
   font-size: 5vw;
@@ -39,4 +29,47 @@ p {
   padding: 10px;
   background-color: rgba(0,0,0,.3);
   border-radius: 50%;
+}
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(0,0,0,.025) !important;
+  padding: 10px;
+}
+
+.subsection {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+}
+
+.heading {
+  font-size: 6vw;
+  letter-spacing: 1.2vw;
+  width: 100%;
+  height: auto;
+  padding-bottom: 10px;
+  color: rgba(0,0,0,0.7);
+}
+
+@media (min-width: 576px) {
+  .heading {
+    font-size: 5vw;
+    letter-spacing: 1vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 4vw;
+    letter-spacing: .8vw;
+  }
+}
+
+@media (min-width: 800px) {
+  .heading {
+    font-size: 35px;
+    letter-spacing: 7px;
+  }
 }

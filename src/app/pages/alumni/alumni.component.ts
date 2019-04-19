@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material';
+import { Component } from '@angular/core';
+import {MatDialog } from '@angular/material';
 import { Observable } from 'rxjs';
-import { Form } from '../recruitment/form.model';
 import * as firebase from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 export class Alumni {
   public constructor(

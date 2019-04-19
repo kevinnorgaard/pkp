@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { Donation } from './donation.model';
 import * as firebase from 'firebase/app';
@@ -67,6 +67,16 @@ export class BulletinComponent implements OnInit {
 
   onSubmitEmail() {
     this.emailSubmitted = true;
+  }
+
+  paypal() {
+    let form = document.createElement('paypal-btn');
+    form.action = 'https://www.paypal.com/cgi-bin/webscr';
+    form.method = 'POST';
+    form.innerHTML = '<input name="q" value="test">';
+    // the form must be in the document to submit it
+    document.body.append(form);
+    form.submit();
   }
 
   onDonate() {

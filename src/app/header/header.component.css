@@ -2,8 +2,8 @@
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 5;
-  border-bottom: 2px solid rgba(179, 179, 179, .3);
+  z-index: 10;
+  border-bottom: 1px solid rgba(179, 179, 179, .3);
 }
 
 nav {
@@ -50,6 +50,6 @@ a {
 .active > a,
 a:hover,
 .active > a:focus {
-  color: rgb(206, 53, 97) !important;
+  color: #C41E3A !important;
   font-weight: 800;
 }

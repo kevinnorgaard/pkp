@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -12,32 +13,24 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecruitmentComponent } from './pages/recruitment/recruitment.component';
 import { ScholarshipComponent } from './pages/scholarship/scholarship.component';
 import { PhilanthropyComponent } from './pages/philanthropy/philanthropy.component';
-import { AngularFireModule } from 'angularfire2';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatDialogModule } from '@angular/material';
 
-
-// New imports to update based on AngularFire2 version 4
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './pages/admin/admin.component';
-import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { CheckinDialogComponent } from './dialogs/checkin-dialog/checkin-dialog.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlumniComponent } from './pages/alumni/alumni.component';
 import { RusheeProfilesComponent } from './pages/admin/rushee-profiles/rushee-profiles.component';
 import { AlumniProfilesComponent } from './pages/admin/alumni-profiles/alumni-profiles.component';
 import { EventCheckinComponent } from './pages/admin/event-checkin/event-checkin.component';
-
-export const firebaseConfig = {
-  apiKey: 'AIzaSyDU58QVVDyqn-448tPmYnC1xfP3l3G5s2c',
-  authDomain: 'pkp-website.firebaseapp.com',
-  databaseURL: 'https://pkp-website.firebaseio.com',
-  projectId: 'pkp-website',
-  storageBucket: 'pkp-website.appspot.com',
-  messagingSenderId: '863629223084'
-};
+import { BulletinComponent } from './bulletin/bulletin.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -64,7 +57,8 @@ const routes: Routes = [
     AlumniComponent,
     RusheeProfilesComponent,
     AlumniProfilesComponent,
-    EventCheckinComponent
+    EventCheckinComponent,
+    BulletinComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +68,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {useHash: false}),
     NgbCollapseModule,
     MDBBootstrapModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     MatDialogModule

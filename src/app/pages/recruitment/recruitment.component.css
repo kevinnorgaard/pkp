@@ -244,8 +244,8 @@ input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder
 
 .btn-submit {
   background: transparent;
-  color: grey;
-  border: 1px solid grey;
+  color: black;
+  border: 1px solid black;
   margin-left: 10px;
   margin-bottom: 10px;
 }

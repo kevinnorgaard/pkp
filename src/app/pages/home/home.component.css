@@ -5,8 +5,7 @@
 }
 
 hr {
-  border-top: 2px solid rgb(206, 53, 97);
-  border-bottom: 2px solid rgba(179, 179, 179, .3);;
+  border-top: 2px solid #C41E3A;
   width: 75%;
   margin: 0;
 }
@@ -48,8 +47,8 @@ hr {
 
 .fa {
   color: #a6a6a6;
-  padding: 0 10px;
-  font-size: 30px;
+  padding: 0 12px;
+  font-size: 24px;
 }
 
 .icon-bar {
@@ -202,10 +201,8 @@ hr {
 .sticky-label {
   z-index: 1;
   width: 100%;
-  color: rgb(206, 53, 97);
-  -webkit-text-fill-color: rgb(206, 53, 97);
-  /* -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black; */
+  color: #C41E3A;
+  -webkit-text-fill-color: #C41E3A;
   font-size: 5.5vw;
   letter-spacing: 3vw;
   text-align: center;
@@ -215,10 +212,8 @@ hr {
 .sticky-sublabel {
   z-index: 1;
   width: 100%;
-  color: rgb(206, 53, 97);
-  -webkit-text-fill-color: rgb(206, 53, 97);
-  /* -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black; */
+  color: #C41E3A;
+  -webkit-text-fill-color: #C41E3A;
   font-size: 4.5vw;
   letter-spacing: 2.2vw;
   text-align: center;
@@ -226,7 +221,7 @@ hr {
 }
 
 .less-letter-spacing {
-  letter-spacing: 1.1vw !important;
+  letter-spacing: .5vw !important;
   margin-bottom: 0;
   color: #a6a6a6;
   -webkit-text-fill-color: #a6a6a6;
@@ -336,10 +331,8 @@ hr {
   .sticky-label {
     z-index: 1;
     width: 100%;
-    color: rgb(206, 53, 97);
-    /* -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #a6a6a6; */
-    -webkit-text-fill-color: rgb(206, 53, 97);
+    color: #C41E3A;
+    -webkit-text-fill-color: #C41E3A;
     font-size: 70px;
     letter-spacing: 40px;
     text-align: center;
@@ -348,16 +341,14 @@ hr {
   .sticky-sublabel {
     z-index: 1;
     width: 100%;
-    color: rgb(206, 53, 97);
-    -webkit-text-fill-color: rgb(206, 53, 97);
-    /* -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #a6a6a6; */
+    color: #C41E3A;
+    -webkit-text-fill-color: #C41E3A;
     font-size: 57px;
     letter-spacing: 32px;
     text-align: center;
   }
   .less-letter-spacing {
-    letter-spacing: 16px !important;
+    letter-spacing: 7px !important;
     color: #a6a6a6;
     -webkit-text-fill-color: #a6a6a6;
   }
@@ -367,8 +358,11 @@ hr {
   .content-container, .boring-section {
     padding-top: 0px !important;
   }
+  .boring-section {
+    padding-bottom: 0px !important;
+  }
 }
 
 .fa:focus, .fa:hover {
-  color: rgb(206, 53, 97);
+  color: #C41E3A;
 }
