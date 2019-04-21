@@ -14,9 +14,6 @@
           <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']">HOME</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['philanthropy']">PHILANTHROPY</a>
-        </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['membership']">MEET THE BROS</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
@@ -26,8 +23,11 @@
           <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['scholarship']">SCHOLARSHIP</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['recruitment']">RUSH</a>
+            <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['recruitment']">RUSH</a>
         </li>
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['home']">ABOUT US</a>
+          </li>
       </ul>
     </div>
   </nav>

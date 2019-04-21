@@ -12,6 +12,23 @@
   margin: 0;
 }
 
+.form-group {
+  margin: 10px 0 0 0;
+}
+
+.progress {
+  width: 400px;
+  margin: 10px;
+}
+
+.progress-bar {
+  background: green;
+}
+
+.form-control:disabled {
+  background: rgba(255, 255, 255, 0.308);
+}
+
 #title {
   font-size: 36px;
   letter-spacing: 9px;
@@ -20,9 +37,14 @@
   color: rgba(0,0,0,.5);
 }
 
+.required-asterisk {
+  color: red;
+}
+
 .goal-container {
   padding: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
@@ -33,6 +55,11 @@
   font-size: 24px;
   color: green;
   padding: 10px;
+}
+
+#welcomeback {
+  color: #ccad00;
+  padding: 0 20px;
 }
 
 .input-group {
@@ -46,6 +73,11 @@
 .email-btn {
   outline: none;
   padding: 3px 8px 3px 12px;
+  cursor: pointer;
+}
+
+.email-btn:disabled {
+  cursor: default;
 }
 
 #btn-container {
@@ -54,12 +86,42 @@
   margin-bottom: 10px;
 }
 
+.amount-row {
+  background: gold;
+  padding-bottom: 10px;
+  margin: 10px auto 0 auto;
+  border-radius: 5px;
+}
+
+#paypal-container {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#paypal-thankyou {
+  padding: 10px 0 0 10px;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#paypal-amount {
+  padding: 7px 7px;
+  background: rgba(255, 255, 255, 0.308);
+  color: rgba(0,0,0,0.7);
+  border-radius: 5px;
+  text-align: center;
+  margin: 0;
+}
+
 #organizations-btn, #individuals-btn {
-  padding: 4px 10px;
+  padding: 4px 20px;
   font-size: 16px;
   outline: none;
   border: none;
   background: rgba(0,0,0,0);
+  cursor: pointer;
 }
 
 #organizations-btn:active, #individuals-btn:active {
@@ -75,6 +137,9 @@
 
 .donation {
   border-bottom: solid 1px lightgrey;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .individual-container {
@@ -84,43 +149,52 @@
   justify-content: center;
 }
 
-@media (max-width: 500px) {
-  .individual-container {
-    min-width: 40px;
-  }
-}
-
-.affiliation, .amount, .comment, .time {
-  padding: 10px;
-}
-
 .name {
   padding: 10px 0 10px 10px;
   font-size: 16px;
   font-weight: 800;
   letter-spacing: 1px;
+  vertical-align: middle;
+}
+
+.form-check-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .affiliation {
+  padding: 10px;
   font-size: 14px;
   font-weight: 700;
   color: grey;
 }
 
 .amount {
+  padding: 12px 10px;
   font-size: 16px;
   color: green;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .comment-container {
+  padding: 12px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 200px;
+  height: 100%;
+  width: 100%;
+  align-self: flex-end;
 }
 
 .comment {
   font-size: 14px;
+  letter-spacing: 1px;
+  color: rgba(0,0,0,0.7);
+  font-weight: 600;
+  padding-bottom: 20px;
 }
 
 .time {
@@ -141,7 +215,7 @@
   justify-content: flex-end;
 }
 
-.donate-btn {
+.donate-btn, .donate-btn-disabled {
   min-width: 80px;
   color: white;
   margin-top: 10px;
@@ -149,10 +223,17 @@
   margin-right: 15px;
   border: none;
   border-radius: 5px;
-  background: none;
-  padding: 5px 12px 5px 12px;
+  padding: 7px 20px;
   outline: none;
-  background-image: linear-gradient(#C51104, #FF4013);
+}
+
+.donate-btn {
+  background: gold;
+  cursor: pointer;
+}
+
+.donate-btn-disabled {
+  background: lightgrey;
 }
 
 #thankyou-section {
@@ -172,3 +253,16 @@
   margin: 0;
 }
 
+@media (max-width: 500px) {
+  .individual-container {
+    min-width: 0;
+    width: 120px;
+  }
+  .comment-container{
+    min-width: 45%;
+    max-width: 55%;
+  }
+  .progress {
+    width: 300px;
+  }
+}

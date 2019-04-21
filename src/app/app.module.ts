@@ -33,12 +33,12 @@ import { EventCheckinComponent } from './pages/admin/event-checkin/event-checkin
 import { BulletinComponent } from './bulletin/bulletin.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: PhilanthropyComponent },
   { path: 'membership', component: MembershipComponent },
   { path: 'recruitment', component: RecruitmentComponent },
   { path: 'alumni', component: AlumniComponent },
   { path: 'scholarship', component: ScholarshipComponent },
-  { path: 'philanthropy', component: PhilanthropyComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'admin', component: AdminComponent }
 ];
 
