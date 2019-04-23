@@ -4,6 +4,78 @@
   width: 100%;
 }
 
+/* --------------------News Alert-------------------- */
+
+#buy-shirts {
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  display: block !important;
+}
+
+.news-alert {
+  padding: 5px;
+  background: #009999;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid rgba(0,0,0,.2);
+}
+
+.news-alert-text {
+  margin: 0 0 5px 0;
+  color: white;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.news-alert-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.news-alert-container button {
+  background: white;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  letter-spacing: 1px;
+  min-width: 90px;
+  height: 23px;
+  line-height: 23px;
+  font-size: 12px;
+}
+
+.news-alert-container button:hover {
+  background: #009999;
+}
+
+.news-alert-container button:hover a {
+  color: white;
+}
+
+.nav-link {
+  padding: 0;
+}
+
+.news-alert-container button a {
+  color: #006666;
+  font-size: 12px !important;
+  margin: auto !important;
+  line-height: 23px !important;
+  height: 23px !important;
+}
+
+/* --------------------News Alert-------------------- */
+
 p {
   margin: 0;
 }

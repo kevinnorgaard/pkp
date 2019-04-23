@@ -97,14 +97,6 @@ hr {
   border-bottom: 2px solid rgba(0,0,0,.2);
 }
 
-.news-alert-end {
-  background: none;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .news-alert-text {
   margin: 0 0 5px 0;
   color: white;

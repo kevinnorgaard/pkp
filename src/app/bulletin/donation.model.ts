@@ -4,7 +4,7 @@ export class Donation {
   anonymous = false;
   affiliation ? = 'None';
   amount = 10;
-  comment: string;
+  comment ? = 'For the kids!';
   time ?: Date;
 }
 

@@ -33,20 +33,19 @@ export class BulletinComponent implements OnInit {
   organizationOptions = [
     'Alpha Chi Omega',
     'Alpha Phi',
+    'Delta Delta Delta',
     'Delta Gamma',
     'Gamma Phi Beta',
-    'Theta',
-    'Tridelta'
+    'Kappa Alpha Theta'
   ];
 
   organizations = [
     {name: 'Alpha Chi Omega', amount: 0},
     {name: 'Alpha Phi', amount: 0},
+    {name: 'Delta Delta Delta', amount: 0},
     {name: 'Delta Gamma', amount: 0},
-    {name: 'Tri Delta', amount: 0},
     {name: 'Gamma Phi Beta', amount: 0},
-    {name: 'Theta', amount: 0},
-    {name: 'Tridelta', amount: 0}
+    {name: 'Kappa Alpha Theta', amount: 0}
   ];
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
@@ -65,11 +64,10 @@ export class BulletinComponent implements OnInit {
     this.organizations = [
       {name: 'Alpha Chi Omega', amount: 0},
       {name: 'Alpha Phi', amount: 0},
+      {name: 'Delta Delta Delta', amount: 0},
       {name: 'Delta Gamma', amount: 0},
-      {name: 'Tri Delta', amount: 0},
       {name: 'Gamma Phi Beta', amount: 0},
-      {name: 'Theta', amount: 0},
-      {name: 'Tridelta', amount: 0}
+      {name: 'Kappa Alpha Theta', amount: 0}
     ];
   }
 
@@ -86,7 +84,7 @@ export class BulletinComponent implements OnInit {
   loadAllDonations() {
     this.resetAll();
     firebase.database().ref('/donation/').once('value').then((snapshot) => {
-      let keys = snapshot.val();
+      const keys = snapshot.val();
       for (let k in keys) {
         if (keys[k].amount) {
           let amount = keys[k].amount;
@@ -96,7 +94,6 @@ export class BulletinComponent implements OnInit {
             for (let org of this.organizations) {
               if (org.name == keys[k].affiliation) {
                 // Add amount to organizations
-                console.log('added ' + amount + ' to ' + keys[k].affiliation)
                 org.amount += parseInt(amount, 10);
               }
             }
@@ -112,7 +109,6 @@ export class BulletinComponent implements OnInit {
           comment: keys[k].comment ? keys[k].comment : '',
           time: keys[k].time ? keys[k].time : ''
         };
-        console.log(donation);
         this.donations.push(donation);
       }
       this.orderDonationsByDate();
@@ -131,7 +127,7 @@ export class BulletinComponent implements OnInit {
       return 0;
     });
   }
-  
+
   selectViewMode(mode: string) {
     this.viewMode = mode;
   }
@@ -139,28 +135,26 @@ export class BulletinComponent implements OnInit {
   getTimeStamp() {
     // Test the hour!!!
     const date = new Date();
-    let yearString = date.getFullYear().toString();
-    let monthString = date.getMonth() < 9 ? '0'+(date.getMonth()+1).toString() : (date.getMonth()+1).toString();
-    let dayString = date.getDate() < 10 ? '0'+date.getDate().toString() : date.getDate().toString();
-    let hourString = date.getHours() < 10 ? '0'+date.getHours().toString() : date.getHours().toString();
-    let minuteString = date.getMinutes() < 10 ? '0'+date.getMinutes().toString() : date.getMinutes().toString();
-    let secondString = date.getSeconds() < 10 ? '0'+date.getSeconds().toString() : date.getSeconds().toString();
-    const timestamp = yearString + '/' + monthString + '/' + dayString + ' ' + 
+    const yearString = date.getFullYear().toString();
+    const monthString = date.getMonth() < 9 ? '0' + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
+    const dayString = date.getDate() < 10 ? '0' + date.getDate().toString() : date.getDate().toString();
+    const hourString = date.getHours() < 10 ? '0' + date.getHours().toString() : date.getHours().toString();
+    const minuteString = date.getMinutes() < 10 ? '0' + date.getMinutes().toString() : date.getMinutes().toString();
+    const secondString = date.getSeconds() < 10 ? '0' + date.getSeconds().toString() : date.getSeconds().toString();
+    const timestamp = yearString + '/' + monthString + '/' + dayString + ' ' +
                       hourString + ':' + minuteString + ':' + secondString;
-    console.log(timestamp);
     return timestamp;
   }
 
   formatTimeStamp(timestamp: string) {
-    let index = timestamp.indexOf(' ') + 1;
-    let hour = parseInt(timestamp.substr(index, 2), 10);
-    return timestamp.substring(5,10) + '/' + timestamp.substring(2, 4) + ' ' + timestamp.substr(index, 5) + (hour >= 12 ? 'PM' : 'PM');
+    const index = timestamp.indexOf(' ') + 1;
+    const hour = parseInt(timestamp.substr(index, 2), 10);
+    return timestamp.substring(5, 10) + '/' + timestamp.substring(2, 4) + ' at ' + timestamp.substr(index, 5);
   }
 
   invalid(): boolean {
-    return this.donor.lastName == null || this.donor.lastName === '' || 
-           this.donor.firstName == null || this.donor.firstName === '' || 
-           this.donor.phone == null || this.donor.phone === '' ||
+    return this.donor.lastName == null || this.donor.lastName === '' ||
+           this.donor.firstName == null || this.donor.firstName === '' ||
            this.donation.amount <= 0;
   }
 
@@ -170,13 +164,12 @@ export class BulletinComponent implements OnInit {
       this.donor.firstName = donor.firstName;
     }
     this.donor.lastName = donor.lastName ? donor.lastName : '';
-    this.donor.phone = donor.phone ? donor.phone : '';
   }
 
   onSubmitEmail() {
     firebase.database().ref('/donor/').once('value').then((snapshot) => {
       let found = false;
-      let keys = snapshot.val();
+      const keys = snapshot.val();
       // Search for existing donor key
       for (let k in keys) {
         if (keys[k].email === this.donor.email) {
@@ -189,10 +182,11 @@ export class BulletinComponent implements OnInit {
         // Failed --> create new donor key
         let newRef = firebase.database().ref('donor/');
         let dr: DatabaseReference = newRef.push({ email: this.donor.email }, function(error) {
-          if (error)
+          if (error) {
             console.log('Failed to save form to Firebase');
-          else
+          } else {
             console.log('Successfully saved form to Firebase!');
+          }
         });
         this.donation.id = this.donor.id = dr.key;  // Fix this code
       }
@@ -201,7 +195,7 @@ export class BulletinComponent implements OnInit {
   }
 
   paypal() {
-    let form: HTMLFormElement = <HTMLFormElement> document.getElementById('paypal-btn');
+    const form: HTMLFormElement = <HTMLFormElement> document.getElementById('paypal-btn');
     form.action = 'https://www.paypal.com/cgi-bin/webscr';
     form.autocomplete = 'on';
     form.method = 'POST';
@@ -220,49 +214,48 @@ export class BulletinComponent implements OnInit {
     const donorInfo = {};
     let donationRef = firebase.database().ref('donation/');
     let donorRef = firebase.database().ref('donor/' + this.donor.id);
-
     // re-format Donation object for database
     for (const item in JSON.parse(JSON.stringify(this.donation))) {
       if (this.donation[item] !== '') {
-        if (item == 'affiliation' && this.donation[item] == 'None')
+        if (item == 'affiliation' && this.donation[item] === 'None') {
           continue;
+        }
         donationInfo[item] = this.donation[item];
       }
     }
     donationInfo['time'] = this.getTimeStamp();
-
     // re-format Donor object for database
     for (const item in JSON.parse(JSON.stringify(this.donor))) {
       if (this.donor[item] !== '') {
-        if (item == 'id')
+        if (item === 'id') {
           continue;
+        }
         donorInfo[item] = this.donor[item];
       }
     }
-
     // Add new unique Donation to the database
     donationRef.push(donationInfo, function(error) {
-      if (error)
+      if (error) {
         console.log('Failed to save form to Firebase');
-      else
+      } else {
         console.log('Successfully saved form to Firebase!');
+      }
     });
-
     // update existing donor in the database
     donorRef.update(donorInfo, function(error) {
-      if (error)
+      if (error) {
         console.log('Failed to save form to Firebase');
-      else
+      } else {
         console.log('Successfully saved form to Firebase!');
+      }
     });
-
     this.donationSubmitted = true;
     this.loadDonorMap();
     this.loadAllDonations();
   }
 
   validEmail() {
-    return this.donor.email != null && this.donor.email != '' && 
+    return this.donor.email != null && this.donor.email != '' &&
            this.donor.email.indexOf('@') > -1 && this.donor.email.indexOf('.') > -1;
   }
 

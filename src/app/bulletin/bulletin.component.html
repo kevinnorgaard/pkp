@@ -20,23 +20,19 @@
           <input required [(ngModel)]="donor.lastName" type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name"/>
         </div>
       </div>
-      <div class="form-check-container">
-        <div class="form-check">
-          <input [(ngModel)]="donation.anonymous" class="form-check-input" type="checkbox" [value]="donation.anonymous" name="anonymous" id="anonymous">
-          <label class="form-check-label" for="anonymous">Anonymous</label>
-        </div>
-      </div>
       <div class="row">
-        <div class="col form-group">
-          <label>Phone <span class="required-asterisk">*</span></label>
-          <input required [(ngModel)]="donor.phone" type="tel" class="form-control" name="phone" id="phone" placeholder="123-456-7890"/>
-        </div>
         <div class="col form-group">
           <label for="affiliation">Affiliation</label>
           <select required [(ngModel)]="donation.affiliation" class="form-control" name="affiliation" id="affiliation">
             <option selected value="None">None</option>
             <option *ngFor="let org of organizationOptions" [value]="org">{{org}}</option>
           </select>
+        </div>
+        <div class="col form-check-container">
+          <div class="form-check">
+            <input [(ngModel)]="donation.anonymous" class="form-check-input" type="checkbox" [value]="donation.anonymous" name="anonymous" id="anonymous">
+            <label class="form-check-label" for="anonymous">Anonymous</label>
+          </div>
         </div>
       </div>
       <div class="row amount-row">
@@ -59,7 +55,7 @@
       <div class="row">
         <div class="col form-group">
           <label>Leave a comment<span class="required-asterisk"></span></label>
-          <textarea required [(ngModel)]="donation.comment" type="text" class="form-control" name="comment" id="comment" placeholder="I donated because..."></textarea>
+          <textarea required [(ngModel)]="donation.comment" type="text" class="form-control" name="comment" id="comment"></textarea>
         </div>
       </div>
       <div id="donate-btn-container">
@@ -76,7 +72,7 @@
   <div class="goal-container">
     <span><span class="goal">${{total.toLocaleString()}}</span> of ${{goal.toLocaleString()}} raised</span>
     <div class="progress md-progress">
-        <div class="progress-bar" role="progressbar" [ngStyle]="{'width': (total/goal*100).toFixed(0) + '%'}" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar" role="progressbar" [ngStyle]="{'width': (total/goal*100).toFixed(1) + '%'}" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
   </div>
   <div id="btn-container">
