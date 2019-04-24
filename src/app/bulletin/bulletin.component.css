@@ -149,7 +149,22 @@
   justify-content: center;
 }
 
+.index {
+  padding: 10px 0 10px 10px;
+  font-size: 12px;
+  color: grey;
+  letter-spacing: 1px;
+  vertical-align: middle;
+}
+
 .name {
+  padding: 10px 0 10px 10px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  vertical-align: middle;
+}
+
+.amount-org {
   padding: 10px 0 10px 10px;
   font-size: 16px;
   font-weight: 800;

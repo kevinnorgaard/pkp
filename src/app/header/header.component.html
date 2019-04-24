@@ -1,15 +1,18 @@
 <div class="wrapper">
   <nav class="navbar navbar-expand-md sticky" [@hideShow]="getBackground()">
+<!-- -------------------------CREST HOME BUTTON--------------------------------- -->
     <a class="navbar-brand" [routerLink]="['']" (click)="spin = !spin">
       <img [@spin]="spin ? 'on' : 'off'" class="nav-logo" src="/assets/crest.png"
            alt="Phi Kappa Psi Crest"/>
     </a>
+<!-- -------------------------TOGGLER [MOBILE ONLY]--------------------------------- -->
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
       <i [@toggle]="isCollapsed ? 'on' : 'off'" class="navbar-toggler-icon fa fa-bars"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
       <ul class="navbar-nav mr-auto" routerLinkActive="active">
+<!-- -------------------------TABS--------------------------------- -->
         <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']">HOME</a>
         </li>

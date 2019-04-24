@@ -42,11 +42,11 @@ li {
   padding: 10px;
 }
 
-.subsection {
-  max-width: 1000px;
+.description {
+  max-width: 800px;
   margin: 0 auto;
   background: white;
-  padding: 10px;
+  padding: 20px;
 }
 
 .sticky-container-title {
@@ -64,23 +64,9 @@ li {
   border-bottom: 3px solid rgba(0,0,0,.025)
 }
 
-@media (min-width: 576px) {
-  .heading {
-    font-size: 5vw;
-    letter-spacing: 1vw;
-  }
-}
-
-@media (min-width: 768px) {
-  .heading {
-    font-size: 4vw;
-    letter-spacing: .8vw;
-  }
-}
-
-@media (min-width: 800px) {
-  .heading {
-    font-size: 35px;
-    letter-spacing: 7px;
+@media (min-width: 1200px) {
+  .sticky-container-title {
+    font-size: 48px;
+    letter-spacing: 11px;
   }
 }
