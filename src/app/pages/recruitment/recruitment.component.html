@@ -5,6 +5,13 @@
     <button class="checkin-btn" (click)="onCheckin()">Check In</button>
   </div>
 
+  <div class="checkin-container row">
+    <button class="checkin-btn" (click)="onSignWaiver()">Car Bash Waiver</button>
+  </div>
+  <div class="row">
+    <iframe class="col" [hidden]="!signWaiver" src="https://docs.google.com/forms/d/e/1FAIpQLScwnATACZrNOPlfODQIzI1sFiFIoS-N2TTGv06RYmljKeI5Yg/viewform?embedded=true" width="640" height="1133" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+
   <div class="row">
     <div class="col rush-video-container">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/cTb5O5oyTIg?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -12,11 +19,11 @@
   </div>
 
   <div class="recruitment-section">
-    <div class="form-title">Fall 2020 Rush Schedule</div>
+    <div class="form-title">Winter 2020 Rush Schedule</div>
     <div class="fourth-row row section">
       <div class="col flyer-col">
         <div class="flyer-container">
-          <img src="assets/flyer.png"
+          <img src="assets/flyer.jpg"
                class="photo flyer img-fluid"
                alt="Phi Kappa Psi 2020 Winter Rush flyer"
                title="Phi Kappa Psi 2020 Winter Rush flyer"/>

@@ -21,6 +21,7 @@ export class RecruitmentComponent implements OnInit {
   user: Observable<firebase.User>;
   form: Form;
   enabled = true;
+  signWaiver = false;
   submitButtonMessage = 'Submit';
 
   checkinDialogRef: MatDialogRef<CheckinDialogComponent>;
@@ -49,6 +50,10 @@ export class RecruitmentComponent implements OnInit {
       height: '400px',
       width: '600px'
     });
+  }
+
+  onSignWaiver() {
+    this.signWaiver = !this.signWaiver;
   }
 
   invalid(): boolean {
