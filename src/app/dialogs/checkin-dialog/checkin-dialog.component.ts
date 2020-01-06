@@ -18,7 +18,7 @@ export class CheckinDialogComponent implements OnInit {
   enabled = true;
   lastName: string;
   firstName: string;
-  form: Form = new Form('', '', '');
+  form: Form = new Form();
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, private dialog: MatDialog) {
     this.user = this.afAuth.authState; // Update
@@ -61,9 +61,10 @@ export class CheckinDialogComponent implements OnInit {
   }
 
   clearFields() {
-    this.form = new Form('', '', '');
+    // this.form = new Form('', '', '');
     this.firstName = '';
     this.lastName = '';
+    this.form = new Form();
   }
 
   getCheckins(key: string) {

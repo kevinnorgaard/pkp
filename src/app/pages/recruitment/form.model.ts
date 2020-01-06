@@ -1,22 +1,20 @@
 export class Form {
-
-  constructor(
-    public name: string,
-    public email: string,
-    public phone: string,
-    public socialMedia?: { facebook?: string, instagram?: string, linkedin?: string },
-    public legacy?: boolean,
-    public year?: string,
-    public sports?: string,
-    public cumGpa?: string,
-    public prevGpa?: string,
-    public major?: string,
-    public minor?: string,
-    public achievements?: string,
-    public referral?: string,
-    public reasons?: string,
-    public group?: string,
-    public extraInfo?: string
-  ) {  }
-
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    socialMedia?: { facebook?: string, instagram?: string, linkedin?: string };
+    legacy?: boolean;
+    year?: string;
+    sports?: string;
+    cumGpa?: string;
+    prevGpa?: string;
+    major?: string;
+    minor?: string;
+    achievements?: string;
+    referral?: string;
+    reasons?: string;
+    group?: string;
+    extraInfo?: string;
 }

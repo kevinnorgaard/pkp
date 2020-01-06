@@ -1,11 +1,12 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
-import * as firebase from 'firebase/app';
-import {Observable} from 'rxjs';
+import { DatabaseReference } from '@angular/fire/database/interfaces';
+import { Observable } from 'rxjs';
 import { Form } from './form.model';
-import {CheckinDialogComponent} from '../../dialogs/checkin-dialog/checkin-dialog.component';
-import {MatDialog, MatDialogRef} from '@angular/material';
+import { CheckinDialogComponent } from '../../dialogs/checkin-dialog/checkin-dialog.component';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-recruitment',
@@ -18,16 +19,14 @@ export class RecruitmentComponent implements OnInit {
   videoSource = 'assets/flag.mp4';
 
   user: Observable<firebase.User>;
-  form: Form = new Form('', '', '', {});
-  firstName: string;
-  lastName: string;
+  form: Form;
   enabled = true;
   submitButtonMessage = 'Submit';
 
   checkinDialogRef: MatDialogRef<CheckinDialogComponent>;
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, private dialog: MatDialog) {
-    this.user = this.afAuth.authState; // Update
+    this.user = this.afAuth.authState;
     let prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
       const currentScrollPos = window.pageYOffset;
@@ -41,7 +40,7 @@ export class RecruitmentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.videoPlayer.nativeElement.play();
+    this.videoPlayer.nativeElement.play(); // may not be necessary
   }
 
   onCheckin() {
@@ -53,7 +52,7 @@ export class RecruitmentComponent implements OnInit {
   }
 
   invalid(): boolean {
-    return !this.enabled || this.lastName === '' || this.firstName === '' || this.form.email === '' || this.form.phone === '';
+    return !this.enabled || this.form.lastName === '' || this.form.firstName === '' || this.form.email === '' || this.form.phone === '';
   }
 
   getSideWidth() {
@@ -64,25 +63,40 @@ export class RecruitmentComponent implements OnInit {
     return .3548544 * this.snugColumn.nativeElement.offsetWidth;
   }
 
-  onSubmit() {
-    this.form.name = this.lastName + ', ' + this.firstName;
-    const updates = {};
-    for (const item in JSON.parse(JSON.stringify(this.form))) {
-      if (this.form[item] !== '') {
-        updates['/forms/' + item + '/' + this.form.phone] = this.form[item];
-      }
-    }
-    firebase.database().ref().update(updates, function(error) {
-      if (error) {
-        // The write failed...
-        console.log('Failed to save form to Firebase');
-      } else {
-        // Data saved successfully!
-        console.log('Successfully saved form to Firebase!');
+  getRusheeKey() {
+    let found = false;
+    firebase.database().ref('/rushee/').once('value').then((snapshot) => {
+      const keys = snapshot.val();
+
+      for (const k in keys) { // Search for existing donor key
+        if (keys[k].phone === this.form.phone) {
+          this.form.id = k;
+          found = true;
+        }
       }
     });
-    this.enabled = false;
-    this.submitButtonMessage = 'Successfully submitted!';
+    return found;
+  }
+
+  onSubmit() {
+    const rusheeInfo = {};
+    if (this.getRusheeKey()) {
+      const rusheeRef = firebase.database().ref('rushee/' + this.form.id);
+      for (const item in JSON.parse(JSON.stringify(this.form))) {
+        if (this.form[item] !== '') {
+          rusheeInfo['/rushee/' + item + '/' + this.form.id] = this.form[item];
+        }
+      }
+      rusheeRef.update(rusheeInfo, function(error) {
+        if (error) {
+          console.log('Failed to save form to Firebase');
+        } else {
+          console.log('Successfully saved form to Firebase!');
+        }
+      });
+      this.enabled = false;
+      this.submitButtonMessage = 'Successfully submitted!';
+    }
   }
 
   scrollTop() {

@@ -13,6 +13,12 @@
   max-width: 1200px;
 }
 
+.full-section {
+  margin: 0 auto;
+  background: rgba(0,0,0,.025) !important;
+  padding: 10px;
+}
+
 .section {
   max-width: 1200px;
   margin: 0 auto;
@@ -65,11 +71,12 @@
 }
 
 .checkin-btn {
-  background: #C41E3A;
+  /*background: #C41E3A;*/
+  background: #012739;
   border: white 1px solid;
   border-radius: 4px;
   font-size: 18px;
-  padding: 10px;
+  padding: 10px 18px;
   min-width: 100px;
   color: white;
 }

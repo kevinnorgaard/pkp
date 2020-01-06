@@ -99,8 +99,7 @@ export class BulletinComponent implements OnInit {
             }
           }
         }
-        // Create a Donation Post object
-        const donation: Donation = {
+        const donation: Donation = { // Create a Donation Post object
           donation_id: k,
           id: keys[k].id ? keys[k].id : '',
           anonymous: keys[k].anonymous ? keys[k].anonymous : false,
@@ -132,8 +131,7 @@ export class BulletinComponent implements OnInit {
     this.viewMode = mode;
   }
 
-  getTimeStamp() {
-    // Test the hour!!!
+  getTimeStamp() { // Poorly formatted -- fix!
     const date = new Date();
     const yearString = date.getFullYear().toString();
     const monthString = date.getMonth() < 9 ? '0' + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString();
@@ -170,31 +168,31 @@ export class BulletinComponent implements OnInit {
     firebase.database().ref('/donor/').once('value').then((snapshot) => {
       let found = false;
       const keys = snapshot.val();
-      // Search for existing donor key
-      for (let k in keys) {
+
+      for (const k in keys) { // Search for existing Donor
         if (keys[k].email === this.donor.email) {
           this.donation.id = this.donor.id = k;
           found = true;
           this.initializeDonor(keys[k]);
         }
       }
-      if (!found) {
-        // Failed --> create new donor key
-        let newRef = firebase.database().ref('donor/');
-        let dr: DatabaseReference = newRef.push({ email: this.donor.email }, function(error) {
+
+      if (!found) { // Failed --> create a new Donor
+        const newRef = firebase.database().ref('donor/');
+        const dbRef: DatabaseReference = newRef.push({ email: this.donor.email }, function(error) {
           if (error) {
             console.log('Failed to save form to Firebase');
           } else {
             console.log('Successfully saved form to Firebase!');
           }
         });
-        this.donation.id = this.donor.id = dr.key;  // Fix this code
+        this.donation.id = this.donor.id = dbRef.key; // ???
       }
     });
     this.emailSubmitted = true;
   }
 
-  paypal() {
+  paypal() { // This code is SHIT
     const form: HTMLFormElement = <HTMLFormElement> document.getElementById('paypal-btn');
     form.action = 'https://www.paypal.com/cgi-bin/webscr';
     form.autocomplete = 'on';
@@ -212,20 +210,20 @@ export class BulletinComponent implements OnInit {
   onDonate() {
     const donationInfo = {};
     const donorInfo = {};
-    let donationRef = firebase.database().ref('donation/');
-    let donorRef = firebase.database().ref('donor/' + this.donor.id);
-    // re-format Donation object for database
+    const donationRef = firebase.database().ref('donation/');
+    const donorRef = firebase.database().ref('donor/' + this.donor.id);
+
+    donationInfo['time'] = this.getTimeStamp(); // Format Donation JSON object to store in database
     for (const item in JSON.parse(JSON.stringify(this.donation))) {
       if (this.donation[item] !== '') {
-        if (item == 'affiliation' && this.donation[item] === 'None') {
+        if (item === 'affiliation' && this.donation[item] === 'None') {
           continue;
         }
         donationInfo[item] = this.donation[item];
       }
     }
-    donationInfo['time'] = this.getTimeStamp();
-    // re-format Donor object for database
-    for (const item in JSON.parse(JSON.stringify(this.donor))) {
+
+    for (const item in JSON.parse(JSON.stringify(this.donor))) { // Format Donor JSON object to store in database
       if (this.donor[item] !== '') {
         if (item === 'id') {
           continue;
@@ -233,30 +231,32 @@ export class BulletinComponent implements OnInit {
         donorInfo[item] = this.donor[item];
       }
     }
-    // Add new unique Donation to the database
-    donationRef.push(donationInfo, function(error) {
+
+    donationRef.push(donationInfo, function(error) { // Add a new Donation to the database
       if (error) {
-        console.log('Failed to save form to Firebase');
+        console.log('Failed to add donation to Firebase');
       } else {
-        console.log('Successfully saved form to Firebase!');
+        console.log('Successfully added donation to Firebase!');
       }
     });
-    // update existing donor in the database
-    donorRef.update(donorInfo, function(error) {
+
+    donorRef.update(donorInfo, function(error) { // update existing Donor in the database
       if (error) {
-        console.log('Failed to save form to Firebase');
+        console.log('Failed to update donor in Firebase');
       } else {
-        console.log('Successfully saved form to Firebase!');
+        console.log('Successfully updated donor in Firebase!');
       }
     });
-    this.donationSubmitted = true;
+
+    this.donationSubmitted = true; // Reload the Donations on the screen
     this.loadDonorMap();
     this.loadAllDonations();
   }
 
   validEmail() {
-    return this.donor.email != null && this.donor.email != '' &&
-           this.donor.email.indexOf('@') > -1 && this.donor.email.indexOf('.') > -1;
+    return this.donor.email != null && this.donor.email !== '' &&
+           this.donor.email.indexOf('@') > -1 &&
+           this.donor.email.indexOf('.') > -1;
   }
 
   validAmount() {

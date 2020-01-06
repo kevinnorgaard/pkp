@@ -5,11 +5,9 @@
       <th (click)="orderRusheesByFirstName()">First Name</th>
       <th (click)="orderRusheesByLastName()">Last Name</th>
       <th>Notes</th>
-      <th (click)="toggleCheckinOrder()">Check ins</th>
+      <th (click)="toggleCheckinOrder()">Check-ins</th>
       <th>Phone</th>
       <th>Email</th>
-      <th>Major</th>
-      <th>Cumulative GPA</th>
     </tr>
     <tr *ngFor="let rushee of orderedRushees; let i = index" [ngStyle]="{'backgroundColor': i%2==0 ? 'rgba(0,0,0,0.025)' : 'white'}">
       <td>
@@ -25,8 +23,6 @@
       <td>{{totalCheckins(rushee[0])}}</td>
       <td>{{forms.phone[rushee[0]]}}</td>
       <td>{{forms.email[rushee[0]]}}</td>
-      <td>{{forms.major[rushee[0]]}}</td>
-      <td>{{forms.cumGpa[rushee[0]]}}</td>
     </tr>
   </table>
   <p class="emailString">{{getEmailString()}}</p>

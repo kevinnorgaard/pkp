@@ -62,12 +62,10 @@ export class MembershipComponent implements OnInit {
       url: 'https://www.linkedin.com/in/batisse-kashanchi-810268173/'
     },
     {
-      img: 'https://farm2.staticflickr.com/1852/30589115718_65946015b8_m.jpg',
-      name: 'Kyle Yinger',
+      img: 'https://farm5.staticflickr.com/4884/45824923334_ab25f37de2_m.jpg',
+      name: 'Ethan Joves',
       position: 'Head Rush Chair',
-      positionAlt: 'Social Chair',
-      prevPosition: 'Former Rush Chair',
-      url: 'https://www.linkedin.com/in/kyle-yinger/'
+      prevPosition: 'Former Historian'
     },
     {
       img: 'https://farm2.staticflickr.com/1860/43660235354_d2f202309a_m.jpg',
@@ -82,11 +80,6 @@ export class MembershipComponent implements OnInit {
       name: 'Jason Wilder',
       position: 'Rush Chair',
       positionAlt: 'Risk Management Chair',
-    },
-    {
-      img: 'https://farm5.staticflickr.com/4884/45824923334_ab25f37de2_m.jpg',
-      name: 'Ethan Joves',
-      position: 'Historian',
     },
     {
       img: 'https://farm5.staticflickr.com/4839/32196784588_4e49ec62c4_m.jpg',

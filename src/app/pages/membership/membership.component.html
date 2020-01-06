@@ -3,6 +3,11 @@
   <div class="exec-section">
     <h2 class="sticky-container-title">Leadership</h2>
     <div class="row section">
+      <div class="showall-container" (click)="toggleShowAllLeaders()">
+        <button class="btn showall-btn">
+          {{showAllLeadersText}}
+        </button>
+      </div>
       <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let prof of profiles">
         <div class="profile-container">
           <div [ngClass]="prof.url ? 'clickable' : 'not-clickable'" (click)="openUrl(prof.url)" class="center-cropped">
@@ -24,11 +29,6 @@
             {{prof.prevPositionAlt}}
           </p>
         </div>
-      </div>
-      <div class="showall-container" (click)="toggleShowAllLeaders()">
-        <button class="btn showall-btn">
-          {{showAllLeadersText}}
-        </button>
       </div>
     </div>
   </div>

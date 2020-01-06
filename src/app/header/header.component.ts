@@ -58,4 +58,8 @@ export class HeaderComponent {
   getBackground() {
     return this.headerDisplay || !this.isCollapsed ? 'show' : 'hide';
   }
+
+  getColor() {
+    return this.headerDisplay || !this.isCollapsed ? 'black' : '#a6a6a6';
+  }
 }

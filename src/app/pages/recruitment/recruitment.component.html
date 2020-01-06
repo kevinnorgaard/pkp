@@ -1,124 +1,128 @@
 <div class="wrapper">
   <div id="scroll-up-btn" (click)="scrollTop()"><i class="fa fa-arrow-up"></i></div>
-  <!-- <div class="checkin-container section">
+
+  <div class="checkin-container row">
     <button class="checkin-btn" (click)="onCheckin()">Check In</button>
-  </div> -->
-  <div class="row section">
+  </div>
+
+  <div class="row">
     <div class="col rush-video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/3gRTIXk2Gl0?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/cTb5O5oyTIg?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
-  <!-- <div class="recruitment-section">
-    <div class="form-title">Winter 2019 Rush Schedule</div>
+
+  <div class="recruitment-section">
+    <div class="form-title">Fall 2020 Rush Schedule</div>
     <div class="fourth-row row section">
       <div class="col flyer-col">
         <div class="flyer-container">
           <img src="assets/flyer.png"
                class="photo flyer img-fluid"
-               alt="Phi Kappa Psi 2019 Winter Rush flyer"
-               title="Phi Kappa Psi 2019 Winter Rush flyer"/>
+               alt="Phi Kappa Psi 2020 Winter Rush flyer"
+               title="Phi Kappa Psi 2020 Winter Rush flyer"/>
         </div>
       </div>
     </div>
-  </div> -->
-  <div class="form-title">Fall 2019 Rush Interest Form</div>
-  <form class="recruitment-form section" #recruitmentForm="ngForm">
-    <div class="subsection">
-      <div class="row">
-        <div class="col">
-          <div class="form-group">
-            <label>First Name <span class="required-asterisk">*</span></label>
-            <input required [(ngModel)]="firstName" type="text" class="form-control" name="firstName" id="firstName" placeholder="First name">
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label>Last Name <span class="required-asterisk">*</span></label>
-            <input required [(ngModel)]="lastName" type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="form-group">
-            <label for="email">Email <span class="required-asterisk">*</span></label>
-            <input required [(ngModel)]="form.email" type="email" class="form-control" name="email" id="email" placeholder="example@uci.edu">
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="phone">Phone <span class="required-asterisk">*</span></label>
-            <input required [(ngModel)]="form.phone" type="tel" class="form-control" name="phone" id="phone" placeholder="123-456-7890">
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="year">Year <span class="required-asterisk">*</span></label>
-        <select required [(ngModel)]="form.year" class="form-control" name="year" id="year">
-          <option value="freshman">Freshman</option>
-          <option value="sophomore">Sophomore</option>
-          <option value="junior">Junior</option>
-          <option value="junior-transfer">Junior Transfer</option>
-          <option value="senior">Senior</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Social Media</label>
-        <input [(ngModel)]="form.socialMedia.facebook" type="text" class="form-control" name="facebook" id="facebook" placeholder="Facebook">
-        <br>
-        <input [(ngModel)]="form.socialMedia.instagram" type="text" class="form-control" name="instagram" id="instagram" placeholder="Instagram">
-        <br>
-        <input [(ngModel)]="form.socialMedia.linkedin" type="text" class="form-control" name="linkedin" id="linkedin" placeholder="LinkedIn">
-      </div>
-      <div class="form-group">
-        <label for="sports">Sports Played</label>
-        <input [(ngModel)]="form.sports" type="text" class="form-control" name="sports" id="sports">
-      </div>
-      <div class="form-group">
-        <label for="cumGpa">Cumulative GPA</label>
-        <input [(ngModel)]="form.cumGpa" type="text" class="form-control" name="cumGpa" id="cumGpa">
-      </div>
-      <div class="form-group">
-        <label for="prevGpa">Last Quarter GPA</label>
-        <input [(ngModel)]="form.prevGpa" type="text" class="form-control" name="prevGpa" id="prevGpa">
-      </div>
-      <div class="form-group">
-        <label for="major">Major(s)</label>
-        <input [(ngModel)]="form.major" type="text" class="form-control" name="major" id="major">
-      </div>
-      <div class="form-group">
-        <label for="minor">Minor(s)</label>
-        <input [(ngModel)]="form.minor" type="text" class="form-control" name="minor" id="minor">
-      </div>
-      <div class="form-group">
-        <label for="achievements">Past Achievements</label>
-        <textarea [(ngModel)]="form.achievements" class="form-control" name="achievements" id="achievements" rows="3"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="referral">How did you hear about us?</label>
-        <textarea [(ngModel)]="form.referral" class="form-control" name="referral" id="referral" rows="3"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="reasons">Reasons for your interest in Phi Kappa Psi?</label>
-        <textarea [(ngModel)]="form.reasons" class="form-control" name="reasons" id="reasons" rows="3"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="group">Do you have friends interested?</label>
-        <textarea [(ngModel)]="form.group" class="form-control" name="group" id="group" rows="3"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="extraInfo">Anything else we should know?</label>
-        <textarea [(ngModel)]="form.extraInfo" class="form-control" name="extraInfo" id="extraInfo" rows="3"></textarea>
-      </div>
-      <div class="form-check">
-        <input [(ngModel)]="form.legacy" class="form-check-input" type="checkbox" [value]="form.legacy" name="legacy" id="legacy">
-        <label class="form-check-label" for="legacy">Legacy</label>
-      </div>
-      <br>
-      <button [ngClass]="submitButtonMessage === 'Submit' ? 'btn-submit' : 'btn-submitted'" (click)="onSubmit()"
-              type="submit" class="btn" [disabled]="invalid()">{{submitButtonMessage}}</button>
-    </div>
-  </form>
+  </div>
+
+  <!--<div class="form-title">Fall 2019 Rush Interest Form</div>-->
+  <!--<form class="recruitment-form section" #recruitmentForm="ngForm">-->
+    <!--<div class="subsection">-->
+      <!--<div class="row">-->
+        <!--<div class="col">-->
+          <!--<div class="form-group">-->
+            <!--<label>First Name <span class="required-asterisk">*</span></label>-->
+            <!--<input required [(ngModel)]="form.firstName" type="text" class="form-control" name="firstName" id="firstName" placeholder="First name">-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col">-->
+          <!--<div class="form-group">-->
+            <!--<label>Last Name <span class="required-asterisk">*</span></label>-->
+            <!--<input required [(ngModel)]="form.lastName" type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name">-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row">-->
+        <!--<div class="col">-->
+          <!--<div class="form-group">-->
+            <!--<label for="email">Email <span class="required-asterisk">*</span></label>-->
+            <!--<input required [(ngModel)]="form.email" type="email" class="form-control" name="email" id="email" placeholder="example@uci.edu">-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col">-->
+          <!--<div class="form-group">-->
+            <!--<label for="phone">Phone <span class="required-asterisk">*</span></label>-->
+            <!--<input required [(ngModel)]="form.phone" type="tel" class="form-control" name="phone" id="phone" placeholder="123-456-7890">-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="year">Year <span class="required-asterisk">*</span></label>-->
+        <!--<select required [(ngModel)]="form.year" class="form-control" name="year" id="year">-->
+          <!--<option value="freshman">Freshman</option>-->
+          <!--<option value="sophomore">Sophomore</option>-->
+          <!--<option value="junior">Junior</option>-->
+          <!--<option value="junior-transfer">Junior Transfer</option>-->
+          <!--<option value="senior">Senior</option>-->
+        <!--</select>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label>Social Media</label>-->
+        <!--<input [(ngModel)]="form.socialMedia.facebook" type="text" class="form-control" name="facebook" id="facebook" placeholder="Facebook">-->
+        <!--<br>-->
+        <!--<input [(ngModel)]="form.socialMedia.instagram" type="text" class="form-control" name="instagram" id="instagram" placeholder="Instagram">-->
+        <!--<br>-->
+        <!--<input [(ngModel)]="form.socialMedia.linkedin" type="text" class="form-control" name="linkedin" id="linkedin" placeholder="LinkedIn">-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="sports">Sports Played</label>-->
+        <!--<input [(ngModel)]="form.sports" type="text" class="form-control" name="sports" id="sports">-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="cumGpa">Cumulative GPA</label>-->
+        <!--<input [(ngModel)]="form.cumGpa" type="text" class="form-control" name="cumGpa" id="cumGpa">-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="prevGpa">Last Quarter GPA</label>-->
+        <!--<input [(ngModel)]="form.prevGpa" type="text" class="form-control" name="prevGpa" id="prevGpa">-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="major">Major(s)</label>-->
+        <!--<input [(ngModel)]="form.major" type="text" class="form-control" name="major" id="major">-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="minor">Minor(s)</label>-->
+        <!--<input [(ngModel)]="form.minor" type="text" class="form-control" name="minor" id="minor">-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="achievements">Past Achievements</label>-->
+        <!--<textarea [(ngModel)]="form.achievements" class="form-control" name="achievements" id="achievements" rows="3"></textarea>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="referral">How did you hear about us?</label>-->
+        <!--<textarea [(ngModel)]="form.referral" class="form-control" name="referral" id="referral" rows="3"></textarea>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="reasons">Reasons for your interest in Phi Kappa Psi?</label>-->
+        <!--<textarea [(ngModel)]="form.reasons" class="form-control" name="reasons" id="reasons" rows="3"></textarea>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="group">Do you have friends interested?</label>-->
+        <!--<textarea [(ngModel)]="form.group" class="form-control" name="group" id="group" rows="3"></textarea>-->
+      <!--</div>-->
+      <!--<div class="form-group">-->
+        <!--<label for="extraInfo">Anything else we should know?</label>-->
+        <!--<textarea [(ngModel)]="form.extraInfo" class="form-control" name="extraInfo" id="extraInfo" rows="3"></textarea>-->
+      <!--</div>-->
+      <!--<div class="form-check">-->
+        <!--<input [(ngModel)]="form.legacy" class="form-check-input" type="checkbox" [value]="form.legacy" name="legacy" id="legacy">-->
+        <!--<label class="form-check-label" for="legacy">Legacy</label>-->
+      <!--</div>-->
+      <!--<br>-->
+      <!--<button [ngClass]="submitButtonMessage === 'Submit' ? 'btn-submit' : 'btn-submitted'" (click)="onSubmit()"-->
+              <!--type="submit" class="btn" [disabled]="invalid()">{{submitButtonMessage}}</button>-->
+    <!--</div>-->
+  <!--</form>-->
   <div class="section">
     <div class="first-row row small-section">
       <div class="col-sm-6">
