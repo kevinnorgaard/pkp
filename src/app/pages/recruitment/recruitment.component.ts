@@ -5,7 +5,7 @@ import { DatabaseReference } from '@angular/fire/database/interfaces';
 import { Observable } from 'rxjs';
 import { Form } from './form.model';
 import { CheckinDialogComponent } from '../../dialogs/checkin-dialog/checkin-dialog.component';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import * as firebase from 'firebase/app';
 
 @Component({
