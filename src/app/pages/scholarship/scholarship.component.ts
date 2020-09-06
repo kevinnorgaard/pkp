@@ -11,6 +11,7 @@ export class ScholarshipComponent implements OnInit {
   constructor(private scrollService: ScrollService) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
   }
 
   scrollTop() {

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ScrollService } from 'src/scroll.service';
 
@@ -7,13 +7,17 @@ import { ScrollService } from 'src/scroll.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   knocksLeft = 3;
   unleashed = false;
   password: string;
   videoSource = '/assets/flag.mp4';
 
   constructor(private router: Router, private scrollService: ScrollService) {}
+
+  ngOnInit() {
+    window.scrollTo(0, 0);
+  }
 
   knock() {
     this.knocksLeft = this.knocksLeft - 1;

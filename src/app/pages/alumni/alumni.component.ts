@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
@@ -18,7 +18,7 @@ export class Alumni {
   templateUrl: './alumni.component.html',
   styleUrls: ['./alumni.component.css']
 })
-export class AlumniComponent {
+export class AlumniComponent implements OnInit {
   user: Observable<firebase.User>;
   form: Alumni = new Alumni('', '');
   enabled = true;
@@ -27,6 +27,10 @@ export class AlumniComponent {
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, private dialog: MatDialog,
     private scrollService: ScrollService) {
     this.user = this.afAuth.authState; // Update
+  }
+
+  ngOnInit() {
+    window.scrollTo(0, 0);
   }
 
   invalid(): boolean {

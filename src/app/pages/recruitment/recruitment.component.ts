@@ -31,7 +31,9 @@ export class RecruitmentComponent implements OnInit {
     this.user = this.afAuth.authState;
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    window.scrollTo(0, 0);
+  }
 
   onCheckin() {
     this.checkinDialogRef = this.dialog.open(CheckinDialogComponent, {
