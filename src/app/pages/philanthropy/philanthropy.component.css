@@ -84,28 +84,9 @@ a {
   color: rgb(206, 53, 97);
 }
 
-#scroll-up-btn {
-  width: 30px;
-  height: 30px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: transparent;
-  z-index: 10;
-  cursor: pointer;
-}
-
 .fa {
   -webkit-text-stroke-width: .1vw;
   font-size: 5vw;
-}
-
-.fa-arrow-up {
-  color: white;
-  font-size: 30px !important;
-  padding: 10px;
-  background-color: rgba(0,0,0,.3);
-  border-radius: 50%;
 }
 
 .section {
@@ -137,40 +118,14 @@ a {
   background: white;
 }
 
-.sticky-container-title {
-  padding: 15px 0;
-  color: rgba(0,0,0,.5);
-  font-size: 4vw;
-  letter-spacing: .9vw;
-  margin: 0;
-  width: auto;
-  text-align: center;
-  position: sticky;
-  top: 66px;
-  z-index: 1;
-  background: rgba(255,255,255,.9);
-  border-bottom: 3px solid rgba(0,0,0,.025)
-}
-
 .slogan {
   margin: 30px 0;
   text-align: center;
   font-style: italic;
-  font-size: 4vw;
-  letter-spacing: .4vw;
+  font-size: 16px;
+  letter-spacing: 2px;
   font-weight: 800;
   color: black;
-}
-
-@media (min-width: 1200px) {
-  .sticky-container-title {
-    font-size: 48px;
-    letter-spacing: 11px;
-  }
-  .slogan {
-    font-size: 40px;
-    letter-spacing: 4px;
-  }
 }
 
 .col-sm-6 {
@@ -183,4 +138,11 @@ a {
 
 .instagram-media {
   margin: 30px auto !important;
+}
+
+@media (min-width: 1200px) {
+  .slogan {
+    font-size: 25px;
+    letter-spacing: 3px;
+  }
 }

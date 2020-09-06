@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -61,5 +62,9 @@ export class HeaderComponent {
 
   getColor() {
     return this.headerDisplay || !this.isCollapsed ? 'black' : '#a6a6a6';
+  }
+
+  mode() {
+    return environment.mode;
   }
 }

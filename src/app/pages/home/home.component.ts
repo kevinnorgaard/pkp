@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import { Router } from '@angular/router';
+import { ScrollService } from 'src/scroll.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent {
   password: string;
   videoSource = '/assets/flag.mp4';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private scrollService: ScrollService) {}
 
   knock() {
     this.knocksLeft = this.knocksLeft - 1;
@@ -33,5 +34,9 @@ export class HomeComponent {
     }, err => {
       console.log(err); // when there's an error
     });
+  }
+
+  scrollTop() {
+    this.scrollService.scrollTop();
   }
 }

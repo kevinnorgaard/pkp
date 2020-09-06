@@ -40,7 +40,7 @@ hr {
   margin: 0 auto;
 }
 
-.fa {
+.facebook, .instagram, .twitter, .linkedin {
   color: #a6a6a6;
   padding: 0 12px;
   font-size: 24px;
@@ -149,14 +149,6 @@ hr {
   text-align: center;
 }
 
-.fa-arrow-up {
-  color: white;
-  font-size: 30px !important;
-  padding: 10px;
-  background-color: rgba(0,0,0,.3);
-  border-radius: 50%;
-}
-
 .rush-video-container {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -188,8 +180,8 @@ hr {
 .sticky-label {
   z-index: 1;
   width: 100%;
-  color: #C41E3A;
-  -webkit-text-fill-color: #C41E3A;
+  color: white;
+  -webkit-text-fill-color: white;
   font-size: 5.5vw;
   letter-spacing: 3vw;
   text-align: center;
@@ -199,19 +191,24 @@ hr {
 .sticky-sublabel {
   z-index: 1;
   width: 100%;
-  color: #C41E3A;
-  -webkit-text-fill-color: #C41E3A;
+  color: white;
+  -webkit-text-fill-color: white;
   font-size: 4.5vw;
   letter-spacing: 2.2vw;
   text-align: center;
   margin-top: 8px;
 }
 
-.less-letter-spacing {
-  letter-spacing: .5vw !important;
+.sticky-subsublabel {
+  z-index: 1;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.4);
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.4);
+  font-size: 3.5vw;
+  text-align: center;
+  letter-spacing: 1vw !important;
   margin-bottom: 0;
-  color: #a6a6a6;
-  -webkit-text-fill-color: #a6a6a6;
+  margin-top: 8px;
 }
 
 .scrolled {
@@ -263,7 +260,7 @@ hr {
   .description {
     font-size: 16px;
   }
-  .fa {
+  .facebook, .instagram, .twitter, .linkedin {
     font-size: 3vw;
   }
 }
@@ -279,7 +276,7 @@ hr {
   .description {
     font-size: 16px;
   }
-  .fa {
+  .facebook, .instagram, .twitter, .linkedin {
     font-size: 2vw;
   }
 }
@@ -318,26 +315,25 @@ hr {
   .sticky-label {
     z-index: 1;
     width: 100%;
-    color: #C41E3A;
-    -webkit-text-fill-color: #C41E3A;
-    font-size: 70px;
-    letter-spacing: 40px;
+    color: white;
+    -webkit-text-fill-color: white;
+    font-size: 75px;
+    letter-spacing: 25px;
     text-align: center;
     margin-top: 8px;
   }
   .sticky-sublabel {
     z-index: 1;
     width: 100%;
-    color: #C41E3A;
-    -webkit-text-fill-color: #C41E3A;
-    font-size: 57px;
-    letter-spacing: 32px;
+    color: white;
+    -webkit-text-fill-color: white;
+    font-size: 50px;
+    letter-spacing: 16px;
     text-align: center;
   }
-  .less-letter-spacing {
-    letter-spacing: 7px !important;
-    color: #a6a6a6;
-    -webkit-text-fill-color: #a6a6a6;
+  .sticky-subsublabel {
+    font-size: 30px;
+    letter-spacing: 10px;
   }
 }
 
@@ -350,6 +346,10 @@ hr {
   }
 }
 
-.fa:focus, .fa:hover {
+.facebook, .instagram, .twitter, .linkedin {
+  color: white;
+}
+
+.facebook:hover, .instagram:hover, .twitter:hover, .linkedin:hover {
   color: #C41E3A;
 }

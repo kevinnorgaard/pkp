@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- -------------------------VIDEO--------------------------------- -->
 <div data-quality="720p" data-player-type="html5">
   <video oncanplay="this.play()" onloadedmetadata="this.muted = true" class="video-player" playsinline loop muted autoplay preload="auto" #videoPlayer>
@@ -7,14 +8,14 @@
 </div>
 <!-- -------------------------VIDEO OVERLAY--------------------------------- -->
 <div class="wrapper">
+  <div class="scroll-up-btn" (click)="scrollTop()"><i class="fa fa-arrow-up"></i></div>
   <div class="overlay">
     <div class="labels-container">
       <label class="sticky-label">PHI KAPPA PSI</label>
       <hr/>
       <label class="sticky-sublabel">CAL KAPPA</label>
       <br>
-      <label class="sticky-sublabel less-letter-spacing">University of California,</label>
-      <label class="sticky-sublabel less-letter-spacing">Irvine</label>
+      <label class="sticky-subsublabel">University of California, Irvine</label>
     </div>
 <!-- -------------------------Social Media--------------------------------- -->
     <div class="icon-bar">

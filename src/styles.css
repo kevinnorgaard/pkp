@@ -12,3 +12,46 @@ html, body {
   box-shadow: inset 0 0 0 3px #355E3B;
   opacity: 1 !important;
 }
+
+.scroll-up-btn {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: transparent;
+  z-index: 100;
+  color: white;
+  cursor: pointer;
+}
+
+.fa-arrow-up {
+  color: white;
+  font-size: 30px !important;
+  padding: 10px;
+  background-color: rgba(0,0,0,.3);
+  border-radius: 50%;
+}
+
+.sticky-container-title {
+  padding: 15px 0;
+  color: rgba(0,0,0,.6);
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+  width: auto;
+  text-align: center;
+  position: sticky;
+  top: 66px;
+  z-index: 1;
+  background: rgba(255,255,255,.95);
+  border-bottom: 3px solid rgba(0,0,0,.025)
+}
+
+@media (min-width: 1200px) {
+  .sticky-container-title {
+    font-size: 27px;
+    letter-spacing: 3px;
+  }
+}

@@ -18,7 +18,6 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { FormsModule } from '@angular/forms';
@@ -32,15 +31,39 @@ import { AlumniProfilesComponent } from './pages/admin/alumni-profiles/alumni-pr
 import { EventCheckinComponent } from './pages/admin/event-checkin/event-checkin.component';
 import { BulletinComponent } from './bulletin/bulletin.component';
 
-const routes: Routes = [
-  { path: '', component: RecruitmentComponent },
-  { path: 'membership', component: MembershipComponent },
-  { path: 'alumni', component: AlumniComponent },
-  { path: 'scholarship', component: ScholarshipComponent },
-  { path: 'philanthropy', component: PhilanthropyComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'about', component: HomeComponent }
-];
+let routes: Routes = [];
+
+if (environment.mode = 'normal') {
+  routes = [
+    { path: '', component: HomeComponent },
+    { path: 'membership', component: MembershipComponent },
+    { path: 'alumni', component: AlumniComponent },
+    { path: 'scholarship', component: ScholarshipComponent },
+    { path: 'philanthropy', component: PhilanthropyComponent },
+    { path: 'admin', component: AdminComponent },
+    { path: 'rush', component: RecruitmentComponent }
+  ];
+} else if (environment.mode === 'rush') {
+  routes = [
+    { path: '', component: RecruitmentComponent },
+    { path: 'membership', component: MembershipComponent },
+    { path: 'alumni', component: AlumniComponent },
+    { path: 'scholarship', component: ScholarshipComponent },
+    { path: 'philanthropy', component: PhilanthropyComponent },
+    { path: 'admin', component: AdminComponent },
+    { path: 'about', component: HomeComponent }
+  ];
+} else if (environment.mode === 'philanthropy') {
+  routes = [
+    { path: '', component: PhilanthropyComponent },
+    { path: 'membership', component: MembershipComponent },
+    { path: 'alumni', component: AlumniComponent },
+    { path: 'scholarship', component: ScholarshipComponent },
+    { path: 'rush', component: RecruitmentComponent },
+    { path: 'admin', component: AdminComponent },
+    { path: 'about', component: HomeComponent }
+  ];
+}
 
 @NgModule({
   declarations: [
@@ -67,7 +90,6 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes, {useHash: false}),
     NgbCollapseModule,
-    MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

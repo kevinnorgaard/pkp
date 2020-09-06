@@ -50,7 +50,6 @@ a {
 .active > a,
 a:hover,
 .active > a:focus {
-  /*color: #C41E3A !important;*/
-  color: #012739 !important;
+  color: grey !important;
   font-weight: 800;
 }

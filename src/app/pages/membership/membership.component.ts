@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollService } from 'src/scroll.service';
 
 interface Profile {
   img: string;
@@ -364,23 +365,10 @@ export class MembershipComponent implements OnInit {
     'Big Bear Cabin Trip'
   ];
 
-  showAllLeaders = false;
-  showAllLeadersText = 'Show Previous Positions';
   showAllOnCampus = false;
   showAllOnCampusText = 'Show More';
 
-  constructor() {
-    let prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-      const currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementById('scroll-up-btn').style.visibility = 'hidden';
-      } else {
-        document.getElementById('scroll-up-btn').style.visibility = 'visible';
-      }
-      prevScrollpos = currentScrollPos;
-    };
-  }
+  constructor(private scrollService: ScrollService) { }
 
   ngOnInit() {
   }
@@ -388,15 +376,6 @@ export class MembershipComponent implements OnInit {
   openUrl(url: string) {
     if (url) {
       window.open(url, '_blank');
-    }
-  }
-
-  toggleShowAllLeaders() {
-    this.showAllLeaders = !this.showAllLeaders;
-    if (this.showAllLeaders) {
-      this.showAllLeadersText = 'Hide Previous Positions';
-    } else {
-      this.showAllLeadersText = 'Show Previous Positions';
     }
   }
 
@@ -418,13 +397,6 @@ export class MembershipComponent implements OnInit {
   }
 
   scrollTop() {
-    const scrollToTop = window.setInterval(() => {
-      const pos = window.pageYOffset;
-      if (pos > 0) {
-        window.scrollTo(0, pos - 50); // how far to scroll on each step
-      } else {
-        window.clearInterval(scrollToTop);
-      }
-    }, 16);
+    this.scrollService.scrollTop();
   }
 }

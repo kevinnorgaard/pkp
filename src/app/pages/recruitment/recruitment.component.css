@@ -44,25 +44,6 @@
   margin: 0 auto;
 }
 
-#scroll-up-btn {
-  width: 30px;
-  height: 30px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: transparent;
-  z-index: 4;
-  cursor: pointer;
-}
-
-.fa-arrow-up {
-  color: white;
-  font-size: 30px !important;
-  padding: 10px;
-  background-color: rgba(0,0,0,.3);
-  border-radius: 50%;
-}
-
 .checkin-container {
   width: 100%;
   display: flex;

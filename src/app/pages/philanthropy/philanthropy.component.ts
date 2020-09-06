@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ScrollService } from 'src/scroll.service';
 
 @Component({
   selector: 'app-philanthropy',
@@ -7,27 +8,9 @@ import { Component } from '@angular/core';
 })
 export class PhilanthropyComponent {
 
-  constructor() {
-    let prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-      const currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementById('scroll-up-btn').style.visibility = 'hidden';
-      } else {
-        document.getElementById('scroll-up-btn').style.visibility = 'visible';
-      }
-      prevScrollpos = currentScrollPos;
-    };
-  }
+  constructor(private scrollService: ScrollService) { }
 
   scrollTop() {
-    const scrollToTop = window.setInterval(() => {
-      const pos = window.pageYOffset;
-      if (pos > 0) {
-        window.scrollTo(0, pos - 50); // how far to scroll on each step
-      } else {
-        window.clearInterval(scrollToTop);
-      }
-    }, 16);
+    this.scrollService.scrollTop();
   }
 }

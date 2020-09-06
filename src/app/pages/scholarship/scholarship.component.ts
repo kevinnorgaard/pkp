@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollService } from 'src/scroll.service';
 
 @Component({
   selector: 'app-scholarship',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScholarshipComponent implements OnInit {
 
-  constructor() { }
+  constructor(private scrollService: ScrollService) { }
 
   ngOnInit() {
   }
 
+  scrollTop() {
+    this.scrollService.scrollTop();
+  }
 }

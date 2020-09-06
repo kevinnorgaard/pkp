@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { ScrollService } from 'src/scroll.service';
 
 export class Alumni {
   public constructor(
@@ -23,18 +24,9 @@ export class AlumniComponent {
   enabled = true;
   submitButtonMessage = 'Subscribe';
 
-  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, private dialog: MatDialog) {
+  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, private dialog: MatDialog,
+    private scrollService: ScrollService) {
     this.user = this.afAuth.authState; // Update
-    let prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-      const currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementById('scroll-up-btn').style.visibility = 'hidden';
-      } else {
-        document.getElementById('scroll-up-btn').style.visibility = 'visible';
-      }
-      prevScrollpos = currentScrollPos;
-    };
   }
 
   invalid(): boolean {
@@ -66,13 +58,6 @@ export class AlumniComponent {
   }
 
   scrollTop() {
-    const scrollToTop = window.setInterval(() => {
-      const pos = window.pageYOffset;
-      if (pos > 0) {
-        window.scrollTo(0, pos - 50); // how far to scroll on each step
-      } else {
-        window.clearInterval(scrollToTop);
-      }
-    }, 16);
+    this.scrollService.scrollTop();
   }
 }

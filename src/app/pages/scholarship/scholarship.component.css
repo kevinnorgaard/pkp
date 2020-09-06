@@ -3,17 +3,6 @@
   width: 100%;
 }
 
-#scroll-up-btn {
-  width: 30px;
-  height: 30px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: transparent;
-  z-index: 4;
-  cursor: pointer;
-}
-
 b {
   color: green;
 }
@@ -31,14 +20,6 @@ li {
   font-size: 5vw;
 }
 
-.fa-arrow-up {
-  color: white;
-  font-size: 30px !important;
-  padding: 10px;
-  background-color: rgba(0,0,0,.3);
-  border-radius: 50%;
-}
-
 .section {
   max-width: 1200px;
   margin: 0 auto;
@@ -51,26 +32,4 @@ li {
   margin: 0 auto;
   background: white;
   padding: 20px;
-}
-
-.sticky-container-title {
-  padding: 15px 0;
-  color: rgba(0,0,0,.5);
-  font-size: 4vw;
-  letter-spacing: .9vw;
-  margin: 0;
-  width: auto;
-  text-align: center;
-  position: sticky;
-  top: 66px;
-  z-index: 1;
-  background: rgba(255,255,255,.9);
-  border-bottom: 3px solid rgba(0,0,0,.025)
-}
-
-@media (min-width: 1200px) {
-  .sticky-container-title {
-    font-size: 48px;
-    letter-spacing: 11px;
-  }
 }

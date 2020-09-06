@@ -39,50 +39,9 @@
   background: white;
 }
 
-.sticky-container-title {
-  padding: 15px 0;
-  color: rgba(0,0,0,.5);
-  font-size: 4vw;
-  letter-spacing: .9vw;
-  margin: 0;
-  width: auto;
-  text-align: center;
-  position: sticky;
-  top: 66px;
-  z-index: 1;
-  background: rgba(255,255,255,.9);
-  border-bottom: 3px solid rgba(0,0,0,.025)
-}
-
-@media (min-width: 1200px) {
-  .sticky-container-title {
-    font-size: 48px;
-    letter-spacing: 11px;
-  }
-}
-
-#scroll-up-btn {
-  width: 30px;
-  height: 30px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: transparent;
-  z-index: 4;
-  cursor: pointer;
-}
-
 .fa {
   -webkit-text-stroke-width: .1vw;
   font-size: 5vw;
-}
-
-.fa-arrow-up {
-  color: white;
-  font-size: 30px !important;
-  padding: 10px;
-  background-color: rgba(0,0,0,.3);
-  border-radius: 50%;
 }
 
 .donation-section {
@@ -159,19 +118,6 @@
 .instagram-media {
   text-align: center !important;
   margin: 30px auto !important;
-}
-
-.sticky-label {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 66px;
-  z-index: 1;
-  width: 100%;
-  text-transform: uppercase;
-  text-align: center;
-  background: rgba(196, 30, 58,.8);
-  margin: 0;
-  border-bottom: 3px solid rgba(0,0,0,.2);
 }
 
 .container-title {
