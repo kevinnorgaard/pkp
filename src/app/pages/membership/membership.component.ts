@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { GraphcmsService } from 'src/app/graphcms.service';
 import { ScrollService } from 'src/scroll.service';
 
 interface Profile {
-  img: string;
   name: string;
-  position?: string;
-  positionAlt?: string;
-  prevPosition?: string;
-  prevPositionAlt?: string;
+  position: string;
+  img: string;
   url?: string;
 }
 
@@ -23,132 +21,133 @@ interface Leadership {
   styleUrls: ['./membership.component.css']
 })
 export class MembershipComponent implements OnInit {
-  profiles: Profile[] = [
-    {
-      img: 'https://farm2.staticflickr.com/1844/43621032114_db33bb9985_z.jpg',
-      name: 'John Wahhab',
-      position: 'President',
-      prevPosition: 'Former Treasurer',
-      url: 'https://www.linkedin.com/in/johnwahhab/'
-    },
-    {
-      img: 'https://farm2.staticflickr.com/1878/44328616812_073f3d427a_m.jpg',
-      name: 'Kevin Norgaard',
-      position: 'Vice President',
-      prevPosition: 'Former Corresponding Secretary',
-      prevPositionAlt: 'Former Rush Chair',
-      url: 'https://www.linkedin.com/in/kevinnorgaard/'
-    },
-    {
-      img: 'https://farm2.staticflickr.com/1956/45640665651_537e557cd5_m.jpg',
-      name: 'Batisse Kasanchi',
-      position: 'Treasurer',
-      prevPosition: 'Former Finance Chair',
-      prevPositionAlt: 'Former Rush Chair',
-      url: 'https://www.linkedin.com/in/batisse-kashanchi-810268173/'
-    },
-    {
-      img: 'https://farm2.staticflickr.com/1868/44387963562_fd2261f945.jpg',
-      name: 'Milad Goodarzi',
-      position: 'Corresponding Secretary',
-      prevPosition: 'Former Health & Wellness Chair',
-      prevPositionAlt: 'Former Risk Management Chair',
-      url: 'https://www.linkedin.com/in/miladgoodarzi/'
-    },
-    {
-      img: 'https://farm5.staticflickr.com/4912/45787472611_e80ac55907_m.jpg',
-      name: 'Brandon Brunckhorst',
-      position: 'Recording Secretary',
-      prevPosition: 'Former Rush Chair',
-      url: 'https://www.linkedin.com/in/batisse-kashanchi-810268173/'
-    },
-    {
-      img: 'https://farm5.staticflickr.com/4884/45824923334_ab25f37de2_m.jpg',
-      name: 'Ethan Joves',
-      position: 'Head Rush Chair',
-      prevPosition: 'Former Historian'
-    },
-    {
-      img: 'https://farm2.staticflickr.com/1860/43660235354_d2f202309a_m.jpg',
-      name: 'Charles Harris',
-      position: 'Rush Chair',
-      positionAlt: 'Chaplain',
-      prevPosition: 'Former Recording Secretary',
-      url: 'https://www.linkedin.com/in/charles-harris-636488159/'
-    },
-    {
-      img: 'https://farm5.staticflickr.com/4811/31608600397_ef3cd04c67_m.jpg',
-      name: 'Jason Wilder',
-      position: 'Rush Chair',
-      positionAlt: 'Risk Management Chair',
-    },
-    {
-      img: 'https://farm5.staticflickr.com/4839/32196784588_4e49ec62c4_m.jpg',
-      name: 'Matthew Farfan',
-      position: 'Sergeant at Arms'
-    },
-    {
-      img: 'https://farm8.staticflickr.com/7823/46639984441_ab31980b7b_m.jpg',
-      name: 'Elijah Munck',
-      position: 'Messenger',
-      url: ''
-    },
-    {
-      img: 'https://farm8.staticflickr.com/7837/31606058907_b58b0d670a_m.jpg',
-      name: 'Andrew Dertli',
-      position: 'Brotherhood Chair',
-      url: 'https://www.linkedin.com/in/andrew-dertli-597452175/'
-    },
-    {
-      img: 'https://farm5.staticflickr.com/4842/32751579328_d2125dce9d_m.jpg',
-      name: 'Nima Altafi',
-      position: 'Philanthropy Chair',
-      url: 'https://www.linkedin.com/in/nima-altafi-a2159a160/'
-    },
-    {
-      img: 'https://farm5.staticflickr.com/4835/45704863515_8fa35f5d7b_m.jpg',
-      name: 'Niklas Hammon',
-      position: 'Community Service Chair',
-      url: 'https://www.linkedin.com/in/niklas-hammon-9b0459155/'
-    },
-    {
-      img: 'https://farm2.staticflickr.com/1894/29520553957_8d5ae8f878.jpg',
-      name: 'Mitchell Neal',
-      position: 'Scholarship Chair',
-      url: 'https://www.linkedin.com/in/mitchell-neal-278a1516a/'
-    },
-    {
-      img: 'https://farm5.staticflickr.com/4816/32196784518_c36a014569_m.jpg',
-      name: 'Richard Chen',
-      position: 'Alumni Relations Chair',
-      url: 'https://www.linkedin.com/in/raybenchen/'
-    },
-    {
-      img: 'https://farm8.staticflickr.com/7874/45886012724_6359acb82e_m.jpg',
-      name: 'Rohan Hemrajani',
-      position: 'Finance Chair',
-      url: ''
-    },
-    // {
-    //   img: 'https://farm2.staticflickr.com/1975/44726692525_2b0375b04a_m.jpg',
-    //   name: 'Jarod Robinson',
-    //   position: 'Tech Chair',
-    //   prevPosition: 'Sports Chair',
-    //   url: 'https://www.linkedin.com/in/jarod-robinson-6b8926126/'
-    // },
-    {
-      img: 'https://farm2.staticflickr.com/1953/43826212250_65d080bc67_m.jpg',
-      name: 'Aaron Shaffer',
-      position: 'Chapter Advisor',
-      url: 'https://www.linkedin.com/in/aarons3/'
-    },
-    {
-      img: 'https://farm8.staticflickr.com/7924/45822469744_fffa13d527_m.jpg',
-      name: 'Ian Delzer',
-      position: 'Faculty Advisor',
-      url: 'https://www.linkedin.com/in/ian-delzer-98000932/'
-    }
-  ];
+  profiles: Profile[] = [];
+  // profiles: Profile[] = [
+  //   {
+  //     img: 'https://farm2.staticflickr.com/1844/43621032114_db33bb9985_z.jpg',
+  //     name: 'John Wahhab',
+  //     position: 'President',
+  //     prevPosition: 'Former Treasurer',
+  //     url: 'https://www.linkedin.com/in/johnwahhab/'
+  //   },
+  //   {
+  //     img: 'https://farm2.staticflickr.com/1878/44328616812_073f3d427a_m.jpg',
+  //     name: 'Kevin Norgaard',
+  //     position: 'Vice President',
+  //     prevPosition: 'Former Corresponding Secretary',
+  //     prevPositionAlt: 'Former Rush Chair',
+  //     url: 'https://www.linkedin.com/in/kevinnorgaard/'
+  //   },
+  //   {
+  //     img: 'https://farm2.staticflickr.com/1956/45640665651_537e557cd5_m.jpg',
+  //     name: 'Batisse Kasanchi',
+  //     position: 'Treasurer',
+  //     prevPosition: 'Former Finance Chair',
+  //     prevPositionAlt: 'Former Rush Chair',
+  //     url: 'https://www.linkedin.com/in/batisse-kashanchi-810268173/'
+  //   },
+  //   {
+  //     img: 'https://farm2.staticflickr.com/1868/44387963562_fd2261f945.jpg',
+  //     name: 'Milad Goodarzi',
+  //     position: 'Corresponding Secretary',
+  //     prevPosition: 'Former Health & Wellness Chair',
+  //     prevPositionAlt: 'Former Risk Management Chair',
+  //     url: 'https://www.linkedin.com/in/miladgoodarzi/'
+  //   },
+  //   {
+  //     img: 'https://farm5.staticflickr.com/4912/45787472611_e80ac55907_m.jpg',
+  //     name: 'Brandon Brunckhorst',
+  //     position: 'Recording Secretary',
+  //     prevPosition: 'Former Rush Chair',
+  //     url: 'https://www.linkedin.com/in/batisse-kashanchi-810268173/'
+  //   },
+  //   {
+  //     img: 'https://farm5.staticflickr.com/4884/45824923334_ab25f37de2_m.jpg',
+  //     name: 'Ethan Joves',
+  //     position: 'Head Rush Chair',
+  //     prevPosition: 'Former Historian'
+  //   },
+  //   {
+  //     img: 'https://farm2.staticflickr.com/1860/43660235354_d2f202309a_m.jpg',
+  //     name: 'Charles Harris',
+  //     position: 'Rush Chair',
+  //     positionAlt: 'Chaplain',
+  //     prevPosition: 'Former Recording Secretary',
+  //     url: 'https://www.linkedin.com/in/charles-harris-636488159/'
+  //   },
+  //   {
+  //     img: 'https://farm5.staticflickr.com/4811/31608600397_ef3cd04c67_m.jpg',
+  //     name: 'Jason Wilder',
+  //     position: 'Rush Chair',
+  //     positionAlt: 'Risk Management Chair',
+  //   },
+  //   {
+  //     img: 'https://farm5.staticflickr.com/4839/32196784588_4e49ec62c4_m.jpg',
+  //     name: 'Matthew Farfan',
+  //     position: 'Sergeant at Arms'
+  //   },
+  //   {
+  //     img: 'https://farm8.staticflickr.com/7823/46639984441_ab31980b7b_m.jpg',
+  //     name: 'Elijah Munck',
+  //     position: 'Messenger',
+  //     url: ''
+  //   },
+  //   {
+  //     img: 'https://farm8.staticflickr.com/7837/31606058907_b58b0d670a_m.jpg',
+  //     name: 'Andrew Dertli',
+  //     position: 'Brotherhood Chair',
+  //     url: 'https://www.linkedin.com/in/andrew-dertli-597452175/'
+  //   },
+  //   {
+  //     img: 'https://farm5.staticflickr.com/4842/32751579328_d2125dce9d_m.jpg',
+  //     name: 'Nima Altafi',
+  //     position: 'Philanthropy Chair',
+  //     url: 'https://www.linkedin.com/in/nima-altafi-a2159a160/'
+  //   },
+  //   {
+  //     img: 'https://farm5.staticflickr.com/4835/45704863515_8fa35f5d7b_m.jpg',
+  //     name: 'Niklas Hammon',
+  //     position: 'Community Service Chair',
+  //     url: 'https://www.linkedin.com/in/niklas-hammon-9b0459155/'
+  //   },
+  //   {
+  //     img: 'https://farm2.staticflickr.com/1894/29520553957_8d5ae8f878.jpg',
+  //     name: 'Mitchell Neal',
+  //     position: 'Scholarship Chair',
+  //     url: 'https://www.linkedin.com/in/mitchell-neal-278a1516a/'
+  //   },
+  //   {
+  //     img: 'https://farm5.staticflickr.com/4816/32196784518_c36a014569_m.jpg',
+  //     name: 'Richard Chen',
+  //     position: 'Alumni Relations Chair',
+  //     url: 'https://www.linkedin.com/in/raybenchen/'
+  //   },
+  //   {
+  //     img: 'https://farm8.staticflickr.com/7874/45886012724_6359acb82e_m.jpg',
+  //     name: 'Rohan Hemrajani',
+  //     position: 'Finance Chair',
+  //     url: ''
+  //   },
+  //   // {
+  //   //   img: 'https://farm2.staticflickr.com/1975/44726692525_2b0375b04a_m.jpg',
+  //   //   name: 'Jarod Robinson',
+  //   //   position: 'Tech Chair',
+  //   //   prevPosition: 'Sports Chair',
+  //   //   url: 'https://www.linkedin.com/in/jarod-robinson-6b8926126/'
+  //   // },
+  //   {
+  //     img: 'https://farm2.staticflickr.com/1953/43826212250_65d080bc67_m.jpg',
+  //     name: 'Aaron Shaffer',
+  //     position: 'Chapter Advisor',
+  //     url: 'https://www.linkedin.com/in/aarons3/'
+  //   },
+  //   {
+  //     img: 'https://farm8.staticflickr.com/7924/45822469744_fffa13d527_m.jpg',
+  //     name: 'Ian Delzer',
+  //     position: 'Faculty Advisor',
+  //     url: 'https://www.linkedin.com/in/ian-delzer-98000932/'
+  //   }
+  // ];
 
   previousLeadership: Leadership[] = [
     {
@@ -368,16 +367,38 @@ export class MembershipComponent implements OnInit {
   showAllOnCampus = false;
   showAllOnCampusText = 'Show More';
 
-  constructor(private scrollService: ScrollService) { }
+  constructor(private scrollService: ScrollService, private graphcmsService: GraphcmsService) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
+    this.getExecutives();
   }
 
   openUrl(url: string) {
     if (url) {
       window.open(url, '_blank');
     }
+  }
+
+  getExecutives() {
+    this.graphcmsService.getExecutives()
+    .subscribe((execs: any) => this.profiles = this.jsonToProfiles(execs));
+  }
+
+  jsonToProfiles(data: any) {
+    console.log(data);
+    let profiles: Profile[] = [];
+    for (let i = 0; i < data.data.executives.length; i++) {
+      const exec = data.data.executives[i];
+      let profile: Profile = {
+        name: exec.name,
+        position: exec.position,
+        img: exec.image.url,
+        url: exec.url
+      }
+      profiles.push(profile);
+    }
+    return profiles;
   }
 
   toggleShowAllOnCampus() {
