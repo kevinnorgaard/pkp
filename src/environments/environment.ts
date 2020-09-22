@@ -8,5 +8,5 @@ export const environment = {
     storageBucket: 'pkp-website.appspot.com',
     messagingSenderId: '863629223084'
   },
-  mode: 'philanthropy' // philanthropy, rush, normal
+  mode: 'rush' // philanthropy, rush, normal
 };

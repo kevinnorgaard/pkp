@@ -93,7 +93,7 @@ if (environment.mode = 'normal') {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   entryComponents: [CheckinDialogComponent],
