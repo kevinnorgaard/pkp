@@ -26,9 +26,9 @@ export class GraphcmsService {
 
   configUrl = 'assets/graphcms.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private apollo: Apollo) { }
 
   getExecutives() {
-    return this.http.get(this.configUrl);
+    return this.apollo.watchQuery({query: EXECUTIVES_QUERY});
   }
 }

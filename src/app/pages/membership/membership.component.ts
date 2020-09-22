@@ -381,7 +381,7 @@ export class MembershipComponent implements OnInit {
   }
 
   getExecutives() {
-    this.graphcmsService.getExecutives()
+    this.graphcmsService.getExecutives().valueChanges
     .subscribe((execs: any) => this.profiles = this.jsonToProfiles(execs));
   }
 
