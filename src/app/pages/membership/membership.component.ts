@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GraphcmsService } from 'src/app/graphcms.service';
 import { ScrollService } from 'src/scroll.service';
+import { PageComponent } from '../page.component';
 
 interface Profile {
   name: string;
@@ -20,7 +21,7 @@ interface Leadership {
   templateUrl: './membership.component.html',
   styleUrls: ['./membership.component.css']
 })
-export class MembershipComponent implements OnInit {
+export class MembershipComponent extends PageComponent implements OnInit {
   profiles: Profile[] = [];
   // profiles: Profile[] = [
   //   {
@@ -367,41 +368,40 @@ export class MembershipComponent implements OnInit {
   showAllOnCampus = false;
   showAllOnCampusText = 'Show More';
 
-  constructor(private scrollService: ScrollService, private graphcmsService: GraphcmsService) { }
+  constructor(scrollService: ScrollService, private graphcmsService: GraphcmsService) {
+    super(scrollService);
+  }
 
-  ngOnInit() {
-    window.scrollTo(0, 0);
+  ngOnInit(): void {
+    super.ngOnInit();
     this.getExecutives();
   }
 
-  openUrl(url: string) {
+  openUrl(url: string): void {
     if (url) {
       window.open(url, '_blank');
     }
   }
 
-  getExecutives() {
+  getExecutives(): void {
     this.graphcmsService.getExecutives().valueChanges
     .subscribe((execs: any) => this.profiles = this.jsonToProfiles(execs));
   }
 
-  jsonToProfiles(data: any) {
-    console.log(data);
-    let profiles: Profile[] = [];
-    for (let i = 0; i < data.data.executives.length; i++) {
-      const exec = data.data.executives[i];
-      let profile: Profile = {
+  jsonToProfiles(data: any): Profile[] {
+    const profiles: Profile[] = [];
+    for (const exec of data.data.executives) {
+      profiles.push({
         name: exec.name,
         position: exec.position,
         img: exec.image.url,
         url: exec.url
-      }
-      profiles.push(profile);
+      });
     }
     return profiles;
   }
 
-  toggleShowAllOnCampus() {
+  toggleShowAllOnCampus(): void {
     this.showAllOnCampus = !this.showAllOnCampus;
     if (this.showAllOnCampus) {
       this.showAllOnCampusText = 'Show Less';
@@ -410,15 +410,11 @@ export class MembershipComponent implements OnInit {
     }
   }
 
-  getYear() {
+  getYear(): number {
     const currentDate = new Date();
     const dateString = currentDate.toLocaleDateString();
     const dateStringList = dateString.split('/');
     const year = dateStringList[2];
     return Number(year);
-  }
-
-  scrollTop() {
-    this.scrollService.scrollTop();
   }
 }

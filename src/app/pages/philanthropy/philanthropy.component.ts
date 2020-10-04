@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ScrollService } from 'src/scroll.service';
+import { PageComponent } from '../page.component';
 
 @Component({
   selector: 'app-philanthropy',
   templateUrl: './philanthropy.component.html',
   styleUrls: ['./philanthropy.component.css']
 })
-export class PhilanthropyComponent implements OnInit {
+export class PhilanthropyComponent extends PageComponent implements OnInit {
 
-  constructor(private scrollService: ScrollService) { }
-
-  ngOnInit() {
-    window.scrollTo(0, 0);
+  constructor(scrollService: ScrollService) {
+    super(scrollService);
   }
 
-  scrollTop() {
-    this.scrollService.scrollTop();
+  ngOnInit(): void {
+    super.ngOnInit();
   }
 }

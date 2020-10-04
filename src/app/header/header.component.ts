@@ -15,7 +15,7 @@ import { environment } from '../../environments/environment';
         background: 'white'
       })),
       transition('hide => show', [
-        animate('.15s')
+        animate('0s')
       ]),
       transition('show => hide', [
         animate('0s')
@@ -56,15 +56,15 @@ export class HeaderComponent {
   isCollapsed = true;
   spin = true;
 
-  getBackground() {
+  getBackground(): string {
     return this.headerDisplay || !this.isCollapsed ? 'show' : 'hide';
   }
 
-  getColor() {
+  getColor(): string {
     return this.headerDisplay || !this.isCollapsed ? 'black' : '#a6a6a6';
   }
 
-  mode() {
+  mode(): string {
     return environment.mode;
   }
 }

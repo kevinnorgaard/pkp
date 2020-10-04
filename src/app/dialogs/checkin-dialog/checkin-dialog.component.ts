@@ -24,14 +24,14 @@ export class CheckinDialogComponent implements OnInit {
     this.user = this.afAuth.authState; // Update
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   invalid(): boolean {
     return this.lastName === '' || this.firstName === '' || this.form.email === '' || this.form.phone === '';
   }
 
-  onSubmit() {
+  onSubmit(): void {
     const updates = {};
     updates['/forms/name/' + this.form.phone] = this.lastName + ', ' + this.firstName;
     updates['/forms/email/' + this.form.phone] = this.form.email;
@@ -47,12 +47,10 @@ export class CheckinDialogComponent implements OnInit {
       updates['/checkins/' + this.form.phone] = newCheckin;
     }
 
-    firebase.database().ref().update(updates, function(error) {
+    firebase.database().ref().update(updates, error => {
       if (error) {
-        // The write failed...
         console.log('Failed to save form to Firebase');
       } else {
-        // Data saved successfully!
         console.log('Successfully saved form to Firebase!');
       }
     });
@@ -60,21 +58,20 @@ export class CheckinDialogComponent implements OnInit {
     this.clearFields();
   }
 
-  clearFields() {
-    // this.form = new Form('', '', '');
+  clearFields(): void {
     this.firstName = '';
     this.lastName = '';
     this.form = new Form();
   }
 
-  getCheckins(key: string) {
+  getCheckins(key: string): number {
     if (this.checkins) {
       return this.checkins[key] ? this.checkins[key] : null;
     }
     return null;
   }
 
-  getCurrentDate() {
+  getCurrentDate(): string {
     const currentDate = new Date();
     const dateString = currentDate.toLocaleDateString();
     const dateStringList = dateString.split('/');

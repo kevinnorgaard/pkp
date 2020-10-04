@@ -1,46 +1,24 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ScrollService } from 'src/scroll.service';
+import { PageComponent } from '../page.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent extends PageComponent implements OnInit {
   knocksLeft = 3;
   unleashed = false;
   password: string;
   videoSource = '/assets/flag.mp4';
 
-  constructor(private router: Router, private scrollService: ScrollService) {}
-
-  ngOnInit() {
-    window.scrollTo(0, 0);
+  constructor(scrollService: ScrollService, private router: Router) {
+    super(scrollService);
   }
 
-  knock() {
-    this.knocksLeft = this.knocksLeft - 1;
-    if (this.knocksLeft === 0) {
-      this.unleashed = true;
-    }
-  }
-
-  onKey(event: any) {
-    if (this.password === 'mydudeee') {
-      this.enter();
-    }
-  }
-
-  enter() {
-    this.router.navigate(['/', 'admin']).then(nav => {
-      console.log(nav); // true if navigation is successful
-    }, err => {
-      console.log(err); // when there's an error
-    });
-  }
-
-  scrollTop() {
-    this.scrollService.scrollTop();
+  ngOnInit(): void {
+    super.ngOnInit();
   }
 }

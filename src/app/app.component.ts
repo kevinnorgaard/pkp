@@ -9,16 +9,11 @@ export class AppComponent {
   @Output() displayHeader = false;
 
   @HostListener('window:scroll', ['$event'])
-    checkScroll() {
-      const scrollPosition = window.pageYOffset;
-      if (scrollPosition === 0) {
-        this.displayHeader = false;
-      } else {
-        this.displayHeader = true;
-      }
-    }
+  checkScroll(): void {
+    this.displayHeader = window.pageYOffset !== 0;
+  }
 
-  scrollTop() {
+  scrollTop(): void {
     const scrollToTop = window.setInterval(() => {
       const pos = window.pageYOffset;
       if (pos > 0) {
