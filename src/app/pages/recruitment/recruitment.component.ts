@@ -5,7 +5,7 @@ import { Form } from './form.model';
 import { CheckinDialogComponent } from '../../dialogs/checkin-dialog/checkin-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import * as firebase from 'firebase/app';
-import { ScrollService } from 'src/scroll.service';
+import { ScrollService } from '../../scroll.service';
 import { PageComponent } from '../page.component';
 
 @Component({

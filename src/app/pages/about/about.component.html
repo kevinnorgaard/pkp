@@ -1,23 +1,18 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!-- -------------------------VIDEO--------------------------------- -->
 <div data-quality="720p" data-player-type="html5">
-  <video oncanplay="this.play()" onloadedmetadata="this.muted = true" class="video-player" playsinline loop muted autoplay preload="auto" #videoPlayer>
-    <source src="{{videoSource}}" type="video/mp4" />
+  <video #videoPlayer oncanplay="this.play()" class="video-player"
+    onloadedmetadata="this.muted = true" loop autoplay preload="auto">
+    <source src="{{ videoSource }}" type="video/mp4" />
   </video>
 </div>
-<!-- -------------------------VIDEO OVERLAY--------------------------------- -->
+
 <div class="wrapper">
   <div class="scroll-up-btn" (click)="scrollTop()"><i class="fa fa-arrow-up"></i></div>
   <div class="overlay">
     <div class="labels-container">
-      <label class="sticky-label">PHI KAPPA PSI</label>
-      <hr/>
-      <label class="sticky-sublabel">CAL KAPPA</label>
-      <br>
+      <label class="sticky-label">PHI KAPPA PSI</label><hr/>
+      <label class="sticky-sublabel">CAL KAPPA</label><br>
       <label class="sticky-subsublabel">University of California, Irvine</label>
-    </div>
-<!-- -------------------------Social Media--------------------------------- -->
+    </div><br>Z
     <div class="icon-bar">
       <a href="https://www.facebook.com/PhiKappaPsiUCI/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
       <a href="https://www.instagram.com/uciphipsi/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
@@ -28,22 +23,6 @@
 
   <div class="content-container container">
     <div class="photo-gallery container">
-<!-- -------------------------RUSH WEEK BANNER--------------------------------- -->
-      <!-- <div class="news-alert sticky-alert">
-        <div class="news-alert-text">
-          <span>Winter 2019 Rush process begins</span>&nbsp;
-          <span>Monday (1/7) of Week 1</span>
-        </div>
-        <div class="news-alert-container">
-          <button>
-            <a class="nav-link" [routerLink]="['recruitment']">Sign Up</a>
-          </button>
-          <button>
-            <a target="_blank" href="https://www.facebook.com/events/355790795212090/">Join Event</a>
-          </button>
-        </div>
-      </div> -->
-<!-- -------------------------6 MAIN PHOTOS--------------------------------- -->
       <div class="row section">
         <div class="col-sm-6">
           <img src="https://farm2.staticflickr.com/1852/43674877715_d0458a9987_c.jpg"

@@ -3,8 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { ScrollService } from 'src/scroll.service';
+import { ScrollService } from '../../scroll.service';
 
 export class Alumni {
   public constructor(

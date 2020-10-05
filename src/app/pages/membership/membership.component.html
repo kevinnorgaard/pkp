@@ -1,4 +1,4 @@
-<div class="wrapper grid-container">
+<div class="wrapper">
   <div class="scroll-up-btn" (click)="scrollTop()"><i class="fa fa-arrow-up"></i></div>
 
   <div class="exec-section">
@@ -11,10 +11,8 @@
                 [alt]="exec.name + (exec.url ? ' LinkedIn' : '')"
                 [title]="exec.name + (exec.url ? ' LinkedIn' : '')" />
           </div>
-          <p class="profile-name">{{exec.name}}</p>
-          <p class="profile-position" *ngIf="exec.position">
-            {{exec.position}}
-          </p>
+          <p class="profile-name">{{ exec.name }}</p>
+          <p class="profile-position" *ngIf="exec.position">{{ exec.position }}</p>
         </div>
       </div>
     </div>
@@ -30,24 +28,24 @@
       </div>
     </div>
   </div>
-  <div class="leadership-section">
+  <div class="leader-section">
     <h2 class="sticky-container-title">Campus Involvement</h2>
     <div class="section">
-      <table class="leadership-table subsection">
-        <tr class="leadership-row" *ngFor="let leader of leaders">
-          <td class="leadership-year" *ngIf="(getYear() - 2) <= (leader.year) || showAllOnCampus">
-            {{leader.year}}
+      <table class="leader-table subsection">
+        <tr class="leader-row" *ngFor="let leader of leaders">
+          <td class="leader-year" *ngIf="(getYear() - 2) <= (leader.year) || showAllOnCampus">
+            {{ leader.year }}
           </td>
-          <td class="leadership-title" *ngIf="(getYear() - 2) <= (leader.year) || showAllOnCampus">
-            {{leader.title}}
+          <td class="leader-title" *ngIf="(getYear() - 2) <= (leader.year) || showAllOnCampus">
+            {{ leader.title }}
           </td>
-          <td class="leadership-recipient" *ngIf="(getYear() - 2) <= (leader.year) || showAllOnCampus">
-            {{leader.name}}
+          <td class="leader-recipient" *ngIf="(getYear() - 2) <= (leader.year) || showAllOnCampus">
+            {{ leader.name }}
           </td>
         </tr>
       </table>
       <div class="showall-container" (click)="toggleShowAllOnCampus()">
-        <button class="btn showall-btn">{{showAllOnCampusText}}</button>
+        <button class="btn showall-btn">{{ showAllOnCampusText }}</button>
       </div>
     </div>
   </div>
@@ -70,9 +68,7 @@
     <div class="section brotherhood-section row">
       <ul class="brotherhood-container">
         <div class="brotherhood-list-item" *ngFor="let brotherhood of brotherhoods">
-          <li class="col brotherhood-item">
-            {{brotherhood}}
-          </li>
+          <li class="col brotherhood-item">{{ brotherhood }}</li>
         </div>
       </ul>
     </div>

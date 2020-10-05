@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GraphcmsService } from 'src/app/graphcms.service';
-import { ScrollService } from 'src/scroll.service';
+import { ScrollService } from 'src/app/scroll.service';
 import { PageComponent } from '../page.component';
 
 interface Executive {

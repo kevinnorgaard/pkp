@@ -57,8 +57,9 @@
                alt="Fall Rush 2016 Car Bash"
                title="Fall Rush 2016 Car Bash" />
         </span>
-        <video id="video" class="col-sm mid-snug" [ngStyle]="{width: getMiddleWidth() + 'px'}" playsinline loop muted autoplay preload="auto" #videoPlayer>
-          <source src="{{videoSource}}" type="video/mp4" />
+        <video #videoPlayer id="video" class="col-sm mid-snug" [ngStyle]="{width: getMiddleWidth() + 'px'}"
+               onloadedmetadata="this.muted = true" loop autoplay preload="auto">
+          <source src="{{ videoSource }}" type="video/mp4" />
         </video>
         <span class="col-sm side-snug" [ngStyle]="{width: getSideWidth() + 'px'}">
           <img src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScrollService } from 'src/scroll.service';
+import { ScrollService } from '../../scroll.service';
 import { PageComponent } from '../page.component';
 
 @Component({

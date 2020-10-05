@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AdminComponent } from './pages/admin/admin.component';
 import { AlumniComponent } from './pages/alumni/alumni.component';
-import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
 import { MembershipComponent } from './pages/membership/membership.component';
 import { PhilanthropyComponent } from './pages/philanthropy/philanthropy.component';
 import { RecruitmentComponent } from './pages/recruitment/recruitment.component';
@@ -13,7 +13,7 @@ let routes: Routes = [];
 
 if (environment.mode === 'normal') {
   routes = [
-    { path: '', component: HomeComponent },
+    { path: '', component: AboutComponent },
     { path: 'membership', component: MembershipComponent },
     { path: 'alumni', component: AlumniComponent },
     { path: 'scholarship', component: ScholarshipComponent },
@@ -29,7 +29,7 @@ if (environment.mode === 'normal') {
     { path: 'scholarship', component: ScholarshipComponent },
     { path: 'philanthropy', component: PhilanthropyComponent },
     { path: 'admin', component: AdminComponent },
-    { path: 'about', component: HomeComponent }
+    { path: 'about', component: AboutComponent }
   ];
 } else if (environment.mode === 'philanthropy') {
   routes = [
@@ -39,7 +39,7 @@ if (environment.mode === 'normal') {
     { path: 'scholarship', component: ScholarshipComponent },
     { path: 'rush', component: RecruitmentComponent },
     { path: 'admin', component: AdminComponent },
-    { path: 'about', component: HomeComponent }
+    { path: 'about', component: AboutComponent }
   ];
 }
 

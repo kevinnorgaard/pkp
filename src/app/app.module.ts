@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MembershipComponent } from './pages/membership/membership.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
@@ -32,6 +32,7 @@ import { AlumniComponent } from './pages/alumni/alumni.component';
 import { RusheeProfilesComponent } from './pages/admin/rushee-profiles/rushee-profiles.component';
 import { AlumniProfilesComponent } from './pages/admin/alumni-profiles/alumni-profiles.component';
 import { EventCheckinComponent } from './pages/admin/event-checkin/event-checkin.component';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   imports: [
@@ -50,7 +51,7 @@ import { EventCheckinComponent } from './pages/admin/event-checkin/event-checkin
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
+    AboutComponent,
     MembershipComponent,
     RecruitmentComponent,
     ScholarshipComponent,
@@ -60,7 +61,8 @@ import { EventCheckinComponent } from './pages/admin/event-checkin/event-checkin
     AlumniComponent,
     RusheeProfilesComponent,
     AlumniProfilesComponent,
-    EventCheckinComponent
+    EventCheckinComponent,
+    BannerComponent
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy },
     {
