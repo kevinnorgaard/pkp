@@ -1,6 +1,6 @@
 {
-  "name": "pkp-app",
-  "version": "0.0.0",
+  "name": "pkp",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng lint && ng serve",

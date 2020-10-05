@@ -5,7 +5,10 @@ import { EmptyObject } from 'apollo-angular/types';
 
 const EXECUTIVES_QUERY = gql`
 {
-  executives {
+  executives (
+    orderBy: order_ASC
+  )
+  {
     name
     position
     image {
@@ -13,6 +16,19 @@ const EXECUTIVES_QUERY = gql`
       fileName
     }
     url
+  }
+}
+`;
+
+const LEADERS_QUERY = gql`
+{
+  leaders (
+    orderBy: year_DESC
+  )
+  {
+    name
+    year
+    title
   }
 }
 `;
@@ -26,5 +42,9 @@ export class GraphcmsService {
 
   getExecutives(): QueryRef<unknown, EmptyObject> {
     return this.apollo.watchQuery({query: EXECUTIVES_QUERY});
+  }
+
+  getLeaders(): QueryRef<unknown, EmptyObject> {
+    return this.apollo.watchQuery({query: LEADERS_QUERY});
   }
 }

@@ -4,16 +4,16 @@
   <div class="exec-section">
     <h2 class="sticky-container-title">Leadership</h2>
     <div class="row section">
-      <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let prof of profiles">
+      <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let exec of executives">
         <div class="profile-container">
-          <div [ngClass]="prof.url ? 'clickable' : 'not-clickable'" (click)="openUrl(prof.url)" class="center-cropped">
-            <img [src]="prof.img" class="profile-picture"
-                [alt]="prof.name + (prof.url ? ' LinkedIn' : '')"
-                [title]="prof.name + (prof.url ? ' LinkedIn' : '')" />
+          <div [ngClass]="exec.url ? 'clickable' : 'not-clickable'" (click)="openUrl(exec.url)" class="center-cropped">
+            <img [src]="exec.img" class="profile-picture"
+                [alt]="exec.name + (exec.url ? ' LinkedIn' : '')"
+                [title]="exec.name + (exec.url ? ' LinkedIn' : '')" />
           </div>
-          <p class="profile-name">{{prof.name}}</p>
-          <p class="profile-position" *ngIf="prof.position">
-            {{prof.position}}
+          <p class="profile-name">{{exec.name}}</p>
+          <p class="profile-position" *ngIf="exec.position">
+            {{exec.position}}
           </p>
         </div>
       </div>
@@ -31,18 +31,18 @@
     </div>
   </div>
   <div class="leadership-section">
-    <h2 class="sticky-container-title">Leaders of UCI</h2>
+    <h2 class="sticky-container-title">Campus Involvement</h2>
     <div class="section">
       <table class="leadership-table subsection">
-        <tr class="leadership-row" *ngFor="let leadership of previousLeadership">
-          <td class="leadership-year" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">
-            {{leadership.year}}
+        <tr class="leadership-row" *ngFor="let leader of leaders">
+          <td class="leadership-year" *ngIf="(getYear() - 2) <= (leader.year) || showAllOnCampus">
+            {{leader.year}}
           </td>
-          <td class="leadership-title" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">
-            {{leadership.title}}
+          <td class="leadership-title" *ngIf="(getYear() - 2) <= (leader.year) || showAllOnCampus">
+            {{leader.title}}
           </td>
-          <td class="leadership-recipient" *ngIf="(getYear() - 2) <= (leadership.year) || showAllOnCampus">
-            {{leadership.recipient}}
+          <td class="leadership-recipient" *ngIf="(getYear() - 2) <= (leader.year) || showAllOnCampus">
+            {{leader.name}}
           </td>
         </tr>
       </table>
