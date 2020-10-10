@@ -19,6 +19,6 @@ export class ScrollService {
       } else {
         window.clearInterval(scrollToTop);
       }
-    }, 16);
+    }, 4);
   }
 }
