@@ -7,15 +7,10 @@ import * as firebase from 'firebase';
 @Component({
   selector: 'app-event-checkin',
   templateUrl: './event-checkin.component.html',
-  styleUrls: ['./event-checkin.component.css']
+  styleUrls: ['./event-checkin.component.css'],
 })
 export class EventCheckinComponent implements OnInit {
-  rushDates = [
-    '2019-9-25',
-    '2019-9-26',
-    '2019-9-27',
-    '2019-9-28'
-  ];
+  rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];
   forms: any;
   checkins: any;
   orderedRushees: any[];
@@ -23,20 +18,28 @@ export class EventCheckinComponent implements OnInit {
 
   orderCheckinsAscending = false;
 
-  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
+  constructor(
+    public afAuth: AngularFireAuth,
+    public db: AngularFireDatabase,
+  ) {
     this.user = this.afAuth.authState; // Update
     this.loadDatabase();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   loadDatabase(): any {
-    return firebase.database().ref('/').once('value').then((snapshot) => {
-      this.forms = snapshot.val() ? snapshot.val().forms : null;
-      this.checkins = snapshot.val() ? snapshot.val().checkins : null;
-      this.orderRusheesByLastName();
-    });
+    return firebase
+      .database()
+      .ref('/')
+      .once('value')
+      .then((snapshot) => {
+        this.forms = snapshot.val() ? snapshot.val().forms : null;
+        this.checkins = snapshot.val()
+          ? snapshot.val().checkins
+          : null;
+        this.orderRusheesByLastName();
+      });
   }
 
   orderRusheesByFirstName(): void {
@@ -46,10 +49,16 @@ export class EventCheckinComponent implements OnInit {
       unorderedRushees.push([key, this.getRusheeName(key)]);
     }
     this.orderedRushees = unorderedRushees.sort((r1, r2) => {
-      if (this.getFirstName(r1[1]).toUpperCase() > this.getFirstName(r2[1]).toUpperCase()) {
+      if (
+        this.getFirstName(r1[1]).toUpperCase() >
+        this.getFirstName(r2[1]).toUpperCase()
+      ) {
         return 1;
       }
-      if (this.getFirstName(r1[1]).toUpperCase() < this.getFirstName(r2[1]).toUpperCase()) {
+      if (
+        this.getFirstName(r1[1]).toUpperCase() <
+        this.getFirstName(r2[1]).toUpperCase()
+      ) {
         return -1;
       }
       return 0;
@@ -63,10 +72,16 @@ export class EventCheckinComponent implements OnInit {
       unorderedRushees.push([key, this.getRusheeName(key)]);
     }
     this.orderedRushees = unorderedRushees.sort((r1, r2) => {
-      if (this.getLastName(r1[1]).toUpperCase() > this.getLastName(r2[1]).toUpperCase()) {
+      if (
+        this.getLastName(r1[1]).toUpperCase() >
+        this.getLastName(r2[1]).toUpperCase()
+      ) {
         return 1;
       }
-      if (this.getLastName(r1[1]).toUpperCase() < this.getLastName(r2[1]).toUpperCase()) {
+      if (
+        this.getLastName(r1[1]).toUpperCase() <
+        this.getLastName(r2[1]).toUpperCase()
+      ) {
         return -1;
       }
       return 0;
@@ -108,20 +123,26 @@ export class EventCheckinComponent implements OnInit {
     const currentDate = this.getCurrentDate();
     let newVal;
     if (this.getCheckins(key)) {
-      newVal = this.getCheckins(key)[currentDate] != null ? !this.getCheckins(key)[currentDate] : true;
+      newVal =
+        this.getCheckins(key)[currentDate] != null
+          ? !this.getCheckins(key)[currentDate]
+          : true;
       updates['/checkins/' + key + '/' + currentDate] = newVal;
     } else {
       const newCheckin = {};
       newCheckin[currentDate] = true;
       updates['/checkins/' + key] = newCheckin;
     }
-    firebase.database().ref().update(updates, error => {
-      if (error) {
-        console.log('Failed to save form to Firebase');
-      } else {
-        console.log('Successfully saved form to Firebase!');
-      }
-    });
+    firebase
+      .database()
+      .ref()
+      .update(updates, (error) => {
+        if (error) {
+          console.log('Failed to save form to Firebase');
+        } else {
+          console.log('Successfully saved form to Firebase!');
+        }
+      });
     setTimeout(() => this.loadDatabase(), 0);
   }
 
@@ -129,7 +150,13 @@ export class EventCheckinComponent implements OnInit {
     const currentDate = new Date();
     const dateString = currentDate.toLocaleDateString();
     const dateStringList = dateString.split('/');
-    return dateStringList[2] + '-' + dateStringList[0] + '-' + dateStringList[1];
+    return (
+      dateStringList[2] +
+      '-' +
+      dateStringList[0] +
+      '-' +
+      dateStringList[1]
+    );
   }
 
   getLastName(name: string): string {

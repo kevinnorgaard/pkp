@@ -7,21 +7,23 @@
   margin: 0 auto !important;
 }
 
-.first-row, .second-row, .third-row {
+.first-row,
+.second-row,
+.third-row {
   background: black;
   max-width: 1200px;
 }
 
 .full-section {
   margin: 0 auto;
-  background: rgba(0,0,0,.025) !important;
+  background: rgba(0, 0, 0, 0.025) !important;
   padding: 10px;
 }
 
 .section {
   max-width: 1200px;
   margin: 0 auto;
-  background: rgba(0,0,0,.025) !important;
+  background: rgba(0, 0, 0, 0.025) !important;
   padding: 10px;
 }
 
@@ -115,7 +117,7 @@
   max-width: 1200px;
   margin: 0 auto;
   font-size: 4vw;
-  letter-spacing: .9vw;
+  letter-spacing: 0.9vw;
 }
 
 @media (max-width: 1200px) {
@@ -165,7 +167,7 @@
 }
 
 .form-group label {
-  color: rgba(0,0,0,.7) !important;
+  color: rgba(0, 0, 0, 0.7) !important;
   font-weight: 800px !important;
 }
 
@@ -175,53 +177,66 @@
 }
 
 .form-check label {
-  color: rgba(0,0,0,.7) !important;
+  color: rgba(0, 0, 0, 0.7) !important;
   margin-left: 20px !important;
   font-weight: 800px !important;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   background-color: transparent;
-  color: rgba(0,0,0,.7);
-  border: 1px solid rgba(0,0,0,.3);
+  color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   margin: 0 auto !important;
 }
 
-input::placeholder, select::placeholder, textarea::placeholder {
-  color: rgba(0,0,0,.3);
-  opacity: .5;
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  opacity: 0.5;
 }
-input:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder {
+input:-ms-input-placeholder,
+select:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
   color: white;
-  opacity: .5;
+  opacity: 0.5;
 }
-input::-ms-input-placeholder, select::-ms-input-placeholder, textarea::-ms-input-placeholder {
+input::-ms-input-placeholder,
+select::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
   color: white;
-  opacity: .5;
+  opacity: 0.5;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   background-color: transparent;
-  color: rgba(0,0,0,.7);
+  color: rgba(0, 0, 0, 0.7);
   outline: none !important;
-  border:1px solid rgba(0,0,0,.7);
-  box-shadow: 0 0 4px rgba(0,0,0,.7);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
 }
 
-input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder {
-  color: rgba(0,0,0,.7);
+input:focus::placeholder,
+textarea:focus::placeholder,
+select:focus::placeholder {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .required-asterisk {
-  color: #C41E3A;
+  color: #c41e3a;
 }
 
-.ng-valid[required], .ng-valid.required  {
+.ng-valid[required],
+.ng-valid.required {
   box-shadow: inset 6px 0px 0px -3px #5ca367;
 }
 
-.ng-invalid:not(form)  {
-  box-shadow: inset 6px 0px 0px -3px #C41E3A;
+.ng-invalid:not(form) {
+  box-shadow: inset 6px 0px 0px -3px #c41e3a;
 }
 
 .submit-container {
@@ -244,12 +259,12 @@ input:focus::placeholder, textarea:focus::placeholder, select:focus::placeholder
 }
 
 .btn-submit:hover {
-   opacity: .7;
- }
+  opacity: 0.7;
+}
 
 .submit-dialog {
-  border: 1px solid rgba(0,0,0,.7);
-  color: rgba(0,0,0,.7);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.7);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;

@@ -5,7 +5,7 @@ import { PageComponent } from '../page.component';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent extends PageComponent implements OnInit {
   currentMode = 'rushee-profiles';

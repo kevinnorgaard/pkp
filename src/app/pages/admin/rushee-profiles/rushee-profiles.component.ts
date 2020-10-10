@@ -24,16 +24,11 @@ export class Forms {
 @Component({
   selector: 'app-rushee-profiles',
   templateUrl: './rushee-profiles.component.html',
-  styleUrls: ['./rushee-profiles.component.css']
+  styleUrls: ['./rushee-profiles.component.css'],
 })
 export class RusheeProfilesComponent {
   removeBitmap = {};
-  rushDates = [
-    '2019-9-25',
-    '2019-9-26',
-    '2019-9-27',
-    '2019-9-28'
-  ];
+  rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];
   forms: Forms;
   checkins: any;
   currentMode = '';
@@ -41,21 +36,30 @@ export class RusheeProfilesComponent {
   user: Observable<firebase.User>;
   orderCheckinsAscending = false;
 
-  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
+  constructor(
+    public afAuth: AngularFireAuth,
+    public db: AngularFireDatabase,
+  ) {
     this.user = this.afAuth.authState; // Update
     this.loadDatabase();
   }
 
   loadDatabase(): any {
-    return firebase.database().ref('/').once('value').then((snapshot) => {
-      this.forms = snapshot.val() ? snapshot.val().forms : null;
-      this.checkins = snapshot.val() ? snapshot.val().checkins : null;
-      this.orderRusheesByFirstName();
-      if (this.forms.notes == null) {
-        this.forms.notes = {};
-      }
-      this.resetBitmap();
-    });
+    return firebase
+      .database()
+      .ref('/')
+      .once('value')
+      .then((snapshot) => {
+        this.forms = snapshot.val() ? snapshot.val().forms : null;
+        this.checkins = snapshot.val()
+          ? snapshot.val().checkins
+          : null;
+        this.orderRusheesByFirstName();
+        if (this.forms.notes == null) {
+          this.forms.notes = {};
+        }
+        this.resetBitmap();
+      });
   }
 
   resetBitmap(): void {
@@ -69,10 +73,16 @@ export class RusheeProfilesComponent {
       unorderedRushees.push([key, this.getRusheeName(key)]);
     }
     this.orderedRushees = unorderedRushees.sort((r1, r2) => {
-      if (this.getFirstName(r1[1]).toUpperCase() > this.getFirstName(r2[1]).toUpperCase()) {
+      if (
+        this.getFirstName(r1[1]).toUpperCase() >
+        this.getFirstName(r2[1]).toUpperCase()
+      ) {
         return 1;
       }
-      if (this.getFirstName(r1[1]).toUpperCase() < this.getFirstName(r2[1]).toUpperCase()) {
+      if (
+        this.getFirstName(r1[1]).toUpperCase() <
+        this.getFirstName(r2[1]).toUpperCase()
+      ) {
         return -1;
       }
       return 0;
@@ -86,10 +96,16 @@ export class RusheeProfilesComponent {
       unorderedRushees.push([key, this.getRusheeName(key)]);
     }
     this.orderedRushees = unorderedRushees.sort((r1, r2) => {
-      if (this.getLastName(r1[1]).toUpperCase() > this.getLastName(r2[1]).toUpperCase()) {
+      if (
+        this.getLastName(r1[1]).toUpperCase() >
+        this.getLastName(r2[1]).toUpperCase()
+      ) {
         return 1;
       }
-      if (this.getLastName(r1[1]).toUpperCase() < this.getLastName(r2[1]).toUpperCase()) {
+      if (
+        this.getLastName(r1[1]).toUpperCase() <
+        this.getLastName(r2[1]).toUpperCase()
+      ) {
         return -1;
       }
       return 0;
@@ -180,7 +196,12 @@ export class RusheeProfilesComponent {
     let sum = 0;
     if (checkins) {
       for (const checkinKey of Object.keys(checkins)) {
-        sum = sum + (checkins[checkinKey] && this.rushDates.indexOf(checkinKey) !== -1 ? 1 : 0);
+        sum =
+          sum +
+          (checkins[checkinKey] &&
+          this.rushDates.indexOf(checkinKey) !== -1
+            ? 1
+            : 0);
       }
     }
     return sum;
@@ -196,13 +217,16 @@ export class RusheeProfilesComponent {
   onSaveNote(key: string, note: any): void {
     const updates = {};
     updates['/forms/notes/' + key] = note;
-    firebase.database().ref().update(updates, error => {
-      if (error) {
-        console.log('Failed to save form to Firebase');
-      } else {
-        console.log('Successfully saved form to Firebase!');
-      }
-    });
+    firebase
+      .database()
+      .ref()
+      .update(updates, (error) => {
+        if (error) {
+          console.log('Failed to save form to Firebase');
+        } else {
+          console.log('Successfully saved form to Firebase!');
+        }
+      });
     setTimeout(() => this.loadDatabase(), 0);
   }
 
@@ -226,13 +250,16 @@ export class RusheeProfilesComponent {
     updates['/forms/reasons/' + rushee[0]] = null;
     updates['/forms/referral/' + rushee[0]] = null;
     updates['/forms/notes/' + rushee[0]] = null;
-    firebase.database().ref().update(updates, error => {
-      if (error) {
-        console.log('Failed to save form to Firebase');
-      } else {
-        console.log('Successfully saved form to Firebase!');
-      }
-    });
+    firebase
+      .database()
+      .ref()
+      .update(updates, (error) => {
+        if (error) {
+          console.log('Failed to save form to Firebase');
+        } else {
+          console.log('Successfully saved form to Firebase!');
+        }
+      });
     this.resetBitmap();
     setTimeout(() => this.loadDatabase(), 0);
   }

@@ -4,14 +4,17 @@
   background: white;
 }
 
-.col-sm-6, .col-sm-3, .col-sm-4, .col {
+.col-sm-6,
+.col-sm-3,
+.col-sm-4,
+.col {
   padding: 0 !important;
 }
 
 .section {
   max-width: 1200px;
   margin: 0 auto;
-  background: rgba(0,0,0,.025) !important;
+  background: rgba(0, 0, 0, 0.025) !important;
   padding: 10px;
 }
 
@@ -39,13 +42,13 @@
 }
 
 .fa {
-  -webkit-text-stroke-width: .1vw;
+  -webkit-text-stroke-width: 0.1vw;
   font-size: 5vw;
 }
 
 .donation-section {
   padding: 20px 10px !important;
-  background-color: rgba(0,0,0,.05);
+  background-color: rgba(0, 0, 0, 0.05);
   color: black;
   display: flex;
   flex-direction: column;
@@ -106,9 +109,9 @@
 }
 
 .newsletter-submit-btn {
-  color: rgba(0,0,0,.4);
+  color: rgba(0, 0, 0, 0.4);
   background: white;
-  border: rgba(0,0,0,.4) 1px solid;
+  border: rgba(0, 0, 0, 0.4) 1px solid;
   border-radius: 4px;
   padding: 5px 10px;
   min-width: 70px;

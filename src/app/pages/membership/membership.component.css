@@ -7,7 +7,7 @@
 .section {
   max-width: 1200px;
   margin: 0 auto;
-  background: rgba(0,0,0,.025) !important;
+  background: rgba(0, 0, 0, 0.025) !important;
   padding: 10px;
 }
 
@@ -28,7 +28,10 @@
   margin: 0 auto;
 }
 
-.col-sm-6, .col-sm-3, .col-sm-4, .col {
+.col-sm-6,
+.col-sm-3,
+.col-sm-4,
+.col {
   padding: 0 !important;
 }
 
@@ -126,7 +129,7 @@
 }
 
 .brotherhood-section {
-  background-color: rgba(0,0,0,.024) !important;
+  background-color: rgba(0, 0, 0, 0.024) !important;
 }
 
 .brotherhood-container {

@@ -4,14 +4,9 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-page',
-    template: `
-      <div>
-          Page Component needs to be implemented.
-      </div>
-    `
+  template: ` <div>Page Component needs to be implemented.</div> `,
 })
 export class PageComponent implements OnInit {
-
   constructor(protected scrollService: ScrollService) {}
 
   ngOnInit(): void {

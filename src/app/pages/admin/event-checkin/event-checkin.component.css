@@ -1,47 +1,52 @@
 .scrollable-container {
-    width: 100%;
-    height: 100%;
-    overflow-x: auto;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
 }
 
 table {
-    table-layout: auto;
-    width: 100%;
-    height: 100%;
+  table-layout: auto;
+  width: 100%;
+  height: 100%;
 }
 
-table, tr, th, td {
-    border-collapse: collapse;
-    border-bottom: #355E3B 1px solid;
-    font-size: 16px;
-    padding: 8px;
+table,
+tr,
+th,
+td {
+  border-collapse: collapse;
+  border-bottom: #355e3b 1px solid;
+  font-size: 16px;
+  padding: 8px;
 }
 
-tr, td {
-    border-bottom: #355E3B 1px solid;
+tr,
+td {
+  border-bottom: #355e3b 1px solid;
 }
 
 .table-header-row {
-    border: #355E3B 1px solid;
-    font-size: 12px;
-    color: #355E3B;
-    font-weight: 400;
+  border: #355e3b 1px solid;
+  font-size: 12px;
+  color: #355e3b;
+  font-weight: 400;
 }
 
-.table-header-row th, .nowrap-cell {
-    white-space: nowrap;
+.table-header-row th,
+.nowrap-cell {
+  white-space: nowrap;
 }
-  
-.checked-btn, .unchecked-btn {
-    height: 30px;
-    width: 30px;
+
+.checked-btn,
+.unchecked-btn {
+  height: 30px;
+  width: 30px;
 }
 
 .unchecked-btn {
-    background-color: lightgrey;
+  background-color: lightgrey;
 }
 
 .checked-btn {
-    background-color: #5ca367;
+  background-color: #5ca367;
 }
-  

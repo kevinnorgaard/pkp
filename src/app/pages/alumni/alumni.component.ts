@@ -6,16 +6,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { ScrollService } from '../../scroll.service';
 
 export class Alumni {
-  public constructor(
-    public fullName: string,
-    public email: string
-  ) {  }
+  public constructor(public fullName: string, public email: string) {}
 }
 
 @Component({
   selector: 'app-alumni',
   templateUrl: './alumni.component.html',
-  styleUrls: ['./alumni.component.css']
+  styleUrls: ['./alumni.component.css'],
 })
 export class AlumniComponent extends PageComponent implements OnInit {
   user: Observable<firebase.User>;
@@ -23,7 +20,10 @@ export class AlumniComponent extends PageComponent implements OnInit {
   enabled = true;
   submitButtonMessage = 'Subscribe';
 
-  constructor(scrollService: ScrollService, public afAuth: AngularFireAuth) {
+  constructor(
+    scrollService: ScrollService,
+    public afAuth: AngularFireAuth,
+  ) {
     super(scrollService);
     this.user = this.afAuth.authState;
   }
@@ -33,7 +33,11 @@ export class AlumniComponent extends PageComponent implements OnInit {
   }
 
   invalid(): boolean {
-    return !this.enabled || this.form.fullName === '' || this.form.email === '';
+    return (
+      !this.enabled ||
+      this.form.fullName === '' ||
+      this.form.email === ''
+    );
   }
 
   onSubmit(): void {
@@ -44,16 +48,21 @@ export class AlumniComponent extends PageComponent implements OnInit {
     const updates = {};
     for (const item in JSON.parse(JSON.stringify(this.form))) {
       if (this.form[item] !== '') {
-        updates['/alumni/' + item + '/' + this.form.fullName] = this.form[item];
+        updates[
+          '/alumni/' + item + '/' + this.form.fullName
+        ] = this.form[item];
       }
     }
-    firebase.database().ref().update(updates, error => {
-      if (error) {
-        console.log('Failed to save form to Firebase');
-      } else {
-        console.log('Successfully saved form to Firebase!');
-      }
-    });
+    firebase
+      .database()
+      .ref()
+      .update(updates, (error) => {
+        if (error) {
+          console.log('Failed to save form to Firebase');
+        } else {
+          console.log('Successfully saved form to Firebase!');
+        }
+      });
     this.enabled = false;
     this.submitButtonMessage = 'Successfully enrolled!';
   }

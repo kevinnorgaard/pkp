@@ -19,9 +19,11 @@ interface Leader {
 @Component({
   selector: 'app-membership',
   templateUrl: './membership.component.html',
-  styleUrls: ['./membership.component.css']
+  styleUrls: ['./membership.component.css'],
 })
-export class MembershipComponent extends PageComponent implements OnInit {
+export class MembershipComponent
+  extends PageComponent
+  implements OnInit {
   executives: Executive[] = [];
   leaders: Leader[] = [];
 
@@ -34,13 +36,16 @@ export class MembershipComponent extends PageComponent implements OnInit {
     'Annual BP Tournament',
     'Brotherhood Poker Night',
     'Fruit Smash Brotherhood',
-    'Big Bear Cabin Trip'
+    'Big Bear Cabin Trip',
   ];
 
   showAllOnCampus = false;
   showAllOnCampusText = 'Show More';
 
-  constructor(scrollService: ScrollService, private graphcmsService: GraphcmsService) {
+  constructor(
+    scrollService: ScrollService,
+    private graphcmsService: GraphcmsService,
+  ) {
     super(scrollService);
   }
 
@@ -57,16 +62,19 @@ export class MembershipComponent extends PageComponent implements OnInit {
   }
 
   loadExecutives(): void {
-    this.graphcmsService.getExecutives().valueChanges
-      .subscribe(executives =>
-        this.executives = this.jsonToExecutives(executives)
+    this.graphcmsService
+      .getExecutives()
+      .valueChanges.subscribe(
+        (executives) =>
+          (this.executives = this.jsonToExecutives(executives)),
       );
   }
 
   loadLeaders(): void {
-    this.graphcmsService.getLeaders().valueChanges
-      .subscribe(leaders =>
-        this.leaders = this.jsonToLeaders(leaders)
+    this.graphcmsService
+      .getLeaders()
+      .valueChanges.subscribe(
+        (leaders) => (this.leaders = this.jsonToLeaders(leaders)),
       );
   }
 
@@ -77,7 +85,7 @@ export class MembershipComponent extends PageComponent implements OnInit {
         name: exec.name,
         position: exec.position,
         img: exec.image.url,
-        url: exec.url
+        url: exec.url,
       });
     }
     return executives;
@@ -89,7 +97,7 @@ export class MembershipComponent extends PageComponent implements OnInit {
       leaders.push({
         name: leader.name,
         year: leader.year,
-        title: leader.title
+        title: leader.title,
       });
     }
     return leaders;

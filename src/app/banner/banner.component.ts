@@ -4,14 +4,12 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.css']
+  styleUrls: ['./banner.component.css'],
 })
 export class BannerComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   mode(): string {
     return environment.mode;

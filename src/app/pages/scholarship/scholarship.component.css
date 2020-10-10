@@ -15,14 +15,14 @@ li {
 }
 
 .fa {
-  -webkit-text-stroke-width: .1vw;
+  -webkit-text-stroke-width: 0.1vw;
   font-size: 5vw;
 }
 
 .section {
   max-width: 1200px;
   margin: 0 auto;
-  background: rgba(0,0,0,.025) !important;
+  background: rgba(0, 0, 0, 0.025) !important;
   padding: 10px;
 }
 

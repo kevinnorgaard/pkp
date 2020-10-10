@@ -1,79 +1,277 @@
 <div class="wrapper">
-  <nav class="navbar navbar-expand-md sticky" [@hideShow]="getBackground()">
-<!-- -------------------------CREST HOME BUTTON--------------------------------- -->
-    <a class="navbar-brand" [routerLink]="['']" (click)="spin = !spin">
-      <img [@spin]="spin ? 'on' : 'off'" class="nav-logo" src="/assets/crest.png"
-           alt="Phi Kappa Psi Crest"/>
+  <nav
+    class="navbar navbar-expand-md sticky"
+    [@hideShow]="getBackground()"
+  >
+    <!-- -------------------------CREST HOME BUTTON--------------------------------- -->
+    <a
+      class="navbar-brand"
+      [routerLink]="['']"
+      (click)="spin = !spin"
+    >
+      <img
+        [@spin]="spin ? 'on' : 'off'"
+        class="nav-logo"
+        src="/assets/crest.png"
+        alt="Phi Kappa Psi Crest"
+      />
     </a>
-<!-- -------------------------TOGGLER [MOBILE ONLY]--------------------------------- -->
-    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
-      <i [@toggle]="isCollapsed ? 'on' : 'off'" class="navbar-toggler-icon fa fa-bars"></i>
+    <!-- -------------------------TOGGLER [MOBILE ONLY]--------------------------------- -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="navbarSupportedContent"
+      aria-label="Toggle navigation"
+    >
+      <i
+        [@toggle]="isCollapsed ? 'on' : 'off'"
+        class="navbar-toggler-icon fa fa-bars"
+      ></i>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
-      <ul *ngIf="mode() === 'normal'" class="navbar-nav mr-auto" routerLinkActive="active">
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']">HOME</a>
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      [ngbCollapse]="isCollapsed"
+    >
+      <ul
+        *ngIf="mode() === 'normal'"
+        class="navbar-nav mr-auto"
+        routerLinkActive="active"
+      >
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['']"
+            >HOME</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['membership']">MEET THE BROS</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['membership']"
+            >MEET THE BROS</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['philanthropy']">PHILANTHROPY</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['philanthropy']"
+            >PHILANTHROPY</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['alumni']">ALUMNI</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['alumni']"
+            >ALUMNI</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['scholarship']">SCHOLARSHIP</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['scholarship']"
+            >SCHOLARSHIP</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['rush']">RUSH</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['rush']"
+            >RUSH</a
+          >
         </li>
       </ul>
 
-      <ul *ngIf="mode() === 'rush'" class="navbar-nav mr-auto" routerLinkActive="active">
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']">RUSH</a>
+      <ul
+        *ngIf="mode() === 'rush'"
+        class="navbar-nav mr-auto"
+        routerLinkActive="active"
+      >
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['']"
+            >RUSH</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['membership']">MEET THE BROS</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['membership']"
+            >MEET THE BROS</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['philanthropy']">PHILANTHROPY</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['philanthropy']"
+            >PHILANTHROPY</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['alumni']">ALUMNI</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['alumni']"
+            >ALUMNI</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['scholarship']">SCHOLARSHIP</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['scholarship']"
+            >SCHOLARSHIP</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['about']">ABOUT US</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['about']"
+            >ABOUT US</a
+          >
         </li>
       </ul>
 
-      <ul *ngIf="mode() === 'philanthropy'" class="navbar-nav mr-auto" routerLinkActive="active">
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']">PHILANTHROPY</a>
+      <ul
+        *ngIf="mode() === 'philanthropy'"
+        class="navbar-nav mr-auto"
+        routerLinkActive="active"
+      >
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['']"
+            >PHILANTHROPY</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['membership']">MEET THE BROS</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['membership']"
+            >MEET THE BROS</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['rush']">RUSH</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['rush']"
+            >RUSH</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['alumni']">ALUMNI</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['alumni']"
+            >ALUMNI</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['scholarship']">SCHOLARSHIP</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['scholarship']"
+            >SCHOLARSHIP</a
+          >
         </li>
-        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['about']">ABOUT US</a>
+        <li
+          class="nav-item"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            (click)="isCollapsed = true"
+            class="nav-link"
+            [routerLink]="['about']"
+            >ABOUT US</a
+          >
         </li>
       </ul>
     </div>
   </nav>
-
 </div>

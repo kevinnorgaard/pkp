@@ -1,23 +1,56 @@
 <div data-quality="720p" data-player-type="html5">
-  <video #videoPlayer oncanplay="this.play()" class="video-player"
-    onloadedmetadata="this.muted = true" loop autoplay preload="auto">
+  <video
+    #videoPlayer
+    oncanplay="this.play()"
+    class="video-player"
+    onloadedmetadata="this.muted = true"
+    loop
+    autoplay
+    preload="auto"
+  >
     <source src="{{ videoSource }}" type="video/mp4" />
   </video>
 </div>
 
 <div class="wrapper">
-  <div class="scroll-up-btn" (click)="scrollTop()"><i class="fa fa-arrow-up"></i></div>
+  <div class="scroll-up-btn" (click)="scrollTop()">
+    <i class="fa fa-arrow-up"></i>
+  </div>
   <div class="overlay">
     <div class="labels-container">
-      <label class="sticky-label">PHI KAPPA PSI</label><hr/>
-      <label class="sticky-sublabel">CAL KAPPA</label><br>
-      <label class="sticky-subsublabel">University of California, Irvine</label>
-    </div><br>Z
+      <label class="sticky-label">PHI KAPPA PSI</label>
+      <hr />
+      <label class="sticky-sublabel">CAL KAPPA</label><br />
+      <label class="sticky-subsublabel"
+        >University of California, Irvine</label
+      >
+    </div>
+    <br />Z
     <div class="icon-bar">
-      <a href="https://www.facebook.com/PhiKappaPsiUCI/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-      <a href="https://www.instagram.com/uciphipsi/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
-      <a href="https://twitter.com/phipsiucirvine" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/company/phi-kappa-psi-fraternity/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      <a
+        href="https://www.facebook.com/PhiKappaPsiUCI/"
+        target="_blank"
+        class="facebook"
+        ><i class="fa fa-facebook"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/uciphipsi/"
+        target="_blank"
+        class="instagram"
+        ><i class="fa fa-instagram"></i
+      ></a>
+      <a
+        href="https://twitter.com/phipsiucirvine"
+        target="_blank"
+        class="twitter"
+        ><i class="fa fa-twitter"></i
+      ></a>
+      <a
+        href="https://www.linkedin.com/company/phi-kappa-psi-fraternity/"
+        target="_blank"
+        class="linkedin"
+        ><i class="fa fa-linkedin"></i
+      ></a>
     </div>
   </div>
 
@@ -25,139 +58,311 @@
     <div class="photo-gallery container">
       <div class="row section">
         <div class="col-sm-6">
-          <img src="https://farm2.staticflickr.com/1852/43674877715_d0458a9987_c.jpg"
-              class="photo img-fluid" alt="Beta Mu pledge class initiation"
-              title="Beta Mu pledge class initiation"/>
+          <img
+            src="https://farm2.staticflickr.com/1852/43674877715_d0458a9987_c.jpg"
+            class="photo img-fluid"
+            alt="Beta Mu pledge class initiation"
+            title="Beta Mu pledge class initiation"
+          />
         </div>
         <div class="col-sm-6">
-          <img src="https://farm2.staticflickr.com/1849/43529799535_c0aeb1a939_c.jpg"
-              class="photo img-fluid" alt="Grand Arch Council group"
-              title="Grand Arch Council group"/>
-        </div>
-      </div>
-      <div class="row section">
-        <div class="col-sm-6">
-          <img src="https://farm2.staticflickr.com/1859/43530066535_360608384e_c.jpg"
-                class="photo img-fluid" alt="Saturdays Are For The Boys flag"
-                title="Saturdays Are For The Boys flag"/>
-        </div>
-        <div class="col-sm-6">
-          <img src="https://farm2.staticflickr.com/1875/30570168408_0b44c9784d_c.jpg"
-                class="photo img-fluid" alt="John Akinwole and Andres Staben"
-                title="John Akinwole and Andres Staben" />
+          <img
+            src="https://farm2.staticflickr.com/1849/43529799535_c0aeb1a939_c.jpg"
+            class="photo img-fluid"
+            alt="Grand Arch Council group"
+            title="Grand Arch Council group"
+          />
         </div>
       </div>
       <div class="row section">
         <div class="col-sm-6">
-          <img src="https://farm2.staticflickr.com/1844/43530869385_c8a8841e13_c.jpg"
-                class="photo img-fluid" alt="IFC Intramural Football"
-                title="IFC Intramural Football" />
+          <img
+            src="https://farm2.staticflickr.com/1859/43530066535_360608384e_c.jpg"
+            class="photo img-fluid"
+            alt="Saturdays Are For The Boys flag"
+            title="Saturdays Are For The Boys flag"
+          />
         </div>
         <div class="col-sm-6">
-          <img src="https://farm2.staticflickr.com/1880/29500670667_4cb204b65f_c.jpg"
-                class="photo img-fluid" alt="IFC Intramural Volleyball"
-                title="IFC Intramural Volleyball" />
+          <img
+            src="https://farm2.staticflickr.com/1875/30570168408_0b44c9784d_c.jpg"
+            class="photo img-fluid"
+            alt="John Akinwole and Andres Staben"
+            title="John Akinwole and Andres Staben"
+          />
+        </div>
+      </div>
+      <div class="row section">
+        <div class="col-sm-6">
+          <img
+            src="https://farm2.staticflickr.com/1844/43530869385_c8a8841e13_c.jpg"
+            class="photo img-fluid"
+            alt="IFC Intramural Football"
+            title="IFC Intramural Football"
+          />
+        </div>
+        <div class="col-sm-6">
+          <img
+            src="https://farm2.staticflickr.com/1880/29500670667_4cb204b65f_c.jpg"
+            class="photo img-fluid"
+            alt="IFC Intramural Volleyball"
+            title="IFC Intramural Volleyball"
+          />
         </div>
       </div>
     </div>
-<!-- -------------------------WHY PHI PSI?--------------------------------- -->
+    <!-- -------------------------WHY PHI PSI?--------------------------------- -->
     <div id="boring-section" class="col">
       <div class="subsection">
         <div id="biography-section">
           <div class="heading">Why Phi Psi?</div>
           <div class="biography-description description">
-            The Phi Kappa Psi Fraternity is a 501 (c)(7) association of men of integrity who strive to develop the
-            individual in his intellect, his involvement in the community and in his faith. The Fraternity was founded on
-            Feb. 19, 1852 at Jefferson College by William Henry Letterman and Charles Page Thomas Moore. It
-            currently has more than 100 chapters across the United States with over 6,500 undergraduate members
-            and over 80,000 living alumni.
-            <br><br>
-            Here at UCI, the Cal Kappa chapter of Phi Kappa Psi is one of the oldest fraternities at the University of California, Irvine. Since 1991, we now have a large and growing network of over 80,000 alumni living nationwide. Members of Phi Psi work diligently to increase their scholarship, expand their social circle, and engage in meaningful philanthropy and community service. Phi Psi brothers have set the highest of standards on campus, and will forever support the current wellbeing and future success of our generous, compassionate, and loyal Brothers.
-            <br><br>
-            Phi Psi alumni have made tremendous contributions to the school and are constant supporters of the chapter. UCI Phi Psi also has the largest chapter specific endowment in the nation. Some of our notable alumni such as:
-            <br><br>
+            The Phi Kappa Psi Fraternity is a 501 (c)(7) association
+            of men of integrity who strive to develop the individual
+            in his intellect, his involvement in the community and in
+            his faith. The Fraternity was founded on Feb. 19, 1852 at
+            Jefferson College by William Henry Letterman and Charles
+            Page Thomas Moore. It currently has more than 100 chapters
+            across the United States with over 6,500 undergraduate
+            members and over 80,000 living alumni.
+            <br /><br />
+            Here at UCI, the Cal Kappa chapter of Phi Kappa Psi is one
+            of the oldest fraternities at the University of
+            California, Irvine. Since 1991, we now have a large and
+            growing network of over 80,000 alumni living nationwide.
+            Members of Phi Psi work diligently to increase their
+            scholarship, expand their social circle, and engage in
+            meaningful philanthropy and community service. Phi Psi
+            brothers have set the highest of standards on campus, and
+            will forever support the current wellbeing and future
+            success of our generous, compassionate, and loyal
+            Brothers.
+            <br /><br />
+            Phi Psi alumni have made tremendous contributions to the
+            school and are constant supporters of the chapter. UCI Phi
+            Psi also has the largest chapter specific endowment in the
+            nation. Some of our notable alumni such as:
+            <br /><br />
             <ul class="alumni-list">
-              <li><a target="_blank" href="https://www.whitehouse.gov/about-the-white-house/presidents/woodrow-wilson/" class="alumni-name">
-                Woodrow Wilson</a>&ensp;28th President of the United States
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.whitehouse.gov/about-the-white-house/presidents/woodrow-wilson/"
+                  class="alumni-name"
+                >
+                  Woodrow Wilson</a
+                >&ensp;28th President of the United States
               </li>
-              <li><a target="_blank" href="https://www.bloomberg.org/about/mike-bloomberg/" class="alumni-name">
-                Michael Bloomberg</a>&ensp;Former Mayor of NYC, 8th richest person in the US
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.bloomberg.org/about/mike-bloomberg/"
+                  class="alumni-name"
+                >
+                  Michael Bloomberg</a
+                >&ensp;Former Mayor of NYC, 8th richest person in the
+                US
               </li>
-              <li><a target="_blank" href="https://www.forbes.com/profile/jerry-yang/#2e93d788468b" class="alumni-name">
-                Jerry Yang</a>&ensp;Founder and Former CEO of Yahoo
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.forbes.com/profile/jerry-yang/#2e93d788468b"
+                  class="alumni-name"
+                >
+                  Jerry Yang</a
+                >&ensp;Founder and Former CEO of Yahoo
               </li>
-              <li><a target="_blank" href="https://nelsonleadershipinstitute.org/about/jerry-nelson" class="alumni-name">
-                Jerry Nelson</a>&ensp;Founder of Ticketmaster, the world's largest ticket commerce company
+              <li>
+                <a
+                  target="_blank"
+                  href="https://nelsonleadershipinstitute.org/about/jerry-nelson"
+                  class="alumni-name"
+                >
+                  Jerry Nelson</a
+                >&ensp;Founder of Ticketmaster, the world's largest
+                ticket commerce company
               </li>
-              <li><a target="_blank" href="https://foundersfund.com/team/peter-thiel/" class="alumni-name">
-                Peter Thiel</a>&ensp;Co-founder of Paypal, Co-founder of Palantir, and Facebook's first big investor
+              <li>
+                <a
+                  target="_blank"
+                  href="https://foundersfund.com/team/peter-thiel/"
+                  class="alumni-name"
+                >
+                  Peter Thiel</a
+                >&ensp;Co-founder of Paypal, Co-founder of Palantir,
+                and Facebook's first big investor
               </li>
-              <li><a target="_blank" href="https://en.wikipedia.org/wiki/Everson_Griffen" class="alumni-name">
-                Everson Griffen</a>&ensp;Professional NFL athlete
+              <li>
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Everson_Griffen"
+                  class="alumni-name"
+                >
+                  Everson Griffen</a
+                >&ensp;Professional NFL athlete
               </li>
-              <li><a target="_blank" href="https://en.wikipedia.org/wiki/Taj_Gibson" class="alumni-name">
-                Taj Gibson</a>&ensp;Professional NBA athlete
+              <li>
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Taj_Gibson"
+                  class="alumni-name"
+                >
+                  Taj Gibson</a
+                >&ensp;Professional NBA athlete
               </li>
-              <li><a target="_blank" href="https://www.sciencehistory.org/historical-profile/herbert-henry-dow" class="alumni-name">
-                Herbert Dow</a>&ensp;Founder of Dow Chemical Company
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.sciencehistory.org/historical-profile/herbert-henry-dow"
+                  class="alumni-name"
+                >
+                  Herbert Dow</a
+                >&ensp;Founder of Dow Chemical Company
               </li>
-              <li><a target="_blank" href="https://www.bp.com/en/global/corporate/who-we-are/board-and-executive-management/executive-team/bob-dudley.html" class="alumni-name">Bob Dudley</a>&ensp;CEO of British Petroleum</li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.bp.com/en/global/corporate/who-we-are/board-and-executive-management/executive-team/bob-dudley.html"
+                  class="alumni-name"
+                  >Bob Dudley</a
+                >&ensp;CEO of British Petroleum
+              </li>
             </ul>
             For more information about Phi Kappa Psi Fraternity, visit
-            <a href="https://www.phikappapsi.com" target="_blank" class="alumni-name">
-              www.phikappapsi.com
-            </a>.
+            <a
+              href="https://www.phikappapsi.com"
+              target="_blank"
+              class="alumni-name"
+            >
+              www.phikappapsi.com </a
+            >.
           </div>
         </div>
-<!-- -------------------------VALUES & RESPONSIBILITY, NETWORKING, ETC--------------------------------- -->
+        <!-- -------------------------VALUES & RESPONSIBILITY, NETWORKING, ETC--------------------------------- -->
         <div id="values-section">
           <div class="heading">Values & Responsibility</div>
           <div class="values-description description">
-            When we come to college, our habits are not completely crystallized. We face four years that will shape our thought process and actions for the rest of our lives. The oath Phi Psis take to the Fraternity’s basic principles of honor, truth and service to others influence these patterns for the rest of their lives. Phi Psi chapters utilize their collective influence to hold themselves to being men of excellence who behave responsibly. This means that Phi Psi chapters don’t haze their new members, they obey the law, they act in a manner that brings honor not just to themselves but to Phi Psis everywhere, they treat women with respect and they protect those who cannot defend themselves. That last point is especially true, as we hold ourselves to our founding motto “The Great Joy of Serving Others.” Service is at the core of what we do, and it is a big reason why our actions stand out in crowd and attract the best, like Brian Castro, and many others. Holding yourself to a higher standard can be what separates you from the pack during and after college.
+            When we come to college, our habits are not completely
+            crystallized. We face four years that will shape our
+            thought process and actions for the rest of our lives. The
+            oath Phi Psis take to the Fraternity’s basic principles of
+            honor, truth and service to others influence these
+            patterns for the rest of their lives. Phi Psi chapters
+            utilize their collective influence to hold themselves to
+            being men of excellence who behave responsibly. This means
+            that Phi Psi chapters don’t haze their new members, they
+            obey the law, they act in a manner that brings honor not
+            just to themselves but to Phi Psis everywhere, they treat
+            women with respect and they protect those who cannot
+            defend themselves. That last point is especially true, as
+            we hold ourselves to our founding motto “The Great Joy of
+            Serving Others.” Service is at the core of what we do, and
+            it is a big reason why our actions stand out in crowd and
+            attract the best, like Brian Castro, and many others.
+            Holding yourself to a higher standard can be what
+            separates you from the pack during and after college.
           </div>
         </div>
         <div id="networking-section">
           <div class="heading">Networking</div>
           <div class="networking-description description">
-            After graduation, networking will play a key role in job searches and future employment opportunities. During their years spent in the chapter, Phi Kappa Psi members develop their interpersonal skills by interacting with the diverse members of their chapter and practicing recruitment of qualified men. Strong chapters exert a positive influence over members to hold themselves to gentlemanly behavior at all times, thus better preparing their social poise for life after college. Additionally, Phi Kappa Psi offers members an instant network of over 70,000 living members with similar ideals and values. Regional Alumni Associations keep members connected and many loyal Phi Psis continue to attend national events for years after graduation.
+            After graduation, networking will play a key role in job
+            searches and future employment opportunities. During their
+            years spent in the chapter, Phi Kappa Psi members develop
+            their interpersonal skills by interacting with the diverse
+            members of their chapter and practicing recruitment of
+            qualified men. Strong chapters exert a positive influence
+            over members to hold themselves to gentlemanly behavior at
+            all times, thus better preparing their social poise for
+            life after college. Additionally, Phi Kappa Psi offers
+            members an instant network of over 70,000 living members
+            with similar ideals and values. Regional Alumni
+            Associations keep members connected and many loyal Phi
+            Psis continue to attend national events for years after
+            graduation.
           </div>
         </div>
         <div id="brotherhood-section">
           <div class="heading">Brotherhood</div>
           <div class="brotherhood-description description">
-            Phi Psi often provides members with a home away from home. Members have a group of diverse brothers there to pick them up when they are down, support them when they need it and guide them when they stray from the course. Nothing can duplicate the bonds of brotherhood during and after college.
+            Phi Psi often provides members with a home away from home.
+            Members have a group of diverse brothers there to pick
+            them up when they are down, support them when they need it
+            and guide them when they stray from the course. Nothing
+            can duplicate the bonds of brotherhood during and after
+            college.
           </div>
         </div>
         <div id="leadership-section">
           <div class="heading">Leadership</div>
           <div class="leadership-description description">
-            Chapters of Phi Psi offer members the opportunity to step into officer leadership roles, often seeing to the needs and coordinating the actions of 50+ people. On the committee level of Phi Psi, members learn to cooperate in groups and work together to solve problems. In addition, the National Fraternity offers members several annual leadership schools and on site leadership retreats to develop all our member’s skills. Phi Psis have the potential to step out of college with a leg up on the competition in terms of leadership capability.
+            Chapters of Phi Psi offer members the opportunity to step
+            into officer leadership roles, often seeing to the needs
+            and coordinating the actions of 50+ people. On the
+            committee level of Phi Psi, members learn to cooperate in
+            groups and work together to solve problems. In addition,
+            the National Fraternity offers members several annual
+            leadership schools and on site leadership retreats to
+            develop all our member’s skills. Phi Psis have the
+            potential to step out of college with a leg up on the
+            competition in terms of leadership capability.
           </div>
         </div>
         <div id="scholarship-section">
           <div class="heading">Academics & Scholarships</div>
           <div class="scholarship-description description">
-            Phi Kappa Psi is committed to the academic success of its members; in fact it is our top priority. We exist to compliment and support the academic experience of each member of Phi Kappa Psi. On many campuses across the country, Phi Kappa Psi ranks among the top groups in GPA. Many chapters have scholarship programs that include minimum GPA requirements, study support systems, study and time management workshops, incentives for improvement and excellence in academics, and general guidance in academic success. Nothing can come close to the value of an older chapter brother there to guide you through the toughest of scholastic challenges.
-            <br>
-            Furthermore, the Phi Kappa Psi foundation supports members academically by annually offering over $350,000 in scholarships and grants to members of the Fraternity.
+            Phi Kappa Psi is committed to the academic success of its
+            members; in fact it is our top priority. We exist to
+            compliment and support the academic experience of each
+            member of Phi Kappa Psi. On many campuses across the
+            country, Phi Kappa Psi ranks among the top groups in GPA.
+            Many chapters have scholarship programs that include
+            minimum GPA requirements, study support systems, study and
+            time management workshops, incentives for improvement and
+            excellence in academics, and general guidance in academic
+            success. Nothing can come close to the value of an older
+            chapter brother there to guide you through the toughest of
+            scholastic challenges.
+            <br />
+            Furthermore, the Phi Kappa Psi foundation supports members
+            academically by annually offering over $350,000 in
+            scholarships and grants to members of the Fraternity.
           </div>
         </div>
         <div id="friendship-section">
           <div class="heading">Lifelong Friendships</div>
           <div class="friendship-description description">
-            Upon joining Phi Kappa Psi, members form lifelong bonds that never die. The oath Phi Psis take will forever keep them connected in spirit. Many members utilize national Phi Kappa Psi events as opportunities to see their old friends whom they were so close with in college. Now, with online networking and educational tools like the Phi Psi Experience, keeping in touch with brothers is easier than ever.
+            Upon joining Phi Kappa Psi, members form lifelong bonds
+            that never die. The oath Phi Psis take will forever keep
+            them connected in spirit. Many members utilize national
+            Phi Kappa Psi events as opportunities to see their old
+            friends whom they were so close with in college. Now, with
+            online networking and educational tools like the Phi Psi
+            Experience, keeping in touch with brothers is easier than
+            ever.
           </div>
         </div>
         <div id="loyalty-section">
           <div class="heading">Dedication & Loyalty</div>
           <div class="loyalty-description description">
-            Phi Kappa Psi does not work without a strong commitment from our members. Any member can tell you that, just like in life in general, you will only get out of Phi Psi what you put in. This dedication will carry throughout life for many Phi Psis. Also, your undergrad experience will be enhanced such that you will be more likely to return to campus for homecoming, to meet with old friends and meet the new, young Phi Psis, years down the road.
+            Phi Kappa Psi does not work without a strong commitment
+            from our members. Any member can tell you that, just like
+            in life in general, you will only get out of Phi Psi what
+            you put in. This dedication will carry throughout life for
+            many Phi Psis. Also, your undergrad experience will be
+            enhanced such that you will be more likely to return to
+            campus for homecoming, to meet with old friends and meet
+            the new, young Phi Psis, years down the road.
           </div>
         </div>
         <div id="business-section">
           <div class="heading">Business Skills</div>
           <div class="business-description description">
-            All of the above mentioned attributes, particularly time management skills from scholastic training, networking, loyalty and leadership are highly valued by businesses searching new employees. As previously mentioned so many times, Phi Psis graduate with a leg up on the competition.
+            All of the above mentioned attributes, particularly time
+            management skills from scholastic training, networking,
+            loyalty and leadership are highly valued by businesses
+            searching new employees. As previously mentioned so many
+            times, Phi Psis graduate with a leg up on the competition.
           </div>
         </div>
       </div>

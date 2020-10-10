@@ -25,7 +25,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './pages/admin/admin.component';
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {
+  LocationStrategy,
+  PathLocationStrategy,
+} from '@angular/common';
 import { CheckinDialogComponent } from './dialogs/checkin-dialog/checkin-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlumniComponent } from './pages/alumni/alumni.component';
@@ -45,7 +48,7 @@ import { BannerComponent } from './banner/banner.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   declarations: [
     AppComponent,
@@ -62,22 +65,25 @@ import { BannerComponent } from './banner/banner.component';
     RusheeProfilesComponent,
     AlumniProfilesComponent,
     EventCheckinComponent,
-    BannerComponent
+    BannerComponent,
   ],
-  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy },
+  providers: [
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
     {
       provide: APOLLO_OPTIONS,
       useFactory: (httpLink: HttpLink) => {
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            uri: 'https://api-us-west-2.graphcms.com/v2/ckfd7j9ho07w801yyfqop311b/master'
-          })
+            uri:
+              'https://api-us-west-2.graphcms.com/v2/ckfd7j9ho07w801yyfqop311b/master',
+          }),
         };
       },
-      deps: [HttpLink]
-    }],
+      deps: [HttpLink],
+    },
+  ],
   entryComponents: [CheckinDialogComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

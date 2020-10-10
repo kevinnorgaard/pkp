@@ -1,4 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { Form } from './form.model';
@@ -11,9 +16,11 @@ import { PageComponent } from '../page.component';
 @Component({
   selector: 'app-recruitment',
   templateUrl: './recruitment.component.html',
-  styleUrls: ['./recruitment.component.css']
+  styleUrls: ['./recruitment.component.css'],
 })
-export class RecruitmentComponent extends PageComponent implements OnInit {
+export class RecruitmentComponent
+  extends PageComponent
+  implements OnInit {
   @ViewChild('snugCol') snugColumn: ElementRef;
   videoSource = 'assets/flag.mp4';
 
@@ -25,7 +32,11 @@ export class RecruitmentComponent extends PageComponent implements OnInit {
 
   checkinDialogRef: MatDialogRef<CheckinDialogComponent>;
 
-  constructor(scrollService: ScrollService, public afAuth: AngularFireAuth, private dialog: MatDialog) {
+  constructor(
+    scrollService: ScrollService,
+    public afAuth: AngularFireAuth,
+    private dialog: MatDialog,
+  ) {
     super(scrollService);
     this.user = this.afAuth.authState;
   }
@@ -38,7 +49,7 @@ export class RecruitmentComponent extends PageComponent implements OnInit {
     this.checkinDialogRef = this.dialog.open(CheckinDialogComponent, {
       panelClass: 'no-padding-dialog',
       height: '400px',
-      width: '600px'
+      width: '600px',
     });
   }
 
@@ -47,10 +58,14 @@ export class RecruitmentComponent extends PageComponent implements OnInit {
   }
 
   getSideWidth(): number {
-    return this.snugColumn != null ? .3225728 * this.snugColumn.nativeElement.offsetWidth : 0;
+    return this.snugColumn != null
+      ? 0.3225728 * this.snugColumn.nativeElement.offsetWidth
+      : 0;
   }
 
   getMiddleWidth(): number {
-    return this.snugColumn != null ? .3548544 * this.snugColumn.nativeElement.offsetWidth : 0;
+    return this.snugColumn != null
+      ? 0.3548544 * this.snugColumn.nativeElement.offsetWidth
+      : 0;
   }
 }

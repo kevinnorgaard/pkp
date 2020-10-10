@@ -19,7 +19,7 @@ if (environment.mode === 'normal') {
     { path: 'scholarship', component: ScholarshipComponent },
     { path: 'philanthropy', component: PhilanthropyComponent },
     { path: 'admin', component: AdminComponent },
-    { path: 'rush', component: RecruitmentComponent }
+    { path: 'rush', component: RecruitmentComponent },
   ];
 } else if (environment.mode === 'rush') {
   routes = [
@@ -29,7 +29,7 @@ if (environment.mode === 'normal') {
     { path: 'scholarship', component: ScholarshipComponent },
     { path: 'philanthropy', component: PhilanthropyComponent },
     { path: 'admin', component: AdminComponent },
-    { path: 'about', component: AboutComponent }
+    { path: 'about', component: AboutComponent },
   ];
 } else if (environment.mode === 'philanthropy') {
   routes = [
@@ -39,12 +39,12 @@ if (environment.mode === 'normal') {
     { path: 'scholarship', component: ScholarshipComponent },
     { path: 'rush', component: RecruitmentComponent },
     { path: 'admin', component: AdminComponent },
-    { path: 'about', component: AboutComponent }
+    { path: 'about', component: AboutComponent },
   ];
 }
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, {useHash: false}) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

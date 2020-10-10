@@ -5,15 +5,31 @@
       <span>Monday (1/7) of Week 1</span>
     </div>
     <div class="banner-container">
-      <button><a class="nav-link" [routerLink]="['recruitment']">Sign Up</a></button>
-      <button><a target="_blank" href="https://www.facebook.com/events/355790795212090/">Join Event</a></button>
+      <button>
+        <a class="nav-link" [routerLink]="['recruitment']">Sign Up</a>
+      </button>
+      <button>
+        <a
+          target="_blank"
+          href="https://www.facebook.com/events/355790795212090/"
+          >Join Event</a
+        >
+      </button>
     </div>
   </div>
 
   <div *ngIf="'philanthropy' === mode()" class="banner">
-    <div class="banner-text">Philanthropy T-shirts are available now</div>
+    <div class="banner-text">
+      Philanthropy T-shirts are available now
+    </div>
     <div class="banner-container">
-      <button><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScjXXfMM-snueRVz5nuTjFugjYNsfRagAvFDn8wqyx1I8gU2A/viewform?fbclid=IwAR0VYQIf5N11mEZd2aA0wZ4Cd-XDgfiEv0Dg2Qdjc5J17TjUDv1JnaAdurA">Order now!</a></button>
+      <button>
+        <a
+          target="_blank"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScjXXfMM-snueRVz5nuTjFugjYNsfRagAvFDn8wqyx1I8gU2A/viewform?fbclid=IwAR0VYQIf5N11mEZd2aA0wZ4Cd-XDgfiEv0Dg2Qdjc5J17TjUDv1JnaAdurA"
+          >Order now!</a
+        >
+      </button>
     </div>
   </div>
 </div>

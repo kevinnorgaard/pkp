@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ScrollService {
-
-  constructor() { }
+  constructor() {}
 
   jumpTop(): void {
     window.scrollTo(0, 0);

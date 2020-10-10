@@ -1,42 +1,89 @@
 <div class="wrapper">
-  <div class="scroll-up-btn" (click)="scrollTop()"><i class="fa fa-arrow-up"></i></div>
+  <div class="scroll-up-btn" (click)="scrollTop()">
+    <i class="fa fa-arrow-up"></i>
+  </div>
   <div>
     <h2 class="sticky-container-title">Stay Connected</h2>
     <div class="section">
       <div class="small-section">
-<!-- -------------------------ALUMNI MAIN PHOTO--------------------------------- -->
-        <img class="photo img-fluid"
+        <!-- -------------------------ALUMNI MAIN PHOTO--------------------------------- -->
+        <img
+          class="photo img-fluid"
           src="https://farm5.staticflickr.com/4820/45681021745_f13a2e27df_h.jpg"
-          alt="Senior Graduation in Newport Beach" title="Senior Graduation in Newport Beach" />
+          alt="Senior Graduation in Newport Beach"
+          title="Senior Graduation in Newport Beach"
+        />
       </div>
-<!-- -------------------------MAKE A DONATION--------------------------------- -->
+      <!-- -------------------------MAKE A DONATION--------------------------------- -->
       <div class="row first-row subsection">
         <div class="donation-section col-sm-6">
-          <p class="donation-description">Our amazing donors have allowed our chapter to make significant strides to making an impact on Irvine County since 1991. Your gift advances our brothers’ capacity to learn and experience “The Great Joy of Serving Others" and empowers us to create change.</p>
+          <p class="donation-description">
+            Our amazing donors have allowed our chapter to make
+            significant strides to making an impact on Irvine County
+            since 1991. Your gift advances our brothers’ capacity to
+            learn and experience “The Great Joy of Serving Others" and
+            empowers us to create change.
+          </p>
           <div id="donation-link">
-            <a target="_blank" href="https://www.paypal.me/phikappapsicalkappa">
-              <img class="donation-img" src="/assets/donation.png"/>
+            <a
+              target="_blank"
+              href="https://www.paypal.me/phikappapsicalkappa"
+            >
+              <img class="donation-img" src="/assets/donation.png" />
             </a>
           </div>
-          <a target="_blank" href="https://www.paypal.me/phikappapsicalkappa">
+          <a
+            target="_blank"
+            href="https://www.paypal.me/phikappapsicalkappa"
+          >
             Make a Donation Today!
           </a>
         </div>
-<!-- -------------------------NEWSLETTER--------------------------------- -->
+        <!-- -------------------------NEWSLETTER--------------------------------- -->
         <div class="newsletter-section col-sm-6">
-          <div class="newsletter-title">Sign up for our Newsletters</div>
-          <p>Keep in touch with our Cal Kappa chapter and be invited to Alumni Poker Night and our annual Thanksgiving Feast, to volunteer as a keynote speakers, and various other activities.</p>
-          <form #recruitmentForm="ngForm" class="recruitment-form container">
+          <div class="newsletter-title">
+            Sign up for our Newsletters
+          </div>
+          <p>
+            Keep in touch with our Cal Kappa chapter and be invited to
+            Alumni Poker Night and our annual Thanksgiving Feast, to
+            volunteer as a keynote speakers, and various other
+            activities.
+          </p>
+          <form
+            #recruitmentForm="ngForm"
+            class="recruitment-form container"
+          >
             <div class="form-group">
               <label>Name</label>
-              <input [(ngModel)]="form.fullName" required type="text" class="form-control" name="Full name" id="name" placeholder="Last, First">
+              <input
+                [(ngModel)]="form.fullName"
+                required
+                type="text"
+                class="form-control"
+                name="Full name"
+                id="name"
+                placeholder="Last, First"
+              />
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input [(ngModel)]="form.email" required type="email" class="form-control" name="email" id="email" placeholder="example@uci.edu">
+              <input
+                [(ngModel)]="form.email"
+                required
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                placeholder="example@uci.edu"
+              />
             </div>
-            <button class="newsletter-submit-btn" type="submit" (click)="onSubmit()">
-              {{submitButtonMessage}}
+            <button
+              class="newsletter-submit-btn"
+              type="submit"
+              (click)="onSubmit()"
+            >
+              {{ submitButtonMessage }}
             </button>
           </form>
         </div>
@@ -44,40 +91,54 @@
     </div>
   </div>
   <div>
-<!-- -------------------------NETWORKING SECTION--------------------------------- -->
+    <!-- -------------------------NETWORKING SECTION--------------------------------- -->
     <h2 class="sticky-container-title">Networking</h2>
     <div class="section">
       <div class="description small-section">
-          Last year, the fraternity hosted the 2nd annual Professional Development Conference in Texas, providing brothers the opportunity to enhance their personal and professional talents. The conference helps brothers with building career plans, perfecting personal resumes, managing stress and a healthy work-life balance, networking with 20+ alumni coaches with 80+ combined executive experience.
+        Last year, the fraternity hosted the 2nd annual Professional
+        Development Conference in Texas, providing brothers the
+        opportunity to enhance their personal and professional
+        talents. The conference helps brothers with building career
+        plans, perfecting personal resumes, managing stress and a
+        healthy work-life balance, networking with 20+ alumni coaches
+        with 80+ combined executive experience.
       </div>
-<!-- -------------------------NETWORKING PHOTOS--------------------------------- -->
+      <!-- -------------------------NETWORKING PHOTOS--------------------------------- -->
       <div class="small-section">
         <div class="row subsection">
           <div class="col">
-            <img src="https://farm2.staticflickr.com/1882/43674879845_baf6d1a643_h.jpg"
-                class="photo img-fluid"
-                alt="Founder's Day 2017"
-                title="Founder's Day 2017"/>
+            <img
+              src="https://farm2.staticflickr.com/1882/43674879845_baf6d1a643_h.jpg"
+              class="photo img-fluid"
+              alt="Founder's Day 2017"
+              title="Founder's Day 2017"
+            />
           </div>
         </div>
         <div class="row subsection">
           <div class="col-sm-4">
-            <img src="https://farm2.staticflickr.com/1882/43865938174_8939562611_c.jpg"
-                class="photo img-fluid"
-                alt="Founder's Day 2016"
-                title="Founder's Day 2016" />
+            <img
+              src="https://farm2.staticflickr.com/1882/43865938174_8939562611_c.jpg"
+              class="photo img-fluid"
+              alt="Founder's Day 2016"
+              title="Founder's Day 2016"
+            />
           </div>
           <div class="col-sm-4">
-            <img src="https://farm2.staticflickr.com/1895/43676695395_c5dd42523d_c.jpg"
-                class="photo img-fluid"
-                alt="Founder's Day 2017"
-                title="Founder's Day 2017" />
+            <img
+              src="https://farm2.staticflickr.com/1895/43676695395_c5dd42523d_c.jpg"
+              class="photo img-fluid"
+              alt="Founder's Day 2017"
+              title="Founder's Day 2017"
+            />
           </div>
           <div class="col-sm-4">
-            <img src="https://farm2.staticflickr.com/1849/43529799535_c0aeb1a939_c.jpg"
-                class="photo img-fluid"
-                alt="Grand Arch Council 2018"
-                title="Grand Arch Council 2018" />
+            <img
+              src="https://farm2.staticflickr.com/1849/43529799535_c0aeb1a939_c.jpg"
+              class="photo img-fluid"
+              alt="Grand Arch Council 2018"
+              title="Grand Arch Council 2018"
+            />
           </div>
         </div>
       </div>
