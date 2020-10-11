@@ -13,7 +13,7 @@ import * as firebase from 'firebase';
 export class RusheeProfilesComponent {
   removeBitmap = {};
   rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];
-  forms;
+  forms: InterestForm;
   checkins: any;
   currentMode = '';
   orderedRushees: any[];
