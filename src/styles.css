@@ -14,14 +14,6 @@ body {
   opacity: 1 !important;
 }
 
-.fa-arrow-up {
-  color: white;
-  font-size: 30px !important;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
-}
-
 .sticky-container-title {
   padding: 15px 0;
   color: rgba(0, 0, 0, 0.6);

@@ -9,3 +9,19 @@
   color: white;
   cursor: pointer;
 }
+
+.fa-arrow-up {
+  color: white;
+  font-size: 30px !important;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.024);
+  border-radius: 50%;
+}
+
+.fa-arrow-up:hover {
+  color: white;
+  font-size: 30px !important;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}

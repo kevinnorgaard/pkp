@@ -14,12 +14,6 @@
   max-width: 1200px;
 }
 
-.full-section {
-  margin: 0 auto;
-  background: rgba(0, 0, 0, 0.025) !important;
-  padding: 10px;
-}
-
 .section {
   max-width: 1200px;
   margin: 0 auto;

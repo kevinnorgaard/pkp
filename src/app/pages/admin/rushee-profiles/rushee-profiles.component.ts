@@ -1,25 +1,9 @@
+import { InterestForm } from './../interest-form.model';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import * as firebase from 'firebase';
-
-export class Forms {
-  name: any;
-  email: any;
-  phone: any;
-  year: any;
-  socialMedia?: any;
-  sports?: any;
-  cumGpa?: any;
-  prevGpa?: any;
-  major?: any;
-  minor?: any;
-  achievements?: any;
-  reasons?: any;
-  referral?: any;
-  notes?: any;
-}
 
 @Component({
   selector: 'app-rushee-profiles',
@@ -29,17 +13,14 @@ export class Forms {
 export class RusheeProfilesComponent {
   removeBitmap = {};
   rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];
-  forms: Forms;
+  forms;
   checkins: any;
   currentMode = '';
   orderedRushees: any[];
   user: Observable<firebase.User>;
   orderCheckinsAscending = false;
 
-  constructor(
-    public afAuth: AngularFireAuth,
-    public db: AngularFireDatabase,
-  ) {
+  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
     this.user = this.afAuth.authState; // Update
     this.loadDatabase();
   }
@@ -51,9 +32,7 @@ export class RusheeProfilesComponent {
       .once('value')
       .then((snapshot) => {
         this.forms = snapshot.val() ? snapshot.val().forms : null;
-        this.checkins = snapshot.val()
-          ? snapshot.val().checkins
-          : null;
+        this.checkins = snapshot.val() ? snapshot.val().checkins : null;
         this.orderRusheesByFirstName();
         if (this.forms.notes == null) {
           this.forms.notes = {};
@@ -198,8 +177,7 @@ export class RusheeProfilesComponent {
       for (const checkinKey of Object.keys(checkins)) {
         sum =
           sum +
-          (checkins[checkinKey] &&
-          this.rushDates.indexOf(checkinKey) !== -1
+          (checkins[checkinKey] && this.rushDates.indexOf(checkinKey) !== -1
             ? 1
             : 0);
       }
