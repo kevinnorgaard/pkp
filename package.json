@@ -81,6 +81,6 @@
     }
   },
   "lint-staged": {
-    "*{.ts,.js,.json,.css,.scss}": "prettier --write --ignore-unknown"
+    "*": "prettier --write --ignore-unknown"
   }
 }
