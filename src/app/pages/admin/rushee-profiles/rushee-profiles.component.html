@@ -1,7 +1,7 @@
 <div class="scrollable-container">
   <table>
     <tr class="table-header-row">
-      <th>{{getRusheeTotal()}} Total</th>
+      <th>{{ getRusheeTotal() }} Total</th>
       <th (click)="orderRusheesByFirstName()">First Name</th>
       <th (click)="orderRusheesByLastName()">Last Name</th>
       <th>Notes</th>
@@ -9,21 +9,47 @@
       <th>Phone</th>
       <th>Email</th>
     </tr>
-    <tr *ngFor="let rushee of orderedRushees; let i = index" [ngStyle]="{'backgroundColor': i%2==0 ? 'rgba(0,0,0,0.025)' : 'white'}">
+    <tr
+      *ngFor="let rushee of orderedRushees; let i = index"
+      [ngStyle]="{
+        backgroundColor: i % 2 == 0 ? 'rgba(0,0,0,0.025)' : 'white'
+      }"
+    >
       <td>
-        <button *ngIf="removeBitmap[rushee[0]] == null" class="request-remove-btn" (click)="onRemoveRushee(rushee)">Remove</button>
-        <div *ngIf="removeBitmap[rushee[0]]" class="remove-btn-container">
-          <button class="remove-btn" (click)="onRemoveRushee(rushee)">Remove</button>
-          <button class="cancel-btn" (click)="resetBitmap()">Cancel</button>
+        <button
+          *ngIf="removeBitmap[rushee[0]] == null"
+          class="request-remove-btn"
+          (click)="onRemoveRushee(rushee)"
+        >
+          Remove
+        </button>
+        <div
+          *ngIf="removeBitmap[rushee[0]]"
+          class="remove-btn-container"
+        >
+          <button class="remove-btn" (click)="onRemoveRushee(rushee)">
+            Remove
+          </button>
+          <button class="cancel-btn" (click)="resetBitmap()">
+            Cancel
+          </button>
         </div>
       </td>
-      <td>{{getFirstName(forms.name[rushee[0]])}}</td>
-      <td>{{getLastName(forms.name[rushee[0]])}}</td>
-      <td class="notes-section"><textarea [(ngModel)]="forms.notes[rushee[0]]"></textarea><button class="save-btn" (click)="onSaveNote(rushee[0], forms.notes[rushee[0]])">Save</button></td>
-      <td>{{totalCheckins(rushee[0])}}</td>
-      <td>{{forms.phone[rushee[0]]}}</td>
-      <td>{{forms.email[rushee[0]]}}</td>
+      <td>{{ getFirstName(forms.name[rushee[0]]) }}</td>
+      <td>{{ getLastName(forms.name[rushee[0]]) }}</td>
+      <td class="notes-section">
+        <textarea [(ngModel)]="forms.notes[rushee[0]]"></textarea
+        ><button
+          class="save-btn"
+          (click)="onSaveNote(rushee[0], forms.notes[rushee[0]])"
+        >
+          Save
+        </button>
+      </td>
+      <td>{{ totalCheckins(rushee[0]) }}</td>
+      <td>{{ forms.phone[rushee[0]] }}</td>
+      <td>{{ forms.email[rushee[0]] }}</td>
     </tr>
   </table>
-  <p class="emailString">{{getEmailString()}}</p>
+  <p class="emailString">{{ getEmailString() }}</p>
 </div>

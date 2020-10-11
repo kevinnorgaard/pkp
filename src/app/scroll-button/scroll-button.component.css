@@ -1,0 +1,27 @@
+.scroll-up-btn {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: transparent;
+  z-index: 100;
+  color: white;
+  cursor: pointer;
+}
+
+.fa-arrow-up {
+  color: white;
+  font-size: 30px !important;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.024);
+  border-radius: 50%;
+}
+
+.fa-arrow-up:hover {
+  color: white;
+  font-size: 30px !important;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}

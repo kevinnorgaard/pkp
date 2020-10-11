@@ -2,7 +2,6 @@
   background-color: white;
   color: #1a1a1a;
   padding: 10px;
-  padding-top: 66px;
 }
 
 .btn-container {
@@ -15,7 +14,7 @@
   top: 66px;
   right: 0;
   background: white;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .btn {
@@ -26,14 +25,14 @@
 }
 
 .rushee-profiles-btn {
-  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
   border-left: none !important;
   border-top: none !important;
   border-right: none !important;
 }
 
 .event-checkin-btn {
-  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
   border-left: none !important;
   border-top: none !important;
   border-right: none !important;

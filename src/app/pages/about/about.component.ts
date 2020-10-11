@@ -3,12 +3,12 @@ import { ScrollService } from '../../scroll.service';
 import { PageComponent } from '../page.component';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css'],
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css'],
 })
-export class AdminComponent extends PageComponent implements OnInit {
-  currentMode = 'rushee-profiles';
+export class AboutComponent extends PageComponent implements OnInit {
+  videoSource = '/assets/flag.mp4';
 
   constructor(scrollService: ScrollService) {
     super(scrollService);
@@ -16,9 +16,5 @@ export class AdminComponent extends PageComponent implements OnInit {
 
   ngOnInit(): void {
     super.ngOnInit();
-  }
-
-  changeMode(mode: string): void {
-    this.currentMode = mode;
   }
 }

@@ -1,9 +1,9 @@
-Build Steps:
-1. cd to 'pkp-app'
-2. run command 'npm install' to install all dependencies (you will see a new 'node_modules' directory)
-3. run command 'ng serve -o' and go to localhost:4200 in any browser
+# ΦΚΨ Angular App
 
-Documentation:
-https://drive.google.com/drive/folders/1pM6IboEdxlGjwRcwR3oFhOR6EHM5LSya?usp=sharing
+### Build steps:
 
-718...
+1. First time? [Click here for setup Instructions for Git](https://drive.google.com/drive/folders/1pM6IboEdxlGjwRcwR3oFhOR6EHM5LSya?usp=sharing).
+1. `cd pkp`
+1. `npm install`
+1. `npm start`
+1. Go to localhost:4200 in a browser.

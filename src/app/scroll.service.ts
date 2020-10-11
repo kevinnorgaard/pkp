@@ -1,20 +1,27 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ScrollService {
+  constructor() {}
 
-  constructor() { }
+  jumpTop(): void {
+    window.scrollTo(0, 0);
+  }
 
-  scrollTop() {
+  scrollTop(): void {
     const scrollToTop = window.setInterval(() => {
       const pos = window.pageYOffset;
       if (pos > 0) {
-        window.scrollTo(0, pos - 50); // how far to scroll on each step
+        window.scrollTo(0, pos - 50);
       } else {
         window.clearInterval(scrollToTop);
       }
-    }, 16);
+    }, 4);
+  }
+
+  visible(): boolean {
+    return window.pageYOffset !== 0;
   }
 }

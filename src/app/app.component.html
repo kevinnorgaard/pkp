@@ -1,5 +1,10 @@
 <div class="wrapper">
-  <app-header [headerDisplay]="displayHeader" id="header"></app-header>
-  <router-outlet #content></router-outlet>
+  <app-header
+    [headerDisplay]="displayHeader"
+    id="header"
+  ></app-header>
+  <app-banner></app-banner>
+  <router-outlet></router-outlet>
+  <app-scroll-button></app-scroll-button>
   <app-footer></app-footer>
 </div>

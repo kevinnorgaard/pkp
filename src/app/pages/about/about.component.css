@@ -5,8 +5,8 @@
 }
 
 hr {
-  border-top: 2px solid #C41E3A;
-  width: 75%;
+  border-top: 2px solid #c41e3a;
+  width: 50%;
   margin: 0;
 }
 
@@ -40,7 +40,10 @@ hr {
   margin: 0 auto;
 }
 
-.facebook, .instagram, .twitter, .linkedin {
+.facebook,
+.instagram,
+.twitter,
+.linkedin {
   color: #a6a6a6;
   padding: 0 12px;
   font-size: 24px;
@@ -52,7 +55,9 @@ hr {
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 0; right: 0; bottom: 40px;
+  left: 0;
+  right: 0;
+  bottom: 40px;
 }
 
 .icon-bar a {
@@ -69,7 +74,7 @@ hr {
 }
 
 .overlay {
-  height: 100vh;
+  height: calc(100vh - 66px);
   width: 100vw;
   position: relative;
 }
@@ -79,71 +84,6 @@ hr {
   width: 100%;
   padding-top: 50px !important;
 }
-
-/* --------------------News Alert-------------------- */
-
-.news-alert {
-  padding: 5px;
-  background: #009999;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-bottom: 2px solid rgba(0,0,0,.2);
-}
-
-.news-alert-text {
-  margin: 0 0 5px 0;
-  color: white;
-  letter-spacing: 1px;
-  text-align: center;
-  font-size: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.news-alert-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.news-alert-container button {
-  background: white;
-  border-radius: 4px;
-  border: none;
-  outline: none;
-  margin-left: 10px;
-  margin-right: 10px;
-  letter-spacing: 1px;
-  min-width: 90px;
-  height: 23px;
-  line-height: 23px;
-  font-size: 12px;
-}
-
-.news-alert-container button:hover {
-  background: #009999;
-}
-
-.news-alert-container button:hover a {
-  color: white;
-}
-
-.nav-link {
-  padding: 0;
-}
-
-.news-alert-container button a {
-  color: #006666;
-  font-size: 12px !important;
-  margin: auto !important;
-  line-height: 23px !important;
-  height: 23px !important;
-}
-
-/* --------------------News Alert-------------------- */
 
 .photo-gallery {
   text-align: center;
@@ -163,12 +103,6 @@ hr {
   height: 100% !important;
 }
 
-.sticky-alert {
-  position: sticky;
-  top: 66px;
-  z-index: 4;
-}
-
 .labels-container {
   display: flex;
   flex-direction: column;
@@ -185,7 +119,7 @@ hr {
   font-size: 5.5vw;
   letter-spacing: 3vw;
   text-align: center;
-  margin-top: 16px;
+  margin-bottom: 2vh;
 }
 
 .sticky-sublabel {
@@ -196,23 +130,18 @@ hr {
   font-size: 4.5vw;
   letter-spacing: 2.2vw;
   text-align: center;
-  margin-top: 8px;
+  margin-top: 2vh;
 }
 
 .sticky-subsublabel {
   z-index: 1;
   width: 100%;
-  color: rgba(255, 255, 255, 0.4);
-  -webkit-text-fill-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 1);
+  -webkit-text-fill-color: rgba(255, 255, 255, 1);
   font-size: 3.5vw;
   text-align: center;
   letter-spacing: 1vw !important;
   margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.scrolled {
-  background-color: rgba(0,0,0,.45);
 }
 
 .alumni-list li {
@@ -222,7 +151,7 @@ hr {
 .alumni-name {
   font-weight: 800;
   letter-spacing: 1px;
-  color: rgba(53, 94, 59, 1);
+  color: #c41e3a;
 }
 
 .heading {
@@ -231,14 +160,14 @@ hr {
   width: 100%;
   height: auto;
   padding-bottom: 10px;
-  color: rgba(0,0,0,0.7);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .description {
   font-size: 14px;
   width: 100%;
   height: auto;
-  color: rgba(0,0,0,0.7);
+  color: rgba(0, 0, 0, 0.7);
   text-align: left;
 }
 
@@ -255,12 +184,15 @@ hr {
 @media (min-width: 768px) {
   .heading {
     font-size: 4vw;
-    letter-spacing: .8vw;
+    letter-spacing: 0.8vw;
   }
   .description {
     font-size: 16px;
   }
-  .facebook, .instagram, .twitter, .linkedin {
+  .facebook,
+  .instagram,
+  .twitter,
+  .linkedin {
     font-size: 3vw;
   }
 }
@@ -276,7 +208,10 @@ hr {
   .description {
     font-size: 16px;
   }
-  .facebook, .instagram, .twitter, .linkedin {
+  .facebook,
+  .instagram,
+  .twitter,
+  .linkedin {
     font-size: 2vw;
   }
 }
@@ -287,21 +222,28 @@ hr {
   padding-bottom: 50px !important;
 }
 
-#values-section, #brotherhood-section, #scholarship-section, #loyalty-section {
-  background-color: rgba(53, 94, 59,.125);
+#values-section,
+#brotherhood-section,
+#scholarship-section,
+#loyalty-section {
+  background-color: rgba(0, 0, 0, 0.024);
   height: auto;
   padding: 30px 30px 30px 30px;
 }
 
-#biography-section, #networking-section, #leadership-section, #friendship-section, #business-section {
-  background: rgba(0,0,0,.05);
+#biography-section,
+#networking-section,
+#leadership-section,
+#friendship-section,
+#business-section {
+  background: white;
   height: auto;
   padding: 30px 30px 30px 30px;
 }
 
 /* ----------- */
 
-.knock-container input[type=text] {
+.knock-container input[type='text'] {
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
   width: 100%;
@@ -338,7 +280,8 @@ hr {
 }
 
 @media (max-width: 1000px) {
-  .content-container, #boring-section {
+  .content-container,
+  #boring-section {
     padding-top: 0px !important;
   }
   #boring-section {
@@ -346,10 +289,16 @@ hr {
   }
 }
 
-.facebook, .instagram, .twitter, .linkedin {
+.facebook,
+.instagram,
+.twitter,
+.linkedin {
   color: white;
 }
 
-.facebook:hover, .instagram:hover, .twitter:hover, .linkedin:hover {
-  color: #C41E3A;
+.facebook:hover,
+.instagram:hover,
+.twitter:hover,
+.linkedin:hover {
+  color: #c41e3a;
 }

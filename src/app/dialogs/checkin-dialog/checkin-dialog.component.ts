@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {Form} from '../../pages/recruitment/form.model';
+import { Form } from '../../pages/recruitment/form.model';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import * as firebase from 'firebase/app';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-checkin-dialog',
   templateUrl: './checkin-dialog.component.html',
-  styleUrls: ['./checkin-dialog.component.css']
+  styleUrls: ['./checkin-dialog.component.css'],
 })
 export class CheckinDialogComponent implements OnInit {
   user: Observable<firebase.User>;
@@ -20,64 +20,84 @@ export class CheckinDialogComponent implements OnInit {
   firstName: string;
   form: Form = new Form();
 
-  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, private dialog: MatDialog) {
+  constructor(
+    public afAuth: AngularFireAuth,
+    public db: AngularFireDatabase,
+    private dialog: MatDialog,
+  ) {
     this.user = this.afAuth.authState; // Update
   }
 
-  ngOnInit() {
-  }
+  ngOnInit(): void {}
 
   invalid(): boolean {
-    return this.lastName === '' || this.firstName === '' || this.form.email === '' || this.form.phone === '';
+    return (
+      this.lastName === '' ||
+      this.firstName === '' ||
+      this.form.email === '' ||
+      this.form.phone === ''
+    );
   }
 
-  onSubmit() {
+  onSubmit(): void {
     const updates = {};
-    updates['/forms/name/' + this.form.phone] = this.lastName + ', ' + this.firstName;
+    updates['/forms/name/' + this.form.phone] =
+      this.lastName + ', ' + this.firstName;
     updates['/forms/email/' + this.form.phone] = this.form.email;
     updates['/forms/phone/' + this.form.phone] = this.form.phone;
     const currentDate = this.getCurrentDate();
     let newVal;
     if (this.getCheckins(this.form.phone)) {
-      newVal = this.getCheckins(this.form.phone)[currentDate] != null ? !this.getCheckins(this.form.phone)[currentDate] : true;
-      updates['/checkins/' + this.form.phone + '/' + currentDate] = newVal;
+      newVal =
+        this.getCheckins(this.form.phone)[currentDate] != null
+          ? !this.getCheckins(this.form.phone)[currentDate]
+          : true;
+      updates[
+        '/checkins/' + this.form.phone + '/' + currentDate
+      ] = newVal;
     } else {
       const newCheckin = {};
       newCheckin[currentDate] = true;
       updates['/checkins/' + this.form.phone] = newCheckin;
     }
 
-    firebase.database().ref().update(updates, function(error) {
-      if (error) {
-        // The write failed...
-        console.log('Failed to save form to Firebase');
-      } else {
-        // Data saved successfully!
-        console.log('Successfully saved form to Firebase!');
-      }
-    });
+    firebase
+      .database()
+      .ref()
+      .update(updates, (error) => {
+        if (error) {
+          console.log('Failed to save form to Firebase');
+        } else {
+          console.log('Successfully saved form to Firebase!');
+        }
+      });
 
     this.clearFields();
   }
 
-  clearFields() {
-    // this.form = new Form('', '', '');
+  clearFields(): void {
     this.firstName = '';
     this.lastName = '';
     this.form = new Form();
   }
 
-  getCheckins(key: string) {
+  getCheckins(key: string): number {
     if (this.checkins) {
       return this.checkins[key] ? this.checkins[key] : null;
     }
     return null;
   }
 
-  getCurrentDate() {
+  getCurrentDate(): string {
     const currentDate = new Date();
     const dateString = currentDate.toLocaleDateString();
     const dateStringList = dateString.split('/');
-    return dateStringList[2] + '-' + dateStringList[0] + '-' + dateStringList[1];
+    return (
+      dateStringList[2] +
+      '-' +
+      dateStringList[0] +
+      '-' +
+      dateStringList[1]
+    );
   }
 }

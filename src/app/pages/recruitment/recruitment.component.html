@@ -1,33 +1,52 @@
 <div class="wrapper">
-  <div class="scroll-up-btn" (click)="scrollTop()"><i class="fa fa-arrow-up"></i></div>
-
   <div *ngIf="mode() === 'rush'" class="checkin-container row">
     <button class="checkin-btn" (click)="onCheckin()">Check In</button>
   </div>
 
   <div *ngIf="mode() === 'rush'" class="checkin-container row">
-    <button class="checkin-btn" (click)="onSignWaiver()">Car Bash Waiver</button>
+    <button class="checkin-btn" (click)="onSignWaiver()">
+      Car Bash Waiver
+    </button>
   </div>
 
   <div *ngIf="mode() === 'rush'" class="row">
-    <iframe class="col" [hidden]="!signWaiver" src="https://docs.google.com/forms/d/e/1FAIpQLScwnATACZrNOPlfODQIzI1sFiFIoS-N2TTGv06RYmljKeI5Yg/viewform?embedded=true" width="640" height="1133" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe
+      class="col"
+      [hidden]="!signWaiver"
+      src="https://docs.google.com/forms/d/e/1FAIpQLScwnATACZrNOPlfODQIzI1sFiFIoS-N2TTGv06RYmljKeI5Yg/viewform?embedded=true"
+      width="640"
+      height="1133"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      >Loading…</iframe
+    >
   </div>
 
   <div class="row">
     <div class="col rush-video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/cTb5O5oyTIg?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/cTb5O5oyTIg?rel=0&amp;showinfo=0"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      ></iframe>
     </div>
   </div>
 
-  <div class="recruitment-section">
-    <div class="form-title">Winter 2020 Rush Schedule</div>
+  <div>
+    <div class="sticky-container-title">Winter 2020 Rush</div>
     <div class="fourth-row row section">
       <div class="col flyer-col">
         <div class="flyer-container">
-          <img src="assets/flyer.jpg"
-               class="photo flyer img-fluid"
-               alt="Phi Kappa Psi 2020 Winter Rush flyer"
-               title="Phi Kappa Psi 2020 Winter Rush flyer"/>
+          <img
+            src="assets/flyer.jpg"
+            class="photo flyer img-fluid"
+            alt="Phi Kappa Psi 2020 Winter Rush flyer"
+            title="Phi Kappa Psi 2020 Winter Rush flyer"
+          />
         </div>
       </div>
     </div>
@@ -36,62 +55,99 @@
   <div class="section">
     <div class="first-row row small-section">
       <div class="col-sm-6">
-        <img src="https://farm2.staticflickr.com/1889/44408157632_9a26ddc312_c.jpg"
-             class="photo img-fluid"
-             alt="Winter Rush 2017 Car Bash"
-             title="Winter Rush 2017 Car Bash"/>
+        <img
+          src="https://farm2.staticflickr.com/1889/44408157632_9a26ddc312_c.jpg"
+          class="photo img-fluid"
+          alt="Winter Rush 2017 Car Bash"
+          title="Winter Rush 2017 Car Bash"
+        />
       </div>
       <div class="col-sm-6">
-        <img src="https://farm2.staticflickr.com/1896/43674880425_6abaa1da32_c.jpg"
-             class="photo img-fluid"
-             alt="Fall Rush 2016 Car Bash"
-             title="Fall Rush 2016 Car Bash" />
+        <img
+          src="https://farm2.staticflickr.com/1896/43674880425_6abaa1da32_c.jpg"
+          class="photo img-fluid"
+          alt="Fall Rush 2016 Car Bash"
+          title="Fall Rush 2016 Car Bash"
+        />
       </div>
     </div>
     <div class="second-row row small-section">
       <!--Large Screen-->
       <div #snugCol class="col paddingless snug-col">
-        <span class="col-sm side-snug" [ngStyle]="{width: getSideWidth() + 'px'}">
-          <img src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
-               class="photo img-fluid"
-               alt="Fall Rush 2016 Car Bash"
-               title="Fall Rush 2016 Car Bash" />
+        <span
+          class="col-sm side-snug"
+          [ngStyle]="{ width: getSideWidth() + 'px' }"
+        >
+          <img
+            src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
+            class="photo img-fluid"
+            alt="Fall Rush 2016 Car Bash"
+            title="Fall Rush 2016 Car Bash"
+          />
         </span>
-        <video id="video" class="col-sm mid-snug" [ngStyle]="{width: getMiddleWidth() + 'px'}" playsinline loop muted autoplay preload="auto" #videoPlayer>
-          <source src="{{videoSource}}" type="video/mp4" />
+        <video
+          #videoPlayer
+          id="video"
+          class="col-sm mid-snug"
+          [ngStyle]="{ width: getMiddleWidth() + 'px' }"
+          onloadedmetadata="this.muted = true"
+          loop
+          autoplay
+          preload="auto"
+        >
+          <source src="{{ videoSource }}" type="video/mp4" />
         </video>
-        <span class="col-sm side-snug" [ngStyle]="{width: getSideWidth() + 'px'}">
-          <img src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
-               class="photo img-fluid"
-               alt="Fall Rush 2017 Car Bash"
-               title="Fall Rush 2017 Car Bash" />
+        <span
+          class="col-sm side-snug"
+          [ngStyle]="{ width: getSideWidth() + 'px' }"
+        >
+          <img
+            src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
+            class="photo img-fluid"
+            alt="Fall Rush 2017 Car Bash"
+            title="Fall Rush 2017 Car Bash"
+          />
         </span>
       </div>
       <!--Small Screen-->
       <div class="loose-col">
-        <img src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
-               class="photo img-fluid"
-               alt="Fall Rush 2016 Car Bash flag"
-               title="Fall Rush 2016 Car Bash flag" />
-        <video width="100%" muted autoplay="true" loop src="{{ videoSource }}"></video>
-        <img src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
-               class="photo img-fluid"
-               alt="Fall Rush 2017 Car Bash"
-               title="Fall Rush 2017 Car Bash"/>
+        <img
+          src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
+          class="photo img-fluid"
+          alt="Fall Rush 2016 Car Bash flag"
+          title="Fall Rush 2016 Car Bash flag"
+        />
+        <video
+          width="100%"
+          muted
+          autoplay="true"
+          loop
+          src="{{ videoSource }}"
+        ></video>
+        <img
+          src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
+          class="photo img-fluid"
+          alt="Fall Rush 2017 Car Bash"
+          title="Fall Rush 2017 Car Bash"
+        />
       </div>
     </div>
     <div class="third-row row small-section">
       <div class="col-sm-6">
-        <img src="https://farm2.staticflickr.com/1894/43865945174_ba0b872373_c.jpg"
-             class="photo img-fluid"
-             alt="Boothing at UCI Welcome Week"
-             title="Boothing at UCI Welcome Week"/>
+        <img
+          src="https://farm2.staticflickr.com/1894/43865945174_ba0b872373_c.jpg"
+          class="photo img-fluid"
+          alt="Boothing at UCI Welcome Week"
+          title="Boothing at UCI Welcome Week"
+        />
       </div>
       <div class="col-sm-6">
-        <img src="https://farm2.staticflickr.com/1884/44534478612_6ba22a1dd9_c.jpg"
-             class="photo img-fluid"
-             alt="Boothing at UCI Involvement Fair with Yerba Mate"
-             title="Boothing at UCI Involvement Fair with Yerba Mate"/>
+        <img
+          src="https://farm2.staticflickr.com/1884/44534478612_6ba22a1dd9_c.jpg"
+          class="photo img-fluid"
+          alt="Boothing at UCI Involvement Fair with Yerba Mate"
+          title="Boothing at UCI Involvement Fair with Yerba Mate"
+        />
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@ export const environment = {
     databaseURL: 'https://pkp-website.firebaseio.com',
     projectId: 'pkp-website',
     storageBucket: 'pkp-website.appspot.com',
-    messagingSenderId: '863629223084'
+    messagingSenderId: '863629223084',
   },
-  mode: 'rush' // philanthropy, rush, normal
+  mode: 'normal', // philanthropy, rush, normal
 };

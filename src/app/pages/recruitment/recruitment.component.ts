@@ -1,20 +1,26 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { Form } from './form.model';
 import { CheckinDialogComponent } from '../../dialogs/checkin-dialog/checkin-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import * as firebase from 'firebase/app';
-import { ScrollService } from 'src/scroll.service';
-import { environment } from 'src/environments/environment';
+import { ScrollService } from '../../scroll.service';
+import { PageComponent } from '../page.component';
 
 @Component({
   selector: 'app-recruitment',
   templateUrl: './recruitment.component.html',
-  styleUrls: ['./recruitment.component.css']
+  styleUrls: ['./recruitment.component.css'],
 })
-export class RecruitmentComponent implements OnInit {
+export class RecruitmentComponent
+  extends PageComponent
+  implements OnInit {
   @ViewChild('snugCol') snugColumn: ElementRef;
   videoSource = 'assets/flag.mp4';
 
@@ -26,40 +32,40 @@ export class RecruitmentComponent implements OnInit {
 
   checkinDialogRef: MatDialogRef<CheckinDialogComponent>;
 
-  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, private dialog: MatDialog,
-    private scrollService: ScrollService) {
+  constructor(
+    scrollService: ScrollService,
+    public afAuth: AngularFireAuth,
+    private dialog: MatDialog,
+  ) {
+    super(scrollService);
     this.user = this.afAuth.authState;
   }
 
-  ngOnInit() {
-    window.scrollTo(0, 0);
+  ngOnInit(): void {
+    super.ngOnInit();
   }
 
-  onCheckin() {
+  onCheckin(): void {
     this.checkinDialogRef = this.dialog.open(CheckinDialogComponent, {
       panelClass: 'no-padding-dialog',
       height: '400px',
-      width: '600px'
+      width: '600px',
     });
   }
 
-  onSignWaiver() {
+  onSignWaiver(): void {
     this.signWaiver = !this.signWaiver;
   }
 
-  getSideWidth() {
-    return this.snugColumn != null ? .3225728 * this.snugColumn.nativeElement.offsetWidth : 0;
+  getSideWidth(): number {
+    return this.snugColumn != null
+      ? 0.3225728 * this.snugColumn.nativeElement.offsetWidth
+      : 0;
   }
 
-  getMiddleWidth() {
-    return this.snugColumn != null ? .3548544 * this.snugColumn.nativeElement.offsetWidth : 0;
-  }
-
-  scrollTop() {
-    this.scrollService.scrollTop();
-  }
-
-  mode() {
-    return environment.mode;
+  getMiddleWidth(): number {
+    return this.snugColumn != null
+      ? 0.3548544 * this.snugColumn.nativeElement.offsetWidth
+      : 0;
   }
 }

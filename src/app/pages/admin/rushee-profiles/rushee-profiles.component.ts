@@ -1,40 +1,19 @@
+import { InterestForm } from './../interest-form.model';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import * as firebase from 'firebase';
 
-export class Forms {
-  name: any;
-  email: any;
-  phone: any;
-  year: any;
-  socialMedia?: any;
-  sports?: any;
-  cumGpa?: any;
-  prevGpa?: any;
-  major?: any;
-  minor?: any;
-  achievements?: any;
-  reasons?: any;
-  referral?: any;
-  notes?: any;
-}
-
 @Component({
   selector: 'app-rushee-profiles',
   templateUrl: './rushee-profiles.component.html',
-  styleUrls: ['./rushee-profiles.component.css']
+  styleUrls: ['./rushee-profiles.component.css'],
 })
 export class RusheeProfilesComponent {
   removeBitmap = {};
-  rushDates = [
-    '2019-9-25',
-    '2019-9-26',
-    '2019-9-27',
-    '2019-9-28'
-  ];
-  forms: Forms;
+  rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];
+  forms: InterestForm;
   checkins: any;
   currentMode = '';
   orderedRushees: any[];
@@ -46,102 +25,118 @@ export class RusheeProfilesComponent {
     this.loadDatabase();
   }
 
-  loadDatabase() {
-    return firebase.database().ref('/').once('value').then((snapshot) => {
-      this.forms = snapshot.val() ? snapshot.val().forms : null;
-      this.checkins = snapshot.val() ? snapshot.val().checkins : null;
-      this.orderRusheesByFirstName();
-      if (this.forms.notes == null) {
-        this.forms.notes = {};
-      }
-      this.resetBitmap();
-    });
+  loadDatabase(): any {
+    return firebase
+      .database()
+      .ref('/')
+      .once('value')
+      .then((snapshot) => {
+        this.forms = snapshot.val() ? snapshot.val().forms : null;
+        this.checkins = snapshot.val() ? snapshot.val().checkins : null;
+        this.orderRusheesByFirstName();
+        if (this.forms.notes == null) {
+          this.forms.notes = {};
+        }
+        this.resetBitmap();
+      });
   }
 
-  resetBitmap() {
+  resetBitmap(): void {
     this.removeBitmap = {};
   }
 
-  orderRusheesByFirstName() {
+  orderRusheesByFirstName(): void {
     const rusheeKeys = Object.keys(this.forms.phone);
     const unorderedRushees = [];
     for (const key of rusheeKeys) {
       unorderedRushees.push([key, this.getRusheeName(key)]);
     }
     this.orderedRushees = unorderedRushees.sort((r1, r2) => {
-      if (this.getFirstName(r1[1]).toUpperCase() > this.getFirstName(r2[1]).toUpperCase()) {
+      if (
+        this.getFirstName(r1[1]).toUpperCase() >
+        this.getFirstName(r2[1]).toUpperCase()
+      ) {
         return 1;
       }
-      if (this.getFirstName(r1[1]).toUpperCase() < this.getFirstName(r2[1]).toUpperCase()) {
+      if (
+        this.getFirstName(r1[1]).toUpperCase() <
+        this.getFirstName(r2[1]).toUpperCase()
+      ) {
         return -1;
       }
       return 0;
     });
   }
 
-  orderRusheesByLastName() {
+  orderRusheesByLastName(): void {
     const rusheeKeys = Object.keys(this.forms.phone);
     const unorderedRushees = [];
     for (const key of rusheeKeys) {
       unorderedRushees.push([key, this.getRusheeName(key)]);
     }
     this.orderedRushees = unorderedRushees.sort((r1, r2) => {
-      if (this.getLastName(r1[1]).toUpperCase() > this.getLastName(r2[1]).toUpperCase()) {
+      if (
+        this.getLastName(r1[1]).toUpperCase() >
+        this.getLastName(r2[1]).toUpperCase()
+      ) {
         return 1;
       }
-      if (this.getLastName(r1[1]).toUpperCase() < this.getLastName(r2[1]).toUpperCase()) {
+      if (
+        this.getLastName(r1[1]).toUpperCase() <
+        this.getLastName(r2[1]).toUpperCase()
+      ) {
         return -1;
       }
       return 0;
     });
   }
 
-  toggleCheckinOrder() {
+  toggleCheckinOrder(): void {
     this.orderRusheesByCheckins(this.orderCheckinsAscending);
     this.orderCheckinsAscending = !this.orderCheckinsAscending;
   }
 
-  orderRusheesByCheckins(ascending: boolean) {
+  orderRusheesByCheckins(ascending: boolean): void {
     const rusheeKeys = Object.keys(this.forms.phone);
     const unorderedRushees = [];
     for (const key of rusheeKeys) {
       unorderedRushees.push([key, this.getRusheeName(key)]);
     }
     this.orderedRushees = unorderedRushees.sort((r1, r2) => {
-      let r1_checkins = 0;
-      let r2_checkins = 0;
+      let r1Checkins = 0;
+      let r2Checkins = 0;
       for (const date of this.rushDates) {
         if (this.checkedIn(r1[0])[date]) {
-          r1_checkins = r1_checkins + 1;
+          r1Checkins = r1Checkins + 1;
         }
       }
       for (const date of this.rushDates) {
         if (this.checkedIn(r2[0])[date]) {
-          r2_checkins = r2_checkins + 1;
+          r2Checkins = r2Checkins + 1;
         }
       }
-      if (r1_checkins > r2_checkins) {
+      if (r1Checkins > r2Checkins) {
         return ascending ? 1 : -1;
       }
-      if (r1_checkins < r2_checkins) {
+      if (r1Checkins < r2Checkins) {
         return ascending ? -1 : 1;
       }
       return 0;
     });
   }
 
-  getRusheeName(key: string) {
+  getRusheeName(key: string): string {
     return this.forms.name[key];
   }
 
-  checkedIn(key: string) {
+  checkedIn(key: string): boolean {
     if (this.checkins) {
       return this.checkins[key] ? this.checkins[key] : false;
     }
     return false;
   }
 
-  getEmailString() {
+  getEmailString(): string {
     let emailString = '';
     let first = true;
     for (const email of Object.values(this.forms.email)) {
@@ -155,7 +150,7 @@ export class RusheeProfilesComponent {
     return emailString;
   }
 
-  getLastName(name: string) {
+  getLastName(name: string): string {
     if (name != null) {
       const index = name.indexOf(',');
       return name.substring(0, index);
@@ -163,7 +158,7 @@ export class RusheeProfilesComponent {
     return '';
   }
 
-  getFirstName(name: string) {
+  getFirstName(name: string): string {
     if (name != null) {
       const index = name.indexOf(',');
       return name.substring(index + 1);
@@ -171,44 +166,49 @@ export class RusheeProfilesComponent {
     return '';
   }
 
-  getRusheeTotal() {
+  getRusheeTotal(): number {
     return Object.keys(this.forms.phone).length;
   }
 
-  totalCheckins(key: string) {
+  totalCheckins(key: string): number {
     const checkins = this.getCheckins(key);
     let sum = 0;
     if (checkins) {
       for (const checkinKey of Object.keys(checkins)) {
-        sum = sum + (checkins[checkinKey] && this.rushDates.indexOf(checkinKey) !== -1 ? 1 : 0);
+        sum =
+          sum +
+          (checkins[checkinKey] && this.rushDates.indexOf(checkinKey) !== -1
+            ? 1
+            : 0);
       }
     }
     return sum;
   }
 
-  getCheckins(key: string) {
+  getCheckins(key: string): number {
     if (this.checkins) {
       return this.checkins[key] ? this.checkins[key] : null;
     }
     return null;
   }
 
-  onSaveNote(key: string, note: any) {
+  onSaveNote(key: string, note: any): void {
     const updates = {};
     updates['/forms/notes/' + key] = note;
-    firebase.database().ref().update(updates, (error) => {
-      if (error) {
-        // The write failed...
-        console.log('Failed to save form to Firebase');
-      } else {
-        // Data saved successfully!
-        console.log('Successfully saved form to Firebase!');
-      }
-    });
+    firebase
+      .database()
+      .ref()
+      .update(updates, (error) => {
+        if (error) {
+          console.log('Failed to save form to Firebase');
+        } else {
+          console.log('Successfully saved form to Firebase!');
+        }
+      });
     setTimeout(() => this.loadDatabase(), 0);
   }
 
-  onRemoveRushee(rushee: any) {
+  onRemoveRushee(rushee: any): void {
     if (this.removeBitmap[rushee[0]] == null) {
       this.removeBitmap[rushee[0]] = 1;
       return;
@@ -228,15 +228,16 @@ export class RusheeProfilesComponent {
     updates['/forms/reasons/' + rushee[0]] = null;
     updates['/forms/referral/' + rushee[0]] = null;
     updates['/forms/notes/' + rushee[0]] = null;
-    firebase.database().ref().update(updates, (error) => {
-      if (error) {
-        // The write failed...
-        console.log('Failed to save form to Firebase');
-      } else {
-        // Data saved successfully!
-        console.log('Successfully saved form to Firebase!');
-      }
-    });
+    firebase
+      .database()
+      .ref()
+      .update(updates, (error) => {
+        if (error) {
+          console.log('Failed to save form to Firebase');
+        } else {
+          console.log('Successfully saved form to Firebase!');
+        }
+      });
     this.resetBitmap();
     setTimeout(() => this.loadDatabase(), 0);
   }
