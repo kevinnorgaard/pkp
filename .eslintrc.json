@@ -1,7 +1,8 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
+  "extends": ["plugin:angular/johnpapa", "prettier"],
+  "plugins": ["angular", "prettier"],
   "rules": {
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "angular/controller_name": 0
   }
 }
