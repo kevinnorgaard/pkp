@@ -20,4 +20,8 @@ export class ScrollService {
       }
     }, 4);
   }
+
+  visible(): boolean {
+    return window.pageYOffset !== 0;
+  }
 }

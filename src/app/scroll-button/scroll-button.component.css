@@ -1,0 +1,11 @@
+.scroll-up-btn {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: transparent;
+  z-index: 100;
+  color: white;
+  cursor: pointer;
+}

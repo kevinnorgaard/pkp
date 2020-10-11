@@ -1,0 +1,10 @@
+<!-- <div class="scroll-up-btn" (click)="scrollTop()">
+  <i class="fa fa-arrow-up"></i>
+</div> -->
+<div class="scroll-up-btn">
+  <i
+    class="fa fa-arrow-up"
+    *ngIf="visible()"
+    (click)="scrollTop()"
+  ></i>
+</div>

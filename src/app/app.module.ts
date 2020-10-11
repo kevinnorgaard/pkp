@@ -36,6 +36,7 @@ import { RusheeProfilesComponent } from './pages/admin/rushee-profiles/rushee-pr
 import { AlumniProfilesComponent } from './pages/admin/alumni-profiles/alumni-profiles.component';
 import { EventCheckinComponent } from './pages/admin/event-checkin/event-checkin.component';
 import { BannerComponent } from './banner/banner.component';
+import { ScrollButtonComponent } from './scroll-button/scroll-button.component';
 
 @NgModule({
   imports: [
@@ -66,6 +67,7 @@ import { BannerComponent } from './banner/banner.component';
     AlumniProfilesComponent,
     EventCheckinComponent,
     BannerComponent,
+    ScrollButtonComponent,
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },

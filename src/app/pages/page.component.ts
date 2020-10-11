@@ -7,14 +7,10 @@ import { environment } from 'src/environments/environment';
   template: ` <div>Page Component needs to be implemented.</div> `,
 })
 export class PageComponent implements OnInit {
-  constructor(protected scrollService: ScrollService) {}
+  constructor(private scrollService: ScrollService) {}
 
   ngOnInit(): void {
     this.scrollService.jumpTop();
-  }
-
-  scrollTop(): void {
-    this.scrollService.scrollTop();
   }
 
   mode(): string {
