@@ -1,14 +1,7 @@
 <div class="wrapper">
-  <nav
-    class="navbar navbar-expand-md sticky"
-    [@hideShow]="getBackground()"
-  >
+  <nav class="navbar navbar-expand-md sticky" [@hideShow]="getBackground()">
     <!-- -------------------------CREST HOME BUTTON--------------------------------- -->
-    <a
-      class="navbar-brand"
-      [routerLink]="['']"
-      (click)="spin = !spin"
-    >
+    <a class="navbar-brand" [routerLink]="['']" (click)="spin = !spin">
       <img
         [@spin]="spin ? 'on' : 'off'"
         class="nav-logo"
@@ -46,10 +39,7 @@
           [routerLinkActive]="['active']"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a
-            (click)="isCollapsed = true"
-            class="nav-link"
-            [routerLink]="['']"
+          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']"
             >HOME</a
           >
         </li>
@@ -125,10 +115,7 @@
           [routerLinkActive]="['active']"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a
-            (click)="isCollapsed = true"
-            class="nav-link"
-            [routerLink]="['']"
+          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']"
             >RUSH</a
           >
         </li>
@@ -204,10 +191,7 @@
           [routerLinkActive]="['active']"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <a
-            (click)="isCollapsed = true"
-            class="nav-link"
-            [routerLink]="['']"
+          <a (click)="isCollapsed = true" class="nav-link" [routerLink]="['']"
             >PHILANTHROPY</a
           >
         </li>

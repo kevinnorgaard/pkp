@@ -2,10 +2,7 @@
   <div class="exec-section">
     <h2 class="sticky-container-title">Leadership</h2>
     <div class="row section">
-      <div
-        class="col-lg-3 col-md-4 col-sm-6"
-        *ngFor="let exec of executives"
-      >
+      <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let exec of executives">
         <div class="profile-container">
           <div
             [ngClass]="exec.url ? 'clickable' : 'not-clickable'"
@@ -28,12 +25,14 @@
     </div>
   </div>
   <div>
-    <h2 class="sticky-container-title">Brothers of 2018</h2>
+    <h2 *ngIf="compositeYear" class="sticky-container-title">
+      Brothers of {{ compositeYear }}
+    </h2>
     <div class="section">
       <div class="subsection">
         <img
           class="img-fluid photo"
-          src="https://farm5.staticflickr.com/4808/46619241131_ad1071eec3_h.jpg"
+          [src]="compositeImageUrl"
           alt="2017-2018 Phi Kappa Psi Composite"
           title="2017-2018 Phi Kappa Psi Composite"
         />
@@ -65,10 +64,7 @@
           </td>
         </tr>
       </table>
-      <div
-        class="showall-container"
-        (click)="toggleShowAllOnCampus()"
-      >
+      <div class="showall-container" (click)="toggleShowAllOnCampus()">
         <button class="btn showall-btn">
           {{ showAllOnCampusText }}
         </button>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GraphcmsService } from 'src/app/graphcms.service';
+import { GraphCmsService } from 'src/app/graphcms.service';
 import { ScrollService } from 'src/app/scroll.service';
 import { PageComponent } from '../page.component';
 
@@ -21,30 +21,19 @@ interface Leader {
   templateUrl: './membership.component.html',
   styleUrls: ['./membership.component.css'],
 })
-export class MembershipComponent
-  extends PageComponent
-  implements OnInit {
+export class MembershipComponent extends PageComponent implements OnInit {
   executives: Executive[] = [];
   leaders: Leader[] = [];
-
-  brotherhoods: string[] = [
-    'Thanksgiving Brotherhood Dinner',
-    'Annual Camping Trips',
-    'Observatory OC Concerts',
-    'Angels & Lakers Game Brotherhood Events',
-    'The ORIGINAL Fight Night',
-    'Annual BP Tournament',
-    'Brotherhood Poker Night',
-    'Fruit Smash Brotherhood',
-    'Big Bear Cabin Trip',
-  ];
+  brotherhoods: string[];
+  compositeImageUrl: string;
+  compositeYear: number;
 
   showAllOnCampus = false;
   showAllOnCampusText = 'Show More';
 
   constructor(
     scrollService: ScrollService,
-    private graphcmsService: GraphcmsService,
+    private graphCmsService: GraphCmsService,
   ) {
     super(scrollService);
   }
@@ -53,6 +42,7 @@ export class MembershipComponent
     super.ngOnInit();
     this.loadExecutives();
     this.loadLeaders();
+    this.loadMembershipPage();
   }
 
   openUrl(url: string): void {
@@ -62,19 +52,26 @@ export class MembershipComponent
   }
 
   loadExecutives(): void {
-    this.graphcmsService
+    this.graphCmsService
       .getExecutives()
       .valueChanges.subscribe(
-        (executives) =>
-          (this.executives = this.jsonToExecutives(executives)),
+        (executives) => (this.executives = this.jsonToExecutives(executives)),
       );
   }
 
   loadLeaders(): void {
-    this.graphcmsService
+    this.graphCmsService
       .getLeaders()
       .valueChanges.subscribe(
         (leaders) => (this.leaders = this.jsonToLeaders(leaders)),
+      );
+  }
+
+  loadMembershipPage(): void {
+    this.graphCmsService
+      .getMembershipPage()
+      .valueChanges.subscribe((membershipPage) =>
+        this.jsonToMembershipPage(membershipPage),
       );
   }
 
@@ -101,6 +98,14 @@ export class MembershipComponent
       });
     }
     return leaders;
+  }
+
+  jsonToMembershipPage(data: any): any {
+    const membershipPage = data.data.membershipPages[0];
+    this.compositeYear = membershipPage.compositeYear;
+    this.compositeImageUrl = membershipPage.compositeImage.url;
+    this.brotherhoods = membershipPage.brotherhoodEvent;
+    console.log(this.brotherhoods);
   }
 
   toggleShowAllOnCampus(): void {

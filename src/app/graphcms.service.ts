@@ -27,10 +27,22 @@ const LEADERS_QUERY = gql`
   }
 `;
 
+const MEMBERSHIP_PAGE_QUERY = gql`
+  {
+    membershipPages {
+      compositeImage {
+        url
+        fileName
+      }
+      compositeYear
+      brotherhoodEvent
+    }
+  }
+`;
 @Injectable({
   providedIn: 'root',
 })
-export class GraphcmsService {
+export class GraphCmsService {
   constructor(private apollo: Apollo) {}
 
   getExecutives(): QueryRef<unknown, EmptyObject> {
@@ -39,5 +51,9 @@ export class GraphcmsService {
 
   getLeaders(): QueryRef<unknown, EmptyObject> {
     return this.apollo.watchQuery({ query: LEADERS_QUERY });
+  }
+
+  getMembershipPage(): QueryRef<unknown, EmptyObject> {
+    return this.apollo.watchQuery({ query: MEMBERSHIP_PAGE_QUERY });
   }
 }
