@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyDU58QVVDyqn-448tPmYnC1xfP3l3G5s2c',
+    apiKey: '', // Add your Firebase API key here
     authDomain: 'pkp-website.firebaseapp.com',
     databaseURL: 'https://pkp-website.firebaseio.com',
     projectId: 'pkp-website',
