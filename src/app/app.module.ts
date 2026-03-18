@@ -4,7 +4,7 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import { APOLLO_OPTIONS } from 'apollo-angular';
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 
@@ -68,6 +68,7 @@ import { ScrollButtonComponent } from './scroll-button/scroll-button.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     MatDialogModule,
+    ApolloModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },
