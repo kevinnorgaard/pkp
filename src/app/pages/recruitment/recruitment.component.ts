@@ -2,10 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Form } from './form.model';
 import { CheckinDialogComponent } from '../../dialogs/checkin-dialog/checkin-dialog.component';
-import {
-  MatLegacyDialog as MatDialog,
-  MatLegacyDialogRef as MatDialogRef,
-} from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ScrollService } from '../../scroll.service';
 import { PageComponent } from '../page.component';
 
