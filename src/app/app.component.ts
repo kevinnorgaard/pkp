@@ -1,4 +1,4 @@
-import { Component, HostListener, Output } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { Component, HostListener, Output } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  @Output() displayHeader = false;
+  displayHeader = false;
 
   @HostListener('window:scroll')
   checkScroll(): void {

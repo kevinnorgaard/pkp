@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Form } from '../../pages/recruitment/form.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import firebase from 'firebase/compat/app';
-import { Observable } from 'rxjs';
+import { getCurrentDate, getCheckins } from '../../pages/admin/rushee.utils';
 
 @Component({
   selector: 'app-checkin-dialog',
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./checkin-dialog.component.css'],
   standalone: false,
 })
-export class CheckinDialogComponent implements OnInit {
+export class CheckinDialogComponent {
   user: any;
 
   checkins: any;
@@ -26,10 +26,8 @@ export class CheckinDialogComponent implements OnInit {
     public db: AngularFireDatabase,
     private dialog: MatDialog,
   ) {
-    this.user = this.afAuth.authState; // Update
+    this.user = this.afAuth.authState;
   }
-
-  ngOnInit(): void {}
 
   invalid(): boolean {
     return (
@@ -46,13 +44,11 @@ export class CheckinDialogComponent implements OnInit {
       this.lastName + ', ' + this.firstName;
     updates['/forms/email/' + this.form.phone] = this.form.email;
     updates['/forms/phone/' + this.form.phone] = this.form.phone;
-    const currentDate = this.getCurrentDate();
+    const currentDate = getCurrentDate();
+    const checkins = getCheckins(this.checkins, this.form.phone);
     let newVal;
-    if (this.getCheckins(this.form.phone)) {
-      newVal =
-        this.getCheckins(this.form.phone)[currentDate] != null
-          ? !this.getCheckins(this.form.phone)[currentDate]
-          : true;
+    if (checkins) {
+      newVal = checkins[currentDate] != null ? !checkins[currentDate] : true;
       updates['/checkins/' + this.form.phone + '/' + currentDate] = newVal;
     } else {
       const newCheckin = {};
@@ -78,21 +74,5 @@ export class CheckinDialogComponent implements OnInit {
     this.firstName = '';
     this.lastName = '';
     this.form = new Form();
-  }
-
-  getCheckins(key: string): number {
-    if (this.checkins) {
-      return this.checkins[key] ? this.checkins[key] : null;
-    }
-    return null;
-  }
-
-  getCurrentDate(): string {
-    const currentDate = new Date();
-    const dateString = currentDate.toLocaleDateString();
-    const dateStringList = dateString.split('/');
-    return (
-      dateStringList[2] + '-' + dateStringList[0] + '-' + dateStringList[1]
-    );
   }
 }

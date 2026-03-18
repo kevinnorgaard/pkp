@@ -1,8 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import firebase from 'firebase/compat/app';
+import {
+  getFirstName,
+  getLastName,
+  getCurrentDate,
+  getCheckins,
+  sortRushees,
+} from '../rushee.utils';
 
 @Component({
   selector: 'app-event-checkin',
@@ -10,7 +16,7 @@ import firebase from 'firebase/compat/app';
   styleUrls: ['./event-checkin.component.css'],
   standalone: false,
 })
-export class EventCheckinComponent implements OnInit {
+export class EventCheckinComponent {
   rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];
   forms: any;
   checkins: any;
@@ -19,12 +25,16 @@ export class EventCheckinComponent implements OnInit {
 
   orderCheckinsAscending = false;
 
-  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
-    this.user = this.afAuth.authState; // Update
+  getFirstName = getFirstName;
+  getLastName = getLastName;
+
+  constructor(
+    public afAuth: AngularFireAuth,
+    public db: AngularFireDatabase,
+  ) {
+    this.user = this.afAuth.authState;
     this.loadDatabase();
   }
-
-  ngOnInit(): void {}
 
   loadDatabase(): any {
     return firebase
@@ -32,74 +42,28 @@ export class EventCheckinComponent implements OnInit {
       .ref('/')
       .once('value')
       .then((snapshot) => {
-        this.forms = snapshot.val() ? snapshot.val().forms : null;
-        this.checkins = snapshot.val() ? snapshot.val().checkins : null;
+        this.forms = snapshot.val()?.forms ?? null;
+        this.checkins = snapshot.val()?.checkins ?? null;
         this.orderRusheesByLastName();
       });
   }
 
   orderRusheesByFirstName(): void {
-    const rusheeKeys = Object.keys(this.forms.phone);
-    const unorderedRushees = [];
-    for (const key of rusheeKeys) {
-      unorderedRushees.push([key, this.getRusheeName(key)]);
-    }
-    this.orderedRushees = unorderedRushees.sort((r1, r2) => {
-      if (
-        this.getFirstName(r1[1]).toUpperCase() >
-        this.getFirstName(r2[1]).toUpperCase()
-      ) {
-        return 1;
-      }
-      if (
-        this.getFirstName(r1[1]).toUpperCase() <
-        this.getFirstName(r2[1]).toUpperCase()
-      ) {
-        return -1;
-      }
-      return 0;
-    });
+    this.orderedRushees = sortRushees(this.forms, getFirstName);
   }
 
   orderRusheesByLastName(): void {
-    const rusheeKeys = Object.keys(this.forms.phone);
-    const unorderedRushees = [];
-    for (const key of rusheeKeys) {
-      unorderedRushees.push([key, this.getRusheeName(key)]);
-    }
-    this.orderedRushees = unorderedRushees.sort((r1, r2) => {
-      if (
-        this.getLastName(r1[1]).toUpperCase() >
-        this.getLastName(r2[1]).toUpperCase()
-      ) {
-        return 1;
-      }
-      if (
-        this.getLastName(r1[1]).toUpperCase() <
-        this.getLastName(r2[1]).toUpperCase()
-      ) {
-        return -1;
-      }
-      return 0;
-    });
+    this.orderedRushees = sortRushees(this.forms, getLastName);
   }
 
-  getCheckins(key: string): number {
-    if (this.checkins) {
-      return this.checkins[key] ? this.checkins[key] : null;
-    }
-    return null;
+  getCheckins(key: string): any {
+    return getCheckins(this.checkins, key);
   }
 
   totalCheckins(key: string): number {
     const checkins = this.getCheckins(key);
-    let sum = 0;
-    if (checkins) {
-      for (const checkinKey of Object.keys(checkins)) {
-        sum = sum + (checkins[checkinKey] ? 1 : 0);
-      }
-    }
-    return sum;
+    if (!checkins) return 0;
+    return this.rushDates.filter((date) => checkins[date]).length;
   }
 
   getRusheeTotal(): number {
@@ -116,7 +80,7 @@ export class EventCheckinComponent implements OnInit {
 
   onCheckin(key: string): void {
     const updates = {};
-    const currentDate = this.getCurrentDate();
+    const currentDate = getCurrentDate();
     let newVal;
     if (this.getCheckins(key)) {
       newVal =
@@ -142,33 +106,11 @@ export class EventCheckinComponent implements OnInit {
     setTimeout(() => this.loadDatabase(), 0);
   }
 
-  getCurrentDate(): string {
-    const currentDate = new Date();
-    const dateString = currentDate.toLocaleDateString();
-    const dateStringList = dateString.split('/');
-    return (
-      dateStringList[2] + '-' + dateStringList[0] + '-' + dateStringList[1]
-    );
-  }
-
-  getLastName(name: string): string {
-    const index = name.indexOf(',');
-    return name.substring(0, index);
-  }
-
-  getFirstName(name: string): string {
-    const index = name.indexOf(',');
-    return name.substring(index + 1);
-  }
-
   getRusheeName(key: string): string {
     return this.forms.name[key];
   }
 
   checkedIn(key: string): boolean {
-    if (this.checkins) {
-      return this.checkins[key] ? this.checkins[key] : false;
-    }
-    return false;
+    return getCheckins(this.checkins, key) || false;
   }
 }

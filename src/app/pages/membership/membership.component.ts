@@ -106,7 +106,6 @@ export class MembershipComponent extends PageComponent implements OnInit {
     this.compositeYear = membershipPage.compositeYear;
     this.compositeImageUrl = membershipPage.compositeImage.url;
     this.brotherhoods = membershipPage.brotherhoodEvent;
-    console.log(this.brotherhoods);
   }
 
   toggleShowAllOnCampus(): void {
