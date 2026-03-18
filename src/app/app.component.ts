@@ -4,6 +4,7 @@ import { Component, HostListener, Output } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  standalone: false,
 })
 export class AppComponent {
   @Output() displayHeader = false;

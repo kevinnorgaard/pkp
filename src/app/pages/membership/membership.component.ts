@@ -20,6 +20,7 @@ interface Leader {
   selector: 'app-membership',
   templateUrl: './membership.component.html',
   styleUrls: ['./membership.component.css'],
+  standalone: false,
 })
 export class MembershipComponent extends PageComponent implements OnInit {
   executives: Executive[] = [];

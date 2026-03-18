@@ -5,6 +5,7 @@ import { ScrollService } from '../scroll.service';
   selector: 'app-scroll-button',
   templateUrl: './scroll-button.component.html',
   styleUrls: ['./scroll-button.component.css'],
+  standalone: false,
 })
 export class ScrollButtonComponent implements OnInit {
   constructor(private scrollService: ScrollService) {}

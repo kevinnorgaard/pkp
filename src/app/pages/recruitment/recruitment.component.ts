@@ -10,6 +10,7 @@ import { PageComponent } from '../page.component';
   selector: 'app-recruitment',
   templateUrl: './recruitment.component.html',
   styleUrls: ['./recruitment.component.css'],
+  standalone: false,
 })
 export class RecruitmentComponent extends PageComponent implements OnInit {
   @ViewChild('snugCol') snugColumn: ElementRef;

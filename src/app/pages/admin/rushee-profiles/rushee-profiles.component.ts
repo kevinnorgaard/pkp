@@ -9,6 +9,7 @@ import firebase from 'firebase/compat/app';
   selector: 'app-rushee-profiles',
   templateUrl: './rushee-profiles.component.html',
   styleUrls: ['./rushee-profiles.component.css'],
+  standalone: false,
 })
 export class RusheeProfilesComponent {
   removeBitmap = {};

@@ -8,6 +8,7 @@ import firebase from 'firebase/compat/app';
   selector: 'app-event-checkin',
   templateUrl: './event-checkin.component.html',
   styleUrls: ['./event-checkin.component.css'],
+  standalone: false,
 })
 export class EventCheckinComponent implements OnInit {
   rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];

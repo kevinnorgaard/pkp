@@ -12,6 +12,7 @@ export class Alumni {
   selector: 'app-alumni',
   templateUrl: './alumni.component.html',
   styleUrls: ['./alumni.component.css'],
+  standalone: false,
 })
 export class AlumniComponent extends PageComponent implements OnInit {
   user: any;

@@ -6,10 +6,9 @@ import { PageComponent } from '../page.component';
   selector: 'app-philanthropy',
   templateUrl: './philanthropy.component.html',
   styleUrls: ['./philanthropy.component.css'],
+  standalone: false,
 })
-export class PhilanthropyComponent
-  extends PageComponent
-  implements OnInit {
+export class PhilanthropyComponent extends PageComponent implements OnInit {
   constructor(scrollService: ScrollService) {
     super(scrollService);
   }

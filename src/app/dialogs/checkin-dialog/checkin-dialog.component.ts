@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
   selector: 'app-checkin-dialog',
   templateUrl: './checkin-dialog.component.html',
   styleUrls: ['./checkin-dialog.component.css'],
+  standalone: false,
 })
 export class CheckinDialogComponent implements OnInit {
   user: any;

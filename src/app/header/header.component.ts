@@ -62,6 +62,7 @@ import { environment } from '../../environments/environment';
       transition('off => on', [animate('300ms ease-in')]),
     ]),
   ],
+  standalone: false,
 })
 export class HeaderComponent {
   @Input() headerDisplay: boolean;
@@ -73,9 +74,7 @@ export class HeaderComponent {
   }
 
   getColor(): string {
-    return this.headerDisplay || !this.isCollapsed
-      ? 'black'
-      : '#a6a6a6';
+    return this.headerDisplay || !this.isCollapsed ? 'black' : '#a6a6a6';
   }
 
   mode(): string {

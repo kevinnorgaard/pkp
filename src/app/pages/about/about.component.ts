@@ -7,6 +7,7 @@ import { PageComponent } from '../page.component';
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
+  standalone: false,
 })
 export class AboutComponent extends PageComponent implements OnInit {
   videoSource: SafeResourceUrl;

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-page',
   template: ` <div>Page Component needs to be implemented.</div> `,
+  standalone: false,
 })
 export class PageComponent implements OnInit {
   constructor(private scrollService: ScrollService) {}
