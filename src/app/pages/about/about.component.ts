@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ScrollService } from '../../scroll.service';
 import { PageComponent } from '../page.component';
 
@@ -10,13 +9,10 @@ import { PageComponent } from '../page.component';
   standalone: false,
 })
 export class AboutComponent extends PageComponent implements OnInit {
-  videoSource: SafeResourceUrl;
+  videoSource = 'assets/flag2.mp4';
 
-  constructor(scrollService: ScrollService, sanitizer: DomSanitizer) {
+  constructor(scrollService: ScrollService) {
     super(scrollService);
-    this.videoSource = sanitizer.bypassSecurityTrustResourceUrl(
-      '/assets/flag2.mp4',
-    );
   }
 
   ngOnInit(): void {
