@@ -47,7 +47,6 @@ if (environment.mode === 'normal') {
   imports: [
     RouterModule.forRoot(routes, {
       useHash: false,
-      relativeLinkResolution: 'legacy',
     }),
   ],
   exports: [RouterModule],
