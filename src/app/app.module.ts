@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {
+  HttpHeaders,
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { provideApollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { ApolloLink, InMemoryCache } from '@apollo/client/core';
+import { inject } from '@angular/core';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -68,31 +70,29 @@ import { ScrollButtonComponent } from './scroll-button/scroll-button.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     MatDialogModule,
-    ApolloModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },
-    {
-      provide: APOLLO_OPTIONS,
-      useFactory: (httpLink: HttpLink) => {
-        const http = httpLink.create({
-          uri:
-            'https://us-west-2.cdn.hygraph.com/content/cmmc8mesh02q407w7yhokqicl/master',
-        });
-        const auth = new ApolloLink((operation, forward) => {
-          operation.setContext({
-            headers: { Authorization: `Bearer ${environment.hygraphToken}` },
-          });
-          return forward(operation);
-        });
-        return {
-          cache: new InMemoryCache(),
-          link: auth.concat(http),
-        };
-      },
-      deps: [HttpLink],
-    },
     provideHttpClient(withInterceptorsFromDi()),
+    provideApollo(() => {
+      const httpLink = inject(HttpLink).create({
+        uri:
+          'https://us-west-2.cdn.hygraph.com/content/cmmc8mesh02q407w7yhokqicl/master',
+      });
+      const auth = new ApolloLink((operation, forward) => {
+        operation.setContext({
+          headers: new HttpHeaders().set(
+            'Authorization',
+            `Bearer ${environment.hygraphToken}`,
+          ),
+        });
+        return forward(operation);
+      });
+      return {
+        cache: new InMemoryCache(),
+        link: auth.concat(httpLink),
+      };
+    }),
   ],
 })
 export class AppModule {}

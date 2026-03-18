@@ -1,13 +1,13 @@
 # Phi Kappa Psi — UCI Chapter Website
 
-Chapter website for [uciphipsi.kevinnorgaard.com](https://uciphipsi.kevinnorgaard.com). Built with Angular 19, Firebase, and Hygraph CMS. Features multi-mode routing (normal, rush, philanthropy) and an admin dashboard for rush event management.
+Chapter website for [uciphipsi.kevinnorgaard.com](https://uciphipsi.kevinnorgaard.com). Built with Angular 21, Firebase, and Hygraph CMS. Features multi-mode routing (normal, rush, philanthropy) and an admin dashboard for rush event management.
 
 ## Tech Stack
 
 | Layer | Choice |
 |---|---|
-| Runtime | Node.js 20 |
-| Framework | Angular 19 (esbuild application builder) |
+| Runtime | Node.js 22 |
+| Framework | Angular 21 (esbuild application builder) |
 | Language | TypeScript |
 | UI Components | Angular Material, ng-bootstrap, Bootstrap 4 |
 | CMS | Hygraph (GraphQL via Apollo Angular) |

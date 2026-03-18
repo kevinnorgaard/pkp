@@ -29,11 +29,8 @@
       id="navbarSupportedContent"
       [ngbCollapse]="isCollapsed"
     >
-      <ul
-        *ngIf="mode() === 'normal'"
-        class="navbar-nav mr-auto"
-        routerLinkActive="active"
-      >
+      @if (mode() === 'normal') {
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
         <li
           class="nav-item"
           [routerLinkActive]="['active']"
@@ -104,12 +101,8 @@
           >
         </li>
       </ul>
-
-      <ul
-        *ngIf="mode() === 'rush'"
-        class="navbar-nav mr-auto"
-        routerLinkActive="active"
-      >
+      } @if (mode() === 'rush') {
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
         <li
           class="nav-item"
           [routerLinkActive]="['active']"
@@ -180,12 +173,8 @@
           >
         </li>
       </ul>
-
-      <ul
-        *ngIf="mode() === 'philanthropy'"
-        class="navbar-nav mr-auto"
-        routerLinkActive="active"
-      >
+      } @if (mode() === 'philanthropy') {
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
         <li
           class="nav-item"
           [routerLinkActive]="['active']"
@@ -256,6 +245,7 @@
           >
         </li>
       </ul>
+      }
     </div>
   </nav>
 </div>

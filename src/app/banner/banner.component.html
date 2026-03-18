@@ -1,5 +1,6 @@
 <div class="wrapper">
-  <div *ngIf="'rush' === mode()" class="banner">
+  @if ('rush' === mode()) {
+  <div class="banner">
     <div class="banner-text">
       <span>Winter 2019 Rush process begins</span>&nbsp;
       <span>Monday (1/7) of Week 1</span>
@@ -17,11 +18,9 @@
       </button>
     </div>
   </div>
-
-  <div *ngIf="'philanthropy' === mode()" class="banner">
-    <div class="banner-text">
-      Philanthropy T-shirts are available now
-    </div>
+  } @if ('philanthropy' === mode()) {
+  <div class="banner">
+    <div class="banner-text">Philanthropy T-shirts are available now</div>
     <div class="banner-container">
       <button>
         <a
@@ -32,4 +31,5 @@
       </button>
     </div>
   </div>
+  }
 </div>

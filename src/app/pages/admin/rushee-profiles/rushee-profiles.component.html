@@ -9,31 +9,21 @@
       <th>Phone</th>
       <th>Email</th>
     </tr>
-    <tr
-      *ngFor="let rushee of orderedRushees; let i = index"
-      [ngStyle]="{
-        backgroundColor: i % 2 == 0 ? 'rgba(0,0,0,0.025)' : 'white'
-      }"
-    >
+    @for (rushee of orderedRushees; track rushee; let i = $index) {
+    <tr [style.background-color]="i % 2 == 0 ? 'rgba(0,0,0,0.025)' : 'white'">
       <td>
-        <button
-          *ngIf="removeBitmap[rushee[0]] == null"
-          class="request-remove-btn"
-          (click)="onRemoveRushee(rushee)"
-        >
+        @if (removeBitmap[rushee[0]] == null) {
+        <button class="request-remove-btn" (click)="onRemoveRushee(rushee)">
           Remove
         </button>
-        <div
-          *ngIf="removeBitmap[rushee[0]]"
-          class="remove-btn-container"
-        >
+        } @if (removeBitmap[rushee[0]]) {
+        <div class="remove-btn-container">
           <button class="remove-btn" (click)="onRemoveRushee(rushee)">
             Remove
           </button>
-          <button class="cancel-btn" (click)="resetBitmap()">
-            Cancel
-          </button>
+          <button class="cancel-btn" (click)="resetBitmap()">Cancel</button>
         </div>
+        }
       </td>
       <td>{{ getFirstName(forms.name[rushee[0]]) }}</td>
       <td>{{ getLastName(forms.name[rushee[0]]) }}</td>
@@ -50,6 +40,7 @@
       <td>{{ forms.phone[rushee[0]] }}</td>
       <td>{{ forms.email[rushee[0]] }}</td>
     </tr>
+    }
   </table>
   <p class="emailString">{{ getEmailString() }}</p>
 </div>

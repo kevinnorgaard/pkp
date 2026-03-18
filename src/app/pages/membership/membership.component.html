@@ -2,7 +2,8 @@
   <div class="exec-section">
     <h2 class="sticky-container-title">Leadership</h2>
     <div class="row section">
-      <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let exec of executives">
+      @for (exec of executives; track exec) {
+      <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="profile-container">
           <div
             [ngClass]="exec.url ? 'clickable' : 'not-clickable'"
@@ -17,17 +18,20 @@
             />
           </div>
           <p class="profile-name">{{ exec.name }}</p>
-          <p class="profile-position" *ngIf="exec.position">
+          @if (exec.position) {
+          <p class="profile-position">
             {{ exec.position }}
           </p>
+          }
         </div>
       </div>
+      }
     </div>
   </div>
   <div>
-    <h2 *ngIf="compositeYear" class="sticky-container-title">
-      Brothers of {{ compositeYear }}
-    </h2>
+    @if (compositeYear) {
+    <h2 class="sticky-container-title">Brothers of {{ compositeYear }}</h2>
+    }
     <div class="section">
       <div class="subsection">
         <img
@@ -43,26 +47,23 @@
     <h2 class="sticky-container-title">Campus Involvement</h2>
     <div class="section">
       <table class="leader-table subsection">
-        <tr class="leader-row" *ngFor="let leader of leaders">
-          <td
-            class="leader-year"
-            *ngIf="getYear() - 2 <= leader.year || showAllOnCampus"
-          >
+        @for (leader of leaders; track leader) {
+        <tr class="leader-row">
+          @if (getYear() - 2 <= leader.year || showAllOnCampus) {
+          <td class="leader-year">
             {{ leader.year }}
           </td>
-          <td
-            class="leader-title"
-            *ngIf="getYear() - 2 <= leader.year || showAllOnCampus"
-          >
+          } @if (getYear() - 2 <= leader.year || showAllOnCampus) {
+          <td class="leader-title">
             {{ leader.title }}
           </td>
-          <td
-            class="leader-recipient"
-            *ngIf="getYear() - 2 <= leader.year || showAllOnCampus"
-          >
+          } @if (getYear() - 2 <= leader.year || showAllOnCampus) {
+          <td class="leader-recipient">
             {{ leader.name }}
           </td>
+          }
         </tr>
+        }
       </table>
       <div class="showall-container" (click)="toggleShowAllOnCampus()">
         <button class="btn showall-btn">
@@ -93,12 +94,11 @@
     </div>
     <div class="section brotherhood-section row">
       <ul class="brotherhood-container">
-        <div
-          class="brotherhood-list-item"
-          *ngFor="let brotherhood of brotherhoods"
-        >
+        @for (brotherhood of brotherhoods; track brotherhood) {
+        <div class="brotherhood-list-item">
           <li class="col brotherhood-item">{{ brotherhood }}</li>
         </div>
+        }
       </ul>
     </div>
     <div class="third-row row section brotherhood-section">

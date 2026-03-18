@@ -1,15 +1,16 @@
 <div class="wrapper">
-  <div *ngIf="mode() === 'rush'" class="checkin-container row">
+  @if (mode() === 'rush') {
+  <div class="checkin-container row">
     <button class="checkin-btn" (click)="onCheckin()">Check In</button>
   </div>
-
-  <div *ngIf="mode() === 'rush'" class="checkin-container row">
+  } @if (mode() === 'rush') {
+  <div class="checkin-container row">
     <button class="checkin-btn" (click)="onSignWaiver()">
       Car Bash Waiver
     </button>
   </div>
-
-  <div *ngIf="mode() === 'rush'" class="row">
+  } @if (mode() === 'rush') {
+  <div class="row">
     <iframe
       class="col"
       [hidden]="!signWaiver"
@@ -22,6 +23,7 @@
       >Loading…</iframe
     >
   </div>
+  }
 
   <div class="row">
     <div class="col rush-video-container">
@@ -74,10 +76,7 @@
     <div class="second-row row small-section">
       <!--Large Screen-->
       <div #snugCol class="col paddingless snug-col">
-        <span
-          class="col-sm side-snug"
-          [ngStyle]="{ width: getSideWidth() + 'px' }"
-        >
+        <span class="col-sm side-snug" [style.width]="getSideWidth() + 'px'">
           <img
             src="https://farm2.staticflickr.com/1886/43674882405_9bc05f1bce_c.jpg"
             class="photo img-fluid"
@@ -89,7 +88,7 @@
           #videoPlayer
           id="video"
           class="col-sm mid-snug"
-          [ngStyle]="{ width: getMiddleWidth() + 'px' }"
+          [style.width]="getMiddleWidth() + 'px'"
           onloadedmetadata="this.muted = true"
           loop
           autoplay
@@ -97,10 +96,7 @@
         >
           <source src="{{ videoSource }}" type="video/mp4" />
         </video>
-        <span
-          class="col-sm side-snug"
-          [ngStyle]="{ width: getSideWidth() + 'px' }"
-        >
+        <span class="col-sm side-snug" [style.width]="getSideWidth() + 'px'">
           <img
             src="https://farm2.staticflickr.com/1845/43865943224_ee7f113d47_c.jpg"
             class="photo img-fluid"

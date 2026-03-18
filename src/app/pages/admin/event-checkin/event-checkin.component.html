@@ -7,20 +7,22 @@
       <th>Th ({{ getDayTotal(2) }})</th>
       <th>F ({{ getDayTotal(3) }})</th>
     </tr>
-    <tr *ngFor="let rushee of orderedRushees">
+    @for (rushee of orderedRushees; track rushee) {
+    <tr>
       <td class="nowrap-cell">
         {{ rushee[1] }}
       </td>
-      <td *ngFor="let date of rushDates">
+      @for (date of rushDates; track date) {
+      <td>
         <button
           [ngClass]="
-            checkedIn(rushee[0])[date]
-              ? 'checked-btn'
-              : 'unchecked-btn'
+            checkedIn(rushee[0])[date] ? 'checked-btn' : 'unchecked-btn'
           "
           (click)="onCheckin(rushee[0])"
         ></button>
       </td>
+      }
     </tr>
+    }
   </table>
 </div>

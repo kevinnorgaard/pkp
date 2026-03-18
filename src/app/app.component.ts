@@ -9,7 +9,7 @@ import { Component, HostListener, Output } from '@angular/core';
 export class AppComponent {
   @Output() displayHeader = false;
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   checkScroll(): void {
     this.displayHeader = window.pageYOffset !== 0;
   }
