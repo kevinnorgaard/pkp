@@ -17,7 +17,8 @@
       "Bash(sed -i '' \"s|from ''@angular/fire/auth''|from ''@angular/fire/compat/auth''|g\" \"$f\")",
       "Bash(sed -i '' \"s|from ''@angular/fire/database''|from ''@angular/fire/compat/database''|g\" \"$f\")",
       "Bash(done)",
-      "Bash(npm view:*)"
+      "Bash(npm view:*)",
+      "Bash(npm run:*)"
     ]
   }
 }
