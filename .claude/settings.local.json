@@ -19,7 +19,8 @@
       "Bash(done)",
       "Bash(npm view:*)",
       "Bash(npm run:*)",
-      "Bash(node -e \"const m = require\\(''apollo-angular''\\); console.log\\(Object.keys\\(m\\).sort\\(\\).join\\(''\\\\n''\\)\\)\")"
+      "Bash(node -e \"const m = require\\(''apollo-angular''\\); console.log\\(Object.keys\\(m\\).sort\\(\\).join\\(''\\\\n''\\)\\)\")",
+      "Bash(npx husky:*)"
     ]
   }
 }
