@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Form } from '../../pages/recruitment/form.model';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase } from '@angular/fire/database';
-import * as firebase from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./checkin-dialog.component.css'],
 })
 export class CheckinDialogComponent implements OnInit {
-  user: Observable<firebase.User>;
+  user: any;
 
   checkins: any;
   enabled = true;
@@ -52,9 +52,7 @@ export class CheckinDialogComponent implements OnInit {
         this.getCheckins(this.form.phone)[currentDate] != null
           ? !this.getCheckins(this.form.phone)[currentDate]
           : true;
-      updates[
-        '/checkins/' + this.form.phone + '/' + currentDate
-      ] = newVal;
+      updates['/checkins/' + this.form.phone + '/' + currentDate] = newVal;
     } else {
       const newCheckin = {};
       newCheckin[currentDate] = true;
@@ -93,11 +91,7 @@ export class CheckinDialogComponent implements OnInit {
     const dateString = currentDate.toLocaleDateString();
     const dateStringList = dateString.split('/');
     return (
-      dateStringList[2] +
-      '-' +
-      dateStringList[0] +
-      '-' +
-      dateStringList[1]
+      dateStringList[2] + '-' + dateStringList[0] + '-' + dateStringList[1]
     );
   }
 }

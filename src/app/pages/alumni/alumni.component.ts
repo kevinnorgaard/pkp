@@ -1,8 +1,7 @@
 import { PageComponent } from '../page.component';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import * as firebase from 'firebase/app';
-import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/compat/app';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ScrollService } from '../../scroll.service';
 
 export class Alumni {
@@ -15,15 +14,12 @@ export class Alumni {
   styleUrls: ['./alumni.component.css'],
 })
 export class AlumniComponent extends PageComponent implements OnInit {
-  user: Observable<firebase.User>;
+  user: any;
   form: Alumni = new Alumni('', '');
   enabled = true;
   submitButtonMessage = 'Subscribe';
 
-  constructor(
-    scrollService: ScrollService,
-    public afAuth: AngularFireAuth,
-  ) {
+  constructor(scrollService: ScrollService, public afAuth: AngularFireAuth) {
     super(scrollService);
     this.user = this.afAuth.authState;
   }
@@ -33,11 +29,7 @@ export class AlumniComponent extends PageComponent implements OnInit {
   }
 
   invalid(): boolean {
-    return (
-      !this.enabled ||
-      this.form.fullName === '' ||
-      this.form.email === ''
-    );
+    return !this.enabled || this.form.fullName === '' || this.form.email === '';
   }
 
   onSubmit(): void {
@@ -48,9 +40,7 @@ export class AlumniComponent extends PageComponent implements OnInit {
     const updates = {};
     for (const item in JSON.parse(JSON.stringify(this.form))) {
       if (this.form[item] !== '') {
-        updates[
-          '/alumni/' + item + '/' + this.form.fullName
-        ] = this.form[item];
+        updates['/alumni/' + item + '/' + this.form.fullName] = this.form[item];
       }
     }
     firebase

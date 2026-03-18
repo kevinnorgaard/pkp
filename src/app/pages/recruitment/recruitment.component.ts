@@ -1,10 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Form } from './form.model';
 import { CheckinDialogComponent } from '../../dialogs/checkin-dialog/checkin-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import * as firebase from 'firebase/app';
 import { ScrollService } from '../../scroll.service';
 import { PageComponent } from '../page.component';
 
@@ -17,7 +15,7 @@ export class RecruitmentComponent extends PageComponent implements OnInit {
   @ViewChild('snugCol') snugColumn: ElementRef;
   videoSource = 'assets/flag2.mp4';
 
-  user: Observable<firebase.User>;
+  user: any;
   form: Form;
   enabled = true;
   signWaiver = false;

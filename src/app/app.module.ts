@@ -17,9 +17,9 @@ import { RecruitmentComponent } from './pages/recruitment/recruitment.component'
 import { ScholarshipComponent } from './pages/scholarship/scholarship.component';
 import { PhilanthropyComponent } from './pages/philanthropy/philanthropy.component';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -89,7 +89,6 @@ import { ScrollButtonComponent } from './scroll-button/scroll-button.component';
       deps: [HttpLink],
     },
   ],
-  entryComponents: [CheckinDialogComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,9 +1,9 @@
 import { InterestForm } from './../interest-form.model';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase } from '@angular/fire/database';
-import * as firebase from 'firebase';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'app-rushee-profiles',
@@ -17,7 +17,7 @@ export class RusheeProfilesComponent {
   checkins: any;
   currentMode = '';
   orderedRushees: any[];
-  user: Observable<firebase.User>;
+  user: any;
   orderCheckinsAscending = false;
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {

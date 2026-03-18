@@ -11,7 +11,12 @@
       "Bash(nvm use:*)",
       "Bash(npm install:*)",
       "Bash(npx @angular/cli@11.2.19 update @angular/core@11 @angular/cli@11 --force --allow-dirty)",
-      "Bash(npx ng:*)"
+      "Bash(npx ng:*)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i '' \"s|from ''@angular/fire/auth''|from ''@angular/fire/compat/auth''|g\" \"$f\")",
+      "Bash(sed -i '' \"s|from ''@angular/fire/database''|from ''@angular/fire/compat/database''|g\" \"$f\")",
+      "Bash(done)"
     ]
   }
 }
