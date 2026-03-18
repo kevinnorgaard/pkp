@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Read(//Users/Kevin_1/.nvm/versions/node/**)",
+      "Bash(brew list:*)",
+      "Read(//usr/local/Cellar/**)",
+      "Read(//opt/homebrew/Cellar/**)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\")",
+      "Bash(. \"$NVM_DIR/nvm.sh\")",
+      "Bash(nvm use:*)",
+      "Bash(npm install:*)",
+      "Bash(npx @angular/cli@11.2.19 update @angular/core@11 @angular/cli@11 --force --allow-dirty)",
+      "Bash(npx ng:*)"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: '', // Add your Firebase API key here
+    apiKey: 'AIzaSyDU58QVVDyqn-448tPmYnC1xfP3l3G5s2c',
     authDomain: 'pkp-website.firebaseapp.com',
     databaseURL: 'https://pkp-website.firebaseio.com',
     projectId: 'pkp-website',
@@ -9,4 +9,6 @@ export const environment = {
     messagingSenderId: '863629223084',
   },
   mode: 'normal', // philanthropy, rush, normal
+  hygraphToken:
+    'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE3NzI5ODk5OTksImF1ZCI6WyJodHRwczovL2FwaS11cy13ZXN0LTIuaHlncmFwaC5jb20vdjIvY21tYzhtZXNoMDJxNDA3dzd5aG9rcWljbC9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC11cy13ZXN0LTIuaHlncmFwaC5jb20vIiwic3ViIjoiY2RkYjYzMDctNmRhNi00YTViLWE5YzItOTZhZTdhYTk4Zjc2IiwianRpIjoiY21taTBndjI5MHFuNDA2bXo3bHRnOTZwayJ9.I7NKYeQFcMHPi3pR_5JELzz4158bd_xYk7NNkeMw1Zny1AC0rpJJObRXy-pK8PucrS9Dj6q15lCF3dmcugBUCA_dEK6emgWt7MdbK0MS5RImQ0yfxcDjC5hSuM-q2-S3-iRiukiulmjlnNhfoNOFAThq_u-ie-JveLc4KUzZJddEcCOOgSjMGtwFcTrNXgKicdSUPisgTClIfp7qWRk4fOrxyWAUvAby193pKzBo73lQXsGOeFAH82Eb4EYNZqBLBKR36iNScPzwmFq-1tAwlV_oNJmzhrzFa7A9ex3TlNPKDSvQuvD16edKFiCu6SD2Wk79QC5f6gtxyV5wb730UybNWYokqdo-nTgp3IVjCHKuiZgWCt-ijq63qwuRrrOLIOgwmVO2ti64k0DD_Cy9AFT1LFoagY2oMxg5OYbW5scVtfm-Nj82BZWb_CKMSu6wTshe2GyylKM1f1aVPIrLF62I7WQEUM0fc8x5ctqokX3822uXVR-mNZ-0PfsHH-iCNuqGxtmUAFkED_U7Z3wEu4Zb1lvq1J-C4YHWXN6cgjjPWlufWco28D8QStIJxGjms51IYWTmhwLQ-r8vPJkS4f6L6BgnXnu9wCt5bDL01t9EuvLFsdh9d9dL9Fqr2EDXavZhspnLatjBn10y1AUV6GU6xG0gB8HIJ_4OkMeRbOw',
 };

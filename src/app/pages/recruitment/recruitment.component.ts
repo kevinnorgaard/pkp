@@ -1,9 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { Form } from './form.model';
@@ -18,11 +13,9 @@ import { PageComponent } from '../page.component';
   templateUrl: './recruitment.component.html',
   styleUrls: ['./recruitment.component.css'],
 })
-export class RecruitmentComponent
-  extends PageComponent
-  implements OnInit {
+export class RecruitmentComponent extends PageComponent implements OnInit {
   @ViewChild('snugCol') snugColumn: ElementRef;
-  videoSource = 'assets/flag.mp4';
+  videoSource = 'assets/flag2.mp4';
 
   user: Observable<firebase.User>;
   form: Form;

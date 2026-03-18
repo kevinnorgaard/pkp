@@ -44,7 +44,12 @@ if (environment.mode === 'normal') {
 }
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: false })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      useHash: false,
+      relativeLinkResolution: 'legacy',
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

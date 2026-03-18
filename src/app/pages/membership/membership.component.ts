@@ -41,7 +41,7 @@ export class MembershipComponent extends PageComponent implements OnInit {
   ngOnInit(): void {
     super.ngOnInit();
     this.loadExecutives();
-    this.loadLeaders();
+    // this.loadLeaders();
     this.loadMembershipPage();
   }
 

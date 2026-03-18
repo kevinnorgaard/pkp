@@ -35,7 +35,6 @@ const MEMBERSHIP_PAGE_QUERY = gql`
         fileName
       }
       compositeYear
-      brotherhoodEvent
     }
   }
 `;

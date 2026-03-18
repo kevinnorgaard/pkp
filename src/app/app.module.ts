@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
-import { InMemoryCache } from '@apollo/client/core';
+import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -25,10 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './pages/admin/admin.component';
-import {
-  LocationStrategy,
-  PathLocationStrategy,
-} from '@angular/common';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { CheckinDialogComponent } from './dialogs/checkin-dialog/checkin-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlumniComponent } from './pages/alumni/alumni.component';
@@ -74,12 +71,19 @@ import { ScrollButtonComponent } from './scroll-button/scroll-button.component';
     {
       provide: APOLLO_OPTIONS,
       useFactory: (httpLink: HttpLink) => {
+        const http = httpLink.create({
+          uri:
+            'https://us-west-2.cdn.hygraph.com/content/cmmc8mesh02q407w7yhokqicl/master',
+        });
+        const auth = new ApolloLink((operation, forward) => {
+          operation.setContext({
+            headers: { Authorization: `Bearer ${environment.hygraphToken}` },
+          });
+          return forward(operation);
+        });
         return {
           cache: new InMemoryCache(),
-          link: httpLink.create({
-            uri:
-              'https://api-us-west-2.graphcms.com/v2/ckfd7j9ho07w801yyfqop311b/master',
-          }),
+          link: auth.concat(http),
         };
       },
       deps: [HttpLink],
