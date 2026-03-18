@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Apollo, QueryRef } from 'apollo-angular';
-import { gql } from 'apollo-angular';
-import { EmptyObject } from 'apollo-angular/types';
+import { Apollo, QueryRef, gql } from 'apollo-angular';
 
 const EXECUTIVES_QUERY = gql`
   {
@@ -44,15 +42,15 @@ const MEMBERSHIP_PAGE_QUERY = gql`
 export class GraphCmsService {
   constructor(private apollo: Apollo) {}
 
-  getExecutives(): QueryRef<unknown, EmptyObject> {
+  getExecutives(): QueryRef<unknown> {
     return this.apollo.watchQuery({ query: EXECUTIVES_QUERY });
   }
 
-  getLeaders(): QueryRef<unknown, EmptyObject> {
+  getLeaders(): QueryRef<unknown> {
     return this.apollo.watchQuery({ query: LEADERS_QUERY });
   }
 
-  getMembershipPage(): QueryRef<unknown, EmptyObject> {
+  getMembershipPage(): QueryRef<unknown> {
     return this.apollo.watchQuery({ query: MEMBERSHIP_PAGE_QUERY });
   }
 }
