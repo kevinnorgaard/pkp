@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { ApolloLink, InMemoryCache } from '@apollo/client/core';
@@ -36,18 +39,6 @@ import { BannerComponent } from './banner/banner.component';
 import { ScrollButtonComponent } from './scroll-button/scroll-button.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    AppRoutingModule,
-    NgbCollapseModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    MatDialogModule,
-    HttpClientModule,
-  ],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -65,6 +56,18 @@ import { ScrollButtonComponent } from './scroll-button/scroll-button.component';
     EventCheckinComponent,
     BannerComponent,
     ScrollButtonComponent,
+  ],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    AppRoutingModule,
+    NgbCollapseModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    MatDialogModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },
@@ -88,7 +91,7 @@ import { ScrollButtonComponent } from './scroll-button/scroll-button.component';
       },
       deps: [HttpLink],
     },
+    provideHttpClient(withInterceptorsFromDi()),
   ],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}
