@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import firebase from 'firebase/compat/app';
@@ -14,9 +14,11 @@ import {
   selector: 'app-event-checkin',
   templateUrl: './event-checkin.component.html',
   styleUrls: ['./event-checkin.component.css'],
-  standalone: false,
 })
 export class EventCheckinComponent {
+  private afAuth = inject(AngularFireAuth);
+  private db = inject(AngularFireDatabase);
+
   rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];
   forms: any;
   checkins: any;
@@ -28,10 +30,7 @@ export class EventCheckinComponent {
   getFirstName = getFirstName;
   getLastName = getLastName;
 
-  constructor(
-    public afAuth: AngularFireAuth,
-    public db: AngularFireDatabase,
-  ) {
+  constructor() {
     this.user = this.afAuth.authState;
     this.loadDatabase();
   }

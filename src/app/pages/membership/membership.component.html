@@ -3,34 +3,35 @@
     <h2 class="sticky-container-title">Leadership</h2>
     <div class="row section">
       @for (exec of executives; track exec) {
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="profile-container">
-          <div
-            [ngClass]="exec.url ? 'clickable' : 'not-clickable'"
-            (click)="openUrl(exec.url)"
-            class="center-cropped"
-          >
-            <img
-              [src]="exec.img"
-              class="profile-picture"
-              [alt]="exec.name + (exec.url ? ' LinkedIn' : '')"
-              [title]="exec.name + (exec.url ? ' LinkedIn' : '')"
-            />
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="profile-container">
+            <div
+              [class.clickable]="exec.url"
+              [class.not-clickable]="!exec.url"
+              (click)="openUrl(exec.url)"
+              class="center-cropped"
+            >
+              <img
+                [src]="exec.img"
+                class="profile-picture"
+                [alt]="exec.name + (exec.url ? ' LinkedIn' : '')"
+                [title]="exec.name + (exec.url ? ' LinkedIn' : '')"
+              />
+            </div>
+            <p class="profile-name">{{ exec.name }}</p>
+            @if (exec.position) {
+              <p class="profile-position">
+                {{ exec.position }}
+              </p>
+            }
           </div>
-          <p class="profile-name">{{ exec.name }}</p>
-          @if (exec.position) {
-          <p class="profile-position">
-            {{ exec.position }}
-          </p>
-          }
         </div>
-      </div>
       }
     </div>
   </div>
   <div>
     @if (compositeYear) {
-    <h2 class="sticky-container-title">Brothers of {{ compositeYear }}</h2>
+      <h2 class="sticky-container-title">Brothers of {{ compositeYear }}</h2>
     }
     <div class="section">
       <div class="subsection">
@@ -48,21 +49,23 @@
     <div class="section">
       <table class="leader-table subsection">
         @for (leader of leaders; track leader) {
-        <tr class="leader-row">
-          @if (getYear() - 2 <= leader.year || showAllOnCampus) {
-          <td class="leader-year">
-            {{ leader.year }}
-          </td>
-          } @if (getYear() - 2 <= leader.year || showAllOnCampus) {
-          <td class="leader-title">
-            {{ leader.title }}
-          </td>
-          } @if (getYear() - 2 <= leader.year || showAllOnCampus) {
-          <td class="leader-recipient">
-            {{ leader.name }}
-          </td>
-          }
-        </tr>
+          <tr class="leader-row">
+            @if (getYear() - 2 <= leader.year || showAllOnCampus) {
+              <td class="leader-year">
+                {{ leader.year }}
+              </td>
+            }
+            @if (getYear() - 2 <= leader.year || showAllOnCampus) {
+              <td class="leader-title">
+                {{ leader.title }}
+              </td>
+            }
+            @if (getYear() - 2 <= leader.year || showAllOnCampus) {
+              <td class="leader-recipient">
+                {{ leader.name }}
+              </td>
+            }
+          </tr>
         }
       </table>
       <div class="showall-container" (click)="toggleShowAllOnCampus()">
@@ -95,9 +98,9 @@
     <div class="section brotherhood-section row">
       <ul class="brotherhood-container">
         @for (brotherhood of brotherhoods; track brotherhood) {
-        <div class="brotherhood-list-item">
-          <li class="col brotherhood-item">{{ brotherhood }}</li>
-        </div>
+          <div class="brotherhood-list-item">
+            <li class="col brotherhood-item">{{ brotherhood }}</li>
+          </div>
         }
       </ul>
     </div>

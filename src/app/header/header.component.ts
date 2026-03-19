@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import {
   trigger,
   state,
@@ -12,6 +14,7 @@ import { environment } from '../../environments/environment';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
+  imports: [RouterLink, RouterLinkActive, NgbCollapseModule],
   animations: [
     trigger('hideShow', [
       state(
@@ -62,19 +65,18 @@ import { environment } from '../../environments/environment';
       transition('off => on', [animate('300ms ease-in')]),
     ]),
   ],
-  standalone: false,
 })
 export class HeaderComponent {
-  @Input() headerDisplay: boolean;
+  headerDisplay = input(false);
   isCollapsed = true;
   spin = true;
 
   getBackground(): string {
-    return this.headerDisplay || !this.isCollapsed ? 'show' : 'hide';
+    return this.headerDisplay() || !this.isCollapsed ? 'show' : 'hide';
   }
 
   getColor(): string {
-    return this.headerDisplay || !this.isCollapsed ? 'black' : '#a6a6a6';
+    return this.headerDisplay() || !this.isCollapsed ? 'black' : '#a6a6a6';
   }
 
   mode(): string {

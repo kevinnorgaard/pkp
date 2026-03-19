@@ -1,31 +1,36 @@
-import { PageComponent } from '../page.component';
-import { Component, OnInit } from '@angular/core';
-import firebase from 'firebase/compat/app';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { ScrollService } from '../../scroll.service';
+import firebase from 'firebase/compat/app';
+import { PageComponent } from '../page.component';
 
 export class Alumni {
-  public constructor(public fullName: string, public email: string) {}
+  public constructor(
+    public fullName: string,
+    public email: string,
+  ) {}
 }
 
 @Component({
   selector: 'app-alumni',
   templateUrl: './alumni.component.html',
   styleUrls: ['./alumni.component.css'],
-  standalone: false,
+  imports: [FormsModule],
 })
 export class AlumniComponent extends PageComponent implements OnInit {
+  private afAuth = inject(AngularFireAuth);
+
   user: any;
   form: Alumni = new Alumni('', '');
   enabled = true;
   submitButtonMessage = 'Subscribe';
 
-  constructor(scrollService: ScrollService, public afAuth: AngularFireAuth) {
-    super(scrollService);
+  constructor() {
+    super();
     this.user = this.afAuth.authState;
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
   }
 

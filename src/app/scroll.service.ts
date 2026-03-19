@@ -4,15 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ScrollService {
-  constructor() {}
-
   jumpTop(): void {
     window.scrollTo(0, 0);
   }
 
   scrollTop(): void {
     const scrollToTop = window.setInterval(() => {
-      const pos = window.pageYOffset;
+      const pos = window.scrollY;
       if (pos > 0) {
         window.scrollTo(0, pos - 50);
       } else {
@@ -22,6 +20,6 @@ export class ScrollService {
   }
 
   visible(): boolean {
-    return window.pageYOffset !== 0;
+    return window.scrollY !== 0;
   }
 }

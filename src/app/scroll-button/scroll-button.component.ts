@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ScrollService } from '../scroll.service';
 
 @Component({
   selector: 'app-scroll-button',
   templateUrl: './scroll-button.component.html',
   styleUrls: ['./scroll-button.component.css'],
-  standalone: false,
 })
-export class ScrollButtonComponent implements OnInit {
-  constructor(private scrollService: ScrollService) {}
-
-  ngOnInit(): void {}
+export class ScrollButtonComponent {
+  private scrollService = inject(ScrollService);
 
   visible(): boolean {
     return this.scrollService.visible();

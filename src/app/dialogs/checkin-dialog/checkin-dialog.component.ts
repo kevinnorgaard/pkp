@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Form } from '../../pages/recruitment/form.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -10,22 +11,21 @@ import { getCurrentDate, getCheckins } from '../../pages/admin/rushee.utils';
   selector: 'app-checkin-dialog',
   templateUrl: './checkin-dialog.component.html',
   styleUrls: ['./checkin-dialog.component.css'],
-  standalone: false,
+  imports: [FormsModule],
 })
 export class CheckinDialogComponent {
-  user: any;
+  private afAuth = inject(AngularFireAuth);
+  private db = inject(AngularFireDatabase);
+  private dialog = inject(MatDialog);
 
+  user: any;
   checkins: any;
   enabled = true;
   lastName: string;
   firstName: string;
   form: Form = new Form();
 
-  constructor(
-    public afAuth: AngularFireAuth,
-    public db: AngularFireDatabase,
-    private dialog: MatDialog,
-  ) {
+  constructor() {
     this.user = this.afAuth.authState;
   }
 

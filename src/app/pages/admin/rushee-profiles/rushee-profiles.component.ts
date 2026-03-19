@@ -1,5 +1,6 @@
 import { InterestForm } from './../interest-form.model';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import firebase from 'firebase/compat/app';
@@ -14,9 +15,12 @@ import {
   selector: 'app-rushee-profiles',
   templateUrl: './rushee-profiles.component.html',
   styleUrls: ['./rushee-profiles.component.css'],
-  standalone: false,
+  imports: [FormsModule],
 })
 export class RusheeProfilesComponent {
+  private afAuth = inject(AngularFireAuth);
+  private db = inject(AngularFireDatabase);
+
   removeBitmap = {};
   rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];
   forms: InterestForm;
@@ -28,10 +32,7 @@ export class RusheeProfilesComponent {
   getFirstName = getFirstName;
   getLastName = getLastName;
 
-  constructor(
-    public afAuth: AngularFireAuth,
-    public db: AngularFireDatabase,
-  ) {
+  constructor() {
     this.user = this.afAuth.authState;
     this.loadDatabase();
   }
@@ -135,5 +136,9 @@ export class RusheeProfilesComponent {
     firebase.database().ref().update(updates);
     this.removeBitmap = {};
     setTimeout(() => this.loadDatabase(), 0);
+  }
+
+  resetBitmap(): void {
+    this.removeBitmap = {};
   }
 }

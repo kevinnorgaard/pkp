@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ScrollService } from '../scroll.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-page',
   template: ` <div>Page Component needs to be implemented.</div> `,
-  standalone: false,
 })
 export class PageComponent implements OnInit {
-  constructor(private scrollService: ScrollService) {}
+  protected scrollService = inject(ScrollService);
 
   ngOnInit(): void {
     this.scrollService.jumpTop();

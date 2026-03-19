@@ -1,20 +1,27 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  inject,
+  viewChild,
+} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Form } from './form.model';
 import { CheckinDialogComponent } from '../../dialogs/checkin-dialog/checkin-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ScrollService } from '../../scroll.service';
 import { PageComponent } from '../page.component';
 
 @Component({
   selector: 'app-recruitment',
   templateUrl: './recruitment.component.html',
   styleUrls: ['./recruitment.component.css'],
-  standalone: false,
 })
 export class RecruitmentComponent extends PageComponent implements OnInit {
-  @ViewChild('snugCol') snugColumn: ElementRef;
+  snugColumn = viewChild<ElementRef>('snugCol');
   videoSource = 'assets/flag2.mp4';
+
+  private afAuth = inject(AngularFireAuth);
+  private dialog = inject(MatDialog);
 
   user: any;
   form: Form;
@@ -24,16 +31,12 @@ export class RecruitmentComponent extends PageComponent implements OnInit {
 
   checkinDialogRef: MatDialogRef<CheckinDialogComponent>;
 
-  constructor(
-    scrollService: ScrollService,
-    public afAuth: AngularFireAuth,
-    private dialog: MatDialog,
-  ) {
-    super(scrollService);
+  constructor() {
+    super();
     this.user = this.afAuth.authState;
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
   }
 
@@ -50,14 +53,12 @@ export class RecruitmentComponent extends PageComponent implements OnInit {
   }
 
   getSideWidth(): number {
-    return this.snugColumn != null
-      ? 0.3225728 * this.snugColumn.nativeElement.offsetWidth
-      : 0;
+    const col = this.snugColumn();
+    return col ? 0.3225728 * col.nativeElement.offsetWidth : 0;
   }
 
   getMiddleWidth(): number {
-    return this.snugColumn != null
-      ? 0.3548544 * this.snugColumn.nativeElement.offsetWidth
-      : 0;
+    const col = this.snugColumn();
+    return col ? 0.3548544 * col.nativeElement.offsetWidth : 0;
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Apollo, QueryRef, gql } from 'apollo-angular';
 
 const EXECUTIVES_QUERY = gql`
@@ -36,11 +36,12 @@ const MEMBERSHIP_PAGE_QUERY = gql`
     }
   }
 `;
+
 @Injectable({
   providedIn: 'root',
 })
 export class GraphCmsService {
-  constructor(private apollo: Apollo) {}
+  private apollo = inject(Apollo);
 
   getExecutives(): QueryRef<unknown> {
     return this.apollo.watchQuery({ query: EXECUTIVES_QUERY });

@@ -1,19 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ScrollService } from '../../scroll.service';
 import { PageComponent } from '../page.component';
 
 @Component({
   selector: 'app-scholarship',
   templateUrl: './scholarship.component.html',
   styleUrls: ['./scholarship.component.css'],
-  standalone: false,
 })
 export class ScholarshipComponent extends PageComponent implements OnInit {
-  constructor(scrollService: ScrollService) {
-    super(scrollService);
-  }
-
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
   }
 }

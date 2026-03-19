@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { GraphCmsService } from 'src/app/graphcms.service';
-import { ScrollService } from 'src/app/scroll.service';
 import { PageComponent } from '../page.component';
 
 interface Executive {
@@ -20,9 +20,11 @@ interface Leader {
   selector: 'app-membership',
   templateUrl: './membership.component.html',
   styleUrls: ['./membership.component.css'],
-  standalone: false,
 })
 export class MembershipComponent extends PageComponent implements OnInit {
+  private graphCmsService = inject(GraphCmsService);
+  private destroyRef = inject(DestroyRef);
+
   executives: Executive[] = [];
   leaders: Leader[] = [];
   brotherhoods: string[];
@@ -32,14 +34,7 @@ export class MembershipComponent extends PageComponent implements OnInit {
   showAllOnCampus = false;
   showAllOnCampusText = 'Show More';
 
-  constructor(
-    scrollService: ScrollService,
-    private graphCmsService: GraphCmsService,
-  ) {
-    super(scrollService);
-  }
-
-  ngOnInit(): void {
+  override ngOnInit(): void {
     super.ngOnInit();
     this.loadExecutives();
     // this.loadLeaders();
@@ -55,7 +50,8 @@ export class MembershipComponent extends PageComponent implements OnInit {
   loadExecutives(): void {
     this.graphCmsService
       .getExecutives()
-      .valueChanges.subscribe(
+      .valueChanges.pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(
         (executives) => (this.executives = this.jsonToExecutives(executives)),
       );
   }
@@ -63,45 +59,35 @@ export class MembershipComponent extends PageComponent implements OnInit {
   loadLeaders(): void {
     this.graphCmsService
       .getLeaders()
-      .valueChanges.subscribe(
-        (leaders) => (this.leaders = this.jsonToLeaders(leaders)),
-      );
+      .valueChanges.pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((leaders) => (this.leaders = this.jsonToLeaders(leaders)));
   }
 
   loadMembershipPage(): void {
     this.graphCmsService
       .getMembershipPage()
-      .valueChanges.subscribe((membershipPage) =>
-        this.jsonToMembershipPage(membershipPage),
-      );
+      .valueChanges.pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((membershipPage) => this.jsonToMembershipPage(membershipPage));
   }
 
   jsonToExecutives(data: any): Executive[] {
-    const executives: Executive[] = [];
-    for (const exec of data.data.executives) {
-      executives.push({
-        name: exec.name,
-        position: exec.position,
-        img: exec.image.url,
-        url: exec.url,
-      });
-    }
-    return executives;
+    return data.data.executives.map((exec: any) => ({
+      name: exec.name,
+      position: exec.position,
+      img: exec.image.url,
+      url: exec.url,
+    }));
   }
 
   jsonToLeaders(data: any): Leader[] {
-    const leaders: Leader[] = [];
-    for (const leader of data.data.leaders) {
-      leaders.push({
-        name: leader.name,
-        year: leader.year,
-        title: leader.title,
-      });
-    }
-    return leaders;
+    return data.data.leaders.map((leader: any) => ({
+      name: leader.name,
+      year: leader.year,
+      title: leader.title,
+    }));
   }
 
-  jsonToMembershipPage(data: any): any {
+  jsonToMembershipPage(data: any): void {
     const membershipPage = data.data.membershipPages[0];
     this.compositeYear = membershipPage.compositeYear;
     this.compositeImageUrl = membershipPage.compositeImage.url;
@@ -110,18 +96,10 @@ export class MembershipComponent extends PageComponent implements OnInit {
 
   toggleShowAllOnCampus(): void {
     this.showAllOnCampus = !this.showAllOnCampus;
-    if (this.showAllOnCampus) {
-      this.showAllOnCampusText = 'Show Less';
-    } else {
-      this.showAllOnCampusText = 'Show More';
-    }
+    this.showAllOnCampusText = this.showAllOnCampus ? 'Show Less' : 'Show More';
   }
 
   getYear(): number {
-    const currentDate = new Date();
-    const dateString = currentDate.toLocaleDateString();
-    const dateStringList = dateString.split('/');
-    const year = dateStringList[2];
-    return Number(year);
+    return new Date().getFullYear();
   }
 }
