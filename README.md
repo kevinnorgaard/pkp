@@ -6,7 +6,7 @@ Chapter website for [uciphipsi.kevinnorgaard.com](https://uciphipsi.kevinnorgaar
 
 | Layer | Choice |
 |---|---|
-| Runtime | Node.js 22 |
+| Runtime | Node.js 24 LTS |
 | Framework | Angular 21 (esbuild application builder) |
 | Language | TypeScript |
 | UI Components | Angular Material, ng-bootstrap, Bootstrap 4 |
@@ -45,7 +45,7 @@ src/
 ## Local Development
 
 ```bash
-nvm use 20   # Node 20 required
+nvm use 24
 npm install
 npm start
 # Open http://localhost:4200
