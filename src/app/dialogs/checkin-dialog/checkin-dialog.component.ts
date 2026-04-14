@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { Form } from '../../pages/recruitment/form.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -18,8 +19,8 @@ export class CheckinDialogComponent {
   private db = inject(AngularFireDatabase);
   private dialog = inject(MatDialog);
 
-  user: any;
-  checkins: any;
+  user: Observable<firebase.User | null>;
+  checkins: Record<string, Record<string, boolean>>;
   enabled = true;
   lastName: string;
   firstName: string;
@@ -39,7 +40,8 @@ export class CheckinDialogComponent {
   }
 
   onSubmit(): void {
-    const updates = {};
+    const updates: Record<string, string | boolean | Record<string, boolean>> =
+      {};
     updates['/forms/name/' + this.form.phone] =
       this.lastName + ', ' + this.firstName;
     updates['/forms/email/' + this.form.phone] = this.form.email;
@@ -51,7 +53,7 @@ export class CheckinDialogComponent {
       newVal = checkins[currentDate] != null ? !checkins[currentDate] : true;
       updates['/checkins/' + this.form.phone + '/' + currentDate] = newVal;
     } else {
-      const newCheckin = {};
+      const newCheckin: Record<string, boolean> = {};
       newCheckin[currentDate] = true;
       updates['/checkins/' + this.form.phone] = newCheckin;
     }

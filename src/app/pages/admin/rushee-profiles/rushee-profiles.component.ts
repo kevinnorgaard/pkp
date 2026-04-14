@@ -1,6 +1,7 @@
 import { InterestForm } from './../interest-form.model';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import firebase from 'firebase/compat/app';
@@ -21,12 +22,12 @@ export class RusheeProfilesComponent {
   private afAuth = inject(AngularFireAuth);
   private db = inject(AngularFireDatabase);
 
-  removeBitmap = {};
+  removeBitmap: Record<string, number> = {};
   rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];
   forms: InterestForm;
-  checkins: any;
-  orderedRushees: any[];
-  user: any;
+  checkins: Record<string, Record<string, boolean>>;
+  orderedRushees: [string, string][];
+  user: Observable<firebase.User | null>;
   orderCheckinsAscending = false;
 
   getFirstName = getFirstName;
@@ -37,7 +38,7 @@ export class RusheeProfilesComponent {
     this.loadDatabase();
   }
 
-  loadDatabase(): any {
+  loadDatabase(): Promise<void> {
     return firebase
       .database()
       .ref('/')
@@ -79,8 +80,8 @@ export class RusheeProfilesComponent {
     return this.forms.name[key];
   }
 
-  checkedIn(key: string): any {
-    return getCheckins(this.checkins, key) || false;
+  checkedIn(key: string): boolean {
+    return getCheckins(this.checkins, key) !== null;
   }
 
   getEmailString(): string {
@@ -97,11 +98,11 @@ export class RusheeProfilesComponent {
     return this.rushDates.filter((date) => checkins[date]).length;
   }
 
-  getCheckins(key: string): any {
+  getCheckins(key: string): Record<string, boolean> | null {
     return getCheckins(this.checkins, key);
   }
 
-  onSaveNote(key: string, note: any): void {
+  onSaveNote(key: string, note: string): void {
     firebase
       .database()
       .ref()
@@ -109,12 +110,12 @@ export class RusheeProfilesComponent {
     setTimeout(() => this.loadDatabase(), 0);
   }
 
-  onRemoveRushee(rushee: any): void {
+  onRemoveRushee(rushee: [string, string]): void {
     if (this.removeBitmap[rushee[0]] == null) {
       this.removeBitmap[rushee[0]] = 1;
       return;
     }
-    const updates = {};
+    const updates: Record<string, null> = {};
     for (const field of [
       'phone',
       'name',

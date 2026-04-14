@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { PageComponent } from '../page.component';
@@ -20,7 +21,7 @@ export class Alumni {
 export class AlumniComponent extends PageComponent implements OnInit {
   private afAuth = inject(AngularFireAuth);
 
-  user: any;
+  user: Observable<firebase.User | null>;
   form: Alumni = new Alumni('', '');
   enabled = true;
   submitButtonMessage = 'Subscribe';

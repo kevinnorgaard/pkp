@@ -5,7 +5,9 @@ import {
   inject,
   viewChild,
 } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from 'firebase/compat/app';
 import { Form } from './form.model';
 import { CheckinDialogComponent } from '../../dialogs/checkin-dialog/checkin-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -23,7 +25,7 @@ export class RecruitmentComponent extends PageComponent implements OnInit {
   private afAuth = inject(AngularFireAuth);
   private dialog = inject(MatDialog);
 
-  user: any;
+  user: Observable<firebase.User | null>;
   form: Form;
   enabled = true;
   signWaiver = false;

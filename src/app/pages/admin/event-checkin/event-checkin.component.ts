@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import firebase from 'firebase/compat/app';
@@ -9,6 +10,7 @@ import {
   getCheckins,
   sortRushees,
 } from '../rushee.utils';
+import { InterestForm } from '../interest-form.model';
 
 @Component({
   selector: 'app-event-checkin',
@@ -20,10 +22,10 @@ export class EventCheckinComponent {
   private db = inject(AngularFireDatabase);
 
   rushDates = ['2019-9-25', '2019-9-26', '2019-9-27', '2019-9-28'];
-  forms: any;
-  checkins: any;
-  orderedRushees: any[];
-  user: any;
+  forms: InterestForm;
+  checkins: Record<string, Record<string, boolean>>;
+  orderedRushees: [string, string][];
+  user: Observable<firebase.User | null>;
 
   orderCheckinsAscending = false;
 
@@ -35,7 +37,7 @@ export class EventCheckinComponent {
     this.loadDatabase();
   }
 
-  loadDatabase(): any {
+  loadDatabase(): Promise<void> {
     return firebase
       .database()
       .ref('/')
@@ -55,7 +57,7 @@ export class EventCheckinComponent {
     this.orderedRushees = sortRushees(this.forms, getLastName);
   }
 
-  getCheckins(key: string): any {
+  getCheckins(key: string): Record<string, boolean> | null {
     return getCheckins(this.checkins, key);
   }
 
@@ -78,7 +80,7 @@ export class EventCheckinComponent {
   }
 
   onCheckin(key: string): void {
-    const updates = {};
+    const updates: Record<string, boolean | Record<string, boolean>> = {};
     const currentDate = getCurrentDate();
     let newVal;
     if (this.getCheckins(key)) {
@@ -88,7 +90,7 @@ export class EventCheckinComponent {
           : true;
       updates['/checkins/' + key + '/' + currentDate] = newVal;
     } else {
-      const newCheckin = {};
+      const newCheckin: Record<string, boolean> = {};
       newCheckin[currentDate] = true;
       updates['/checkins/' + key] = newCheckin;
     }
@@ -109,7 +111,7 @@ export class EventCheckinComponent {
     return this.forms.name[key];
   }
 
-  checkedIn(key: string): boolean {
-    return getCheckins(this.checkins, key) || false;
+  checkedIn(key: string): Record<string, boolean> {
+    return getCheckins(this.checkins, key) ?? {};
   }
 }

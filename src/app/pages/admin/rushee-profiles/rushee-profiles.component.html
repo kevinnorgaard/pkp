@@ -2,17 +2,17 @@
   <table>
     <tr class="table-header-row">
       <th>{{ getRusheeTotal() }} Total</th>
-      <th (click)="orderRusheesByFirstName()">First Name</th>
-      <th (click)="orderRusheesByLastName()">Last Name</th>
+      <th tabindex="0" (click)="orderRusheesByFirstName()" (keyup.enter)="orderRusheesByFirstName()">First Name</th>
+      <th tabindex="0" (click)="orderRusheesByLastName()" (keyup.enter)="orderRusheesByLastName()">Last Name</th>
       <th>Notes</th>
-      <th (click)="toggleCheckinOrder()">Check-ins</th>
+      <th tabindex="0" (click)="toggleCheckinOrder()" (keyup.enter)="toggleCheckinOrder()">Check-ins</th>
       <th>Phone</th>
       <th>Email</th>
     </tr>
     @for (rushee of orderedRushees; track rushee; let i = $index) {
-    <tr [style.background-color]="i % 2 == 0 ? 'rgba(0,0,0,0.025)' : 'white'">
+    <tr [style.background-color]="i % 2 === 0 ? 'rgba(0,0,0,0.025)' : 'white'">
       <td>
-        @if (removeBitmap[rushee[0]] == null) {
+        @if (!removeBitmap[rushee[0]]) {
         <button class="request-remove-btn" (click)="onRemoveRushee(rushee)">
           Remove
         </button>

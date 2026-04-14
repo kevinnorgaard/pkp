@@ -18,6 +18,7 @@
               [class.checked-btn]="checkedIn(rushee[0])[date]"
               [class.unchecked-btn]="!checkedIn(rushee[0])[date]"
               (click)="onCheckin(rushee[0])"
+              [attr.aria-label]="'Toggle check-in for ' + rushee[1] + ' on ' + date"
             ></button>
           </td>
         }

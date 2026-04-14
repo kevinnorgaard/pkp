@@ -1,5 +1,5 @@
 <div class="scroll-up-btn">
   @if (visible()) {
-    <i class="fa fa-arrow-up" (click)="scrollTop()"></i>
+    <i class="fa fa-arrow-up" (click)="scrollTop()" (keyup.enter)="scrollTop()" tabindex="0" role="button"></i>
   }
 </div>
