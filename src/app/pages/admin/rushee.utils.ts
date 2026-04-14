@@ -1,3 +1,5 @@
+import { InterestForm } from './interest-form.model';
+
 export function getFirstName(name: string): string {
   if (name == null) return '';
   const index = name.indexOf(',');
@@ -15,16 +17,19 @@ export function getCurrentDate(): string {
   return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 }
 
-export function getCheckins(allCheckins: any, key: string): any {
+export function getCheckins(
+  allCheckins: Record<string, Record<string, boolean>> | null,
+  key: string,
+): Record<string, boolean> | null {
   return allCheckins?.[key] ?? null;
 }
 
 export function sortRushees(
-  forms: any,
+  forms: InterestForm,
   extractor: (name: string) => string,
-): any[] {
+): [string, string][] {
   return Object.keys(forms.phone)
-    .map((key) => [key, forms.name[key]])
+    .map((key) => [key, forms.name[key]] as [string, string])
     .sort((a, b) =>
       extractor(a[1])
         .toUpperCase()

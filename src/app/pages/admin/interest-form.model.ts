@@ -1,16 +1,16 @@
 export class InterestForm {
-  name: any;
-  email: any;
-  phone: any;
-  year: any;
-  socialMedia?: any;
-  sports?: any;
-  cumGpa?: any;
-  prevGpa?: any;
-  major?: any;
-  minor?: any;
-  achievements?: any;
-  reasons?: any;
-  referral?: any;
-  notes?: any;
+  name: Record<string, string>;
+  email: Record<string, string>;
+  phone: Record<string, string>;
+  year: Record<string, string>;
+  socialMedia?: Record<string, string>;
+  sports?: Record<string, string>;
+  cumGpa?: Record<string, string>;
+  prevGpa?: Record<string, string>;
+  major?: Record<string, string>;
+  minor?: Record<string, string>;
+  achievements?: Record<string, string>;
+  reasons?: Record<string, string>;
+  referral?: Record<string, string>;
+  notes?: Record<string, string>;
 }

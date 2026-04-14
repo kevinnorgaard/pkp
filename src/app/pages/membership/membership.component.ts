@@ -16,6 +16,37 @@ interface Leader {
   title: string;
 }
 
+interface ExecutivesResponse {
+  data: {
+    executives: Array<{
+      name: string;
+      position: string;
+      image: { url: string };
+      url?: string;
+    }>;
+  };
+}
+
+interface LeadersResponse {
+  data: {
+    leaders: Array<{
+      name: string;
+      year: number;
+      title: string;
+    }>;
+  };
+}
+
+interface MembershipPageResponse {
+  data: {
+    membershipPages: Array<{
+      compositeYear: number;
+      compositeImage: { url: string };
+      brotherhoodEvent: string[];
+    }>;
+  };
+}
+
 @Component({
   selector: 'app-membership',
   templateUrl: './membership.component.html',
@@ -70,8 +101,9 @@ export class MembershipComponent extends PageComponent implements OnInit {
       .subscribe((membershipPage) => this.jsonToMembershipPage(membershipPage));
   }
 
-  jsonToExecutives(data: any): Executive[] {
-    return data.data.executives.map((exec: any) => ({
+  jsonToExecutives(data: unknown): Executive[] {
+    const { executives } = (data as ExecutivesResponse).data;
+    return executives.map((exec) => ({
       name: exec.name,
       position: exec.position,
       img: exec.image.url,
@@ -79,16 +111,18 @@ export class MembershipComponent extends PageComponent implements OnInit {
     }));
   }
 
-  jsonToLeaders(data: any): Leader[] {
-    return data.data.leaders.map((leader: any) => ({
+  jsonToLeaders(data: unknown): Leader[] {
+    const { leaders } = (data as LeadersResponse).data;
+    return leaders.map((leader) => ({
       name: leader.name,
       year: leader.year,
       title: leader.title,
     }));
   }
 
-  jsonToMembershipPage(data: any): void {
-    const membershipPage = data.data.membershipPages[0];
+  jsonToMembershipPage(data: unknown): void {
+    const membershipPage = (data as MembershipPageResponse).data
+      .membershipPages[0];
     this.compositeYear = membershipPage.compositeYear;
     this.compositeImageUrl = membershipPage.compositeImage.url;
     this.brotherhoods = membershipPage.brotherhoodEvent;

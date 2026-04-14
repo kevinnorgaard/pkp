@@ -2,7 +2,7 @@
   <div class="form-title">Rush &Phi;&Kappa;&Psi;</div>
   <form class="recruitment-form container" #recruitmentForm="ngForm">
     <div class="form-group">
-      <label>Name <span class="required-asterisk">*</span></label>
+      <label for="firstName">Name <span class="required-asterisk">*</span></label>
       <div class="row">
         <div class="col">
           <input
@@ -23,6 +23,7 @@
             class="form-control"
             name="lastName"
             id="lastName"
+            aria-label="Last name"
             placeholder="Last name"
           />
         </div>

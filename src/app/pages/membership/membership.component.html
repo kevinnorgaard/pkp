@@ -9,6 +9,9 @@
               [class.clickable]="exec.url"
               [class.not-clickable]="!exec.url"
               (click)="openUrl(exec.url)"
+              (keyup.enter)="openUrl(exec.url)"
+              [attr.tabindex]="exec.url ? 0 : null"
+              [attr.role]="exec.url ? 'button' : null"
               class="center-cropped"
             >
               <img
@@ -68,8 +71,8 @@
           </tr>
         }
       </table>
-      <div class="showall-container" (click)="toggleShowAllOnCampus()">
-        <button class="btn showall-btn">
+      <div class="showall-container">
+        <button class="btn showall-btn" (click)="toggleShowAllOnCampus()">
           {{ showAllOnCampusText }}
         </button>
       </div>
