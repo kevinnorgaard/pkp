@@ -1,13 +1,18 @@
-# Security Audit — 2026-07-04
+# Security Audit Note - 2026-07-10
 
-## HIGH Vulnerabilities
+npm audit fix could not automatically resolve HIGH vulnerabilities due to peer dependency conflicts with @angular/fire@21.0.0-rc.0 and rxfire.
 
-### http-proxy-middleware (via @angular-devkit/build-angular)
-- **GHSA-gcq2-9pq2-cxqm**: multipart/form-data field injection via unescaped CRLF in `fixRequestBody`
-- **GHSA-64mm-vxmg-q3vj**: `router` host+path substring matching allows Host-header-driven backend routing bypass
+## Manual steps required
 
-## Manual Fix Required
-Update `@angular-devkit/build-angular` to `^19.2.8` (semver major bump):
-```
-npm install @angular-devkit/build-angular@^19.2.8 --save-dev
-```
+1. Upgrade @angular/fire to a stable release compatible with firebase@12
+   OR downgrade firebase to ^11.x in package.json to match rxfire's peer requirement
+2. Then run: npm audit fix
+
+## Vulnerabilities
+
+- @angular-devkit/build-angular (HIGH): contains http-proxy-middleware <3.0.3
+  - https://github.com/advisories/GHSA-gcq2-9pq2-cxqm
+  - https://github.com/advisories/GHSA-64mm-vxmg-q3vj
+- http-proxy-middleware 3.0.0-3.0.6 (HIGH): CRLF injection + host routing bypass
+  - https://github.com/advisories/GHSA-gcq2-9pq2-cxqm
+  - https://github.com/advisories/GHSA-64mm-vxmg-q3vj
