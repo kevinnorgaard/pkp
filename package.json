@@ -68,5 +68,8 @@
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
+  },
+  "overrides": {
+    "http-proxy-middleware": ">=3.0.7"
   }
 }
