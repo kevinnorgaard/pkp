@@ -1,4 +1,8 @@
 RewriteEngine On
+
+# SSL renewal: ACME challenges must be served as-is, before the SPA fallback
+RewriteRule ^\.well-known/acme-challenge/ - [L]
+
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
