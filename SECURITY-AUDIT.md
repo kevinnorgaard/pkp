@@ -1,13 +1,13 @@
-# Security Audit — 2026-08-13
+# Security Audit — 2026-08-14
 
 15 HIGH vulnerabilities found. Manual semver upgrades required.
-npm audit fix was run but made no changes (packages are at latest compatible versions).
+npm audit fix was run but made no changes (packages are at latest compatible versions within current semver constraints).
 
 ## Required Upgrades
 
 - Upgrade `@angular/*` and `@angular-devkit/build-angular` from v21 → v22
-- Upgrade `undici` from 7.28.0 → >=7.29.0
-- Upgrade `postcss` (no fix available yet — track advisory)
+- Upgrade `undici` (transitive via @angular/build) — track upstream Angular release
+- Upgrade `postcss` (transitive) — track advisory
 
 ## Advisories
 
