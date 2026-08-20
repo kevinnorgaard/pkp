@@ -13,18 +13,18 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^21.2.4",
+    "@angular/animations": "^21.2.21",
     "@angular/cdk": "^21.2.3",
-    "@angular/common": "^21.2.4",
-    "@angular/compiler": "^21.2.4",
-    "@angular/core": "^21.2.4",
+    "@angular/common": "^21.2.21",
+    "@angular/compiler": "^21.2.21",
+    "@angular/core": "^21.2.21",
     "@angular/fire": "^21.0.0-rc.0",
-    "@angular/forms": "^21.2.4",
-    "@angular/localize": "^21.2.4",
+    "@angular/forms": "^21.2.21",
+    "@angular/localize": "^21.2.21",
     "@angular/material": "^21.2.3",
-    "@angular/platform-browser": "^21.2.4",
-    "@angular/platform-browser-dynamic": "^21.2.4",
-    "@angular/router": "^21.2.4",
+    "@angular/platform-browser": "^21.2.21",
+    "@angular/platform-browser-dynamic": "^21.2.21",
+    "@angular/router": "^21.2.21",
     "@apollo/client": "^4.1.6",
     "@ng-bootstrap/ng-bootstrap": "^20.0.0",
     "@popperjs/core": "^2.11.8",
@@ -38,14 +38,14 @@
     "zone.js": "^0.16.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^21.2.3",
+    "@angular-devkit/build-angular": "^21.2.21",
     "@angular-eslint/builder": "21.3.1",
     "@angular-eslint/eslint-plugin": "21.3.1",
     "@angular-eslint/eslint-plugin-template": "21.3.1",
     "@angular-eslint/schematics": "21.3.1",
     "@angular-eslint/template-parser": "21.3.1",
     "@angular/cli": "^21.2.3",
-    "@angular/compiler-cli": "^21.2.4",
+    "@angular/compiler-cli": "^21.2.21",
     "@angular/language-service": "^21.2.4",
     "@types/jasmine": "^6.0.0",
     "@types/node": "^22.19.15",
@@ -71,5 +71,13 @@
   },
   "overrides": {
     "http-proxy-middleware": ">=3.0.7"
+  },
+  "allowScripts": {
+    "@firebase/util@1.15.1": true,
+    "esbuild@0.28.1": true,
+    "lmdb@3.5.1": true,
+    "msgpackr-extract@3.0.4": true,
+    "protobufjs@7.6.5": true,
+    "@parcel/watcher@2.6.0": true
   }
 }
