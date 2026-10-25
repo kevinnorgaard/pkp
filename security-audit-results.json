@@ -1,0 +1,62 @@
+{
+  "generated": "2026-08-16",
+  "tool": "npm audit --audit-level=high",
+  "summary": {
+    "high": 15,
+    "critical": 0,
+    "autoFixApplied": false,
+    "note": "npm audit fix --force blocked by dependency conflicts. Manual semver bumps required."
+  },
+  "manualFixRequired": [
+    {
+      "package": "@angular/core",
+      "severity": "high",
+      "installedVersion": "21.2.17",
+      "fixVersion": ">=21.2.19",
+      "advisories": ["https://github.com/advisories/GHSA-jj27-h5hq-8x99"],
+      "action": "Upgrade Angular from 21.x to 22.x (run: ng update @angular/core @angular/cli)"
+    },
+    {
+      "package": "@angular/common",
+      "severity": "high",
+      "advisories": ["https://github.com/advisories/GHSA-jhpw-976m-542j"],
+      "action": "Fixed by Angular 22.x upgrade"
+    },
+    {
+      "package": "@angular/compiler",
+      "severity": "high",
+      "advisories": ["https://github.com/advisories/GHSA-jj27-h5hq-8x99"],
+      "action": "Fixed by Angular 22.x upgrade"
+    },
+    {
+      "package": "image-size",
+      "severity": "high",
+      "advisories": [
+        "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+        "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq"
+      ],
+      "action": "Fixed transitively by upgrading @angular-devkit/build-angular"
+    },
+    {
+      "package": "postcss",
+      "severity": "high",
+      "advisories": [
+        "https://github.com/advisories/GHSA-fxqj-rqcc-2cmp",
+        "https://github.com/advisories/GHSA-r28c-9q8g-f849"
+      ],
+      "action": "Fixed transitively by upgrading @angular-devkit/build-angular"
+    },
+    {
+      "package": "undici",
+      "severity": "high",
+      "advisories": [
+        "https://github.com/advisories/GHSA-8xcm-r25x-g524",
+        "https://github.com/advisories/GHSA-4cwx-7wf7-3272",
+        "https://github.com/advisories/GHSA-m8rv-5g2x-5cg5",
+        "https://github.com/advisories/GHSA-jr45-8vmc-qm54",
+        "https://github.com/advisories/GHSA-v3r7-h72x-cjcm"
+      ],
+      "action": "Fixed transitively by upgrading @angular-devkit/build-angular"
+    }
+  ]
+}
