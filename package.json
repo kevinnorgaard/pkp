@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --configuration=production && rsync -avz --delete -e 'ssh -p 21098' dist/pkp-app/browser/ ainecmrx@67.223.118.183:~/uciphipsi.kevinnorgaard.com/",
+    "deploy": "ng build --configuration=production && rsync -avz --delete --exclude='.well-known' -e 'ssh -p 21098' dist/pkp-app/browser/ ainecmrx@67.223.118.183:~/uciphipsi.kevinnorgaard.com/",
     "prepare": "husky"
   },
   "private": true,
